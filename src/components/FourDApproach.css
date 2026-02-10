@@ -1,0 +1,451 @@
+.four-d {
+  background: #fff;
+  padding: 120px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background animation */
+.four-d::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(217, 35, 68, 0.03),
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  animation: pulseGlow 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.four-d-title {
+  font-size: 2.6rem;
+  margin-bottom: 90px;
+  color: #D92344;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeInTitle 1s ease forwards;
+}
+
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* PATH LAYOUT */
+.four-d-path {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  position: relative;
+  perspective: 1500px;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+
+/* STEP CONTAINER - SMOOTH ENTRY */
+.four-d-step {
+  opacity: 0;
+  transform: translateY(60px) scale(0.9);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.four-d-step.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 3D CARD - ULTRA SMOOTH */
+.four-d-card {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  width: 240px;
+  padding: 36px 22px 32px;
+  border-radius: 22px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    inset 0 0 0 1px rgba(217, 35, 68, 0.1);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle shine effect */
+.four-d-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.four-d-step.active .four-d-card::before {
+  left: 100%;
+}
+
+.four-d-card:hover {
+  box-shadow:
+    0 30px 60px rgba(217, 35, 68, 0.15),
+    0 5px 15px rgba(217, 35, 68, 0.1),
+    inset 0 0 0 2px rgba(217, 35, 68, 0.3);
+  background: linear-gradient(145deg, #ffffff, #fef5f6);
+}
+
+.four-d-step.active .four-d-card {
+  box-shadow:
+    0 25px 50px rgba(217, 35, 68, 0.12),
+    0 3px 8px rgba(217, 35, 68, 0.08),
+    inset 0 0 0 1px rgba(217, 35, 68, 0.2);
+}
+
+/* ICON - SMOOTH SCALE */
+.icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #D92344, #ff4f6d);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 18px;
+  transform: translateZ(40px) scale(0.8);
+  box-shadow:
+    0 0 0 6px rgba(217, 35, 68, 0.1),
+    0 8px 24px rgba(217, 35, 68, 0.4);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.four-d-step.active .icon {
+  transform: translateZ(40px) scale(1);
+  box-shadow:
+    0 0 0 6px rgba(217, 35, 68, 0.15),
+    0 12px 32px rgba(217, 35, 68, 0.5);
+}
+
+.four-d-card:hover .icon {
+  transform: translateZ(50px) scale(1.1) rotate(5deg);
+  box-shadow:
+    0 0 0 8px rgba(217, 35, 68, 0.2),
+    0 15px 40px rgba(217, 35, 68, 0.6);
+}
+
+/* TEXT - SMOOTH FADE */
+.four-d-step h3 {
+  color: #D92344;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  transform: translateZ(30px);
+  font-weight: 700;
+  opacity: 0.7;
+  transition: all 0.4s ease;
+}
+
+.four-d-step.active h3 {
+  opacity: 1;
+}
+
+.four-d-card:hover h3 {
+  transform: translateZ(35px);
+  color: #b91c1c;
+}
+
+.four-d-step p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  transform: translateZ(20px);
+  opacity: 0.8;
+  transition: all 0.4s ease;
+}
+
+.four-d-step.active p {
+  opacity: 1;
+}
+
+.four-d-card:hover p {
+  transform: translateZ(25px);
+  color: #444;
+}
+
+/* ================================
+   CONNECTING LINES - DESKTOP (HORIZONTAL)
+================================ */
+.line {
+  position: absolute;
+  top: 50%;
+  right: -140px;
+  width: 130px;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(217, 35, 68, 0.15),
+    rgba(217, 35, 68, 0.25)
+  );
+  border-radius: 6px;
+  overflow: hidden;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 8px rgba(217, 35, 68, 0.1);
+}
+
+/* ANIMATED DRAW - ULTRA SMOOTH */
+.line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: linear-gradient(
+    90deg,
+    #D92344,
+    #ff4f6d,
+    #ff6b8a
+  );
+  border-radius: 6px;
+  box-shadow: 
+    0 0 12px rgba(217, 35, 68, 0.6),
+    0 0 24px rgba(217, 35, 68, 0.3);
+  transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.line.draw::after {
+  width: 100%;
+}
+
+/* Pulsing glow on active line */
+@keyframes linePulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 12px rgba(217, 35, 68, 0.6),
+      0 0 24px rgba(217, 35, 68, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px rgba(217, 35, 68, 0.8),
+      0 0 36px rgba(217, 35, 68, 0.5);
+  }
+}
+
+.line.draw::after {
+  animation: linePulse 2s ease-in-out infinite;
+}
+
+/* ================================
+   RESPONSIVE - TABLET
+================================ */
+@media (max-width: 1024px) {
+  .four-d-path {
+    gap: 80px;
+  }
+
+  .line {
+    width: 90px;
+    right: -100px;
+  }
+
+  .four-d-card {
+    width: 220px;
+  }
+}
+
+/* ================================
+   RESPONSIVE - MOBILE (VERTICAL LINES)
+================================ */
+@media (max-width: 768px) {
+  .four-d {
+    padding: 80px 20px;
+  }
+
+  .four-d-title {
+    font-size: 2rem;
+    margin-bottom: 60px;
+  }
+
+  /* VERTICAL LAYOUT */
+  .four-d-path {
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .four-d-card {
+    width: 280px;
+    max-width: 90%;
+  }
+
+  /* VERTICAL LINE - MOBILE */
+  .line {
+    /* Remove horizontal positioning */
+    top: auto;
+    right: auto;
+    left: 50%;
+    bottom: -80px;
+    
+    /* Make it vertical */
+    width: 6px;
+    height: 70px;
+    
+    transform: translateX(-50%);
+    
+    background: linear-gradient(
+      180deg,
+      rgba(217, 35, 68, 0.15),
+      rgba(217, 35, 68, 0.25)
+    );
+  }
+
+  /* VERTICAL DRAW ANIMATION */
+  .line::after {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(
+      180deg,
+      #D92344,
+      #ff4f6d,
+      #ff6b8a
+    );
+    transition: height 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .line.draw::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Vertical spacing for mobile */
+  .four-d-step {
+    transform: translateY(40px) scale(0.95);
+  }
+
+  .four-d-step.active {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================================
+   RESPONSIVE - SMALL MOBILE
+================================ */
+@media (max-width: 480px) {
+  .four-d {
+    padding: 60px 15px;
+  }
+
+  .four-d-title {
+    font-size: 1.6rem;
+    margin-bottom: 50px;
+    line-height: 1.3;
+  }
+
+  .four-d-path {
+    gap: 50px;
+  }
+
+  .four-d-card {
+    width: 100%;
+    max-width: 300px;
+    padding: 30px 20px;
+  }
+
+  .icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+  }
+
+  .four-d-step h3 {
+    font-size: 1.3rem;
+  }
+
+  .four-d-step p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Shorter line for small screens */
+  .line {
+    height: 60px;
+    bottom: -70px;
+  }
+}
+
+/* ================================
+   RESPONSIVE - EXTRA SMALL
+================================ */
+@media (max-width: 380px) {
+  .four-d-title {
+    font-size: 1.4rem;
+  }
+
+  .four-d-card {
+    padding: 25px 18px;
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+  }
+
+  .four-d-step h3 {
+    font-size: 1.2rem;
+  }
+
+  .four-d-step p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Smooth scroll behavior for entire section */
+.four-d * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================
+   ACCESSIBILITY
+================================ */
+@media (prefers-reduced-motion: reduce) {
+  .four-d-step,
+  .icon,
+  .line::after,
+  .four-d-card::before {
+    transition: none;
+    animation: none;
+  }
+}

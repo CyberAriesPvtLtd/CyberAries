@@ -1,0 +1,500 @@
+/* ==========================================
+   COMING SOON PAGE
+   Modern Design with Countdown Timer
+   ========================================== */
+
+.coming-soon-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+/* ==========================================
+   ANIMATED BACKGROUND
+   ========================================== */
+
+.cs-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.cs-grid {
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(220, 38, 38, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 38, 38, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* ==========================================
+   MAIN CONTAINER
+   ========================================== */
+
+.coming-soon-container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================
+   BRAND/LOGO SECTION
+   ========================================== */
+
+.cs-brand {
+  margin-bottom: 2rem;
+}
+
+.cs-logo-circle {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(220, 38, 38, 0.5);
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ==========================================
+   CONTENT SECTION
+   ========================================== */
+
+.cs-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+}
+
+.cs-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: #dc2626;
+  color: white;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+}
+
+.cs-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.cs-description {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  margin-bottom: 3rem;
+  line-height: 1.8;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================
+   COUNTDOWN TIMER
+   ========================================== */
+
+.cs-countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.cs-countdown-item {
+  background: rgba(220, 38, 38, 0.1);
+  border: 2px solid rgba(220, 38, 38, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  min-width: 100px;
+  backdrop-filter: blur(5px);
+}
+
+.cs-countdown-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #dc2626;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+}
+
+.cs-countdown-label {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.cs-countdown-separator {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #dc2626;
+  opacity: 0.5;
+}
+
+/* ==========================================
+   EMAIL NOTIFICATION SECTION
+   ========================================== */
+
+.cs-notify-section {
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cs-notify-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 1.5rem;
+}
+
+.cs-notify-form {
+  display: flex;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.cs-email-input {
+  flex: 1;
+  min-width: 250px;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.cs-email-input::placeholder {
+  color: #64748b;
+}
+
+.cs-email-input:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #dc2626;
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+}
+
+.cs-notify-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.cs-notify-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+}
+
+/* ==========================================
+   ACTION BUTTONS
+   ========================================== */
+
+.cs-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cs-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cs-btn-primary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.cs-btn-primary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.cs-btn-secondary {
+  background: transparent;
+  color: #94a3b8;
+  border: 2px solid rgba(148, 163, 184, 0.3);
+}
+
+.cs-btn-secondary:hover {
+  background: rgba(148, 163, 184, 0.1);
+  color: white;
+  border-color: rgba(148, 163, 184, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.cs-footer {
+  padding-top: 2rem;
+}
+
+.cs-footer p {
+  color: #94a3b8;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cs-social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cs-social-link {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.cs-social-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #dc2626;
+  transition: width 0.3s ease;
+}
+
+.cs-social-link:hover {
+  color: #dc2626;
+}
+
+.cs-social-link:hover::after {
+  width: 100%;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 768px) {
+  .coming-soon-wrapper {
+    padding: 1.5rem;
+  }
+
+  .cs-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .cs-logo-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cs-logo-circle svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cs-title {
+    font-size: 2.5rem;
+  }
+
+  .cs-description {
+    font-size: 1.125rem;
+  }
+
+  .cs-countdown {
+    gap: 0.75rem;
+  }
+
+  .cs-countdown-item {
+    min-width: 80px;
+    padding: 1rem;
+  }
+
+  .cs-countdown-number {
+    font-size: 2rem;
+  }
+
+  .cs-countdown-label {
+    font-size: 0.75rem;
+  }
+
+  .cs-countdown-separator {
+    font-size: 1.5rem;
+  }
+
+  .cs-notify-form {
+    flex-direction: column;
+  }
+
+  .cs-email-input,
+  .cs-notify-btn {
+    width: 100%;
+  }
+
+  .cs-actions {
+    flex-direction: column;
+  }
+
+  .cs-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cs-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .cs-title {
+    font-size: 2rem;
+  }
+
+  .cs-description {
+    font-size: 1rem;
+  }
+
+  .cs-countdown-item {
+    min-width: 70px;
+    padding: 0.75rem;
+  }
+
+  .cs-countdown-number {
+    font-size: 1.75rem;
+  }
+
+  .cs-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY & ANIMATIONS
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.cs-btn:focus-visible,
+.cs-email-input:focus-visible,
+.cs-notify-btn:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   DARK/LIGHT MODE VARIANTS
+   ========================================== */
+
+/* Add this class to wrapper for light mode variant */
+.coming-soon-wrapper.light-mode {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+  color: #1f2937;
+}
+
+.coming-soon-wrapper.light-mode .cs-content {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.coming-soon-wrapper.light-mode .cs-title {
+  background: linear-gradient(135deg, #1f2937 0%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.coming-soon-wrapper.light-mode .cs-description {
+  color: #4b5563;
+}

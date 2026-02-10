@@ -1,0 +1,697 @@
+/* ==========================================
+   NETWORK SECURITY TESTING PAGE - SAST STYLE
+   COLOR PALETTE: Off-White • Black • Red
+========================================== */
+
+@import '../../../../styles/common/global.css';
+
+/* Core palette overrides for SAST-style */
+:root {
+  --bg-soft-white: #FAFAF7;
+  --bg-soft-panel: #ffffff;
+  --bg-soft-tint: #F4C7C9;
+  --text-jet-black: #0F0F0F;
+  --heading-crimson: #0B0D18;
+  --accent-corporate-red: #C1121F;
+  --accent-blush-red: #F4C7C9;
+  --border-soft: #E5E5E5;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --radius-lg: 12px;
+  --transition-normal: all 0.3s ease;
+}
+
+/* Global page background + default text */
+.network-security-page {
+  background: var(--bg-soft-white);
+  color: var(--text-jet-black);
+}
+
+.network-security-page * {
+  color: inherit;
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.network-security-page .hero-section {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding: var(--spacing-2xl) 0;
+}
+
+.network-security-page .hero-background {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 13, 24, 0.7);
+  z-index: 0;
+}
+
+.network-security-page .hero-section .container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 80px;
+  padding-right: var(--spacing-xl);
+  text-align: left;
+}
+
+.network-security-page .hero-subtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--spacing-sm);
+  opacity: 0.9;
+  text-align: left;
+}
+
+.network-security-page .hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff !important;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  text-align: left;
+}
+
+.network-security-page .hero-title .text-gradient {
+  background: linear-gradient(90deg, #C1121F 0%, #ff6b6b 50%, #C1121F 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 7s ease infinite;
+  display: inline-block;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+.network-security-page .hero-description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #ffffff;
+  max-width: 850px;
+  margin: 0 0 var(--spacing-md);
+  opacity: 0.95;
+  text-align: left;
+}
+
+.network-security-page .hero-description:last-of-type {
+  margin-bottom: var(--spacing-xl);
+}
+
+.network-security-page .hero-description strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.network-security-page .hero-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* ==========================================
+   BUTTON STYLES
+========================================== */
+
+.network-security-page .btn {
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.network-security-page .btn-primary {
+  background: var(--accent-corporate-red);
+  color: #ffffff;
+  box-shadow: 
+    0 6px 0 #9a0f1a,
+    0 8px 18px rgba(193, 18, 31, 0.4);
+  position: relative;
+  top: 0;
+}
+
+.network-security-page .btn-primary:hover {
+  background: #e01525;
+  box-shadow: 
+    0 4px 0 #9a0f1a,
+    0 6px 15px rgba(193, 18, 31, 0.6);
+  top: 2px;
+}
+
+.network-security-page .btn-primary:active {
+  box-shadow: 
+    0 0 0 #9a0f1a,
+    0 2px 8px rgba(193, 18, 31, 0.4);
+  top: 6px;
+}
+
+.network-security-page .btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.network-security-page .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.network-security-page .btn-large {
+  padding: 1rem 3rem;
+  font-size: 1.05rem;
+}
+
+/* ==========================================
+   SERVICE OVERVIEW SECTION
+========================================== */
+
+.network-security-page .service-overview {
+  padding: var(--spacing-2xl) 0;
+  background: var(--bg-soft-white);
+}
+
+.network-security-page .overview-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.network-security-page .section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.network-security-page .section-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--heading-crimson);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+}
+
+.network-security-page .section-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.network-security-page .overview-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-jet-black);
+  margin-bottom: var(--spacing-md);
+}
+
+.network-security-page .overview-text strong {
+  color: var(--accent-corporate-red);
+  font-weight: 700;
+}
+
+/* Overview Image Styling */
+.network-security-page .overview-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.network-security-page .overview-image {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-normal);
+}
+
+.network-security-page .overview-image:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================
+   SOLUTIONS SECTION (OUR APPROACH)
+========================================== */
+
+.network-security-page .solutions-section {
+  padding: var(--spacing-2xl) 0;
+  background: var(--bg-soft-panel);
+}
+
+.network-security-page .methodology-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.network-security-page .methodology-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #6b7280;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.network-security-page .solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+  max-width: 1400px;
+  margin: var(--spacing-xl) auto 0;
+}
+
+.network-security-page .solution-card {
+  background: var(--bg-soft-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  transition: var(--transition-normal);
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.network-security-page .solution-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(193, 18, 31, 0.4);
+  box-shadow: 0 12px 30px rgba(193, 18, 31, 0.15);
+}
+
+.network-security-page .solution-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--accent-blush-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-corporate-red);
+  margin: 0 auto var(--spacing-md);
+  transition: var(--transition-normal);
+}
+
+.network-security-page .solution-card:hover .solution-icon {
+  background: var(--accent-corporate-red);
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.network-security-page .solution-icon svg {
+  stroke: currentColor !important;
+  fill: none !important;
+}
+
+.network-security-page .solution-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--heading-crimson);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.3;
+}
+
+.network-security-page .solution-description {
+  font-size: 0.90rem;
+  color: var(--text-jet-black);
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.network-security-page .solution-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 4px;
+  background: var(--accent-corporate-red);
+  border-radius: 2px 2px 0 0;
+  opacity: 0;
+  transition: var(--transition-normal);
+}
+
+.network-security-page .solution-card:hover .solution-indicator {
+  opacity: 1;
+}
+
+/* ==========================================
+   WHY CHOOSE SECTION
+========================================== */
+
+.network-security-page .why-choose {
+  padding: var(--spacing-2xl) 0;
+  background: var(--bg-soft-white);
+}
+
+.network-security-page .why-choose-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+  max-width: 1200px;
+  margin: var(--spacing-xl) auto 0;
+}
+
+.network-security-page .why-choose-card {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--bg-soft-panel);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-normal);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.network-security-page .why-choose-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  border-color: rgba(193, 18, 31, 0.4);
+}
+
+.network-security-page .why-choose-icon {
+  width: 90px;
+  height: 90px;
+  background: var(--accent-blush-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-corporate-red);
+  margin: 0 auto var(--spacing-md);
+  transition: var(--transition-normal);
+}
+
+.network-security-page .why-choose-card:hover .why-choose-icon {
+  background: var(--accent-corporate-red);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.network-security-page .why-choose-icon svg {
+  stroke: currentColor !important;
+  fill: none !important;
+}
+
+.network-security-page .why-choose-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--heading-crimson);
+  margin-bottom: var(--spacing-sm);
+}
+
+.network-security-page .why-choose-description {
+  font-size: 1rem;
+  color: var(--text-jet-black);
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   CYBERARIES DIFFERENCE SECTION
+========================================== */
+
+.network-security-page .cyberaries-difference {
+  padding: var(--spacing-2xl) 0;
+  background: #0f0f0f;
+  position: relative;
+  overflow: hidden;
+}
+
+.network-security-page .cyberaries-difference::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top center, rgba(193, 18, 31, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.network-security-page .cyberaries-difference .container {
+  position: relative;
+  z-index: 1;
+}
+
+.network-security-page .difference-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: var(--spacing-2xl);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.network-security-page .difference-title .highlight-red {
+  background: linear-gradient(90deg, #C1121F 0%, #ff6b6b 50%, #C1121F 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 7s ease infinite;
+  display: inline-block;
+}
+
+.network-security-page .comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  max-width: 2200px;
+  margin: 0 auto;
+}
+
+.network-security-page .comparison-column {
+  background: rgba(60, 60, 60, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition-normal);
+  min-height: 400px;
+}
+
+.network-security-page .comparison-column:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.network-security-page .comparison-column.traditional {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.network-security-page .comparison-column.traditional:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.network-security-page .comparison-column.cyberaries {
+  background: rgba(251, 228, 230, 0.15);
+  border: 2px solid rgba(193, 18, 31, 0.6);
+  box-shadow: 0 0 30px rgba(193, 18, 31, 0.2);
+}
+
+.network-security-page .comparison-column.cyberaries:hover {
+  background: rgba(251, 228, 230, 0.25);
+  border-color: #C1121F;
+  box-shadow: 0 0 45px rgba(193, 18, 31, 0.35), 0 15px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-8px);
+}
+
+.network-security-page .comparison-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.network-security-page .cyberaries-heading {
+  color: #ff6b6b;
+  border-bottom-color: rgba(255, 107, 107, 0.5);
+}
+
+.network-security-page .comparison-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.network-security-page .comparison-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  padding: var(--spacing-sm) 0;
+}
+
+.network-security-page .comparison-column.cyberaries .comparison-item {
+  color: #ffffff;
+}
+
+.network-security-page .bullet {
+  color: #888888;
+  font-size: 1.3rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+  line-height: 1;
+  min-width: 20px;
+}
+
+.network-security-page .comparison-column.cyberaries .bullet {
+  color: #ff6b6b;
+}
+
+/* ==========================================
+   CTA SECTION
+========================================== */
+
+.network-security-page .cta-section {
+  padding: var(--spacing-2xl) 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.network-security-page .cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(193, 18, 31, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.network-security-page .cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.network-security-page .cta-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.network-security-page .cta-description {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  opacity: 0.9;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1024px) {
+  .network-security-page .hero-section .container {
+    padding-left: var(--spacing-xl);
+  }
+
+  .network-security-page .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .network-security-page .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .network-security-page .why-choose-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .network-security-page .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .network-security-page .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .network-security-page .section-title {
+    font-size: 2.2rem;
+  }
+
+  .network-security-page .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .network-security-page .why-choose-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .network-security-page .cta-title {
+    font-size: 2.1rem;
+  }
+
+  .network-security-page .overview-image {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .network-security-page .hero-section {
+    min-height: auto;
+  }
+
+  .network-security-page .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .network-security-page .section-title {
+    font-size: 1.9rem;
+  }
+
+  .network-security-page .difference-title {
+    font-size: 2rem;
+  }
+
+  .network-security-page .hero-actions {
+    flex-direction: column;
+  }
+
+  .network-security-page .overview-image {
+    max-width: 100%;
+  }
+
+  .network-security-page .cta-title {
+    font-size: 1.75rem;
+  }
+}
