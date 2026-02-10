@@ -1,0 +1,145 @@
+/* ==========================================
+   APPROACH CARD COMPONENT
+   ========================================== */
+
+.approach-card {
+  position: relative;
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: var(--transition-normal);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Step Number Badge */
+.approach-card__number {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
+  color: var(--text-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  z-index: 2;
+}
+
+/* Icon Container */
+.approach-card__icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+  border-radius: var(--radius-md);
+  transition: var(--transition-normal);
+}
+
+.approach-card__icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.approach-card__icon svg {
+  width: 50px;
+  height: 50px;
+  color: var(--accent-blue);
+}
+
+/* Content */
+.approach-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.approach-card__title {
+  font-size: 1.25rem;
+  color: var(--primary-dark);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+}
+
+.approach-card__description {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Hover Overlay */
+.approach-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(255, 107, 53, 0.05));
+  opacity: 0;
+  transition: var(--transition-normal);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hover Effects */
+.approach-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-blue);
+}
+
+.approach-card:hover .approach-card__overlay {
+  opacity: 1;
+}
+
+.approach-card:hover .approach-card__icon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
+}
+
+.approach-card:hover .approach-card__icon svg {
+  color: var(--text-light);
+}
+
+.approach-card:hover .approach-card__title {
+  color: var(--accent-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .approach-card {
+    padding: var(--spacing-md);
+  }
+  
+  .approach-card__icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .approach-card__icon img,
+  .approach-card__icon svg {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .approach-card__title {
+    font-size: 1.1rem;
+  }
+  
+  .approach-card__description {
+    font-size: 0.9rem;
+  }
+}

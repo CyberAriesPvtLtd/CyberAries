@@ -1,0 +1,192 @@
+/* ==========================================
+   GLOBAL STYLES - ShieldByte InfoSec
+   ========================================== */
+
+/* Root Variables */
+:root {
+  /* Colors */
+  --primary-blue: #1e3a8a;
+  --primary-dark: #0a1628;
+  --accent-orange: #ff6b35;
+  --accent-blue: #3b82f6;
+  --text-light: #f8fafc;
+  --text-gray: #64748b;
+  --bg-light: #f1f5f9;
+  --bg-white: #ffffff;
+  --border-color: #e2e8f0;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--primary-dark);
+  background-color: var(--bg-white);
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--primary-dark);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  color: var(--text-gray);
+  line-height: 1.8;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--accent-blue);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-blue);
+  border: 2px solid var(--accent-blue);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-blue);
+  color: var(--text-light);
+}
+
+/* Section Spacing */
+section {
+  padding: var(--spacing-2xl) 0;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  section {
+    padding: var(--spacing-xl) 0;
+  }
+}

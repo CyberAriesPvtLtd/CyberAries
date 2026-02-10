@@ -1,0 +1,66 @@
+/* ==========================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================== */
+
+.scroll-reveal {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: opacity, transform;
+}
+
+/* Direction: From Left */
+.scroll-reveal--left {
+  transform: translateX(-100px);
+}
+
+/* Direction: From Right */
+.scroll-reveal--right {
+  transform: translateX(100px);
+}
+
+/* Direction: From Top */
+.scroll-reveal--up {
+  transform: translateY(-100px);
+}
+
+/* Direction: From Bottom */
+.scroll-reveal--down {
+  transform: translateY(100px);
+}
+
+/* Visible State */
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Fade In (No Direction) */
+.scroll-reveal--fade {
+  transform: scale(0.95);
+}
+
+.scroll-reveal--fade.scroll-reveal--visible {
+  transform: scale(1);
+}
+
+/* Responsive: Reduce animations on mobile */
+@media (max-width: 768px) {
+  .scroll-reveal--left,
+  .scroll-reveal--right {
+    transform: translateX(-30px);
+  }
+  
+  .scroll-reveal--up,
+  .scroll-reveal--down {
+    transform: translateY(-30px);
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
