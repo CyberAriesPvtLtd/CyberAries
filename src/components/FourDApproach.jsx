@@ -10,7 +10,7 @@ const steps = [
 
 export default function FourDApproach() {
   const [activeStep, setActiveStep] = useState(-1);
-  const [hasAnimated, setHasAnimated] = useState(false);
+
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function FourDApproach() {
           if (entry.isIntersecting) {
             // Reset animation
             setActiveStep(-1);
-            setHasAnimated(false);
+
 
             // Start animation after a small delay
             setTimeout(() => {
@@ -30,7 +30,7 @@ export default function FourDApproach() {
           } else {
             // When section leaves view, reset for next time
             setActiveStep(-1);
-            setHasAnimated(false);
+
           }
         });
       },
@@ -40,13 +40,14 @@ export default function FourDApproach() {
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentSection = sectionRef.current;
+    if (currentSection) {
+      observer.observe(currentSection);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentSection) {
+        observer.unobserve(currentSection);
       }
     };
   }, []);
@@ -59,7 +60,7 @@ export default function FourDApproach() {
         index++;
       } else {
         clearInterval(interval);
-        setHasAnimated(true);
+
       }
     }, 600); // Smooth 600ms delay between each step
   };
