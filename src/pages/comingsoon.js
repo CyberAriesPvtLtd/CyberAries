@@ -119,9 +119,9 @@ const ComingSoon = ({
           <p>In the meantime, explore our other services</p>
           <div className="cs-social-links">
             {/* Add your social links */}
-            <a href="#" className="cs-social-link">Twitter</a>
-            <a href="#" className="cs-social-link">LinkedIn</a>
-            <a href="#" className="cs-social-link">Facebook</a>
+            <a href="/" className="cs-social-link">Twitter</a>
+            <a href="/" className="cs-social-link">LinkedIn</a>
+            <a href="/" className="cs-social-link">Facebook</a>
           </div>
         </div>
       </div>
