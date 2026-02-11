@@ -55,11 +55,11 @@ const Careers = () => {
 
   const filterAndSort = () => {
     let list = [...JOBS];
-    
+
     if (deptFilter) {
       list = list.filter(j => j.dept === deptFilter);
     }
-    
+
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       list = list.filter(j =>
@@ -69,7 +69,7 @@ const Careers = () => {
         j.dept.toLowerCase().includes(q)
       );
     }
-    
+
     if (sortOption) {
       if (sortOption === 'title-asc') list.sort((a, b) => a.title.localeCompare(b.title));
       else if (sortOption === 'title-desc') list.sort((a, b) => b.title.localeCompare(a.title));
@@ -77,7 +77,7 @@ const Careers = () => {
       else if (sortOption === 'exp-desc') list.sort((a, b) => parseExp(b.exp) - parseExp(a.exp));
       else if (sortOption === 'location-asc') list.sort((a, b) => a.location.localeCompare(b.location));
     }
-    
+
     return list;
   };
 
@@ -162,7 +162,7 @@ const Careers = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          
+
           <div className="controls-row">
             <select
               className="select"
@@ -174,7 +174,7 @@ const Careers = () => {
                 <option key={dept} value={dept}>{dept}</option>
               ))}
             </select>
-            
+
             <select
               className="select"
               value={sortOption}
@@ -187,7 +187,7 @@ const Careers = () => {
               <option value="exp-desc">Experience High → Low</option>
               <option value="location-asc">Location A → Z</option>
             </select>
-            
+
             <button className="btn" onClick={handleReset}>Reset Filters</button>
           </div>
         </div>
@@ -252,11 +252,11 @@ const Careers = () => {
             <p>Ready to join our team? Send your resume to:</p>
             <a
               className="modal-email"
-              href={`mailto:info@cyberaries.com?subject=${encodeURIComponent(`Application for ${selectedJob.title} (${selectedJob.id})`)}&body=${encodeURIComponent(`Hello CyberAries Team,\n\nI would like to apply for the role "${selectedJob.title}" (Ref: ${selectedJob.id}).\n\nName:\nEmail:\nPhone:\nLocation:\nLinkedIn:\n\nShort note:\n\nRegards,\n`)}`}
+              href={`mailto:career@cyberaries.com?subject=${encodeURIComponent(`Application for ${selectedJob.title} (${selectedJob.id})`)}&body=${encodeURIComponent(`Hello CyberAries Team,\n\nI would like to apply for the role "${selectedJob.title}" (Ref: ${selectedJob.id}).\n\nName:\nEmail:\nPhone:\nLocation:\nLinkedIn:\n\nShort note:\n\nRegards,\n`)}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              info@cyberaries.com
+              career@cyberaries.com
             </a>
             <p className="note">
               <i className="fas fa-info-circle"></i> Email subject will auto-fill with the job title and reference ID. Please attach your CV and cover letter.
