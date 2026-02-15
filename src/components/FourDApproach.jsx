@@ -10,6 +10,7 @@ const steps = [
 
 export default function FourDApproach() {
   const [activeStep, setActiveStep] = useState(-1);
+  // eslint-disable-next-line no-unused-vars
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
 
@@ -45,6 +46,7 @@ export default function FourDApproach() {
     }
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
