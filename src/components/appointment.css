@@ -40,13 +40,13 @@
   font-weight: 700;
   margin: 16px 0;
   line-height: 1.2;
-  color: #ffffff;
+  /* color: #dc2626; */
 }
 
 .appointment-hero-text p {
   font-size: 16px;
   line-height: 1.7;
-  color: #d1d5db;
+  /* color: #d1d5db; */
   max-width: 520px;
 }
  .hero-quote {

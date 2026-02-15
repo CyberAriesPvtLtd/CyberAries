@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X, Phone } from 'lucide-react';
 import './Header.css';
 import logoImage from '../images/logos/cyberaries-logo.png';
 
@@ -215,9 +215,9 @@ const Header = () => {
                       </div>
                       <div className="services-section">
                         <h5 className="services-section-title">Capital Markets</h5>
-                        <Link to="/services/regulatory/bse-audit" className="services-link">BSE Cyber Security Audit</Link>
-                        <Link to="/services/regulatory/nse-audit" className="services-link">NSE Cyber Security Audit</Link>
-                        <Link to="/services/regulatory/sebi-audit" className="services-link">SEBI Cyber Security Audit</Link>
+                        <Link to="/services/regulatory/bse-cyber-audit" className="services-link">BSE Cyber Security Audit</Link>
+                        <Link to="/services/regulatory/nse-cyber-audit" className="services-link">NSE Cyber Security Audit</Link>
+                        <Link to="/services/regulatory/sebi-cyber-audit" className="services-link">SEBI Cyber Security Audit</Link>
                       </div>
                       <div className="services-section">
                         <h5 className="services-section-title">Government & Digital</h5>
@@ -385,26 +385,32 @@ const Header = () => {
                 <Link to="/resources/news" className="dropdown-item">News</Link>
                 <Link to="/resources/download" className="dropdown-item">Download</Link>
                 
+                {/* Nested Survey Dropdown */}
                 <div 
-                  className="dropdown-nested"
+                  className="dropdown-item nested-dropdown"
                   onMouseEnter={() => setShowNestedSurvey(true)}
                   onMouseLeave={() => setShowNestedSurvey(false)}
                 >
-                  <button className="nested-trigger">
-                    Survey
-                    <ChevronDown size={14} style={{ transform: 'rotate(-90deg)' }} />
-                  </button>
+                  Survey
+                  <ChevronDown size={12} className="nested-arrow" />
                   
                   {showNestedSurvey && (
                     <div className="nested-menu">
-                      <Link to="/resources/survey/grc" className="dropdown-item">GRC Survey</Link>
-                      <Link to="/resources/survey/dpdpa" className="dropdown-item">Data Privacy Check: Is Your Organization DPDPA-Ready?</Link>
-                      <Link to="/resources/survey/tprm" className="dropdown-item">Discover Your TPRM Maturity Level</Link>
+                      <Link to="/resources/survey/grc" className="nested-item">GRC Survey</Link>
+                      <Link to="/resources/survey/dpdpa" className="nested-item">Data Privacy Check</Link>
+                      <Link to="/resources/survey/tprm" className="nested-item">TPRM Maturity Level</Link>
                     </div>
                   )}
                 </div>
               </div>
             )}
+          </div>
+
+          {/* Career */}
+          <div className="nav-item">
+            <Link to="/careers" className={`nav-link ${isActive('/careers') ? 'active' : ''}`}>
+              Career
+            </Link>
           </div>
 
           {/* Contact Us */}
@@ -413,30 +419,30 @@ const Header = () => {
               Contact Us
             </Link>
           </div>
-        </nav>
 
-        {/* Desktop Consult Button */}
-        <button className="quick-contact-btn desktop-only" type="button">
-          Consult With Us
-        </button>
+          {/* Consult Button */}
+          <button className="quick-contact-btn desktop-only" type="button">
+            <Phone size={18} />
+            Consult With Us
+          </button>
+        </nav>
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="mobile-menu-toggle" 
+          className="mobile-menu-toggle"
           onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
+          aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <>
-          <div className="mobile-menu-overlay" onClick={closeMobileMenu}></div>
-          
-          <nav className="mobile-menu">
-            <div className="mobile-menu-content">
+          <div className="mobile-overlay" onClick={closeMobileMenu}></div>
+          <nav className="mobile-nav">
+            <div className="mobile-nav-content">
               {/* Home */}
               <Link to="/" className="mobile-nav-link" onClick={closeMobileMenu}>
                 Home
@@ -475,8 +481,8 @@ const Header = () => {
                   />
                 </button>
                 {mobileActiveMenu === 'services' && (
-                  <div className="mobile-dropdown mobile-services-menu">
-                    {/* Service Categories */}
+                  <div className="mobile-services-wrapper">
+                    {/* Service Tabs */}
                     <div className="mobile-service-tabs">
                       <button 
                         className={`mobile-service-tab ${mobileActiveService === 'regulatory' ? 'active' : ''}`}
@@ -529,9 +535,9 @@ const Header = () => {
                           </div>
                           <div className="mobile-service-group">
                             <h6 className="mobile-service-group-title">Capital Markets</h6>
-                            <Link to="/services/regulatory/bse-audit" onClick={closeMobileMenu}>BSE Cyber Security Audit</Link>
-                            <Link to="/services/regulatory/nse-audit" onClick={closeMobileMenu}>NSE Cyber Security Audit</Link>
-                            <Link to="/services/regulatory/sebi-audit" onClick={closeMobileMenu}>SEBI Cyber Security Audit</Link>
+                            <Link to="/services/regulatory/bse-cyber-audit" onClick={closeMobileMenu}>BSE Cyber Security Audit</Link>
+                            <Link to="/services/regulatory/nse-cyber-audit" onClick={closeMobileMenu}>NSE Cyber Security Audit</Link>
+                            <Link to="/services/regulatory/sebi-cyber-audit" onClick={closeMobileMenu}>SEBI Cyber Security Audit</Link>
                           </div>
                           <div className="mobile-service-group">
                             <h6 className="mobile-service-group-title">Government & Digital</h6>
@@ -710,6 +716,11 @@ const Header = () => {
                 )}
               </div>
 
+              {/* Career */}
+              <Link to="/careers" className="mobile-nav-link" onClick={closeMobileMenu}>
+                Career
+              </Link>
+
               {/* Contact Us */}
               <Link to="/contact" className="mobile-nav-link" onClick={closeMobileMenu}>
                 Contact Us
@@ -717,7 +728,7 @@ const Header = () => {
 
               {/* Mobile Consult Button */}
               <button className="mobile-consult-btn" type="button">
-                <span className="contact-icon">📞</span>
+                <Phone size={20} />
                 Consult With Us
               </button>
             </div>
