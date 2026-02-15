@@ -106,11 +106,7 @@ const Home = () => {
     }
   ];
 
-  const stripItems = [
-    'Endpoint Protection', 'Threat Intelligence', 'Penetration Testing',
-    'Security Audits', 'Incident Response', 'Network Security',
-    'Cloud Security', 'Compliance Management'
-  ];
+
 
 
   return (
