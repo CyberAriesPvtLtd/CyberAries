@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import {
   Shield, Lock, FileText, CheckCircle, Settings, BarChart3, Users, Globe, Database, Bell, Eye, Award, Handshake, RefreshCw, FileCheck, UserCheck, Network, Server, TrendingUp, Activity, Clipboard, Search, Target, Zap, Clock, ChevronDown, ChevronRight, Star, Phone, Mail, Calendar, DollarSign, Check, X, ArrowRight
 } from 'lucide-react';
+/* eslint-enable no-unused-vars */
 import './SEBICyberAudit.css';
 
 const SEBICyberAudit = () => {
