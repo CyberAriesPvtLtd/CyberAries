@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
-import {
-  Shield, Lock, FileText, CheckCircle, Settings, BarChart3, Users, Database, Bell, Eye, Award, Handshake, RefreshCw, FileCheck, UserCheck, Network, TrendingUp, Activity, Search, Target, Clock, ChevronDown, Star, Phone, Calendar, Check, X, ArrowRight
+import { 
+  Shield, Lock, FileText, CheckCircle, Settings, BarChart3, Users, Globe, Database, Bell, Eye, Award, Handshake, RefreshCw, FileCheck, UserCheck, Network, Server, TrendingUp, Activity, Clipboard, Search, Target, Zap, Clock, ChevronDown, ChevronRight, Star, Phone, Mail, Calendar, DollarSign, Check, X, ArrowRight
 } from 'lucide-react';
 import './BSECyberAudit.css';
 
@@ -84,8 +84,8 @@ const BSECyberAudit = () => {
   // PRICING PACKAGES
   const packages = [
     {
-      name: "Basic",
-      price: "₹2,50,000",
+      name: "Basic", 
+      price: "₹2,50,000", 
       period: "One-time",
       popular: false,
       features: ["Gap Assessment", "Policy Review", "Basic Testing", "Compliance Report", "Email Support"]
@@ -93,7 +93,7 @@ const BSECyberAudit = () => {
     {
       name: "Professional",
       price: "₹5,00,000",
-      period: "One-time",
+      period: "One-time", 
       popular: true,
       features: ["Complete Audit", "VAPT Testing", "Remediation Support", "Detailed Documentation", "Priority Support", "Quarterly Review"]
     },
@@ -192,7 +192,7 @@ const BSECyberAudit = () => {
             <h2 className="bse-section-title">Comprehensive Audit Framework</h2>
             <p className="bse-section-desc">Click to explore different aspects of our audit approach</p>
           </ScrollReveal>
-
+          
           <div className="bse-tabs">
             <div className="bse-tabs-header">
               <button className={`bse-tab-btn ${activeTab === 'framework' ? 'active' : ''}`} onClick={() => setActiveTab('framework')}>
@@ -231,7 +231,7 @@ const BSECyberAudit = () => {
             <h2 className="bse-section-title">Audit Process Timeline</h2>
             <p className="bse-section-desc">Our structured 8-step approach to BSE compliance</p>
           </ScrollReveal>
-
+          
           <div className="bse-timeline">
             {timeline.map((step, i) => (
               <ScrollReveal key={i} direction={i % 2 === 0 ? 'left' : 'right'} delay={i * 100} triggerOnce={false}>
@@ -255,7 +255,7 @@ const BSECyberAudit = () => {
           <ScrollReveal direction="up" triggerOnce={false}>
             <h2 className="bse-section-title">The Cyberaries Difference</h2>
           </ScrollReveal>
-
+          
           <div className="bse-comparison-grid">
             <div className="bse-comparison-col">
               <h3>Traditional Firms</h3>
@@ -282,7 +282,7 @@ const BSECyberAudit = () => {
             <h2 className="bse-section-title">Flexible Pricing Plans</h2>
             <p className="bse-section-desc">Choose the package that fits your needs</p>
           </ScrollReveal>
-
+          
           <div className="bse-pricing-grid">
             {packages.map((pkg, i) => (
               <ScrollReveal key={i} direction="up" delay={i * 100} triggerOnce={false}>
@@ -310,7 +310,7 @@ const BSECyberAudit = () => {
           <ScrollReveal direction="up" triggerOnce={false}>
             <h2 className="bse-section-title">Frequently Asked Questions</h2>
           </ScrollReveal>
-
+          
           <div className="bse-faq-list">
             {faqs.map((faq, i) => (
               <div key={i} className={`bse-faq-item ${openFaq === i ? 'active' : ''}`}>
@@ -333,7 +333,7 @@ const BSECyberAudit = () => {
           <ScrollReveal direction="up" triggerOnce={false}>
             <h2 className="bse-section-title">Client Success Stories</h2>
           </ScrollReveal>
-
+          
           <div className="bse-testimonial-grid">
             {testimonials.map((t, i) => (
               <ScrollReveal key={i} direction="up" delay={i * 100} triggerOnce={false}>

@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
-import {
-  Lock,
-  FileText,
-  AlertTriangle,
-  CheckCircle,
-  BarChart3,
-  Users,
+import { 
+  Shield, 
+  Lock, 
+  FileText, 
+  AlertTriangle, 
+  CheckCircle, 
+  Settings, 
+  BarChart3, 
+  Users, 
+  Globe,
   Database,
   Bell,
   Eye,
@@ -17,6 +20,9 @@ import {
   FileCheck,
   UserCheck,
   Network,
+  Server,
+  BookOpen,
+  Target,
   Laptop,
   DollarSign,
   TrendingUp,
@@ -236,7 +242,7 @@ const RBINBFCGuidelines = () => {
               </p>
             </div>
           </ScrollReveal>
-
+          
           <div className="challenges-grid">
             {challengesData.map((challenge, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100} triggerOnce={false}>
@@ -264,7 +270,7 @@ const RBINBFCGuidelines = () => {
               </p>
             </div>
           </ScrollReveal>
-
+          
           <div className="components-grid">
             {nbfcRequirements.map((requirement, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100} triggerOnce={false}>
@@ -293,7 +299,7 @@ const RBINBFCGuidelines = () => {
               </p>
             </div>
           </ScrollReveal>
-
+          
           <div className="solutions-grid">
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100} triggerOnce={false}>
@@ -348,7 +354,7 @@ const RBINBFCGuidelines = () => {
               <h2 className="section-title">Why Choose Cyberaries for NBFC Compliance?</h2>
             </div>
           </ScrollReveal>
-
+          
           <div className="why-choose-grid">
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150} triggerOnce={false}>
@@ -371,7 +377,7 @@ const RBINBFCGuidelines = () => {
           <ScrollReveal animation="fade-up" triggerOnce={false}>
             <h2 className="difference-title">
               THE <span className="highlight-red">CYBERARIES</span> DIFFERENCE
-            </h2>
+            </h2>          
           </ScrollReveal>
 
           <div className="comparison-grid">

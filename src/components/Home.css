@@ -880,73 +880,263 @@ section:nth-of-type(2) {
 }
 
 /* ================================
-   SERVICES SECTION (DARK BG)
+   SERVICES SECTION - BLACK GRADIENT WITH LIGHT CARDS
 ================================ */
 .services {
-  background: var(--text-charcoal);
+  background: linear-gradient(180deg, 
+    #1a1a1a 0%, 
+    #0a0a0a 50%, 
+    #000000 100%
+  );
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grid pattern overlay */
+.services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(220, 38, 38, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 38, 38, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.services .container {
+  position: relative;
+  z-index: 1;
+}
+
+.services .section-subtitle {
+  color: #dc2626;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .services .section-title {
   color: white;
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
 }
 
 .services .section-description {
-  color: var(--ui-light-ash);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 900px;
+  margin: 0 auto 3.5rem;
+  font-size: 1.15rem;
+  line-height: 1.5;
 }
 
 .services-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
   grid-template-rows: repeat(2, 1fr) !important;
-  gap: 30px !important;
-  max-width: 1200px;
+  gap: 24px !important;
+  max-width: 1300px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
+/* Light Horizontal Card Design */
 .service-card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(248, 248, 248, 0.98) 100%
+  )!important;
   border-radius: 20px;
-  border: 1px solid rgba(209, 40, 56, 0.3);
-  transition: all 0.3s;
-  display: flex;
-  flex-direction: column;
+  border: 1px solid rgba(220, 38, 38, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
   height: 100%;
+  backdrop-filter: blur(10px);
+}
+
+/* Animated gradient border */
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(220, 38, 38, 0.6) 0%,
+    rgba(239, 68, 68, 0.4) 50%,
+    rgba(220, 38, 38, 0.6) 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Subtle glow effect on hover */
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: -100px;
+  background: radial-gradient(
+    circle at center,
+    rgba(220, 38, 38, 0.08) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .service-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--accent-corporate-red);
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  border-color: rgba(220, 38, 38, 0.3);
+  box-shadow: 
+    0 20px 40px rgba(220, 38, 38, 0.15),
+    0 0 0 1px rgba(220, 38, 38, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 250, 250, 1) 100%
+  );
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+/* Horizontal Layout - Icon and Title Side by Side */
+.service-card-inner {
+  padding: 32px 28px;
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top section - Icon and Title in a row */
+.service-card-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+/* Icon wrapper */
+.service-icon-wrapper {
+  flex-shrink: 0;
 }
 
 .service-icon {
-  width: 60px;
-  height: 60px;
-  background: var(--accent-corporate-red);
-  border-radius: 12px;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
+  color: white;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 24px rgba(220, 38, 38, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Shine effect on icon */
+.service-icon::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-icon::before {
+  transform: translateX(100%);
+}
+
+/* Floating glow behind icon */
+.service-icon::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  border-radius: 20px;
+  z-index: -1;
+  filter: blur(16px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow: 
+    0 12px 32px rgba(220, 38, 38, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.service-card:hover .service-icon::after {
+  opacity: 0.7;
+}
+
+/* Title styling - Now next to icon */
 .service-title {
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 15px;
-  color: #FF3B5C;
+  color: #dc2626;
+  transition: all 0.3s ease;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+  margin: 0;
+  flex: 1;
 }
 
+.service-card:hover .service-title {
+  color: #b91c1c;
+  transform: translateX(4px);
+}
+
+/* Description below icon and title */
 .service-description {
-  color: var(--ui-light-ash);
+  color: #4b5563;
   line-height: 1.7;
+  font-size: 0.975rem;
+  transition: color 0.3s ease;
+  margin: 0;
 }
 
-/* ================================
-   TESTIMONIALS SECTION (WHITE BG)
+.service-card:hover .service-description {
+  color: #1f2937;
+}
+
+/* TESTIMONIALS SECTION (WHITE BG)
 ================================ */
 section:has(.testimonials-grid) {
   background: #ffffff;
@@ -1429,7 +1619,29 @@ section:has(.testimonials-grid) {
 
   .services-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: repeat(3, 1fr) !important;
+    grid-template-rows: auto !important;
+  }
+
+  .services .section-title {
+    font-size: 2.5rem;
+  }
+
+  .services .section-description {
+    font-size: 1.05rem;
+    max-width: 700px;
+  }
+  
+  .service-card-inner {
+    padding: 28px 24px;
+  }
+  
+  .service-icon {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .service-title {
+    font-size: 1.3rem;
   }
 
   .features-grid {
@@ -1459,6 +1671,50 @@ section:has(.testimonials-grid) {
   .testimonials-grid {
     grid-template-columns: 1fr !important;
     grid-template-rows: auto !important;
+  }
+  
+  .services .section-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+  }
+
+  .services .section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .services .section-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+  
+  .service-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  
+  .service-card-inner {
+    padding: 26px 22px;
+  }
+  
+  .service-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .service-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .service-title {
+    font-size: 1.25rem;
+  }
+  
+  .service-description {
+    font-size: 0.925rem;
   }
 
   section {
@@ -1622,6 +1878,23 @@ section:has(.testimonials-grid) {
 
   .section-description {
     font-size: 1rem;
+  }
+
+  .services .section-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+  }
+
+  .services .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .services .section-description {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 2rem;
   }
 
   .security-title {

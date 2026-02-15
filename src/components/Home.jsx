@@ -7,6 +7,7 @@ import {
   FaCogs,
   FaClipboardCheck
 } from "react-icons/fa";
+  import { Network, Lock, UserCheck, Eye, CloudUpload, Settings } from 'lucide-react';
 
 
 const Home = () => {
@@ -43,40 +44,40 @@ const Home = () => {
     }
   ];
 
+
   const services = [
     {
-      icon: 'fas fa-lock',
+      icon: Network,
       title: 'Network Security',
       description: 'Deploying firewalls and intrusion detection systems to safeguard networks from unauthorized access and threats.'
     },
     {
-      icon: 'fas fa-key',
+      icon: Lock,
       title: 'Data Encryption',
       description: 'Encrypting sensitive data at rest and in transit using advanced encryption standards to prevent data breaches.'
     },
     {
-      icon: 'fas fa-user-shield',
+      icon: UserCheck,
       title: 'Identity & Access Management',
       description: 'Managing user identities and access with MFA and detailed role-based control for enhanced security.'
     },
     {
-      icon: 'fas fa-eye',
+      icon: Eye,
       title: '24/7 Security Monitoring',
       description: 'Round-the-clock monitoring with advanced SIEM systems for real-time detection and incident response.'
     },
     {
-      icon: 'fas fa-database',
+      icon: CloudUpload,
       title: 'Backup & Recovery',
       description: 'Protecting critical data with secure backups and rapid recovery plans to ensure business continuity.'
     },
     {
-      icon: 'fas fa-cogs',
+      icon: Settings,
       title: 'Security Configuration',
       description: 'Hardening systems and applying secure configurations across all infrastructure components.'
     }
   ];
 
-  // eslint-disable-next-line no-unused-vars
   const processSteps = [
     {
       number: 1,
@@ -158,12 +159,12 @@ const Home = () => {
   ];
 
   const stripItems = [
-    'Endpoint Protection', 'Threat Intelligence', 'Penetration Testing',
-    'Security Audits', 'Incident Response', 'Network Security',
+    'Endpoint Protection', 'Threat Intelligence', 'Penetration Testing', 
+    'Security Audits', 'Incident Response', 'Network Security', 
     'Cloud Security', 'Compliance Management'
   ];
 
-
+  
   return (
     <main>
       <section className="hero" id="home">
@@ -178,7 +179,7 @@ const Home = () => {
 
             {/* Main Title */}
             <h1 className="hero-title">
-              Comprehensive
+              Comprehensive 
               <span className="hero-highlight"> Cyber Security</span>
               <br />
               Solutions For Your Business
@@ -218,160 +219,115 @@ const Home = () => {
             <div className="hero-stats">
               <div className="hero-stat">
                 <div className="hero-stat-number">500+</div>
-                <div className="hero-stat-label">Audits Completed</div>
+                <div className="hero-stat-label">Security Audits</div>
               </div>
               <div className="hero-stat">
-                <div className="hero-stat-number">98%</div>
-                <div className="hero-stat-label">Success Rate</div>
+                <div className="hero-stat-number">99.9%</div>
+                <div className="hero-stat-label">Threat Detection</div>
               </div>
               <div className="hero-stat">
-                <div className="hero-stat-number">15+</div>
-                <div className="hero-stat-label">Years Experience</div>
+                <div className="hero-stat-number">24/7</div>
+                <div className="hero-stat-label">Monitoring</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="rotating-strip">
-        <div className="strip-container">
-          <div className="strip-content">
-            {stripItems.map((item, index) => (
-              <React.Fragment key={index}>
-                <span className="strip-item">{item}</span>
-                <span className="strip-separator">/</span>
-              </React.Fragment>
-            ))}
-          </div>
-          <div className="strip-content">
-            {stripItems.map((item, index) => (
-              <React.Fragment key={`duplicate-${index}`}>
-                <span className="strip-item">{item}</span>
-                <span className="strip-separator">/</span>
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </section>
+<section className="security-intro">
+  <div className="container">
+    <h2 className="security-title">
+      Your Security, <span>Our Mission</span>
+    </h2>
 
-      <section>
-        <div className="container">
-          <div className="section-header">
-            <div className="section-subtitle">Cybersecurity Excellence</div>
-            <h2 className="section-title">Comprehensive Solutions for Modern Threats</h2>
-            <p className="section-description">
-              Protect your business from ever-evolving cyber risks with our end-to-end security solutions. We offer advanced threat detection, real-time monitoring, and proactive defense strategies.
-            </p>
-          </div>
-          <div className="features-grid">
-            {features.map((feature, index) => (
-              <div className="feature-card" key={index}>
-                <div className="feature-icon">
-                  <i className={feature.icon}></i>
-                </div>
-                <h3 className="feature-title">{feature.title}</h3>
-                <p className="feature-description">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <p className="security-text">
+      We don't just detect threats—we prevent them. From proactive monitoring and 
+      incident response to compliance management and security training, we deliver 
+      comprehensive protection that keeps your business ahead of evolving cyber risks.
+    </p>
 
-      {/* SECTION 1 TEXT CONTENT */}
-      <section className="security-intro animated-security">
-        <div className="security-intro-content">
-          <h2 className="security-title">
-            Your Security, <span>Our Mission</span>
-          </h2>
+    <div className="security-stats-mini">
+      <div className="stat-mini">
+        <strong>24/7</strong>
+        <span>Threat Monitoring</span>
+      </div>
+      <div className="stat-mini">
+        <strong>15+</strong>
+        <span>Industry Certifications</span>
+      </div>
+      <div className="stat-mini">
+        <strong>99.9%</strong>
+        <span>Detection Rate</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <p className="security-text">
-            We don't just detect threats—we prevent them. From proactive monitoring and
-            incident response to compliance management and security training, we deliver
-            comprehensive protection that keeps your business ahead of evolving cyber risks.
+
+
+<section className="home-container">
+  <div className="section-header">
+  </div>
+      <div className="security-circle">
+
+        {/* Static thin ring */}
+        <div className="static-ring"></div>
+
+        {/* Rotating thick arc */}
+        <div className="rotating-arc"></div>   
+
+        {/* Center Content */}
+        <div className="center-content">
+         <h2 className="center-highlight">
+  <span>
+    <strong>How We Secure Your Business</strong>
+    <p>
+      A systematic approach to identifying vulnerabilities, implementing
+      defenses, and maintaining continuous security.
+    </p>
+  </span></h2>
+</div>
+
+        {/* Box 1 - Security Assessment */}
+        <div className="cycle-card top">
+          <h4><FaShieldAlt /> Security Assessment</h4>
+          <p>
+            We conduct a comprehensive analysis of your current security posture,
+            identifying vulnerabilities and potential threats across all systems.
           </p>
-
-          <div className="security-stats-mini">
-            <div className="stat-mini">
-              <strong>24/7</strong>
-              <span>Threat Monitoring</span>
-            </div>
-            <div className="stat-mini">
-              <strong>15+</strong>
-              <span>Industry Certifications</span>
-            </div>
-            <div className="stat-mini">
-              <strong>99.9%</strong>
-              <span>Detection Rate</span>
-            </div>
-          </div>
         </div>
-      </section>
 
-
-
-      <section className="home-container">
-        <div className="section-header">
+        {/* Box 2 - Risk Analysis */}
+        <div className="cycle-card right">
+          <h4><FaChartLine /> Risk Analysis</h4>
+          <p>
+            Our experts prioritize risks based on impact and likelihood, creating
+            a roadmap for addressing the most critical security gaps.
+          </p>
         </div>
-        <div className="security-circle">
 
-          {/* Static thin ring */}
-          <div className="static-ring"></div>
-
-          {/* Rotating thick arc */}
-          <div className="rotating-arc"></div>
-
-          {/* Center Content */}
-          <div className="center-content">
-            <h2 className="center-highlight">
-              <span>
-                <strong>How We Secure Your Business</strong>
-                <p>
-                  A systematic approach to identifying vulnerabilities, implementing
-                  defenses, and maintaining continuous security.
-                </p>
-              </span></h2>
-          </div>
-
-          {/* Box 1 - Security Assessment */}
-          <div className="cycle-card top">
-            <h4><FaShieldAlt /> Security Assessment</h4>
-            <p>
-              We conduct a comprehensive analysis of your current security posture,
-              identifying vulnerabilities and potential threats across all systems.
-            </p>
-          </div>
-
-          {/* Box 2 - Risk Analysis */}
-          <div className="cycle-card right">
-            <h4><FaChartLine /> Risk Analysis</h4>
-            <p>
-              Our experts prioritize risks based on impact and likelihood, creating
-              a roadmap for addressing the most critical security gaps.
-            </p>
-          </div>
-
-          {/* Box 3 - Implementation */}
-          <div className="cycle-card bottom">
-            <h4><FaCogs /> Implementation</h4>
-            <p>
-              We deploy tailored security solutions, from firewalls to encryption,
-              ensuring comprehensive protection across your infrastructure.
-            </p>
-          </div>
-
-          {/* Box 4 - Audit & Report */}
-          <div className="cycle-card left">
-            <h4><FaClipboardCheck /> Clearing Audit & Report Generation</h4>
-            <p>
-              Comprehensive audit documentation and detailed reporting to ensure
-              compliance and provide clear insights into your security status.
-            </p>
-          </div>
-
+        {/* Box 3 - Implementation */}
+        <div className="cycle-card bottom">
+          <h4><FaCogs /> Implementation</h4>
+          <p>
+            We deploy tailored security solutions, from firewalls to encryption,
+            ensuring comprehensive protection across your infrastructure.
+          </p>
         </div>
-      </section>
 
+        {/* Box 4 - Audit & Report */}
+        <div className="cycle-card left">
+          <h4><FaClipboardCheck /> Clearing Audit & Report Generation</h4>
+          <p>
+            Comprehensive audit documentation and detailed reporting to ensure
+            compliance and provide clear insights into your security status.
+          </p>
+        </div>
 
+      </div>
+    </section>
+
+ 
       <section className="services" id="services">
         <div className="container">
           <div className="section-header">
@@ -384,11 +340,17 @@ const Home = () => {
           <div className="services-grid">
             {services.map((service, index) => (
               <div className="service-card" key={index}>
-                <div className="service-icon">
-                  <i className={service.icon}></i>
+                <div className="service-card-inner">
+                  <div className="service-card-header">
+                    <div className="service-icon-wrapper">
+                      <div className="service-icon">
+                        <service.icon size={32} strokeWidth={2} />
+                      </div>
+                    </div>
+                    <h3 className="service-title">{service.title}</h3>
+                  </div>
+                  <p className="service-description">{service.description}</p>
                 </div>
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
               </div>
             ))}
           </div>
@@ -438,7 +400,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="stats">
+<section className="stats">
         <div className="stats-container">
           <div className="stat-item">
             <div className="stat-icon">
@@ -479,7 +441,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="cta" id="book">
+  <section className="cta" id="book">
         <div className="container">
           <h2 className="cta-title">Ready to Secure Your Business?</h2>
           <p className="cta-description">
@@ -491,7 +453,7 @@ const Home = () => {
           </a>
         </div>
       </section>
-
+    
     </main>
   );
 };
