@@ -76,28 +76,7 @@ const Home = () => {
     }
   ];
 
-  const processSteps = [
-    {
-      number: 1,
-      title: 'Security Assessment',
-      description: 'We conduct a comprehensive analysis of your current security posture, identifying vulnerabilities and potential threats across all systems.'
-    },
-    {
-      number: 2,
-      title: 'Risk Analysis',
-      description: 'Our experts prioritize risks based on impact and likelihood, creating a roadmap for addressing the most critical security gaps.'
-    },
-    {
-      number: 3,
-      title: 'Implementation',
-      description: 'We deploy tailored security solutions, from firewalls to encryption, ensuring comprehensive protection across your infrastructure.'
-    },
-    {
-      number: 4,
-      title: 'Clearing Audit & Report Generation',
-      description: 'Comprehensive audit documentation and detailed reporting to ensure compliance and provide clear insights into your security status.'
-    }
-  ];
+
 
   const testimonials = [
     {
@@ -121,12 +100,12 @@ const Home = () => {
   ];
 
   const stripItems = [
-    'Endpoint Protection', 'Threat Intelligence', 'Penetration Testing', 
-    'Security Audits', 'Incident Response', 'Network Security', 
+    'Endpoint Protection', 'Threat Intelligence', 'Penetration Testing',
+    'Security Audits', 'Incident Response', 'Network Security',
     'Cloud Security', 'Compliance Management'
   ];
 
-  
+
   return (
     <main>
       <section className="hero" id="home">
@@ -143,7 +122,7 @@ const Home = () => {
         </div>
       </section>
 
-        <section className="rotating-strip">
+      <section className="rotating-strip">
         <div className="strip-container">
           <div className="strip-content">
             {stripItems.map((item, index) => (
@@ -164,7 +143,7 @@ const Home = () => {
         </div>
       </section>
 
-       <section>
+      <section>
         <div className="container">
           <div className="section-header">
             <div className="section-subtitle">Cybersecurity Excellence</div>
@@ -188,87 +167,87 @@ const Home = () => {
       </section>
 
       {/* SECTION 1 TEXT CONTENT */}
-<section className="security-intro animated-security">
-  <div className="security-intro-content">
-      <h2 className="security-title">
-      Delivering <span>True Security</span> through end-to-end solutions across
-      data protection, Agentic SOC, compliance and training.
-    </h2>
+      <section className="security-intro animated-security">
+        <div className="security-intro-content">
+          <h2 className="security-title">
+            Delivering <span>True Security</span> through end-to-end solutions across
+            data protection, Agentic SOC, compliance and training.
+          </h2>
 
-    <p className="security-text">
-      It's not just about detecting breaches. We help you identify sensitive data,
-      proactively respond to incidents, and empower your security teams to enhance
-      future preparedness.
-    </p>
-  </div>
-</section>
-
-
-
-
-<section className="home-container">
-  <div className="section-header">
-  </div>
-      <div className="security-circle">
-
-        {/* Static thin ring */}
-        <div className="static-ring"></div>
-
-        {/* Rotating thick arc */}
-        <div className="rotating-arc"></div>   
-
-        {/* Center Content */}
-        <div className="center-content">
-         <h2 className="center-highlight">
-  <span>
-    <strong>How We Secure Your Business</strong>
-    <p>
-      A systematic approach to identifying vulnerabilities, implementing
-      defenses, and maintaining continuous security.
-    </p>
-  </span></h2>
-</div>
-
-        {/* Box 1 */}
-        <div className="cycle-card top">
-          <h4><FaSearch /> Security Assessment</h4>
-          <p>
-            We conduct a comprehensive analysis of your current security posture,
-            identifying vulnerabilities and potential threats across all systems.
+          <p className="security-text">
+            It's not just about detecting breaches. We help you identify sensitive data,
+            proactively respond to incidents, and empower your security teams to enhance
+            future preparedness.
           </p>
         </div>
+      </section>
 
-        {/* Box 2 */}
-        <div className="cycle-card right">
-          <h4><FaExclamationTriangle /> Risk Analysis</h4>
-          <p>
-            Our experts prioritize risks based on impact and likelihood, creating
-            a roadmap for addressing the most critical security gaps.
-          </p>
+
+
+
+      <section className="home-container">
+        <div className="section-header">
         </div>
+        <div className="security-circle">
 
-        {/* Box 3 */}
-        <div className="cycle-card bottom">
-          <h4><FaTools /> Implementation</h4>
-          <p>
-            We deploy tailored security solutions, from firewalls to encryption,
-            ensuring comprehensive protection across your infrastructure.
-          </p>
+          {/* Static thin ring */}
+          <div className="static-ring"></div>
+
+          {/* Rotating thick arc */}
+          <div className="rotating-arc"></div>
+
+          {/* Center Content */}
+          <div className="center-content">
+            <h2 className="center-highlight">
+              <span>
+                <strong>How We Secure Your Business</strong>
+                <p>
+                  A systematic approach to identifying vulnerabilities, implementing
+                  defenses, and maintaining continuous security.
+                </p>
+              </span></h2>
+          </div>
+
+          {/* Box 1 */}
+          <div className="cycle-card top">
+            <h4><FaSearch /> Security Assessment</h4>
+            <p>
+              We conduct a comprehensive analysis of your current security posture,
+              identifying vulnerabilities and potential threats across all systems.
+            </p>
+          </div>
+
+          {/* Box 2 */}
+          <div className="cycle-card right">
+            <h4><FaExclamationTriangle /> Risk Analysis</h4>
+            <p>
+              Our experts prioritize risks based on impact and likelihood, creating
+              a roadmap for addressing the most critical security gaps.
+            </p>
+          </div>
+
+          {/* Box 3 */}
+          <div className="cycle-card bottom">
+            <h4><FaTools /> Implementation</h4>
+            <p>
+              We deploy tailored security solutions, from firewalls to encryption,
+              ensuring comprehensive protection across your infrastructure.
+            </p>
+          </div>
+
+          {/* Box 4 */}
+          <div className="cycle-card left">
+            <h4><FaFileAlt /> Clearing Audit & Report Generation</h4>
+            <p>
+              Comprehensive audit documentation and detailed reporting to ensure
+              compliance and provide clear insights into your security status.
+            </p>
+          </div>
+
         </div>
+      </section>
 
-        {/* Box 4 */}
-        <div className="cycle-card left">
-          <h4><FaFileAlt /> Clearing Audit & Report Generation</h4>
-          <p>
-            Comprehensive audit documentation and detailed reporting to ensure
-            compliance and provide clear insights into your security status.
-          </p>
-        </div>
 
-      </div>
-    </section>
-
- 
       <section className="services" id="services">
         <div className="container">
           <div className="section-header">
@@ -327,7 +306,7 @@ const Home = () => {
         </div>
       </section>
 
-<section className="stats">
+      <section className="stats">
         <div className="stats-container">
           <div className="stat-item">
             <div className="stat-number">500+</div>
@@ -348,7 +327,7 @@ const Home = () => {
         </div>
       </section>
 
-  <section className="cta" id="book">
+      <section className="cta" id="book">
         <div className="container">
           <h2 className="cta-title">Ready to Secure Your Business?</h2>
           <p className="cta-description">
@@ -357,7 +336,7 @@ const Home = () => {
           <a href="#contact" className="btn-primary">Get Your Audit Quote Now</a>
         </div>
       </section>
-    
+
     </main>
   );
 };
