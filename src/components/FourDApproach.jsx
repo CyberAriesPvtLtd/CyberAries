@@ -46,10 +46,11 @@ export default function FourDApproach() {
     }
 
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      /* eslint-disable react-hooks/exhaustive-deps */
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
+      /* eslint-enable react-hooks/exhaustive-deps */
     };
   }, []);
 
