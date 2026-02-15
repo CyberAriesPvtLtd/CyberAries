@@ -91,12 +91,8 @@ const Footer = () => {
       
       <div className="footer-bottom">
         <div className="footer-bottom-content">
-          <div className="footer-copyright">
-            © 2026 CyberAries Pvt Ltd. All Rights Reserved.
-          </div>
-          <div></div>
-          <div></div>
-          <div className="footer-links-bottom">
+          <div>© 2026 CyberAries Pvt Ltd. All Rights Reserved.</div>
+          <div>
             <Link to="/terms-conditions">Terms & Conditions</Link>
             <Link to="/privacy-policy">Privacy Policy</Link>
           </div>

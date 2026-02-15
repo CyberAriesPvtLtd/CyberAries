@@ -1,8 +1,7 @@
 import React from 'react';
-import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import ScrollReveal from '../../../../components/ScrollReveal';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/code-image.jpg';
-import Footer from '../../../../components/Footer';
 
 import {
   FileSearch,
@@ -327,7 +326,7 @@ const SourceCodeReview = () => {
         </div>
       </section>
 
-      <Footer />
+       
     </div>
   );
 };

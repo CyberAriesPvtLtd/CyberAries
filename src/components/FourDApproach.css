@@ -1,30 +1,55 @@
-.four-d-timeline {
-  background: #f8f9fa;
-  padding: 100px 20px;
+.four-d {
+  background: #fff;
+  padding: 120px 20px;
+  text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-/* Container */
-.timeline-container {
-  max-width: 1400px;
-  margin: 0 auto;
+/* Subtle background animation */
+.four-d::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(217, 35, 68, 0.03),
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  animation: pulseGlow 8s ease-in-out infinite;
+  pointer-events: none;
 }
 
-/* ================================
-   HEADER
-================================ */
-.timeline-header {
-  text-align: center;
-  margin-bottom: 80px;
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.four-d-title {
+  font-size: 2.6rem;
+  margin-bottom: 90px;
+  color: #D92344;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
   opacity: 0;
-  animation: fadeInDown 0.8s ease forwards;
+  animation: fadeInTitle 1s ease forwards;
 }
 
-@keyframes fadeInDown {
+@keyframes fadeInTitle {
   from {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
@@ -32,523 +57,395 @@
   }
 }
 
-.timeline-title {
-  font-size: 3rem;
-  color: #D92344;
-  font-weight: 800;
-  margin-bottom: 16px;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-}
-
-.timeline-subtitle {
-  font-size: 1.15rem;
-  color: #666;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* ================================
-   CARDS SECTION (Top Part)
-================================ */
-.timeline-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  margin-bottom: 80px;
+/* PATH LAYOUT */
+.four-d-path {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
   position: relative;
+  perspective: 1500px;
+  flex-wrap: wrap;
+  z-index: 1;
 }
 
-.timeline-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+/* STEP CONTAINER - SMOOTH ENTRY */
+.four-d-step {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(60px) scale(0.9);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
 }
 
-.timeline-card.active {
+.four-d-step.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-.timeline-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(217, 35, 68, 0.15);
-}
-
-/* Image Section */
-.card-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-}
-
-.card-image {
-  width: 100%;
-  height: 100%;
+/* 3D CARD - ULTRA SMOOTH */
+.four-d-card {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  width: 240px;
+  padding: 36px 22px 32px;
+  border-radius: 22px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    inset 0 0 0 1px rgba(217, 35, 68, 0.1);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
   position: relative;
   overflow: hidden;
 }
 
-/* Icon as placeholder for image */
-.card-icon-large {
+/* Subtle shine effect */
+.four-d-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.four-d-step.active .four-d-card::before {
+  left: 100%;
+}
+
+.four-d-card:hover {
+  box-shadow:
+    0 30px 60px rgba(217, 35, 68, 0.15),
+    0 5px 15px rgba(217, 35, 68, 0.1),
+    inset 0 0 0 2px rgba(217, 35, 68, 0.3);
+  background: linear-gradient(145deg, #ffffff, #fef5f6);
+}
+
+.four-d-step.active .four-d-card {
+  box-shadow:
+    0 25px 50px rgba(217, 35, 68, 0.12),
+    0 3px 8px rgba(217, 35, 68, 0.08),
+    inset 0 0 0 1px rgba(217, 35, 68, 0.2);
+}
+
+/* ICON - SMOOTH SCALE */
+.icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #D92344, #ff4f6d);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #D92344, #ff4f6d);
-  color: white;
-  transition: all 0.5s ease;
+  font-size: 2rem;
+  margin: 0 auto 18px;
+  transform: translateZ(40px) scale(0.8);
+  box-shadow:
+    0 0 0 6px rgba(217, 35, 68, 0.1),
+    0 8px 24px rgba(217, 35, 68, 0.4);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.timeline-card:hover .card-icon-large {
-  transform: scale(1.1);
+.four-d-step.active .icon {
+  transform: translateZ(40px) scale(1);
+  box-shadow:
+    0 0 0 6px rgba(217, 35, 68, 0.15),
+    0 12px 32px rgba(217, 35, 68, 0.5);
 }
 
-/* Illustrated SVG scenes */
-.card-illustration {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s ease;
+.four-d-card:hover .icon {
+  transform: translateZ(50px) scale(1.1) rotate(5deg);
+  box-shadow:
+    0 0 0 8px rgba(217, 35, 68, 0.2),
+    0 15px 40px rgba(217, 35, 68, 0.6);
 }
 
-.timeline-card:hover .card-illustration {
-  transform: scale(1.05);
-}
-
-/* If you use actual images, add this: */
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.timeline-card:hover .card-image img {
-  transform: scale(1.1);
-}
-
-/* Content Section */
-.card-content {
-  padding: 28px 24px;
-  background: white;
-}
-
-.card-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 12px;
-  transition: color 0.3s ease;
-}
-
-.timeline-card:hover .card-title {
+/* TEXT - SMOOTH FADE */
+.four-d-step h3 {
   color: #D92344;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  transform: translateZ(30px);
+  font-weight: 700;
+  opacity: 0.7;
+  transition: all 0.4s ease;
 }
 
-.card-description {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #666;
-  margin: 0;
-}
-
-/* ================================
-   TIMELINE SECTION - COMPLETE FIX
-================================ */
-.timeline-track {
-  position: relative;
-  padding: 0;
-  margin-top: 60px;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Container for line - controls boundaries */
-.timeline-line {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: transparent;
-  margin: 0;
-  padding: 0;
-}
-
-/* Background line - stays within dots */
-.timeline-line::before {
-  content: '';
-  position: absolute;
-  left: calc(12.5% - 10px); /* Start at center of first dot */
-  right: calc(12.5% - 10px); /* End at center of last dot */
-  height: 4px;
-  background: #e0e0e0;
-  border-radius: 2px;
-}
-
-/* Animated progress line */
-.timeline-progress {
-  position: absolute;
-  top: 0;
-  left: calc(12.5% - 10px); /* Start at first dot center */
-  height: 4px;
-  width: 0;
-  max-width: calc(75% + 20px); /* Can't go beyond last dot */
-  background: linear-gradient(90deg, #D92344, #ff4f6d, #ff6b8a);
-  border-radius: 2px;
-  transition: width 8s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 10px rgba(217, 35, 68, 0.4);
-  will-change: width;
-}
-
-/* Timeline Points - Perfect Grid */
-.timeline-points {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  position: relative;
-  width: 100%;
-  gap: 0;
-  z-index: 2;
-}
-
-.timeline-point {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-/* Point Dot */
-.point-dot {
-  width: 20px;
-  height: 20px;
-  background: #e0e0e0;
-  border: 4px solid #fff;
-  border-radius: 50%;
-  margin-bottom: 16px;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 2;
-}
-
-.timeline-point.active .point-dot {
-  background: linear-gradient(135deg, #D92344, #ff4f6d);
-  transform: scale(1.3);
-  box-shadow: 0 4px 16px rgba(217, 35, 68, 0.4);
-  animation: dotPulse 2s ease-in-out infinite;
-}
-
-@keyframes dotPulse {
-  0%, 100% {
-    box-shadow: 0 4px 16px rgba(217, 35, 68, 0.4);
-  }
-  50% {
-    box-shadow: 0 4px 24px rgba(217, 35, 68, 0.6),
-                0 0 0 8px rgba(217, 35, 68, 0.1);
-  }
-}
-
-/* Point Label */
-.point-label {
-  text-align: center;
-  opacity: 0.6;
-  transition: opacity 0.5s ease;
-  width: 100%;
-}
-
-.timeline-point.active .point-label {
+.four-d-step.active h3 {
   opacity: 1;
 }
 
-.point-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 6px;
-  transition: color 0.5s ease;
+.four-d-card:hover h3 {
+  transform: translateZ(35px);
+  color: #b91c1c;
 }
 
-.timeline-point.active .point-title {
-  color: #D92344;
+.four-d-step p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  transform: translateZ(20px);
+  opacity: 0.8;
+  transition: all 0.4s ease;
 }
 
-.point-date {
-  font-size: 0.9rem;
-  color: #888;
-  font-weight: 500;
+.four-d-step.active p {
+  opacity: 1;
 }
 
+.four-d-card:hover p {
+  transform: translateZ(25px);
+  color: #444;
+}
 
-/* Hide mobile cards on desktop */
-@media (min-width: 769px) {
-  .mobile-card {
-    display: none !important;
+/* ================================
+   CONNECTING LINES - DESKTOP (HORIZONTAL)
+================================ */
+.line {
+  position: absolute;
+  top: 50%;
+  right: -140px;
+  width: 130px;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(217, 35, 68, 0.15),
+    rgba(217, 35, 68, 0.25)
+  );
+  border-radius: 6px;
+  overflow: hidden;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 8px rgba(217, 35, 68, 0.1);
+}
+
+/* ANIMATED DRAW - ULTRA SMOOTH */
+.line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: linear-gradient(
+    90deg,
+    #D92344,
+    #ff4f6d,
+    #ff6b8a
+  );
+  border-radius: 6px;
+  box-shadow: 
+    0 0 12px rgba(217, 35, 68, 0.6),
+    0 0 24px rgba(217, 35, 68, 0.3);
+  transition: width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.line.draw::after {
+  width: 100%;
+}
+
+/* Pulsing glow on active line */
+@keyframes linePulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 12px rgba(217, 35, 68, 0.6),
+      0 0 24px rgba(217, 35, 68, 0.3);
   }
+  50% {
+    box-shadow: 
+      0 0 20px rgba(217, 35, 68, 0.8),
+      0 0 36px rgba(217, 35, 68, 0.5);
+  }
+}
+
+.line.draw::after {
+  animation: linePulse 2s ease-in-out infinite;
 }
 
 /* ================================
    RESPONSIVE - TABLET
 ================================ */
 @media (max-width: 1024px) {
-  .timeline-title {
-    font-size: 2.5rem;
+  .four-d-path {
+    gap: 80px;
   }
 
-  .timeline-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-bottom: 60px;
+  .line {
+    width: 90px;
+    right: -100px;
   }
 
-  .card-image-wrapper {
-    height: 200px;
-  }
-
-  .timeline-track {
-    padding: 0 20px;
+  .four-d-card {
+    width: 220px;
   }
 }
 
 /* ================================
-   RESPONSIVE - MOBILE
+   RESPONSIVE - MOBILE (VERTICAL LINES)
 ================================ */
 @media (max-width: 768px) {
-  .four-d-timeline {
+  .four-d {
     padding: 80px 20px;
   }
 
-  .timeline-header {
+  .four-d-title {
+    font-size: 2rem;
     margin-bottom: 60px;
   }
 
-  .timeline-title {
-    font-size: 2rem;
-    line-height: 1.3;
+  /* VERTICAL LAYOUT */
+  .four-d-path {
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
   }
 
-  .timeline-subtitle {
-    font-size: 1rem;
+  .four-d-card {
+    width: 280px;
+    max-width: 90%;
   }
 
-  /* Stack cards vertically */
-  .timeline-cards {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  /* VERTICAL LINE - MOBILE */
+  .line {
+    /* Remove horizontal positioning */
+    top: auto;
+    right: auto;
+    left: 50%;
+    bottom: -80px;
+    
+    /* Make it vertical */
+    width: 6px;
+    height: 70px;
+    
+    transform: translateX(-50%);
+    
+    background: linear-gradient(
+      180deg,
+      rgba(217, 35, 68, 0.15),
+      rgba(217, 35, 68, 0.25)
+    );
+  }
+
+  /* VERTICAL DRAW ANIMATION */
+  .line::after {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(
+      180deg,
+      #D92344,
+      #ff4f6d,
+      #ff6b8a
+    );
+    transition: height 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .line.draw::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Vertical spacing for mobile */
+  .four-d-step {
+    transform: translateY(40px) scale(0.95);
+  }
+
+  .four-d-step.active {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================================
+   RESPONSIVE - SMALL MOBILE
+================================ */
+@media (max-width: 480px) {
+  .four-d {
+    padding: 60px 15px;
+  }
+
+  .four-d-title {
+    font-size: 1.6rem;
     margin-bottom: 50px;
+    line-height: 1.3;
   }
 
-  .card-image-wrapper {
-    height: 180px;
+  .four-d-path {
+    gap: 50px;
   }
 
-  .card-content {
-    padding: 24px 20px;
+  .four-d-card {
+    width: 100%;
+    max-width: 300px;
+    padding: 30px 20px;
   }
 
-  .card-title {
+  .icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+  }
+
+  .four-d-step h3 {
     font-size: 1.3rem;
   }
 
-  .card-description {
-    font-size: 0.925rem;
+  .four-d-step p {
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 
-  /* Vertical Timeline on Mobile */
-  .timeline-track {
-    padding: 0;
-    margin-top: 40px;
-  }
-
-  .timeline-line {
-    display: none;
-  }
-
-  .timeline-points {
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .timeline-point {
-    flex-direction: row;
-    align-items: center !important;
-    justify-content: flex-start;
-    width: 100%;
-  }
-
-  .timeline-point:first-child,
-  .timeline-point:last-child {
-    align-items: center !important;
-  }
-
-  .point-dot {
-    margin-bottom: 0;
-    margin-right: 16px;
-    flex-shrink: 0;
-  }
-
-  .point-label {
-    text-align: left;
-  }
-
-  .point-title {
-    font-size: 1rem;
-  }
-
-  .point-date {
-    font-size: 0.85rem;
+  /* Shorter line for small screens */
+  .line {
+    height: 60px;
+    bottom: -70px;
   }
 }
 
 /* ================================
-   RESPONSIVE - MOBILE
+   RESPONSIVE - EXTRA SMALL
 ================================ */
-@media (max-width: 768px) {
-  .four-d-timeline {
-    padding: 80px 20px;
+@media (max-width: 380px) {
+  .four-d-title {
+    font-size: 1.4rem;
   }
 
-  .timeline-header {
-    margin-bottom: 60px;
+  .four-d-card {
+    padding: 25px 18px;
   }
 
-  .timeline-title {
-    font-size: 2rem;
-    line-height: 1.3;
+  .icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
   }
 
-  .timeline-subtitle {
-    font-size: 1rem;
+  .four-d-step h3 {
+    font-size: 1.2rem;
   }
 
-  /* Hide desktop cards */
-  .timeline-cards {
-    display: none;
+  .four-d-step p {
+    font-size: 0.9rem;
   }
+}
 
-  /* Mobile Timeline Container */
-  .timeline-track {
-    padding: 0;
-    margin-top: 0;
-    position: relative;
-  }
-
-  /* Hide horizontal line */
-  .timeline-line {
-    display: none;
-  }
-
-  /* Vertical Timeline Layout */
-  .timeline-points {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    position: relative;
-  }
-
-  /* Individual Timeline Point */
-  .timeline-point {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    position: relative;
-    padding-bottom: 50px;
-    min-height: auto;
-  }
-
-  .timeline-point:last-child {
-    padding-bottom: 0;
-  }
-
-  /* Left Side - Dot - Static on Mobile */
-  .point-dot {
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(135deg, #D92344, #ff4f6d);
-    border: 4px solid #fff;
-    border-radius: 50%;
-    margin: 4px 0 0 0;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 3;
-    box-shadow: 0 4px 16px rgba(217, 35, 68, 0.4);
-  }
-
-  /* Remove Vertical Line on Mobile */
-  .timeline-point::before {
-    display: none;
-  }
-
-  /* Right Side - Content Wrapper */
-  .point-label {
-    flex: 1;
-    margin-left: 24px;
-    text-align: left;
-    opacity: 1;
-    width: 100%;
-  }
-
-  /* Title - Static on Mobile */
-  .point-title {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #D92344;
-    margin-bottom: 4px;
-  }
-
-  /* Stage Label - Static on Mobile */
-  .point-date {
-    font-size: 0.85rem;
-    color: #D92344;
-    font-weight: 500;
-    margin-bottom: 12px;
-    display: block;
-  }
-
-  /* Mobile Card - Static on Mobile */
-  .mobile-card {
-    display: block;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(217, 35, 68, 0.12);
-    border-left: 3px solid #D92344;
-    margin-top: 12px;
-  }
-
-  .mobile-card-description {
-    font-size: 0.925rem;
-    line-height: 1.6;
-    color: #666;
-    margin: 0;
-  }
+/* Smooth scroll behavior for entire section */
+.four-d * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ================================
    ACCESSIBILITY
 ================================ */
 @media (prefers-reduced-motion: reduce) {
-  .timeline-card,
-  .timeline-progress,
-  .point-dot,
-  .card-icon-large,
-  .card-image img {
-    transition: none !important;
-    animation: none !important;
+  .four-d-step,
+  .icon,
+  .line::after,
+  .four-d-card::before {
+    transition: none;
+    animation: none;
   }
-}
-
-/* Smooth rendering */
-.four-d-timeline * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }

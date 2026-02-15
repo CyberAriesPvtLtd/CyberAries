@@ -1,8 +1,7 @@
 import React from 'react';
-import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import ScrollReveal from '../../../../components/ScrollReveal';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/api-image.jpg';
-import Footer from '../../../../components/Footer';
 
 import { 
   FileText,
@@ -299,7 +298,7 @@ const APISecurityTesting = () => {
         </div>
       </section>
 
-      <Footer />
+       
     </div>
   );
 };

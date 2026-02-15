@@ -1,6 +1,6 @@
 import React from 'react';
-import ApproachCard from '../../../../components/common/ApproachCard';
-import ScrollReveal from '../../../../components/common/ScrollReveal';
+import ApproachCard from '../../../../components/ApproachCard';
+import ScrollReveal from '../../../../components/ScrollReveal';
 import { 
   FileSearch,
   Users,
