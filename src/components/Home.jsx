@@ -11,38 +11,7 @@ import { Network, Lock, UserCheck, Eye, CloudUpload, Settings } from 'lucide-rea
 
 
 const Home = () => {
-  const features = [
-    {
-      icon: 'fas fa-shield-alt',
-      title: 'Vulnerability Assessment',
-      description: 'Identify weaknesses before attackers do, reduce risk exposure, and strengthen your overall security posture with comprehensive vulnerability scanning.'
-    },
-    {
-      icon: 'fas fa-cloud',
-      title: 'Data Protection',
-      description: 'Safeguard sensitive data against breaches and leaks with strong encryption, access control, and secure storage solutions.'
-    },
-    {
-      icon: 'fas fa-award',
-      title: 'Brand Reputation',
-      description: 'Maintain customer trust and brand integrity by preventing cyber incidents and demonstrating strong data responsibility.'
-    },
-    {
-      icon: 'fas fa-search-plus',
-      title: 'Advanced Threat Detection',
-      description: 'Leverage real-time monitoring and AI-driven analytics to detect threats on your systems before they cause damage.'
-    },
-    {
-      icon: 'fas fa-fingerprint',
-      title: 'Zero Trust Architecture',
-      description: 'Enforce strict access control and verification at every level to prevent lateral movement in your network.'
-    },
-    {
-      icon: 'fas fa-clipboard-check',
-      title: 'Compliance & Governance',
-      description: 'Achieve and maintain compliance with ISO 27001, RBI guidelines, GDPR, and other regulatory requirements.'
-    }
-  ];
+
 
 
   const services = [
@@ -78,28 +47,7 @@ const Home = () => {
     }
   ];
 
-  const processSteps = [
-    {
-      number: 1,
-      title: 'Security Assessment',
-      description: 'We conduct a comprehensive analysis of your current security posture, identifying vulnerabilities and potential threats across all systems.'
-    },
-    {
-      number: 2,
-      title: 'Risk Analysis',
-      description: 'Our experts prioritize risks based on impact and likelihood, creating a roadmap for addressing the most critical security gaps.'
-    },
-    {
-      number: 3,
-      title: 'Implementation',
-      description: 'We deploy tailored security solutions, from firewalls to encryption, ensuring comprehensive protection across your infrastructure.'
-    },
-    {
-      number: 4,
-      title: 'Clearing Audit & Report Generation',
-      description: 'Comprehensive audit documentation and detailed reporting to ensure compliance and provide clear insights into your security status.'
-    }
-  ];
+
 
   const testimonials = [
     {
@@ -159,12 +107,12 @@ const Home = () => {
   ];
 
   const stripItems = [
-    'Endpoint Protection', 'Threat Intelligence', 'Penetration Testing', 
-    'Security Audits', 'Incident Response', 'Network Security', 
+    'Endpoint Protection', 'Threat Intelligence', 'Penetration Testing',
+    'Security Audits', 'Incident Response', 'Network Security',
     'Cloud Security', 'Compliance Management'
   ];
 
-  
+
   return (
     <main>
       <section className="hero" id="home">
