@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
-import { 
-  Shield, 
-  Lock, 
-  FileText, 
-  AlertTriangle, 
-  CheckCircle, 
-  Settings, 
-  BarChart3, 
-  Users, 
+import {
+  Shield,
+  Lock,
+  FileText,
+  AlertTriangle,
+  CheckCircle,
+  // eslint-disable-next-line no-unused-vars
+  Settings,
+  BarChart3,
+  // eslint-disable-next-line no-unused-vars
+  Users,
   Globe,
   Database,
   Bell,
@@ -246,7 +248,7 @@ const RBIPaymentSystems = () => {
               </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="challenges-grid">
             {challengesData.map((challenge, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100} triggerOnce={false}>
@@ -274,7 +276,7 @@ const RBIPaymentSystems = () => {
               </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="components-grid">
             {paymentComponents.map((component, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100} triggerOnce={false}>
@@ -303,7 +305,7 @@ const RBIPaymentSystems = () => {
               </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="solutions-grid">
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100} triggerOnce={false}>
@@ -358,7 +360,7 @@ const RBIPaymentSystems = () => {
               <h2 className="section-title">Why Choose Cyberaries for Payment Audits?</h2>
             </div>
           </ScrollReveal>
-          
+
           <div className="why-choose-grid">
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150} triggerOnce={false}>
@@ -381,7 +383,7 @@ const RBIPaymentSystems = () => {
           <ScrollReveal animation="fade-up" triggerOnce={false}>
             <h2 className="difference-title">
               THE <span className="highlight-red">CYBERARIES</span> DIFFERENCE
-            </h2>          
+            </h2>
           </ScrollReveal>
 
           <div className="comparison-grid">

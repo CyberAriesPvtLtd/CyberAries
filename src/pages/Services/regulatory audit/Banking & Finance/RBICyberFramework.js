@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
-import { 
-  Shield, 
-  Lock, 
-  FileText, 
-  AlertTriangle, 
-  CheckCircle, 
-  Settings, 
-  BarChart3, 
-  Users, 
+import {
+  Shield,
+  Lock,
+  FileText,
+  AlertTriangle,
+  CheckCircle,
+  Settings,
+  BarChart3,
+  Users,
   Globe,
   Database,
   Bell,
@@ -20,6 +20,7 @@ import {
   FileCheck,
   UserCheck,
   Network,
+  // eslint-disable-next-line no-unused-vars
   Key,
   BookOpen,
   Target
@@ -239,7 +240,7 @@ const RBICyberFramework = () => {
               </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="challenges-grid">
             {challengesData.map((challenge, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100} triggerOnce={false}>
@@ -267,7 +268,7 @@ const RBICyberFramework = () => {
               </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="components-grid">
             {frameworkComponents.map((component, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100} triggerOnce={false}>
@@ -296,7 +297,7 @@ const RBICyberFramework = () => {
               </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="solutions-grid">
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100} triggerOnce={false}>
@@ -351,7 +352,7 @@ const RBICyberFramework = () => {
               <h2 className="section-title">Why Choose Cyberaries for RBI Compliance?</h2>
             </div>
           </ScrollReveal>
-          
+
           <div className="why-choose-grid">
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150} triggerOnce={false}>
@@ -374,7 +375,7 @@ const RBICyberFramework = () => {
           <ScrollReveal animation="fade-up" triggerOnce={false}>
             <h2 className="difference-title">
               THE <span className="highlight-red">CYBERARIES</span> DIFFERENCE
-            </h2>          
+            </h2>
           </ScrollReveal>
 
           <div className="comparison-grid">

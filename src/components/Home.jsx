@@ -7,10 +7,11 @@ import {
   FaCogs,
   FaClipboardCheck
 } from "react-icons/fa";
-  import { Network, Lock, UserCheck, Eye, CloudUpload, Settings } from 'lucide-react';
+import { Network, Lock, UserCheck, Eye, CloudUpload, Settings } from 'lucide-react';
 
 
 const Home = () => {
+  // eslint-disable-next-line no-unused-vars
   const features = [
     {
       icon: 'fas fa-shield-alt',
@@ -78,6 +79,7 @@ const Home = () => {
     }
   ];
 
+  // eslint-disable-next-line no-unused-vars
   const processSteps = [
     {
       number: 1,
@@ -158,13 +160,14 @@ const Home = () => {
     }
   ];
 
+  // eslint-disable-next-line no-unused-vars
   const stripItems = [
-    'Endpoint Protection', 'Threat Intelligence', 'Penetration Testing', 
-    'Security Audits', 'Incident Response', 'Network Security', 
+    'Endpoint Protection', 'Threat Intelligence', 'Penetration Testing',
+    'Security Audits', 'Incident Response', 'Network Security',
     'Cloud Security', 'Compliance Management'
   ];
 
-  
+
   return (
     <main>
       <section className="hero" id="home">
@@ -179,7 +182,7 @@ const Home = () => {
 
             {/* Main Title */}
             <h1 className="hero-title">
-              Comprehensive 
+              Comprehensive
               <span className="hero-highlight"> Cyber Security</span>
               <br />
               Solutions For Your Business
@@ -234,100 +237,100 @@ const Home = () => {
         </div>
       </section>
 
-<section className="security-intro">
-  <div className="container">
-    <h2 className="security-title">
-      Your Security, <span>Our Mission</span>
-    </h2>
+      <section className="security-intro">
+        <div className="container">
+          <h2 className="security-title">
+            Your Security, <span>Our Mission</span>
+          </h2>
 
-    <p className="security-text">
-      We don't just detect threats—we prevent them. From proactive monitoring and 
-      incident response to compliance management and security training, we deliver 
-      comprehensive protection that keeps your business ahead of evolving cyber risks.
-    </p>
-
-    <div className="security-stats-mini">
-      <div className="stat-mini">
-        <strong>24/7</strong>
-        <span>Threat Monitoring</span>
-      </div>
-      <div className="stat-mini">
-        <strong>15+</strong>
-        <span>Industry Certifications</span>
-      </div>
-      <div className="stat-mini">
-        <strong>99.9%</strong>
-        <span>Detection Rate</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section className="home-container">
-  <div className="section-header">
-  </div>
-      <div className="security-circle">
-
-        {/* Static thin ring */}
-        <div className="static-ring"></div>
-
-        {/* Rotating thick arc */}
-        <div className="rotating-arc"></div>   
-
-        {/* Center Content */}
-        <div className="center-content">
-         <h2 className="center-highlight">
-  <span>
-    <strong>How We Secure Your Business</strong>
-    <p>
-      A systematic approach to identifying vulnerabilities, implementing
-      defenses, and maintaining continuous security.
-    </p>
-  </span></h2>
-</div>
-
-        {/* Box 1 - Security Assessment */}
-        <div className="cycle-card top">
-          <h4><FaShieldAlt /> Security Assessment</h4>
-          <p>
-            We conduct a comprehensive analysis of your current security posture,
-            identifying vulnerabilities and potential threats across all systems.
+          <p className="security-text">
+            We don't just detect threats—we prevent them. From proactive monitoring and
+            incident response to compliance management and security training, we deliver
+            comprehensive protection that keeps your business ahead of evolving cyber risks.
           </p>
+
+          <div className="security-stats-mini">
+            <div className="stat-mini">
+              <strong>24/7</strong>
+              <span>Threat Monitoring</span>
+            </div>
+            <div className="stat-mini">
+              <strong>15+</strong>
+              <span>Industry Certifications</span>
+            </div>
+            <div className="stat-mini">
+              <strong>99.9%</strong>
+              <span>Detection Rate</span>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Box 2 - Risk Analysis */}
-        <div className="cycle-card right">
-          <h4><FaChartLine /> Risk Analysis</h4>
-          <p>
-            Our experts prioritize risks based on impact and likelihood, creating
-            a roadmap for addressing the most critical security gaps.
-          </p>
+
+
+      <section className="home-container">
+        <div className="section-header">
         </div>
+        <div className="security-circle">
 
-        {/* Box 3 - Implementation */}
-        <div className="cycle-card bottom">
-          <h4><FaCogs /> Implementation</h4>
-          <p>
-            We deploy tailored security solutions, from firewalls to encryption,
-            ensuring comprehensive protection across your infrastructure.
-          </p>
+          {/* Static thin ring */}
+          <div className="static-ring"></div>
+
+          {/* Rotating thick arc */}
+          <div className="rotating-arc"></div>
+
+          {/* Center Content */}
+          <div className="center-content">
+            <h2 className="center-highlight">
+              <span>
+                <strong>How We Secure Your Business</strong>
+                <p>
+                  A systematic approach to identifying vulnerabilities, implementing
+                  defenses, and maintaining continuous security.
+                </p>
+              </span></h2>
+          </div>
+
+          {/* Box 1 - Security Assessment */}
+          <div className="cycle-card top">
+            <h4><FaShieldAlt /> Security Assessment</h4>
+            <p>
+              We conduct a comprehensive analysis of your current security posture,
+              identifying vulnerabilities and potential threats across all systems.
+            </p>
+          </div>
+
+          {/* Box 2 - Risk Analysis */}
+          <div className="cycle-card right">
+            <h4><FaChartLine /> Risk Analysis</h4>
+            <p>
+              Our experts prioritize risks based on impact and likelihood, creating
+              a roadmap for addressing the most critical security gaps.
+            </p>
+          </div>
+
+          {/* Box 3 - Implementation */}
+          <div className="cycle-card bottom">
+            <h4><FaCogs /> Implementation</h4>
+            <p>
+              We deploy tailored security solutions, from firewalls to encryption,
+              ensuring comprehensive protection across your infrastructure.
+            </p>
+          </div>
+
+          {/* Box 4 - Audit & Report */}
+          <div className="cycle-card left">
+            <h4><FaClipboardCheck /> Clearing Audit & Report Generation</h4>
+            <p>
+              Comprehensive audit documentation and detailed reporting to ensure
+              compliance and provide clear insights into your security status.
+            </p>
+          </div>
+
         </div>
+      </section>
 
-        {/* Box 4 - Audit & Report */}
-        <div className="cycle-card left">
-          <h4><FaClipboardCheck /> Clearing Audit & Report Generation</h4>
-          <p>
-            Comprehensive audit documentation and detailed reporting to ensure
-            compliance and provide clear insights into your security status.
-          </p>
-        </div>
 
-      </div>
-    </section>
-
- 
       <section className="services" id="services">
         <div className="container">
           <div className="section-header">
@@ -400,7 +403,7 @@ const Home = () => {
         </div>
       </section>
 
-<section className="stats">
+      <section className="stats">
         <div className="stats-container">
           <div className="stat-item">
             <div className="stat-icon">
@@ -441,7 +444,7 @@ const Home = () => {
         </div>
       </section>
 
-  <section className="cta" id="book">
+      <section className="cta" id="book">
         <div className="container">
           <h2 className="cta-title">Ready to Secure Your Business?</h2>
           <p className="cta-description">
@@ -453,7 +456,7 @@ const Home = () => {
           </a>
         </div>
       </section>
-    
+
     </main>
   );
 };
