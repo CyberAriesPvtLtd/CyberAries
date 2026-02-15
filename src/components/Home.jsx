@@ -251,16 +251,16 @@ const Home = () => {
 
           <div className="security-stats-mini">
             <div className="stat-mini">
-              <strong>24/7</strong>
-              <span>Threat Monitoring</span>
+              <strong>50+</strong>
+              <span>Security Experts</span>
             </div>
             <div className="stat-mini">
               <strong>15+</strong>
               <span>Industry Certifications</span>
             </div>
             <div className="stat-mini">
-              <strong>99.9%</strong>
-              <span>Detection Rate</span>
+              <strong>10+</strong>
+              <span>Years Experience</span>
             </div>
           </div>
         </div>
@@ -281,14 +281,14 @@ const Home = () => {
 
           {/* Center Content */}
           <div className="center-content">
-            <h2 className="center-highlight">
+            <div className="center-highlight">
               <span>
                 <strong>How We Secure Your Business</strong>
-                <p>
+                <span className="center-desc">
                   A systematic approach to identifying vulnerabilities, implementing
                   defenses, and maintaining continuous security.
-                </p>
-              </span></h2>
+                </span>
+              </span></div>
           </div>
 
           {/* Box 1 - Security Assessment */}
@@ -450,7 +450,7 @@ const Home = () => {
           <p className="cta-description">
             We focus on understanding your business first—not selling tools. Schedule a consultation with our security experts to build a resilient cybersecurity strategy that lasts.
           </p>
-          <a href="#contact" className="cta-btn">
+          <a href="/contact" className="cta-btn">
             <span>Get Your Audit Quote Now</span>
             <i className="fas fa-arrow-right"></i>
           </a>
