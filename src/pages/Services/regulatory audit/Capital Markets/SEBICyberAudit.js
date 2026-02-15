@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
-import { 
-  Shield, Lock, FileText, CheckCircle, Settings, BarChart3, Users, Globe, Database, Bell, Eye, Award, Handshake, RefreshCw, FileCheck, UserCheck, Network, Server, TrendingUp, Activity, Clipboard, Search, Target, Zap, Clock, ChevronDown, ChevronRight, Star, Phone, Mail, Calendar, DollarSign, Check, X, ArrowRight
+import {
+  Shield, Lock, FileText, CheckCircle, Settings, BarChart3, Users, Database, Bell, Eye, Award, Handshake, RefreshCw, FileCheck, UserCheck, Network, TrendingUp, Activity, Search, Target, Clock, ChevronDown, Star, Phone, Calendar, Check, X, ArrowRight
 } from 'lucide-react';
 import './SEBICyberAudit.css';
 
@@ -84,8 +84,8 @@ const SEBICyberAudit = () => {
   // PRICING PACKAGES
   const packages = [
     {
-      name: "Basic", 
-      price: "₹2,50,000", 
+      name: "Basic",
+      price: "₹2,50,000",
       period: "One-time",
       popular: false,
       features: ["Gap Assessment", "Policy Review", "Basic Testing", "Compliance Report", "Email Support"]
@@ -93,7 +93,7 @@ const SEBICyberAudit = () => {
     {
       name: "Professional",
       price: "₹5,00,000",
-      period: "One-time", 
+      period: "One-time",
       popular: true,
       features: ["Complete Audit", "VAPT Testing", "Remediation Support", "Detailed Documentation", "Priority Support", "Quarterly Review"]
     },
@@ -192,7 +192,7 @@ const SEBICyberAudit = () => {
             <h2 className="sebi-section-title">Comprehensive Audit Framework</h2>
             <p className="sebi-section-desc">Click to explore different aspects of our audit approach</p>
           </ScrollReveal>
-          
+
           <div className="sebi-tabs">
             <div className="sebi-tabs-header">
               <button className={`sebi-tab-btn ${activeTab === 'framework' ? 'active' : ''}`} onClick={() => setActiveTab('framework')}>
@@ -231,7 +231,7 @@ const SEBICyberAudit = () => {
             <h2 className="sebi-section-title">Audit Process Timeline</h2>
             <p className="sebi-section-desc">Our structured 8-step approach to SEBI compliance</p>
           </ScrollReveal>
-          
+
           <div className="sebi-timeline">
             {timeline.map((step, i) => (
               <ScrollReveal key={i} direction={i % 2 === 0 ? 'left' : 'right'} delay={i * 100} triggerOnce={false}>
@@ -255,7 +255,7 @@ const SEBICyberAudit = () => {
           <ScrollReveal direction="up" triggerOnce={false}>
             <h2 className="sebi-section-title">The Cyberaries Difference</h2>
           </ScrollReveal>
-          
+
           <div className="sebi-comparison-grid">
             <div className="sebi-comparison-col">
               <h3>Traditional Firms</h3>
@@ -282,7 +282,7 @@ const SEBICyberAudit = () => {
             <h2 className="sebi-section-title">Flexible Pricing Plans</h2>
             <p className="sebi-section-desc">Choose the package that fits your needs</p>
           </ScrollReveal>
-          
+
           <div className="sebi-pricing-grid">
             {packages.map((pkg, i) => (
               <ScrollReveal key={i} direction="up" delay={i * 100} triggerOnce={false}>
@@ -310,7 +310,7 @@ const SEBICyberAudit = () => {
           <ScrollReveal direction="up" triggerOnce={false}>
             <h2 className="sebi-section-title">Frequently Asked Questions</h2>
           </ScrollReveal>
-          
+
           <div className="sebi-faq-list">
             {faqs.map((faq, i) => (
               <div key={i} className={`sebi-faq-item ${openFaq === i ? 'active' : ''}`}>
@@ -333,7 +333,7 @@ const SEBICyberAudit = () => {
           <ScrollReveal direction="up" triggerOnce={false}>
             <h2 className="sebi-section-title">Client Success Stories</h2>
           </ScrollReveal>
-          
+
           <div className="sebi-testimonial-grid">
             {testimonials.map((t, i) => (
               <ScrollReveal key={i} direction="up" delay={i * 100} triggerOnce={false}>
