@@ -116,7 +116,6 @@ export default function DPDPA() {
                 >
                   {score} / 100
                 </h2>
-            
                 <p>
                   {score >= 80 && "Excellent compliance posture."}
                   {score >= 50 && score < 80 && "Moderate compliance – improvements recommended."}
