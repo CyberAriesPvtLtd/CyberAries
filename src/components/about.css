@@ -297,7 +297,7 @@
   bottom: 30px;
   left: 30px;
   background: #dc2626;
-  color: #ffffff;
+  color: #ffffff ;
   padding: 22px 26px;
   border-radius: 14px;
   box-shadow: 0 20px 40px rgba(79, 111, 214, 0.45);
@@ -306,12 +306,13 @@
 .expertise-stat h3 {
   font-size: 36px;
   margin: 0;
-  
+  color: #ffff;
 }
 
 .expertise-stat p {
   font-size: 14px;
   margin-top: 6px;
+  color: #ffff;
 }
 
 /* RIGHT LIST */
@@ -535,6 +536,9 @@
   color: #fff;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cta-section::after {
@@ -563,13 +567,14 @@
 }
 
 .cta-content h2 {
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 600;
   margin-bottom: 16px;
+  color: #ffff;
 }
 
 .cta-content p {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.7;
   color: #e6ecff;
   margin-bottom: 30px;
@@ -577,6 +582,8 @@
 
 .cta-actions {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -589,6 +596,7 @@
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
+  
 }
 
 .btn-primary:hover {
