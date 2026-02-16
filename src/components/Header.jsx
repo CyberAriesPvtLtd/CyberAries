@@ -414,11 +414,11 @@ const Header = () => {
           </div>
 
           {/* Career */}
-          <div className="nav-item">
+          {/* <div className="nav-item">
             <Link to="/careers" className={`nav-link ${isActive('/careers') ? 'active' : ''}`}>
               Career
             </Link>
-          </div>
+          </div> */}
 
           {/* Contact Us */}
           <div className="nav-item">
