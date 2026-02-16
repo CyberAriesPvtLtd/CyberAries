@@ -8,7 +8,11 @@ const Footer = () => {
       <div className="footer-grid">
         <div>
           <h3 className="footer-title">
+<<<<<<< HEAD
             Cyber<span style={{ color: 'white' }}>Aries</span>
+=======
+            <img src="/public/cyberaries-logo.png" alt="logo" />
+>>>>>>> 86201b2 (save local changes before pull)
           </h3>
           <p style={{ lineHeight: '1.7', marginBottom: '20px' }}>
             At Cyber Aries Pvt. Ltd., we're committed to delivering professional, high-quality cybersecurity solutions. From proactive threat monitoring to advanced data protection.

@@ -381,7 +381,14 @@ const Header = () => {
             {activeDropdown === 'resources' && (
               <div className="dropdown-menu">
                 <Link to="/resources/case-studies" className="dropdown-item">Case Studies</Link>
-                <Link to="/resources/blogs" className="dropdown-item">Blogs</Link>
+                <a
+  href="https://medium.com/@cyberaries"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="dropdown-item"
+>
+  Blogs
+</a>
                 <Link to="/resources/news" className="dropdown-item">News</Link>
                 <Link to="/resources/download" className="dropdown-item">Download</Link>
 
@@ -703,7 +710,15 @@ const Header = () => {
                 {mobileActiveMenu === 'resources' && (
                   <div className="mobile-dropdown">
                     <Link to="/resources/case-studies" className="mobile-dropdown-item" onClick={closeMobileMenu}>Case Studies</Link>
-                    <Link to="/resources/blogs" className="mobile-dropdown-item" onClick={closeMobileMenu}>Blogs</Link>
+                   <a
+  href="https://medium.com/@cyberaries"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mobile-dropdown-item"
+  onClick={closeMobileMenu}
+>
+  Blogs
+</a>
                     <Link to="/resources/news" className="mobile-dropdown-item" onClick={closeMobileMenu}>News</Link>
                     <Link to="/resources/download" className="mobile-dropdown-item" onClick={closeMobileMenu}>Download</Link>
                     <div className="mobile-dropdown-nested">
