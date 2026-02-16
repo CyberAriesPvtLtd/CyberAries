@@ -10,7 +10,7 @@ import Appointment from './components/appointment';
 import TermsConditions from './components/TermsConditions';
 import PrivacyPolicy from './components/PrivacyPolicy';
 
-import ComingSoon from './pages/ComingSoon';
+import ComingSoon from './pages/Comingsoon';
 
 import GRC from './components/GRC';
 import DPDPA from './components/DPDPA';
