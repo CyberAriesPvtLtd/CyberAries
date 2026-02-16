@@ -32,7 +32,7 @@
   font-size: 13px;
   letter-spacing: 2px;
   font-weight: 600;
-  color: #dc2626;
+  color: #ffff;
 }
 
 .appointment-hero-text h1 {
@@ -41,18 +41,21 @@
   margin: 16px 0;
   line-height: 1.2;
   /* color: #dc2626; */
+  background: linear-gradient(90deg, #ff3c4d, #ffffff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .appointment-hero-text p {
   font-size: 16px;
   line-height: 1.7;
-  /* color: #d1d5db; */
+  color: #d1d5db;
   max-width: 520px;
 }
  .hero-quote {
   margin-top: 20px;
   font-style: italic;
-  color: rgb(102, 218, 235) !important;
+  color: rgb(255, 199, 121) !important;
   font-size: 20px !important;
 }
 
