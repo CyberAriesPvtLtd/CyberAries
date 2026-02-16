@@ -455,7 +455,7 @@ section {
 /* ================================
    FEATURES SECTION (WHITE BG)
 ================================ */
-section:nth-of-type(2) {
+.features-section {
   background: #ffffff;
 }
 
@@ -658,7 +658,7 @@ section:nth-of-type(2) {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 120px 240px;
+  padding: 120px 20px;
   background: #ffffff;
 }
 
