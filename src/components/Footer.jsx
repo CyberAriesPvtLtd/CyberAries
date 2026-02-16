@@ -9,7 +9,7 @@ const Footer = () => {
         <div>
           <h3 className="footer-title">
             Cyber<span style={{ color: 'white' }}>Aries</span>
-            <img src="./public/cyberaries-logo.png" alt="logo" />
+            <img src="/cyberaries-logo.png" alt="logo" />
           </h3>
           <p style={{ lineHeight: '1.7', marginBottom: '20px' }}>
             At Cyber Aries Pvt. Ltd., we're committed to delivering professional, high-quality cybersecurity solutions. From proactive threat monitoring to advanced data protection.
