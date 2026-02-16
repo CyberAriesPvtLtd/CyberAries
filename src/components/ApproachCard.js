@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/common/ApproachCard.css';
+import '../styles/common/ApproachCard.css';
 
 /**
  * ApproachCard Component

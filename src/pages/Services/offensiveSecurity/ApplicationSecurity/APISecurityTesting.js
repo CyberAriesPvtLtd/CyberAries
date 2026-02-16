@@ -1,10 +1,10 @@
 import React from 'react';
-import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import ScrollReveal from '../../../../components/ScrollReveal';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/api-image.jpg';
 import Footer from '../../../../components/Footer';
 
-import { 
+import {
   FileText,
   Search,
   Shield,
@@ -132,15 +132,15 @@ const APISecurityTesting = () => {
               </span>
             </h1>
             <p className="hero-description">
-              <strong>API Security Testing</strong> focuses on identifying vulnerabilities and misconfigurations in Application 
-              Programming Interfaces (APIs) that could lead to <strong>unauthorized access, data loss, or service disruptions</strong>. 
-              It ensures that APIs handling sensitive data remain secure, available, and resilient to modern attack 
+              <strong>API Security Testing</strong> focuses on identifying vulnerabilities and misconfigurations in Application
+              Programming Interfaces (APIs) that could lead to <strong>unauthorized access, data loss, or service disruptions</strong>.
+              It ensures that APIs handling sensitive data remain secure, available, and resilient to modern attack
               vectors.
             </p>
             <p className="hero-description">
-              Our comprehensive testing covers <strong>broken object-level authorization, broken authentication, excessive data 
-              exposure, lack of resources and rate limiting, broken function-level authorization, mass assignment, security 
-              misconfigurations, injection vulnerabilities, and improper asset management</strong>—protecting your API ecosystem 
+              Our comprehensive testing covers <strong>broken object-level authorization, broken authentication, excessive data
+                exposure, lack of resources and rate limiting, broken function-level authorization, mass assignment, security
+                misconfigurations, injection vulnerabilities, and improper asset management</strong>—protecting your API ecosystem
               across all protocols and deployment models.
             </p>
             <div className="hero-actions">
@@ -158,14 +158,14 @@ const APISecurityTesting = () => {
             <ScrollReveal direction="left" delay={100}>
               <div className="overview-content">
                 <p className="overview-text">
-                  At <strong>Cyberaries</strong>, we deliver comprehensive <strong>manual and automated API testing</strong> to evaluate 
-                  authentication, authorization, input validation, rate limiting, and error handling mechanisms. Our 
+                  At <strong>Cyberaries</strong>, we deliver comprehensive <strong>manual and automated API testing</strong> to evaluate
+                  authentication, authorization, input validation, rate limiting, and error handling mechanisms. Our
                   specialists simulate real-world attacks to uncover weaknesses that automated tools often miss.
                 </p>
                 <p className="overview-text">
-                  We help organizations safeguard their APIs from threats such as <strong>Broken Object-Level Authorization, 
-                  Broken Authentication, and Excessive Data Exposure</strong>, along with compliance across REST, SOAP, and 
-                  GraphQL interfaces. <strong>Cyberaries</strong> enables businesses to build <strong>secure integration ecosystems</strong>, 
+                  We help organizations safeguard their APIs from threats such as <strong>Broken Object-Level Authorization,
+                    Broken Authentication, and Excessive Data Exposure</strong>, along with compliance across REST, SOAP, and
+                  GraphQL interfaces. <strong>Cyberaries</strong> enables businesses to build <strong>secure integration ecosystems</strong>,
                   maintain compliance, and protect critical data streams in internal and third-party APIs.
                 </p>
               </div>
@@ -173,9 +173,9 @@ const APISecurityTesting = () => {
 
             <ScrollReveal direction="right" delay={200}>
               <div className="overview-visual">
-                <img 
-                  src={overviewImage} 
-                  alt="API Security Testing" 
+                <img
+                  src={overviewImage}
+                  alt="API Security Testing"
                   className="overview-image"
                 />
               </div>

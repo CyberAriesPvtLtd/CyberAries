@@ -1,10 +1,10 @@
 import React from 'react';
-import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import ScrollReveal from '../../../../components/ScrollReveal';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/mobile-image.jpg';
 import Footer from '../../../../components/Footer';
 
-import { 
+import {
   FileText,
   Search,
   Smartphone,
@@ -132,13 +132,13 @@ const MobileAppSecurity = () => {
               </span>
             </h1>
             <p className="hero-description">
-              <strong>Mobile Application Security Testing (MAST)</strong> ensures your Android and iOS applications are protected 
-              against vulnerabilities that could expose <strong>sensitive user data, enable unauthorized access, or compromise 
-              device integrity</strong>. It validates both the apps' client-side logic and its interactions with backend systems.
+              <strong>Mobile Application Security Testing (MAST)</strong> ensures your Android and iOS applications are protected
+              against vulnerabilities that could expose <strong>sensitive user data, enable unauthorized access, or compromise
+                device integrity</strong>. It validates both the apps' client-side logic and its interactions with backend systems.
             </p>
             <p className="hero-description">
-              Our comprehensive testing covers <strong>insecure data storage, weak encryption, improper authentication, 
-              insecure communication, code quality issues, and reverse engineering vulnerabilities</strong>—protecting your 
+              Our comprehensive testing covers <strong>insecure data storage, weak encryption, improper authentication,
+                insecure communication, code quality issues, and reverse engineering vulnerabilities</strong>—protecting your
               mobile applications across all platforms and deployment scenarios.
             </p>
             <div className="hero-actions">
@@ -156,17 +156,17 @@ const MobileAppSecurity = () => {
             <ScrollReveal direction="left" delay={100}>
               <div className="overview-content">
                 <p className="overview-text">
-                  At <strong>Cyberaries</strong>, we conduct <strong>in-depth manual and automated testing</strong> aligned with the <strong>OWASP 
-                  Mobile Security Testing Guide (MSTG)</strong> to detect insecure data storage, weak encryption, improper 
-                  authentication, and business logic flaws. Our specialists reverse-engineer APKs and IPAs, simulate attacks, 
-                  and assess communication between mobile apps and backend APIs across various platforms, OS versions, and 
+                  At <strong>Cyberaries</strong>, we conduct <strong>in-depth manual and automated testing</strong> aligned with the <strong>OWASP
+                    Mobile Security Testing Guide (MSTG)</strong> to detect insecure data storage, weak encryption, improper
+                  authentication, and business logic flaws. Our specialists reverse-engineer APKs and IPAs, simulate attacks,
+                  and assess communication between mobile apps and backend APIs across various platforms, OS versions, and
                   devices to ensure complete coverage.
                 </p>
                 <p className="overview-text">
-                  We help organizations build <strong>security and resilience</strong> of their mobile ecosystems 
-                  by identifying risks before deployment, improving app security posture, and ensuring compliance with 
-                  global security standards. <strong>Cyberaries</strong> empowers businesses to deliver <strong>secure, high-performing 
-                  mobile applications</strong> that inspire user confidence and protect digital assets across Android and iOS 
+                  We help organizations build <strong>security and resilience</strong> of their mobile ecosystems
+                  by identifying risks before deployment, improving app security posture, and ensuring compliance with
+                  global security standards. <strong>Cyberaries</strong> empowers businesses to deliver <strong>secure, high-performing
+                    mobile applications</strong> that inspire user confidence and protect digital assets across Android and iOS
                   platforms.
                 </p>
               </div>
@@ -174,9 +174,9 @@ const MobileAppSecurity = () => {
 
             <ScrollReveal direction="right" delay={200}>
               <div className="overview-visual">
-                <img 
-                  src={overviewImage} 
-                  alt="Mobile Application Security Testing" 
+                <img
+                  src={overviewImage}
+                  alt="Mobile Application Security Testing"
                   className="overview-image"
                 />
               </div>

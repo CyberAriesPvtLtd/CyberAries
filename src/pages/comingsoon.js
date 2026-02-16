@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Home, Mail, ArrowLeft, Clock } from 'lucide-react';
 import './ComingSoon.css';
 
-const ComingSoon = ({ 
-  pageName = "This Feature", 
+const ComingSoon = ({
+  pageName = "This Feature",
   launchDate = null, // Format: "2026-03-15" or null for no countdown
   description = "We're working hard to bring you something amazing!"
 }) => {
@@ -20,7 +20,7 @@ const ComingSoon = ({
 
     const calculateTimeLeft = () => {
       const difference = +new Date(launchDate) - +new Date();
-      
+
       if (difference > 0) {
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -55,7 +55,7 @@ const ComingSoon = ({
         {/* Main Content */}
         <div className="cs-content">
           <div className="cs-badge">Coming Soon</div>
-          
+
           <h1 className="cs-title">{pageName}</h1>
           <p className="cs-description">{description}</p>
 
@@ -88,9 +88,9 @@ const ComingSoon = ({
           <div className="cs-notify-section">
             <h3 className="cs-notify-title">Get Notified When We Launch</h3>
             <form className="cs-notify-form" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
+              <input
+                type="email"
+                placeholder="Enter your email address"
                 className="cs-email-input"
                 required
               />
@@ -119,9 +119,9 @@ const ComingSoon = ({
           <p>In the meantime, explore our other services</p>
           <div className="cs-social-links">
             {/* Add your social links */}
-            <a href="#" className="cs-social-link">Twitter</a>
-            <a href="#" className="cs-social-link">LinkedIn</a>
-            <a href="#" className="cs-social-link">Facebook</a>
+            <a href="https://twitter.com" className="cs-social-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://linkedin.com" className="cs-social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://facebook.com" className="cs-social-link" target="_blank" rel="noopener noreferrer">Facebook</a>
           </div>
         </div>
       </div>

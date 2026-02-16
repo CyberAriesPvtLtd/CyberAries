@@ -1,9 +1,9 @@
 import React from 'react';
-import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import ScrollReveal from '../../../../components/ScrollReveal';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/red-image.jpg';
 import Footer from '../../../../components/Footer';
-import { 
+import {
   Target,
   Crosshair,
   Map,
@@ -131,10 +131,10 @@ const RedTeaming = () => {
               </span>
             </h1>
             <p className="hero-description">
-              <strong>Red Teaming</strong> is a full-scope, adversary-simulation exercise that evaluates an organization's detection, 
-              response, and recovery capabilities by simulating realistic attack scenarios, direct pursuit, processes, and 
-              technology defenses against sophisticated, real-world engagements. Focus on assessing <strong>high-value objectives 
-              (data theft, persistence, lateral movement)</strong>, entry vectors, social engineering, and multi-stage tactics to 
+              <strong>Red Teaming</strong> is a full-scope, adversary-simulation exercise that evaluates an organization's detection,
+              response, and recovery capabilities by simulating realistic attack scenarios, direct pursuit, processes, and
+              technology defenses against sophisticated, real-world engagements. Focus on assessing <strong>high-value objectives
+                (data theft, persistence, lateral movement)</strong>, entry vectors, social engineering, and multi-stage tactics to
               reveal actual risk and coordination gaps.
             </p>
             <div className="hero-actions">
@@ -152,15 +152,15 @@ const RedTeaming = () => {
             <ScrollReveal direction="left" delay={100}>
               <div className="overview-content">
                 <p className="overview-text">
-                  At <strong>Cyberaries</strong>, our red team engagements combine <strong>technical exploitation, physical/social 
-                  engineering, and covert persistence techniques</strong> to test your security posture end-to-end. We design 
-                  bespoke scenarios aligned with your threat landscape and business goals, execute controlled adversary 
-                  simulations, and measure your people and SOC's effectiveness — delivering actionable intelligence to 
+                  At <strong>Cyberaries</strong>, our red team engagements combine <strong>technical exploitation, physical/social
+                    engineering, and covert persistence techniques</strong> to test your security posture end-to-end. We design
+                  bespoke scenarios aligned with your threat landscape and business goals, execute controlled adversary
+                  simulations, and measure your people and SOC's effectiveness — delivering actionable intelligence to
                   close detection and response gaps.
                 </p>
                 <p className="overview-text">
-                  Our service emphasizes <strong>ethical, targeted, and measurable</strong> exercises with safety controls, executive 
-                  briefings, and prioritized remediation roadmaps so you can strengthen detection, harden controls, and 
+                  Our service emphasizes <strong>ethical, targeted, and measurable</strong> exercises with safety controls, executive
+                  briefings, and prioritized remediation roadmaps so you can strengthen detection, harden controls, and
                   improve incident response readiness.
                 </p>
               </div>
@@ -168,9 +168,9 @@ const RedTeaming = () => {
 
             <ScrollReveal direction="right" delay={200}>
               <div className="overview-visual">
-                <img 
-                  src={overviewImage} 
-                  alt="Red Teaming Services" 
+                <img
+                  src={overviewImage}
+                  alt="Red Teaming Services"
                   className="overview-image"
                 />
               </div>

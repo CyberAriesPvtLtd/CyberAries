@@ -1,6 +1,6 @@
 import React from 'react';
-import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import ScrollReveal from '../../../../components/ScrollReveal';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/code-image.jpg';
 import Footer from '../../../../components/Footer';
 
@@ -161,7 +161,7 @@ const SourceCodeReview = () => {
       <section className="service-overview">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
-            
+
           </ScrollReveal>
 
           <div className="overview-grid">
@@ -195,9 +195,9 @@ const SourceCodeReview = () => {
 
             <ScrollReveal direction="right" delay={200}>
               <div className="overview-visual">
-                <img 
-                  src={overviewImage} 
-                  alt="Source Code Review" 
+                <img
+                  src={overviewImage}
+                  alt="Source Code Review"
                   className="overview-image"
                 />
               </div>
@@ -236,7 +236,7 @@ const SourceCodeReview = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Why Choose Section */}
       <section className="why-choose">
         <div className="container">

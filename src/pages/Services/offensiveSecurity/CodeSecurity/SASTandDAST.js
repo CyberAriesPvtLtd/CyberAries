@@ -1,16 +1,16 @@
 import React from 'react';
-import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import ScrollReveal from '../../../../components/ScrollReveal';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import Footer from '../../../../components/Footer';
-import { 
-  ClipboardList, 
-  Wrench, 
-  Search, 
-  Zap, 
-  RefreshCw, 
-  CheckCircle, 
-  BarChart3, 
-  Settings as Tool, 
+import {
+  ClipboardList,
+  Wrench,
+  Search,
+  Zap,
+  RefreshCw,
+  CheckCircle,
+  BarChart3,
+  Settings as Tool,
   Repeat,
   Award,
   Globe,
@@ -158,7 +158,7 @@ const SASTandDAST = () => {
               <h2 className="section-title">Key Application Security Testing Challenges</h2>
             </div>
           </ScrollReveal>
-          
+
           <div className="challenges-grid">
             {challengesData.map((challenge, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
@@ -183,7 +183,7 @@ const SASTandDAST = () => {
               <h2 className="section-title">Our Approach</h2>
             </div>
           </ScrollReveal>
-          
+
           <div className="solutions-grid">
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
@@ -209,7 +209,7 @@ const SASTandDAST = () => {
               <h2 className="section-title">Why Choose Cyberaries?</h2>
             </div>
           </ScrollReveal>
-          
+
           <div className="why-choose-grid">
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150}>
@@ -232,7 +232,7 @@ const SASTandDAST = () => {
           <ScrollReveal animation="fade-up">
             <h2 className="difference-title">
               THE <span className="highlight-red">CYBERARIES</span> DIFFERENCE
-            </h2>          
+            </h2>
           </ScrollReveal>
 
           <div className="comparison-grid">

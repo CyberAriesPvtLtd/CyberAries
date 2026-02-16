@@ -421,10 +421,10 @@ const Header = () => {
           </div>
 
           {/* Consult Button */}
-          <button className="quick-contact-btn desktop-only" type="button">
+          <Link to="/contact" className="quick-contact-btn desktop-only">
             <Phone size={18} />
             Consult With Us
-          </button>
+          </Link>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -727,10 +727,10 @@ const Header = () => {
               </Link>
 
               {/* Mobile Consult Button */}
-              <button className="mobile-consult-btn" type="button">
+              <Link to="/contact" className="mobile-consult-btn">
                 <Phone size={20} />
                 Consult With Us
-              </button>
+              </Link>
             </div>
           </nav>
         </>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import FourDApproach from "./FourDApproach";
 import './Home.css';
 import {
@@ -472,10 +473,10 @@ const Home = () => {
           <p className="cta-description">
             We focus on understanding your business first—not selling tools. Schedule a consultation with our security experts to build a resilient cybersecurity strategy that lasts.
           </p>
-          <a href="/contact" className="cta-btn">
+          <Link to="/contact" className="cta-btn">
             <span>Get Your Audit Quote Now</span>
             <i className="fas fa-arrow-right"></i>
-          </a>
+          </Link>
         </div>
       </section>
 

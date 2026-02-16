@@ -1,6 +1,6 @@
 import React from 'react';
-import ApproachCard from '../../../../components/common/ApproachCard';
-import ScrollReveal from '../../../../components/common/ScrollReveal';
+import ApproachCard from '../../../../components/ApproachCard';
+import ScrollReveal from '../../../../components/ScrollReveal';
 import {
   FileSearch,
   Shield,
@@ -134,7 +134,7 @@ const ISO27018 = () => {
                     <div className="pii-circle-diagram">
                       <div className="center-circle">
                         <div className="circle-number">01</div>
-                        <div className="circle-label">DATA<br/>PROTECTION</div>
+                        <div className="circle-label">DATA<br />PROTECTION</div>
                       </div>
                       <div className="orbit-item orbit-1">
                         <div className="orbit-number">02</div>
@@ -142,15 +142,15 @@ const ISO27018 = () => {
                       </div>
                       <div className="orbit-item orbit-2">
                         <div className="orbit-number">03</div>
-                        <div className="orbit-label">ISO 27018<br/>PII & CLOUD<br/>PRIVACY</div>
+                        <div className="orbit-label">ISO 27018<br />PII & CLOUD<br />PRIVACY</div>
                       </div>
                       <div className="orbit-item orbit-3">
                         <div className="orbit-number">04</div>
-                        <div className="orbit-label">DATA<br/>GOVERNANCE</div>
+                        <div className="orbit-label">DATA<br />GOVERNANCE</div>
                       </div>
                       <div className="orbit-item orbit-4">
                         <div className="orbit-number">06</div>
-                        <div className="orbit-label">VENDOR<br/>MGMT</div>
+                        <div className="orbit-label">VENDOR<br />MGMT</div>
                       </div>
                       <div className="orbit-item orbit-5">
                         <div className="orbit-number">05</div>

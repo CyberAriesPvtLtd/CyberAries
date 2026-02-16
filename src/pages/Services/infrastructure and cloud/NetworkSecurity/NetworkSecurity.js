@@ -1,10 +1,10 @@
 import React from 'react';
-import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import ScrollReveal from '../../../../components/ScrollReveal';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/network-image.jpg';
 import Footer from '../../../../components/Footer';
 
-import { 
+import {
   FileText,
   Search,
   Target,
@@ -132,14 +132,14 @@ const NetworkSecurity = () => {
               </span>
             </h1>
             <p className="hero-description">
-              <strong>Network Security Testing</strong> evaluates the resilience of your IT infrastructure by identifying 
-              <strong> misconfigurations, vulnerabilities, and weaknesses</strong> in internal and external network components. It 
-              ensures that your organization's critical assets remain protected against unauthorized access and 
+              <strong>Network Security Testing</strong> evaluates the resilience of your IT infrastructure by identifying
+              <strong> misconfigurations, vulnerabilities, and weaknesses</strong> in internal and external network components. It
+              ensures that your organization's critical assets remain protected against unauthorized access and
               network breaches.
             </p>
             <p className="hero-description">
-              Our comprehensive testing covers <strong>routers, switches, firewalls, servers, and connected devices</strong>, 
-              combining automated scanning with manual validation to deliver accurate, prioritized, risk-based results 
+              Our comprehensive testing covers <strong>routers, switches, firewalls, servers, and connected devices</strong>,
+              combining automated scanning with manual validation to deliver accurate, prioritized, risk-based results
               across your entire network infrastructure.
             </p>
             <div className="hero-actions">
@@ -157,14 +157,14 @@ const NetworkSecurity = () => {
             <ScrollReveal direction="left" delay={100}>
               <div className="overview-content">
                 <p className="overview-text">
-                  At <strong>Cyberaries</strong>, we conduct comprehensive <strong>network vulnerability assessments and penetration 
-                  tests</strong> to identify and remediate security gaps across routers, switches, firewalls, servers, and connected 
-                  devices. Our approach combines automated scanning with manual validation to deliver accurate, 
+                  At <strong>Cyberaries</strong>, we conduct comprehensive <strong>network vulnerability assessments and penetration
+                    tests</strong> to identify and remediate security gaps across routers, switches, firewalls, servers, and connected
+                  devices. Our approach combines automated scanning with manual validation to deliver accurate,
                   prioritized, risk-based results.
                 </p>
                 <p className="overview-text">
-                  We help organizations build <strong>reliable, defense-in-depth security posture</strong> ensuring that every layer of 
-                  their network architecture meets the highest cybersecurity standards. <strong>Cyberaries</strong> delivers 
+                  We help organizations build <strong>reliable, defense-in-depth security posture</strong> ensuring that every layer of
+                  their network architecture meets the highest cybersecurity standards. <strong>Cyberaries</strong> delivers
                   detailed reporting, practical remediation guidance, and advisory support to build resilient, threat-
                   resilient networks.
                 </p>
@@ -173,9 +173,9 @@ const NetworkSecurity = () => {
 
             <ScrollReveal direction="right" delay={200}>
               <div className="overview-visual">
-                <img 
-                  src={overviewImage} 
-                  alt="Network Security Testing" 
+                <img
+                  src={overviewImage}
+                  alt="Network Security Testing"
                   className="overview-image"
                 />
               </div>
@@ -193,7 +193,7 @@ const NetworkSecurity = () => {
               <h2 className="section-title">Our Approach</h2>
             </div>
           </ScrollReveal>
-          
+
           <ScrollReveal direction="up" delay={0}>
             <div className="methodology-header">
               <p className="methodology-title">

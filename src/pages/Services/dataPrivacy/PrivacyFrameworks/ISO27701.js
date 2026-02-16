@@ -1,7 +1,7 @@
 import React from 'react';
-import ApproachCard from '../../../../components/common/ApproachCard';
-import ScrollReveal from '../../../../components/common/ScrollReveal';
-import { 
+import ApproachCard from '../../../../components/ApproachCard';
+import ScrollReveal from '../../../../components/ScrollReveal';
+import {
   FileSearch,
   Users,
   Shield,
@@ -113,10 +113,10 @@ const ISO27701 = () => {
               ISO 27701 - <span className="text-gradient">PRIVACY INFORMATION MANAGEMENT SYSTEM COMPLIANCE</span>
             </h1>
             <p className="hero-description">
-              The <strong>ISO 27701:2019 standard</strong> extends ISO 27001 to include privacy-specific requirements, enabling 
-              organizations to implement, maintain, and continuously improve a <strong>Privacy Information Management 
-              System (PIMS)</strong>. It provides a comprehensive framework for demonstrating compliance with global privacy 
-              standards with global privacy laws, such as the <strong>GDPR, India's DPDPA</strong>, and other relevant data 
+              The <strong>ISO 27701:2019 standard</strong> extends ISO 27001 to include privacy-specific requirements, enabling
+              organizations to implement, maintain, and continuously improve a <strong>Privacy Information Management
+                System (PIMS)</strong>. It provides a comprehensive framework for demonstrating compliance with global privacy
+              standards with global privacy laws, such as the <strong>GDPR, India's DPDPA</strong>, and other relevant data
               protection regulations.
             </p>
             <div className="hero-actions">
@@ -174,21 +174,21 @@ const ISO27701 = () => {
                   ISO 27701 - PRIVACY INFORMATION MANAGEMENT SYSTEM COMPLIANCE
                 </h2>
                 <p className="overview-text">
-                  At <strong>Cyberaries</strong>, we help organizations integrate privacy governance into their existing ISO 
-                  27001 frameworks, ensuring responsible data handling, regulatory compliance, and enhanced stakeholder trust. Our <strong>ISO 
-                  27701 consulting and audit services</strong> focus on building a structured privacy framework that safeguards 
-                  personal information throughout its lifecycle. Our team of <strong>certified ISO 27701 and ISO 27001 lead 
-                  auditors</strong> uses a risk-driven methodology tailored to your business requirements, from privacy gap 
+                  At <strong>Cyberaries</strong>, we help organizations integrate privacy governance into their existing ISO
+                  27001 frameworks, ensuring responsible data handling, regulatory compliance, and enhanced stakeholder trust. Our <strong>ISO
+                    27701 consulting and audit services</strong> focus on building a structured privacy framework that safeguards
+                  personal information throughout its lifecycle. Our team of <strong>certified ISO 27701 and ISO 27001 lead
+                    auditors</strong> uses a risk-driven methodology tailored to your business requirements, from privacy gap
                   assessments, data mapping, and readiness for certification audits.
                 </p>
                 <p className="overview-text">
-                  Our approach ensures seamless integration with <strong>information security and privacy management</strong>, 
-                  empowering organizations to build trust, reduce compliance risks, and achieve sustainable privacy 
+                  Our approach ensures seamless integration with <strong>information security and privacy management</strong>,
+                  empowering organizations to build trust, reduce compliance risks, and achieve sustainable privacy
                   assurance.
                 </p>
               </div>
             </ScrollReveal>
-            
+
             <ScrollReveal direction="right" delay={200}>
               <div className="overview-visual">
                 <div className="privacy-badge">
@@ -228,12 +228,12 @@ const ISO27701 = () => {
               <h2 className="section-title">Our Approach</h2>
             </div>
           </ScrollReveal>
-          
+
           <div className="approach-grid">
             {approachSteps.map((step, index) => (
-              <ScrollReveal 
-                key={index} 
-                direction={index % 2 === 0 ? "left" : "right"} 
+              <ScrollReveal
+                key={index}
+                direction={index % 2 === 0 ? "left" : "right"}
                 delay={index * 100}
               >
                 <ApproachCard
@@ -254,12 +254,12 @@ const ISO27701 = () => {
           <ScrollReveal direction="up" delay={0}>
             <h2 className="section-title-clean">Why Choose Cyberaries?</h2>
           </ScrollReveal>
-          
+
           <div className="why-choose-clean-grid">
             {whyChooseItems.map((item, index) => (
-              <ScrollReveal 
-                key={index} 
-                direction="up" 
+              <ScrollReveal
+                key={index}
+                direction="up"
                 delay={index * 150}
               >
                 <div className="why-choose-clean-card">

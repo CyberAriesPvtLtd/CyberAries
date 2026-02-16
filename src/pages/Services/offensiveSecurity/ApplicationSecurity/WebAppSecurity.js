@@ -1,9 +1,9 @@
 import React from 'react';
-import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import ScrollReveal from '../../../../components/ScrollReveal';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/wast-image.jpg';
 import Footer from '../../../../components/Footer';
-import { 
+import {
   FileText,
   Search,
   Target,
@@ -131,14 +131,14 @@ const WebAppSecurity = () => {
               </span>
             </h1>
             <p className="hero-description">
-              <strong>Web Application Security Testing (WAST)</strong> is a proactive process that identifies vulnerabilities, 
-              misconfigurations, and security loopholes in web applications before attackers can exploit them. It 
+              <strong>Web Application Security Testing (WAST)</strong> is a proactive process that identifies vulnerabilities,
+              misconfigurations, and security loopholes in web applications before attackers can exploit them. It
               ensures your digital platforms remain <strong>secure, resilient, and compliant</strong> with global standards.
             </p>
             <p className="hero-description">
-              At <strong>Cyberaries</strong>, we specialize in conducting comprehensive <strong>manual and automated web 
-              application assessments</strong> to detect OWASP Top 10 and business logic vulnerabilities. Our team of 
-              certified experts blends advanced tools with real-world attack simulations to uncover weaknesses that 
+              At <strong>Cyberaries</strong>, we specialize in conducting comprehensive <strong>manual and automated web
+                application assessments</strong> to detect OWASP Top 10 and business logic vulnerabilities. Our team of
+              certified experts blends advanced tools with real-world attack simulations to uncover weaknesses that
               traditional scanners often miss.
             </p>
             <div className="hero-actions">
@@ -156,15 +156,15 @@ const WebAppSecurity = () => {
             <ScrollReveal direction="left" delay={100}>
               <div className="overview-content">
                 <p className="overview-text">
-                  We help organizations strengthen <strong>application security posture</strong>, prevent data breaches, and maintain 
-                  <strong> confidentiality, integrity, and availability</strong> across all web assets. <strong>Cyberaries</strong> delivers detailed risk 
-                  analyses, actionable remediation guidance, and continued security improvement—empowering 
+                  We help organizations strengthen <strong>application security posture</strong>, prevent data breaches, and maintain
+                  <strong> confidentiality, integrity, and availability</strong> across all web assets. <strong>Cyberaries</strong> delivers detailed risk
+                  analyses, actionable remediation guidance, and continued security improvement—empowering
                   businesses to operate safely in an evolving digital landscape.
                 </p>
                 <p className="overview-text">
-                  Our comprehensive testing methodology covers <strong>injection flaws, broken authentication, sensitive data exposure, 
-                  XML external entities (XXE), broken access control, security misconfigurations, cross-site scripting (XSS), 
-                  insecure deserialization, and components with known vulnerabilities</strong>—ensuring complete protection across 
+                  Our comprehensive testing methodology covers <strong>injection flaws, broken authentication, sensitive data exposure,
+                    XML external entities (XXE), broken access control, security misconfigurations, cross-site scripting (XSS),
+                    insecure deserialization, and components with known vulnerabilities</strong>—ensuring complete protection across
                   your entire web application infrastructure.
                 </p>
               </div>
@@ -172,9 +172,9 @@ const WebAppSecurity = () => {
 
             <ScrollReveal direction="right" delay={200}>
               <div className="overview-visual">
-                <img 
-                  src={overviewImage} 
-                  alt="Web Application Security Testing" 
+                <img
+                  src={overviewImage}
+                  alt="Web Application Security Testing"
                   className="overview-image"
                 />
               </div>
