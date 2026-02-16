@@ -52,6 +52,20 @@
   font-size: 1rem;
   transition: all 0.3s;
 }
+.hero-title {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 25px 0;
+
+  background: linear-gradient(90deg, #ff3c4d, #ffffff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+
 
 .input {
   flex: 1;
