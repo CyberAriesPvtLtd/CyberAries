@@ -9,7 +9,7 @@ const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [showNestedSurvey, setShowNestedSurvey] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
-  
+
   // Mobile menu states
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileActiveMenu, setMobileActiveMenu] = useState(null);
@@ -41,11 +41,11 @@ const Header = () => {
 
   const handleTabClick = (e) => {
     const serviceName = e.currentTarget.getAttribute('data-service');
-    
+
     // Remove active class from all service buttons and panels
     document.querySelectorAll('.services-category-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.services-category-content').forEach(panel => panel.classList.remove('active'));
-    
+
     // Add active class to clicked button and corresponding panel
     e.currentTarget.classList.add('active');
     document.querySelector(`[data-service-panel="${serviceName}"]`).classList.add('active');
@@ -56,7 +56,7 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
     setMobileActiveMenu(null);
     setMobileActiveService('regulatory');
-    
+
     // Prevent body scroll when menu is open
     if (!isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -108,9 +108,9 @@ const Header = () => {
       <div className="header-container">
         {/* Logo */}
         <Link to="/" className="header-logo" onClick={closeMobileMenu}>
-          <img 
-            src={logoImage} 
-            alt="Cyber Aries Security Solutions" 
+          <img
+            src={logoImage}
+            alt="Cyber Aries Security Solutions"
             className="logo-image"
           />
         </Link>
@@ -125,9 +125,9 @@ const Header = () => {
           </div>
 
           {/* Company */}
-          <div 
-            className="nav-item" 
-            onMouseEnter={() => handleMouseEnter('company')} 
+          <div
+            className="nav-item"
+            onMouseEnter={() => handleMouseEnter('company')}
             onMouseLeave={handleMouseLeave}
           >
             <button className="nav-link">
@@ -137,16 +137,16 @@ const Header = () => {
 
             {activeDropdown === 'company' && (
               <div className="dropdown-menu">
-                <Link to="/company/about" className="dropdown-item">About Us</Link>
-                <Link to="/company/career" className="dropdown-item">Career</Link>
+                <Link to="/about" className="dropdown-item">About Us</Link>
+                <Link to="/careers" className="dropdown-item">Career</Link>
               </div>
             )}
           </div>
 
           {/* Services */}
-          <div 
-            className="nav-item" 
-            onMouseEnter={() => handleMouseEnter('services')} 
+          <div
+            className="nav-item"
+            onMouseEnter={() => handleMouseEnter('services')}
             onMouseLeave={handleMouseLeave}
           >
             <button className="nav-link">
@@ -158,44 +158,44 @@ const Header = () => {
               <div className="services-mega-menu">
                 {/* Sidebar */}
                 <div className="services-sidebar">
-                  <button 
-                    className="services-category-btn active" 
-                    data-service="regulatory" 
+                  <button
+                    className="services-category-btn active"
+                    data-service="regulatory"
                     onClick={handleTabClick}
                   >
                     Regulatory Audit
                   </button>
-                  <button 
-                    className="services-category-btn" 
-                    data-service="offensive" 
+                  <button
+                    className="services-category-btn"
+                    data-service="offensive"
                     onClick={handleTabClick}
                   >
                     Offensive Security
                   </button>
-                  <button 
-                    className="services-category-btn" 
-                    data-service="infrastructure" 
+                  <button
+                    className="services-category-btn"
+                    data-service="infrastructure"
                     onClick={handleTabClick}
                   >
                     Infrastructure & Cloud
                   </button>
-                  <button 
-                    className="services-category-btn" 
-                    data-service="compliance" 
+                  <button
+                    className="services-category-btn"
+                    data-service="compliance"
                     onClick={handleTabClick}
                   >
                     Compliance
                   </button>
-                  <button 
-                    className="services-category-btn" 
-                    data-service="privacy" 
+                  <button
+                    className="services-category-btn"
+                    data-service="privacy"
                     onClick={handleTabClick}
                   >
                     Data Privacy
                   </button>
-                  <button 
-                    className="services-category-btn" 
-                    data-service="consulting" 
+                  <button
+                    className="services-category-btn"
+                    data-service="consulting"
                     onClick={handleTabClick}
                   >
                     Strategic Consulting
@@ -345,9 +345,9 @@ const Header = () => {
           </div>
 
           {/* Industries */}
-          <div 
-            className="nav-item" 
-            onMouseEnter={() => handleMouseEnter('industries')} 
+          <div
+            className="nav-item"
+            onMouseEnter={() => handleMouseEnter('industries')}
             onMouseLeave={handleMouseLeave}
           >
             <button className="nav-link">
@@ -368,9 +368,9 @@ const Header = () => {
           </div>
 
           {/* Resources */}
-          <div 
-            className="nav-item" 
-            onMouseEnter={() => handleMouseEnter('resources')} 
+          <div
+            className="nav-item"
+            onMouseEnter={() => handleMouseEnter('resources')}
             onMouseLeave={handleMouseLeave}
           >
             <button className="nav-link">
@@ -384,16 +384,16 @@ const Header = () => {
                 <Link to="/resources/blogs" className="dropdown-item">Blogs</Link>
                 <Link to="/resources/news" className="dropdown-item">News</Link>
                 <Link to="/resources/download" className="dropdown-item">Download</Link>
-                
+
                 {/* Nested Survey Dropdown */}
-                <div 
+                <div
                   className="dropdown-item nested-dropdown"
                   onMouseEnter={() => setShowNestedSurvey(true)}
                   onMouseLeave={() => setShowNestedSurvey(false)}
                 >
                   Survey
                   <ChevronDown size={12} className="nested-arrow" />
-                  
+
                   {showNestedSurvey && (
                     <div className="nested-menu">
                       <Link to="/resources/survey/grc" className="nested-item">GRC Survey</Link>
@@ -428,7 +428,7 @@ const Header = () => {
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="mobile-menu-toggle"
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
@@ -450,33 +450,33 @@ const Header = () => {
 
               {/* Company */}
               <div className="mobile-nav-item">
-                <button 
+                <button
                   className="mobile-nav-link"
                   onClick={() => toggleMobileDropdown('company')}
                 >
                   Company
-                  <ChevronDown 
-                    size={18} 
+                  <ChevronDown
+                    size={18}
                     className={`mobile-chevron ${mobileActiveMenu === 'company' ? 'rotated' : ''}`}
                   />
                 </button>
                 {mobileActiveMenu === 'company' && (
                   <div className="mobile-dropdown">
-                    <Link to="/company/about" className="mobile-dropdown-item" onClick={closeMobileMenu}>About Us</Link>
-                    <Link to="/company/career" className="mobile-dropdown-item" onClick={closeMobileMenu}>Career</Link>
+                    <Link to="/about" className="mobile-dropdown-item" onClick={closeMobileMenu}>About Us</Link>
+                    <Link to="/careers" className="mobile-dropdown-item" onClick={closeMobileMenu}>Career</Link>
                   </div>
                 )}
               </div>
 
               {/* Services */}
               <div className="mobile-nav-item">
-                <button 
+                <button
                   className="mobile-nav-link"
                   onClick={() => toggleMobileDropdown('services')}
                 >
                   Services
-                  <ChevronDown 
-                    size={18} 
+                  <ChevronDown
+                    size={18}
                     className={`mobile-chevron ${mobileActiveMenu === 'services' ? 'rotated' : ''}`}
                   />
                 </button>
@@ -484,37 +484,37 @@ const Header = () => {
                   <div className="mobile-services-wrapper">
                     {/* Service Tabs */}
                     <div className="mobile-service-tabs">
-                      <button 
+                      <button
                         className={`mobile-service-tab ${mobileActiveService === 'regulatory' ? 'active' : ''}`}
                         onClick={() => handleMobileServiceTab('regulatory')}
                       >
                         Regulatory Audit
                       </button>
-                      <button 
+                      <button
                         className={`mobile-service-tab ${mobileActiveService === 'offensive' ? 'active' : ''}`}
                         onClick={() => handleMobileServiceTab('offensive')}
                       >
                         Offensive Security
                       </button>
-                      <button 
+                      <button
                         className={`mobile-service-tab ${mobileActiveService === 'infrastructure' ? 'active' : ''}`}
                         onClick={() => handleMobileServiceTab('infrastructure')}
                       >
                         Infrastructure & Cloud
                       </button>
-                      <button 
+                      <button
                         className={`mobile-service-tab ${mobileActiveService === 'compliance' ? 'active' : ''}`}
                         onClick={() => handleMobileServiceTab('compliance')}
                       >
                         Compliance
                       </button>
-                      <button 
+                      <button
                         className={`mobile-service-tab ${mobileActiveService === 'privacy' ? 'active' : ''}`}
                         onClick={() => handleMobileServiceTab('privacy')}
                       >
                         Data Privacy
                       </button>
-                      <button 
+                      <button
                         className={`mobile-service-tab ${mobileActiveService === 'consulting' ? 'active' : ''}`}
                         onClick={() => handleMobileServiceTab('consulting')}
                       >
@@ -666,13 +666,13 @@ const Header = () => {
 
               {/* Industries */}
               <div className="mobile-nav-item">
-                <button 
+                <button
                   className="mobile-nav-link"
                   onClick={() => toggleMobileDropdown('industries')}
                 >
                   Industries
-                  <ChevronDown 
-                    size={18} 
+                  <ChevronDown
+                    size={18}
                     className={`mobile-chevron ${mobileActiveMenu === 'industries' ? 'rotated' : ''}`}
                   />
                 </button>
@@ -690,13 +690,13 @@ const Header = () => {
 
               {/* Resources */}
               <div className="mobile-nav-item">
-                <button 
+                <button
                   className="mobile-nav-link"
                   onClick={() => toggleMobileDropdown('resources')}
                 >
                   Resources
-                  <ChevronDown 
-                    size={18} 
+                  <ChevronDown
+                    size={18}
                     className={`mobile-chevron ${mobileActiveMenu === 'resources' ? 'rotated' : ''}`}
                   />
                 </button>

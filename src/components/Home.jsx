@@ -406,9 +406,10 @@ const Home = () => {
                 <div className="testimonial-stars">
                   {[...Array(5)].map((_, i) => {
                     const ratingValue = i + 1;
-                    if (testimonial.rating >= ratingValue) {
+                    const diff = testimonial.rating - (ratingValue - 1);
+                    if (diff >= 0.75) {
                       return <i key={i} className="fas fa-star"></i>;
-                    } else if (testimonial.rating >= ratingValue - 0.5) {
+                    } else if (diff >= 0.25) {
                       return <i key={i} className="fas fa-star-half-alt"></i>;
                     } else {
                       return <i key={i} className="far fa-star"></i>;
