@@ -125,7 +125,6 @@ export default function GRC() {
                 "Moderate compliance – improvements recommended."}
               {score < 50 && "Low compliance – immediate action required."}
             </p>
-
             <button 
             className="survey-btn primary"
             onClick={() => navigate("/appointment")}>
