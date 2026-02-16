@@ -301,7 +301,7 @@ const quoteRef = useRef(null);
 
             <img
             
-              src="/assets/download1.jpg"
+              src="./assets/download1.jpg"
               alt="Cybersecurity shield"
               className="img-overlay"
             />
