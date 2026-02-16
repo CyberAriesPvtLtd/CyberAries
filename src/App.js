@@ -9,7 +9,7 @@ import Contact from './components/contact';
 import Appointment from './components/appointment';
 import TermsConditions from './components/TermsConditions';
 import PrivacyPolicy from './components/PrivacyPolicy';
-import ComingSoon from './pages/comingsoon';
+import ComingSoon from './pages/ComingSoon';
 
 // Industries
 import BFSI from './pages/industries/BFSI';
@@ -93,6 +93,7 @@ function App() {
           <Route path="/services/compliance/iso-27701" element={<ISO27701 />} />
 
           {/* Coming Soon Resources / Pages */}
+          <Route path="/services" element={<ComingSoon />} />
           <Route path="/services/*" element={<ComingSoon />} />
           <Route path="/industries/*" element={<ComingSoon />} />
           <Route path="/resources/*" element={<ComingSoon />} />
