@@ -39,7 +39,7 @@ const quoteRef = useRef(null);
           opacity: 1,
           y: 0,
           stagger: 0.2,
-          duration: 0.8,
+          duration: 1,
           ease: "power2.out",
           clearProps: "opacity,transform",
         }
@@ -76,7 +76,7 @@ const quoteRef = useRef(null);
           opacity: 1,
           y: 0,
           scale: 1,
-          duration: 0.8,
+          duration: 1,
           ease: "power2.out",
           clearProps: "opacity,transform",
         }
@@ -103,7 +103,7 @@ const quoteRef = useRef(null);
           opacity: 1,
           y: 0,
           stagger: 0.18,
-          duration: 0.8,
+          duration: 1,
           ease: "power2.out",
           clearProps: "opacity,transform",
         }
@@ -126,7 +126,7 @@ const quoteRef = useRef(null);
           opacity: 1,
           y: 0,
           stagger: 0.15,
-          duration: 0.7,
+          duration: 1,
           ease: "power2.out",
           clearProps: "opacity,transform",
         }
@@ -149,7 +149,7 @@ const quoteRef = useRef(null);
           opacity: 1,
           y: 0,
           stagger: 0.15,
-          duration: 0.7,
+          duration: 1,
           ease: "power2.out",
           clearProps: "opacity,transform",
         }
@@ -172,7 +172,7 @@ const quoteRef = useRef(null);
           opacity: 1,
           y: 0,
           stagger: 0.15,
-          duration: 0.7,
+          duration: 1,
           ease: "power2.out",
           clearProps: "opacity,transform",
         }
@@ -191,12 +191,12 @@ const quoteRef = useRef(null);
         {
           scrollTrigger: {
             trigger: ctaRef.current,
-            start: "top 90%",
+            start: "top 80%",
             once: true,
           },
           opacity: 1,
           y: 0,
-          duration: 0.7,
+          duration: 1,
           ease: "power2.out",
           clearProps: "opacity,transform",
         }
