@@ -9,7 +9,12 @@ import Contact from './components/contact';
 import Appointment from './components/appointment';
 import TermsConditions from './components/TermsConditions';
 import PrivacyPolicy from './components/PrivacyPolicy';
+<<<<<<< HEAD
 import ComingSoon from './pages/ComingSoon';
+=======
+import GRC from './components/GRC';
+import DPDPA from './components/DPDPA';
+>>>>>>> 22734e7 (adding survey page and DPDPA and GRC components)
 
 // Industries
 import BFSI from './pages/industries/BFSI';
@@ -92,6 +97,7 @@ function App() {
           <Route path="/services/compliance/iso-27018" element={<ISO27018 />} />
           <Route path="/services/compliance/iso-27701" element={<ISO27701 />} />
 
+<<<<<<< HEAD
           {/* Coming Soon Resources / Pages */}
           <Route path="/services" element={<ComingSoon />} />
           <Route path="/services/*" element={<ComingSoon />} />
@@ -99,6 +105,34 @@ function App() {
           <Route path="/resources/*" element={<ComingSoon />} />
           <Route path="/company/*" element={<ComingSoon />} />
           <Route path="/blog" element={<ComingSoon />} />
+=======
+          {/* Strategic Consulting - Forensics & Recovery */}
+          <Route path="/services/consulting/forensic-audit" element={<ComingSoon />} />
+          <Route path="/services/consulting/ransomware-recovery" element={<ComingSoon />} />
+
+          {/* Strategic Consulting - Managed Leadership */}
+          <Route path="/services/consulting/virtual-ciso" element={<ComingSoon />} />
+          <Route path="/services/consulting/dpo-service" element={<ComingSoon />} />
+
+          {/* Strategic Consulting - US Federal Standards */}
+          <Route path="/services/consulting/nist-800-53" element={<ComingSoon />} />
+          <Route path="/services/consulting/nist-800-171" element={<ComingSoon />} />
+
+          {/* Resources */}
+          <Route path="/resources/case-studies" element={<ComingSoon />} />
+          <Route path="/resources/blogs" element={<ComingSoon />} />
+          <Route path="/resources/news" element={<ComingSoon />} />
+          <Route path="/resources/download" element={<ComingSoon />} />
+
+          {/* Resources - Survey */}
+          <Route path="/resources/survey/grc" element={<GRC />} />
+          <Route path="/resources/survey/dpdpa" element={<DPDPA />} />
+          <Route path="/resources/survey/tprm" element={<ComingSoon />} />
+      
+
+          {/* Fallback for undefined routes */}
+          <Route path="*" element={<ComingSoon />} />
+>>>>>>> 22734e7 (adding survey page and DPDPA and GRC components)
         </Routes>
         <Footer />
       </div>
