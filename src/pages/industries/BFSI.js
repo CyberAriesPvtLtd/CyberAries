@@ -87,7 +87,7 @@ const BFSI = () => {
   // Why Choose Cyberaries Data
   const whyChooseItems = [
     {
-      title: "CERT-In Empanelled",
+      title: "Partnered CERT-In Empanelled",
       description: "Recognized by the Government of India for security audits.",
       icon: <Award size={50} />
     },

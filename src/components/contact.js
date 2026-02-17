@@ -147,7 +147,7 @@ function Contact() {
             </div>   
             </div>
             <div className="sideimage">
-              <img src="/assets/globe_2-removebg-preview.png" alt="sideimage" />
+              <img src="/assets/globe_2-removebg-preview.webp" alt="sideimage" />
             </div>
 
           </div>

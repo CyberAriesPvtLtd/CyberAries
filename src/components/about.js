@@ -253,7 +253,7 @@ const quoteRef = useRef(null);
 
             <img
                 ref={expImgRef}
-                src="/assets/experience.jpg"
+                src="/assets/experience.webp"
                 alt="Cybersecurity expertise"
                 className="experience-img"
                 />
@@ -294,14 +294,14 @@ const quoteRef = useRef(null);
           {/* LEFT VISUAL */}
           <div className="expertise-visual">
             <img
-              src="/assets/expert.jpg"
+              src="/assets/expert.webp"
               alt="Security Operations Center"
               className="img-main"
             />
 
             <img
             
-              src="./assets/download1.jpg"
+              src="./assets/download1.webp"
               alt="Cybersecurity shield"
               className="img-overlay"
             />
@@ -372,7 +372,7 @@ const quoteRef = useRef(null);
           </div>
 
           <div class="overview-image">
-            <img src="/assets/team1.jpeg" alt="Security monitoring center" />
+            <img src="/assets/team1.webp" alt="Security monitoring center" />
           </div>
         </div>
       </section>
