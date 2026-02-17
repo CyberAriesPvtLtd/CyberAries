@@ -88,7 +88,7 @@ export default function FourDApproach() {
       <div className="timeline-container">
         {/* Header */}
         <div className="timeline-header">
-          <h2 className="timeline-title">4D Approach to Forensics-Driven Cybersecurity</h2>
+          <h2 className="timeline-title">CyberAries 4D Approach to Forensics-Driven Cybersecurity</h2>
           <p className="timeline-subtitle">
             A systematic methodology transforming security incidents into actionable intelligence
           </p>
