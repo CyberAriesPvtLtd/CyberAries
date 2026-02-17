@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
 import Home from './components/Home';
 import Careers from './components/Careers';
@@ -53,6 +54,7 @@ import './App.css';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Header />
         <Routes>
@@ -128,7 +130,7 @@ function App() {
           <Route path="/resources/survey/grc" element={<GRC />} />
           <Route path="/resources/survey/dpdpa" element={<DPDPA />} />
           <Route path="/resources/survey/tprm" element={<ComingSoon />} />
-      
+
 
           {/* Fallback for undefined routes */}
           <Route path="*" element={<ComingSoon />} />
