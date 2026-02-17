@@ -196,7 +196,7 @@
 .nested-menu {
   position: absolute;
   left: 100%;
-  top: 0;
+  top: 50%;
   margin-top: 0;
   padding-top: 0.5rem;
   background: white;
@@ -205,6 +205,33 @@
   min-width: 350px;
   padding: 1rem 0;
   border: 1px solid #e5e7eb;
+  z-index: 1200;
+  animation: fadeInRight 0.3s ease;
+}
+.nested-item{
+    display: block;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.9rem;
+  color: #1f2937;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+.nested-item:hover {
+  background: #f9fafb;
+  border-left-color: #dc2626;
+  color: #dc2626;
+}
+.nested-arrow {
+  rotate: 270deg;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+    padding: 0 ;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+
 }
 
 /* ==========================================
@@ -212,6 +239,7 @@
    ========================================== */
 
 .services-mega-menu {
+  
   position: fixed;
   top: 70px;
   left: 50%;
