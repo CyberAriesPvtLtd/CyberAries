@@ -19,7 +19,7 @@ const BSECyberAudit = () => {
   const stats = [
     { number: "500+", label: "Audits Completed" },
     { number: "98%", label: "Success Rate" },
-    { number: "15+", label: "Years Experience" },
+    { number: "10+", label: "Years Experience" },
     { number: "100%", label: "Compliance Score" }
   ];
 
@@ -83,30 +83,6 @@ const BSECyberAudit = () => {
     { num: 8, icon: <CheckCircle />, title: "Final Validation", desc: "Verify compliance achievement" }
   ];
 
-  // PRICING PACKAGES
-  const packages = [
-    {
-      name: "Basic",
-      price: "₹2,50,000",
-      period: "One-time",
-      popular: false,
-      features: ["Gap Assessment", "Policy Review", "Basic Testing", "Compliance Report", "Email Support"]
-    },
-    {
-      name: "Professional",
-      price: "₹5,00,000",
-      period: "One-time",
-      popular: true,
-      features: ["Complete Audit", "VAPT Testing", "Remediation Support", "Detailed Documentation", "Priority Support", "Quarterly Review"]
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      period: "Annual Contract",
-      popular: false,
-      features: ["Full Audit Suite", "Ongoing Monitoring", "24/7 Support", "Dedicated Consultant", "Quarterly Audits", "Incident Response"]
-    }
-  ];
 
   // FAQ DATA
   const faqs = [

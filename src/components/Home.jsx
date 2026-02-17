@@ -177,7 +177,7 @@ const Home = () => {
             {/* Badge */}
             <div className="hero-badge">
               <i className="fas fa-shield-alt"></i>
-              <span>Trusted By 500+ Organizations</span>
+              <span>Trusted By 100+ Organizations</span>
             </div>
 
             {/* Main Title */}
@@ -292,7 +292,7 @@ const Home = () => {
           <div className="center-content">
             <div className="center-label">
               <i className="fas fa-shield-alt center-icon"></i>
-              <strong>How We Secure<br/>Your Business</strong>
+              <strong>How We Secure<br />Your Business</strong>
             </div>
           </div>
 
@@ -496,7 +496,7 @@ const Home = () => {
               <i className="fas fa-building"></i>
             </div>
             <div className="stat-content">
-              <div className="stat-number">150+</div>
+              <div className="stat-number">100+</div>
               <div className="stat-label">Enterprise Clients</div>
             </div>
           </div>
