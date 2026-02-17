@@ -5,7 +5,7 @@
 
 .main-header {
   background: #ffffff;
-  padding: 0.75rem 0;
+  padding: 0.4rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -23,6 +23,12 @@
   gap: 2rem;
 }
 
+.logo-image {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
 /* ==========================================
    LOGO STYLES
    ========================================== */
@@ -36,18 +42,9 @@
 }
 
 .header-logo:hover {
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
-.logo-image {
-  height: 65px;
-  width: auto;
-  object-fit: contain;
-}
-
-/* ==========================================
-   DESKTOP NAVIGATION
-   ========================================== */
 
 .header-nav {
   display: flex;
