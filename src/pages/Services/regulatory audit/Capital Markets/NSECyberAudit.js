@@ -254,34 +254,6 @@ const NSECyberAudit = () => {
         </div>
       </section>
 
-      {/* PRICING CARDS */}
-      <section className="nse-pricing">
-        <div className="container">
-          <ScrollReveal direction="up" triggerOnce={false}>
-            <h2 className="nse-section-title">Flexible Pricing Plans</h2>
-            <p className="nse-section-desc">Choose the package that fits your needs</p>
-          </ScrollReveal>
-
-          <div className="nse-pricing-grid">
-            {packages.map((pkg, i) => (
-              <ScrollReveal key={i} direction="up" delay={i * 100} triggerOnce={false}>
-                <div className={`nse-pricing-card ${pkg.popular ? 'popular' : ''}`}>
-                  {pkg.popular && <div className="nse-pricing-badge">Most Popular</div>}
-                  <h3 className="nse-pricing-name">{pkg.name}</h3>
-                  <div className="nse-pricing-price">{pkg.price}</div>
-                  <div className="nse-pricing-period">{pkg.period}</div>
-                  <ul className="nse-pricing-features">
-                    {pkg.features.map((f, j) => (
-                      <li key={j}><Check size={18} /> {f}</li>
-                    ))}
-                  </ul>
-                  <button className="nse-btn-pricing">Get Started <ArrowRight size={18} /></button>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* FAQ ACCORDION */}
       <section className="nse-faq">

@@ -253,35 +253,6 @@ const SEBICyberAudit = () => {
         </div>
       </section>
 
-      {/* PRICING CARDS */}
-      <section className="sebi-pricing">
-        <div className="container">
-          <ScrollReveal direction="up" triggerOnce={false}>
-            <h2 className="sebi-section-title">Flexible Pricing Plans</h2>
-            <p className="sebi-section-desc">Choose the package that fits your needs</p>
-          </ScrollReveal>
-
-          <div className="sebi-pricing-grid">
-            {packages.map((pkg, i) => (
-              <ScrollReveal key={i} direction="up" delay={i * 100} triggerOnce={false}>
-                <div className={`sebi-pricing-card ${pkg.popular ? 'popular' : ''}`}>
-                  {pkg.popular && <div className="sebi-pricing-badge">Most Popular</div>}
-                  <h3 className="sebi-pricing-name">{pkg.name}</h3>
-                  <div className="sebi-pricing-price">{pkg.price}</div>
-                  <div className="sebi-pricing-period">{pkg.period}</div>
-                  <ul className="sebi-pricing-features">
-                    {pkg.features.map((f, j) => (
-                      <li key={j}><Check size={18} /> {f}</li>
-                    ))}
-                  </ul>
-                  <button className="sebi-btn-pricing">Get Started <ArrowRight size={18} /></button>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ ACCORDION */}
       <section className="sebi-faq">
         <div className="container">

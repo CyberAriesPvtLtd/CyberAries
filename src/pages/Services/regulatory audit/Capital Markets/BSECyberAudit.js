@@ -253,34 +253,6 @@ const BSECyberAudit = () => {
         </div>
       </section>
 
-      {/* PRICING CARDS */}
-      <section className="bse-pricing">
-        <div className="container">
-          <ScrollReveal direction="up" triggerOnce={false}>
-            <h2 className="bse-section-title">Flexible Pricing Plans</h2>
-            <p className="bse-section-desc">Choose the package that fits your needs</p>
-          </ScrollReveal>
-
-          <div className="bse-pricing-grid">
-            {packages.map((pkg, i) => (
-              <ScrollReveal key={i} direction="up" delay={i * 100} triggerOnce={false}>
-                <div className={`bse-pricing-card ${pkg.popular ? 'popular' : ''}`}>
-                  {pkg.popular && <div className="bse-pricing-badge">Most Popular</div>}
-                  <h3 className="bse-pricing-name">{pkg.name}</h3>
-                  <div className="bse-pricing-price">{pkg.price}</div>
-                  <div className="bse-pricing-period">{pkg.period}</div>
-                  <ul className="bse-pricing-features">
-                    {pkg.features.map((f, j) => (
-                      <li key={j}><Check size={18} /> {f}</li>
-                    ))}
-                  </ul>
-                  <button className="bse-btn-pricing">Get Started <ArrowRight size={18} /></button>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* FAQ ACCORDION */}
       <section className="bse-faq">
