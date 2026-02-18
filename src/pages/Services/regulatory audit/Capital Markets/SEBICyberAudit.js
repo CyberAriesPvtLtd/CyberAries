@@ -19,7 +19,7 @@ const SEBICyberAudit = () => {
   const stats = [
     { number: "500+", label: "Audits Completed" },
     { number: "98%", label: "Success Rate" },
-    { number: "15+", label: "Years Experience" },
+    { number: "10+", label: "Years Experience" },
     { number: "100%", label: "Compliance Score" }
   ];
 
@@ -83,30 +83,6 @@ const SEBICyberAudit = () => {
     { num: 8, icon: <CheckCircle />, title: "Final Validation", desc: "Verify compliance achievement" }
   ];
 
-  // PRICING PACKAGES
-  const packages = [
-    {
-      name: "Basic",
-      price: "₹2,50,000",
-      period: "One-time",
-      popular: false,
-      features: ["Gap Assessment", "Policy Review", "Basic Testing", "Compliance Report", "Email Support"]
-    },
-    {
-      name: "Professional",
-      price: "₹5,00,000",
-      period: "One-time",
-      popular: true,
-      features: ["Complete Audit", "VAPT Testing", "Remediation Support", "Detailed Documentation", "Priority Support", "Quarterly Review"]
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      period: "Annual Contract",
-      popular: false,
-      features: ["Full Audit Suite", "Ongoing Monitoring", "24/7 Support", "Dedicated Consultant", "Quarterly Audits", "Incident Response"]
-    }
-  ];
 
   // FAQ DATA
   const faqs = [
@@ -273,35 +249,6 @@ const SEBICyberAudit = () => {
               <div className="sebi-comparison-item"><Check className="sebi-icon-yes" /> Remediation support</div>
               <div className="sebi-comparison-item"><Check className="sebi-icon-yes" /> Continuous monitoring</div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PRICING CARDS */}
-      <section className="sebi-pricing">
-        <div className="container">
-          <ScrollReveal direction="up" triggerOnce={false}>
-            <h2 className="sebi-section-title">Flexible Pricing Plans</h2>
-            <p className="sebi-section-desc">Choose the package that fits your needs</p>
-          </ScrollReveal>
-
-          <div className="sebi-pricing-grid">
-            {packages.map((pkg, i) => (
-              <ScrollReveal key={i} direction="up" delay={i * 100} triggerOnce={false}>
-                <div className={`sebi-pricing-card ${pkg.popular ? 'popular' : ''}`}>
-                  {pkg.popular && <div className="sebi-pricing-badge">Most Popular</div>}
-                  <h3 className="sebi-pricing-name">{pkg.name}</h3>
-                  <div className="sebi-pricing-price">{pkg.price}</div>
-                  <div className="sebi-pricing-period">{pkg.period}</div>
-                  <ul className="sebi-pricing-features">
-                    {pkg.features.map((f, j) => (
-                      <li key={j}><Check size={18} /> {f}</li>
-                    ))}
-                  </ul>
-                  <button className="sebi-btn-pricing">Get Started <ArrowRight size={18} /></button>
-                </div>
-              </ScrollReveal>
-            ))}
           </div>
         </div>
       </section>

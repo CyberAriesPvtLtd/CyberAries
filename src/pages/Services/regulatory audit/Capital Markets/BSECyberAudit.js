@@ -19,7 +19,7 @@ const BSECyberAudit = () => {
   const stats = [
     { number: "500+", label: "Audits Completed" },
     { number: "98%", label: "Success Rate" },
-    { number: "15+", label: "Years Experience" },
+    { number: "10+", label: "Years Experience" },
     { number: "100%", label: "Compliance Score" }
   ];
 
@@ -83,30 +83,6 @@ const BSECyberAudit = () => {
     { num: 8, icon: <CheckCircle />, title: "Final Validation", desc: "Verify compliance achievement" }
   ];
 
-  // PRICING PACKAGES
-  const packages = [
-    {
-      name: "Basic",
-      price: "₹2,50,000",
-      period: "One-time",
-      popular: false,
-      features: ["Gap Assessment", "Policy Review", "Basic Testing", "Compliance Report", "Email Support"]
-    },
-    {
-      name: "Professional",
-      price: "₹5,00,000",
-      period: "One-time",
-      popular: true,
-      features: ["Complete Audit", "VAPT Testing", "Remediation Support", "Detailed Documentation", "Priority Support", "Quarterly Review"]
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      period: "Annual Contract",
-      popular: false,
-      features: ["Full Audit Suite", "Ongoing Monitoring", "24/7 Support", "Dedicated Consultant", "Quarterly Audits", "Incident Response"]
-    }
-  ];
 
   // FAQ DATA
   const faqs = [
@@ -277,34 +253,6 @@ const BSECyberAudit = () => {
         </div>
       </section>
 
-      {/* PRICING CARDS */}
-      <section className="bse-pricing">
-        <div className="container">
-          <ScrollReveal direction="up" triggerOnce={false}>
-            <h2 className="bse-section-title">Flexible Pricing Plans</h2>
-            <p className="bse-section-desc">Choose the package that fits your needs</p>
-          </ScrollReveal>
-
-          <div className="bse-pricing-grid">
-            {packages.map((pkg, i) => (
-              <ScrollReveal key={i} direction="up" delay={i * 100} triggerOnce={false}>
-                <div className={`bse-pricing-card ${pkg.popular ? 'popular' : ''}`}>
-                  {pkg.popular && <div className="bse-pricing-badge">Most Popular</div>}
-                  <h3 className="bse-pricing-name">{pkg.name}</h3>
-                  <div className="bse-pricing-price">{pkg.price}</div>
-                  <div className="bse-pricing-period">{pkg.period}</div>
-                  <ul className="bse-pricing-features">
-                    {pkg.features.map((f, j) => (
-                      <li key={j}><Check size={18} /> {f}</li>
-                    ))}
-                  </ul>
-                  <button className="bse-btn-pricing">Get Started <ArrowRight size={18} /></button>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* FAQ ACCORDION */}
       <section className="bse-faq">

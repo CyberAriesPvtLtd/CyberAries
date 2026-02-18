@@ -128,7 +128,7 @@ const Home = () => {
       role: 'Compliance Officer',
       company: 'Healthcare Systems Ltd',
       date: '10 December 2024',
-      rating: 4.8,
+      rating: 4.5,
       text: 'Their penetration testing gave us a clear picture of our risks. The remediation plan was actionable and effective. Highly recommended.'
     },
     {
@@ -146,7 +146,7 @@ const Home = () => {
       role: 'VP Technology',
       company: 'Manufacturing Group',
       date: '22 November 2024',
-      rating: 4.8,
+      rating: 4.5,
       text: 'Impressed with their SEBI audit expertise. The team understood our requirements perfectly and delivered comprehensive security assessment on time.'
     },
     {
@@ -177,13 +177,13 @@ const Home = () => {
             {/* Badge */}
             <div className="hero-badge">
               <i className="fas fa-shield-alt"></i>
-              <span>Trusted By 500+ Organizations</span>
+              <span>Trusted By 100+ Organizations</span>
             </div>
 
             {/* Main Title */}
             <h1 className="hero-title">
-              Comprehensive
-              <span className="hero-highlight"> Cyber Security</span>
+              Comprehensive {''}
+              <span className="hero-highlight">Cyber Security</span>
               <br />
               Solutions For Your Business
             </h1>
@@ -216,22 +216,6 @@ const Home = () => {
                 <i className="fas fa-arrow-right"></i>
               </a>
               <a href="#services" className="btn-secondary">Explore Services</a>
-            </div>
-
-            {/* Trust Stats */}
-            <div className="hero-stats">
-              <div className="hero-stat">
-                <div className="hero-stat-number">500+</div>
-                <div className="hero-stat-label">Security Audits</div>
-              </div>
-              <div className="hero-stat">
-                <div className="hero-stat-number">99.9%</div>
-                <div className="hero-stat-label">Threat Detection</div>
-              </div>
-              <div className="hero-stat">
-                <div className="hero-stat-number">24/7</div>
-                <div className="hero-stat-label">Monitoring</div>
-              </div>
             </div>
           </div>
         </div>
@@ -291,7 +275,10 @@ const Home = () => {
 
 
       <section className="home-container">
-        <div className="section-header">
+        <div className="security-section-header">
+          <div className="section-subtitle">How We Secure</div>
+          <h2 className="section-title">How We Secure Your Business</h2>
+          <p className="section-description">A systematic approach to identifying vulnerabilities, implementing defenses, and maintaining continuous security.</p>
         </div>
         <div className="security-circle">
 
@@ -301,17 +288,19 @@ const Home = () => {
           {/* Rotating thick arc */}
           <div className="rotating-arc"></div>
 
-          {/* Center Content */}
+          {/* Center Content - just label, no nested card */}
           <div className="center-content">
-            <div className="center-highlight">
-              <span>
-                <strong>How We Secure Your Business</strong>
-                <span className="center-desc">
-                  A systematic approach to identifying vulnerabilities, implementing
-                  defenses, and maintaining continuous security.
-                </span>
-              </span></div>
+            <div className="center-label">
+              <i className="fas fa-shield-alt center-icon"></i>
+              <strong>How We Secure<br />Your Business</strong>
+            </div>
           </div>
+
+          {/* Step number badges for flow clarity */}
+          <div className="step-badge step-badge-top">01</div>
+          <div className="step-badge step-badge-right">02</div>
+          <div className="step-badge step-badge-bottom">03</div>
+          <div className="step-badge step-badge-left">04</div>
 
           {/* Box 1 - Security Assessment */}
           <div className="cycle-card top">
@@ -342,13 +331,60 @@ const Home = () => {
 
           {/* Box 4 - Audit & Report */}
           <div className="cycle-card left">
-            <h4><FaClipboardCheck /> Clearing Audit & Report Generation</h4>
+            <h4><FaClipboardCheck /> Audit & Report</h4>
             <p>
               Comprehensive audit documentation and detailed reporting to ensure
               compliance and provide clear insights into your security status.
             </p>
           </div>
 
+        </div>
+
+        {/* Mobile linear flow - shown only on mobile */}
+        <div className="mobile-security-flow">
+          <div className="mobile-flow-card">
+            <div className="mobile-flow-step">01</div>
+            <div className="mobile-flow-content">
+              <h4><FaShieldAlt /> Security Assessment</h4>
+              <p>We conduct a comprehensive analysis of your current security posture, identifying vulnerabilities and potential threats across all systems.</p>
+            </div>
+          </div>
+          <div className="mobile-flow-connector">
+            <span className="mobile-flow-dot"></span>
+            <span className="mobile-flow-line"></span>
+            <span className="mobile-flow-dot"></span>
+          </div>
+          <div className="mobile-flow-card">
+            <div className="mobile-flow-step">02</div>
+            <div className="mobile-flow-content">
+              <h4><FaChartLine /> Risk Analysis</h4>
+              <p>Our experts prioritize risks based on impact and likelihood, creating a roadmap for addressing the most critical security gaps.</p>
+            </div>
+          </div>
+          <div className="mobile-flow-connector">
+            <span className="mobile-flow-dot"></span>
+            <span className="mobile-flow-line"></span>
+            <span className="mobile-flow-dot"></span>
+          </div>
+          <div className="mobile-flow-card">
+            <div className="mobile-flow-step">03</div>
+            <div className="mobile-flow-content">
+              <h4><FaCogs /> Implementation</h4>
+              <p>We deploy tailored security solutions, from firewalls to encryption, ensuring comprehensive protection across your infrastructure.</p>
+            </div>
+          </div>
+          <div className="mobile-flow-connector">
+            <span className="mobile-flow-dot"></span>
+            <span className="mobile-flow-line"></span>
+            <span className="mobile-flow-dot"></span>
+          </div>
+          <div className="mobile-flow-card">
+            <div className="mobile-flow-step">04</div>
+            <div className="mobile-flow-content">
+              <h4><FaClipboardCheck /> Audit & Report</h4>
+              <p>Comprehensive audit documentation and detailed reporting to ensure compliance and provide clear insights into your security status.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -460,7 +496,7 @@ const Home = () => {
               <i className="fas fa-building"></i>
             </div>
             <div className="stat-content">
-              <div className="stat-number">150+</div>
+              <div className="stat-number">100+</div>
               <div className="stat-label">Enterprise Clients</div>
             </div>
           </div>
