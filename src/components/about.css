@@ -1,11 +1,15 @@
 .about-hero {
-  background-image: url("../../public/assets/bgg.webp");
-/* background-color: #0f0101; */
-  padding: 24px; 
-  backface-visibility:blur(2px);
-  padding: 24px 0;
-  min-height: calc(100vh - 80px); /* HEADER HEIGHT */
+  background:linear-gradient(145deg, rgba(55, 59, 82, 0) 0%, rgba(35, 43, 43, 0.88) 100%), url("../../public/assets/aboutbakg.webp");
+  padding: 100px 6px 17px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
   display: flex;
+  align-items: center;
+  justify-content: center;
   
 
 }

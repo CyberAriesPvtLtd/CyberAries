@@ -294,7 +294,7 @@ const quoteRef = useRef(null);
           {/* LEFT VISUAL */}
           <div className="expertise-visual">
             <img
-              src="/assets/expert.webp"
+              src="/assets/expert2.webp"
               alt="Security Operations Center"
               className="img-main"
             />
@@ -304,6 +304,7 @@ const quoteRef = useRef(null);
               src="./assets/download1.webp"
               alt="Cybersecurity shield"
               className="img-overlay"
+              style={{  }}
             />
 
             <div className="expertise-stat">
