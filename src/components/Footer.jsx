@@ -7,7 +7,7 @@ const Footer = () => {
     <footer>
       <div className="footer-grid">
         <div>
-          <img src="/cyberaries-logo.png" alt="CyberAries logo" style={{ height: '60px', width: 'auto', marginBottom: '15px' }} />
+          <img src="/cyberaries1-logo.png" alt="CyberAries logo" style={{ height: '60px', width: 'auto', marginBottom: '15px' }} />
           <p style={{ lineHeight: '1.7', marginBottom: '20px' }}>
             At Cyber Aries Pvt. Ltd., we're committed to delivering professional, high-quality cybersecurity solutions. From proactive threat monitoring to advanced data protection.
           </p>
