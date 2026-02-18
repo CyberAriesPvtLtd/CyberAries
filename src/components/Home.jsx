@@ -59,7 +59,7 @@ const Home = () => {
     },
     {
       icon: UserCheck,
-      title: 'Identity & Access Management',
+      title: 'Access Management',
       description: 'Managing user identities and access with MFA and detailed role-based control for enhanced security.'
     },
     {
@@ -233,10 +233,12 @@ const Home = () => {
           <div className="features-grid">
             {features.map((feature, index) => (
               <div className="feature-card" key={index}>
-                <div className="feature-icon">
-                  <i className={feature.icon}></i>
+                <div className="feature-card-header">
+                  <div className="feature-icon">
+                    <i className={feature.icon}></i>
+                  </div>
+                  <h3 className="feature-title">{feature.title}</h3>
                 </div>
-                <h3 className="feature-title">{feature.title}</h3>
                 <p className="feature-description">{feature.description}</p>
               </div>
             ))}
