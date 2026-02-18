@@ -105,12 +105,12 @@ const ITeS = () => {
   // Why Choose Cyberaries Data
   const whyChooseItems = [
     {
-      title: "CERT-In Empanelled",
+      title: "Partnered with CERT-In Empanelled",
       description: "Recognized by the Government of India for security audits.",
       icon: <Award size={50} />
     },
     {
-      title: "350+ Clients Across Banking, IT, Insurance, Healthcare, and Manufacturing",
+      title: "350+ Clients Across Different Sector",
       description: "Proven expertise across diverse industries.",
       icon: <Globe size={50} />
     },

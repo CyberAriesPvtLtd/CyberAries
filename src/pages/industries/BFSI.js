@@ -92,7 +92,7 @@ const BFSI = () => {
       icon: <Award size={50} />
     },
     {
-      title: "350+ Clients Across Banking, IT, Insurance, Healthcare, and Manufacturing",
+      title: "350+ Clients Across Different Sector",
       description: "Proven expertise across diverse industries.",
       icon: <Globe size={50} />
     },
