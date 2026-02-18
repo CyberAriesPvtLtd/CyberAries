@@ -83,7 +83,7 @@ const ISO27018 = () => {
   const whyChooseData = [
     {
       icon: <Award size={48} />,
-      title: "CERT-In Empanelled",
+      title: "Partnered with CERT-In Empanelled",
       description: "Recognized by the Government of India for security audits, compliance, and risk management services."
     },
     {

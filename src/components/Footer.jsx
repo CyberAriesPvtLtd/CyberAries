@@ -33,7 +33,16 @@ const Footer = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/services">Our Services</Link></li>
             <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/blog">Blog</Link></li>
+            <li>  
+                <a
+                  href="https://medium.com/@cyberaries"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="blog-link"
+                  >
+                  Blogs
+                </a>
+              </li>
             <li><Link to="/careers">Career</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </ul>

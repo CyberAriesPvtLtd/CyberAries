@@ -147,7 +147,7 @@ const Careers = () => {
             <div className="stat-label">Support Coverage</div>
           </div>
           <div className="stat-item">
-            <div className="stat-number">5+</div>
+            <div className="stat-number">10+</div>
             <div className="stat-label">Years of Excellence</div>
           </div>
         </div>

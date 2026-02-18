@@ -247,7 +247,7 @@ const quoteRef = useRef(null);
         <div className="about-exp-container">
           <div className="about-exp-visual">
             <div className="exp-card">
-              <span className="exp-number">15+</span>
+              <span className="exp-number">10+</span>
               <span className="exp-label">Years of Experience</span>
             </div>
 
