@@ -2,7 +2,7 @@ import React from 'react';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/wireless-image.jpg';
-import Footer from '../../../../components/Footer';
+
 
 import {
   FileText,
@@ -302,7 +302,7 @@ const WirelessSecurity = () => {
           </ScrollReveal>
         </div>
       </section>
-      <Footer />
+      
     </div>
   );
 };

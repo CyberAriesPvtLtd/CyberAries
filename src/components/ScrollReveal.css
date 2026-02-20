@@ -47,12 +47,12 @@
 @media (max-width: 768px) {
   .scroll-reveal--left,
   .scroll-reveal--right {
-    transform: translateX(-30px);
+    transform: translateX(0);
   }
   
   .scroll-reveal--up,
   .scroll-reveal--down {
-    transform: translateY(-30px);
+    transform: translateY(0);
   }
 }
 

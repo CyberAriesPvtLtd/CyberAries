@@ -231,7 +231,7 @@ const RBINBFCGuidelines = () => {
               The Reserve Bank of India has issued comprehensive <strong>Cyber Security Guidelines for NBFCs</strong> (Non-Banking Financial Companies) to ensure robust security posture across digital lending, payment systems, and customer data protection. <strong>Our specialized services help NBFCs achieve proportionate compliance</strong> aligned with their scale, operations, and digital footprint while managing costs effectively.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary">Schedule NBFC Compliance Assessment</button>
+              <button className="btn btn-primary btn-large">REQUEST NBFC COMPLIANCE ASSESSMENT</button>
             </div>
           </div>
         </div>

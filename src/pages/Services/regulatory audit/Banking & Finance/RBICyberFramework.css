@@ -905,6 +905,56 @@ body {
   .cta-title {
     font-size: 2.1rem;
   }
+
+  /* ── CyberAries Difference – mobile fix ── */
+.cyberaries-difference {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.cyberaries-difference .container {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.comparison-grid {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 0 1.25rem;
+  box-sizing: border-box;
+}
+
+.comparison-grid > div {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.comparison-column {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.25rem;
+  border-radius: 10px;
+}
+
+  .comparison-column.cyberaries {
+    border: 2px solid rgba(193, 18, 31, 0.6);
+  }
+
+  .comparison-heading {
+    font-size: 1.25rem;
+  }
+
+  .comparison-item {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .difference-title {
+    font-size: 2.2rem;
+    padding: 0 0.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -917,6 +967,18 @@ body {
   }
 
   .difference-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .comparison-column {
+    padding: 1rem;
+  }
+
+  .comparison-heading {
+    font-size: 1.1rem;
+  }
+
+  .comparison-item {
+    font-size: 0.9rem;
   }
 }

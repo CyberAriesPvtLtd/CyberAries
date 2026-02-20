@@ -223,7 +223,7 @@ const RBICyberFramework = () => {
               The Reserve Bank of India (RBI) Cyber Security Framework mandates comprehensive security measures for all Scheduled Commercial Banks and Urban Cooperative Banks. <strong>Our specialized services ensure complete compliance</strong> with RBI directives covering governance, baseline controls, crisis management, and third-party risk. Navigate complex regulatory requirements with expert guidance for sustainable cyber resilience.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary">Schedule RBI Compliance Assessment</button>
+              <button className="btn btn-primary">SCHEDULE RBI COMPLIANCE ASSESSMENT</button>
             </div>
           </div>
         </div>
@@ -524,7 +524,7 @@ const RBICyberFramework = () => {
               <p className="cta-description">
                 Partner with banking security experts to implement comprehensive RBI framework compliance
               </p>
-              <button className="btn btn-primary btn-large">Request Compliance Assessment</button>
+              <button className="btn btn-primary btn-large">REQUEST COMPLIANCE ASSESSMENT</button>
             </div>
           </ScrollReveal>
         </div>

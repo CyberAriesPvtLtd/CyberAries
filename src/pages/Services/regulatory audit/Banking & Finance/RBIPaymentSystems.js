@@ -231,7 +231,7 @@ const RBIPaymentSystems = () => {
               Payment systems are the backbone of financial services, handling billions of transactions daily across cards, UPI, NEFT, RTGS, and digital wallets. <strong>RBI mandates rigorous security audits</strong> to protect customer data, prevent fraud, and ensure business continuity. <strong>Our comprehensive payment system audits</strong> cover security architecture, fraud controls, PCI-DSS compliance, and penetration testing to safeguard your payment infrastructure.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary">Schedule Payment Systems Audit</button>
+              <button className="btn btn-primary btn-large">REQUEST PAYMENT SYSTEMS AUDIT</button>
             </div>
           </div>
         </div>

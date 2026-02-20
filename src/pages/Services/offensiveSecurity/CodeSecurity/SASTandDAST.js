@@ -1,7 +1,7 @@
 import React from 'react';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
-import Footer from '../../../../components/Footer';
+
 import {
   ClipboardList,
   Wrench,
@@ -322,7 +322,7 @@ const SASTandDAST = () => {
         </div>
       </section>
 
-      <Footer />
+      
     </div>
   );
 };
