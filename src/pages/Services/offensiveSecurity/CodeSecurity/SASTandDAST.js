@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 
@@ -27,6 +28,7 @@ import './SASTandDAST.css';
  */
 
 const SASTandDAST = () => {
+  const navigate = useNavigate();
   // Key Challenges Data
   const challengesData = [
     {
@@ -113,7 +115,7 @@ const SASTandDAST = () => {
   // Why Choose Cyberaries Data
   const whyChooseItems = [
     {
-      title: "CERT-In Empanelled",
+      title: "Partnered with CERT-In Empanelled Experts",
       description: "Recognized by the Government of India for security audits.",
       icon: <Award size={50} />
     },
@@ -144,7 +146,7 @@ const SASTandDAST = () => {
               Modern applications demand security at every layer. <strong>Static Application Security Testing (SAST)</strong> and <strong>Dynamic Application Security Testing (DAST)</strong> are critical techniques to identify vulnerabilities during development and after deployment. Secure your software development lifecycle with comprehensive testing that catches vulnerabilities before they reach production.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary">Get Started</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Get Started</button>
             </div>
           </div>
         </div>
@@ -316,7 +318,7 @@ const SASTandDAST = () => {
               <p className="cta-description">
                 Let's discuss how we can help you build comprehensive SAST and DAST testing into your SDLC
               </p>
-              <button className="btn btn-primary btn-large">Contact With Us</button>
+              <button className="btn btn-primary btn-large" onClick={() => navigate('/contact')}>Contact With Us</button>
             </div>
           </ScrollReveal>
         </div>

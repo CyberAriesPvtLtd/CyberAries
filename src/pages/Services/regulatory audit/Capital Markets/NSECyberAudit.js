@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 /* eslint-disable no-unused-vars */
@@ -10,6 +11,7 @@ import './NSECyberAudit.css';
 
 const NSECyberAudit = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  const navigate = useNavigate();
 
   // STATE FOR INTERACTIVE COMPONENTS
   const [activeTab, setActiveTab] = useState('framework');
@@ -25,7 +27,6 @@ const NSECyberAudit = () => {
 
   // TRUST INDICATORS
   const trustItems = [
-    { icon: <Award size={40} />, text: "SEBI Certified" },
     { icon: <Shield size={40} />, text: "ISO Accredited" },
     { icon: <Users size={40} />, text: "500+ Audits" },
     { icon: <Clock size={40} />, text: "24/7 Support" }
@@ -112,7 +113,7 @@ const NSECyberAudit = () => {
             <h1 className="nse-hero-title">NSE Cyber Security <span className="nse-gradient">Audit Services</span></h1>
             <p className="nse-hero-desc">Comprehensive compliance assessment for NSE trading members ensuring adherence to SEBI and NSE cyber security requirements</p>
             <div className="nse-hero-actions">
-              <button className="nse-btn-primary"><Calendar size={20} /> Schedule Audit</button>
+              <button className="nse-btn-primary" onClick={() => navigate("/contact")}><Calendar size={20} /> Schedule Audit</button>
               <button className="nse-btn-secondary"><FileText size={20} /> Download Brochure</button>
             </div>
             <div className="nse-stats-bar">
@@ -229,27 +230,82 @@ const NSECyberAudit = () => {
       </section>
 
       {/* COMPARISON TABLE */}
-      <section className="nse-comparison">
+      <section className="cyberaries-difference">
         <div className="container">
-          <ScrollReveal direction="up" triggerOnce={false}>
-            <h2 className="nse-section-title">The Cyberaries Difference</h2>
+          <ScrollReveal animation="fade-up" triggerOnce={false}>
+            <h2 className="difference-title">
+              THE <span className="highlight-red">CYBERARIES</span> DIFFERENCE
+            </h2>
           </ScrollReveal>
 
-          <div className="nse-comparison-grid">
-            <div className="nse-comparison-col">
-              <h3>Traditional Firms</h3>
-              <div className="nse-comparison-item"><X className="nse-icon-no" /> Generic checklists</div>
-              <div className="nse-comparison-item"><X className="nse-icon-no" /> Limited testing</div>
-              <div className="nse-comparison-item"><X className="nse-icon-no" /> Report only</div>
-              <div className="nse-comparison-item"><X className="nse-icon-no" /> Annual audit</div>
-            </div>
-            <div className="nse-comparison-col nse-featured">
-              <h3>Cyberaries Approach</h3>
-              <div className="nse-comparison-item"><Check className="nse-icon-yes" /> NSE-specific framework</div>
-              <div className="nse-comparison-item"><Check className="nse-icon-yes" /> Comprehensive VAPT</div>
-              <div className="nse-comparison-item"><Check className="nse-icon-yes" /> Remediation support</div>
-              <div className="nse-comparison-item"><Check className="nse-icon-yes" /> Continuous monitoring</div>
-            </div>
+          <div className="comparison-grid">
+            {/* Traditional Firms */}
+            <ScrollReveal animation="fade-right" delay={100} triggerOnce={false}>
+              <div className="comparison-column traditional">
+                <h3 className="comparison-heading">Traditional Firms</h3>
+                <ul className="comparison-list">
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Generic checklists not tailored to NSE requirements
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Limited testing scope and depth
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Report only — no implementation support
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Annual audit without continuous monitoring
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Limited understanding of SEBI/NSE regulatory expectations
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Leaves firms unprepared for NSE inspections
+                  </li>
+                </ul>
+              </div>
+            </ScrollReveal>
+
+            {/* Cyberaries Approach */}
+            <ScrollReveal animation="fade-left" delay={200} triggerOnce={false}>
+              <div className="comparison-column cyberaries">
+                <h3 className="comparison-heading cyberaries-heading">
+                  CYBERARIES NSE Security
+                </h3>
+                <ul className="comparison-list">
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    NSE-specific framework aligned with SEBI circulars
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Comprehensive VAPT across all critical systems
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Hands-on remediation support and knowledge transfer
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Continuous compliance monitoring and improvement
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Deep NSE regulatory expertise and audit experience
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Inspection-ready documentation and evidence management
+                  </li>
+                </ul>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -313,7 +369,7 @@ const NSECyberAudit = () => {
           <ScrollReveal direction="up" triggerOnce={false}>
             <h2 className="nse-cta-title">Ready to Achieve NSE Compliance?</h2>
             <p className="nse-cta-desc">Schedule a consultation with our experts today</p>
-            <button className="nse-btn-cta"><Phone size={20} /> Contact Us Now</button>
+            <button className="nse-btn-cta" onClick={() => navigate("/contact")}><Phone size={20} /> Contact Us Now</button>
           </ScrollReveal>
         </div>
       </section>

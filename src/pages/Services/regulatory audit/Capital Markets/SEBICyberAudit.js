@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 /* eslint-disable no-unused-vars */
@@ -10,6 +11,7 @@ import './SEBICyberAudit.css';
 
 const SEBICyberAudit = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  const navigate = useNavigate();
 
   // STATE FOR INTERACTIVE COMPONENTS
   const [activeTab, setActiveTab] = useState('framework');
@@ -25,7 +27,6 @@ const SEBICyberAudit = () => {
 
   // TRUST INDICATORS
   const trustItems = [
-    { icon: <Award size={40} />, text: "SEBI Certified" },
     { icon: <Shield size={40} />, text: "ISO Accredited" },
     { icon: <Users size={40} />, text: "500+ Audits" },
     { icon: <Clock size={40} />, text: "24/7 Support" }
@@ -111,7 +112,7 @@ const SEBICyberAudit = () => {
             <h1 className="sebi-hero-title">SEBI Cyber Security <span className="sebi-gradient">Audit Services</span></h1>
             <p className="sebi-hero-desc">Comprehensive compliance assessment for SEBI trading members ensuring adherence to SEBI and SEBI cyber security requirements</p>
             <div className="sebi-hero-actions">
-              <button className="sebi-btn-primary"><Calendar size={20} /> Schedule Audit</button>
+              <button className="sebi-btn-primary" onClick={() => navigate('/contact')}><Calendar size={20} /> Schedule Audit</button>
               <button className="sebi-btn-secondary"><FileText size={20} /> Download Brochure</button>
             </div>
             <div className="sebi-stats-bar">
@@ -228,27 +229,80 @@ const SEBICyberAudit = () => {
       </section>
 
       {/* COMPARISON TABLE */}
-      <section className="sebi-comparison">
+      <section className="cyberaries-difference">
         <div className="container">
-          <ScrollReveal direction="up" triggerOnce={false}>
-            <h2 className="sebi-section-title">The Cyberaries Difference</h2>
+          <ScrollReveal animation="fade-up" triggerOnce={false}>
+            <h2 className="difference-title">
+              THE <span className="highlight-red">CYBERARIES</span> DIFFERENCE
+            </h2>
           </ScrollReveal>
 
-          <div className="sebi-comparison-grid">
-            <div className="sebi-comparison-col">
-              <h3>Traditional Firms</h3>
-              <div className="sebi-comparison-item"><X className="sebi-icon-no" /> Generic checklists</div>
-              <div className="sebi-comparison-item"><X className="sebi-icon-no" /> Limited testing</div>
-              <div className="sebi-comparison-item"><X className="sebi-icon-no" /> Report only</div>
-              <div className="sebi-comparison-item"><X className="sebi-icon-no" /> Annual audit</div>
-            </div>
-            <div className="sebi-comparison-col sebi-featured">
-              <h3>Cyberaries Approach</h3>
-              <div className="sebi-comparison-item"><Check className="sebi-icon-yes" /> SEBI-specific framework</div>
-              <div className="sebi-comparison-item"><Check className="sebi-icon-yes" /> Comprehensive VAPT</div>
-              <div className="sebi-comparison-item"><Check className="sebi-icon-yes" /> Remediation support</div>
-              <div className="sebi-comparison-item"><Check className="sebi-icon-yes" /> Continuous monitoring</div>
-            </div>
+          <div className="comparison-grid">
+            <ScrollReveal animation="fade-right" delay={100} triggerOnce={false}>
+              <div className="comparison-column traditional">
+                <h3 className="comparison-heading">Traditional Firms</h3>
+                <ul className="comparison-list">
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Generic checklists not tailored to SEBI requirements
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Limited testing scope and depth
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Report only — no implementation support
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Annual audit without continuous monitoring
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Limited understanding of SEBI regulatory expectations
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Leaves firms unprepared for SEBI inspections
+                  </li>
+                </ul>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-left" delay={200} triggerOnce={false}>
+              <div className="comparison-column cyberaries">
+                <h3 className="comparison-heading cyberaries-heading">
+                  CYBERARIES SEBI Security
+                </h3>
+                <ul className="comparison-list">
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    SEBI-specific framework aligned with latest circulars
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Comprehensive VAPT across all critical systems
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Hands-on remediation support and knowledge transfer
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Continuous compliance monitoring and improvement
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Deep SEBI regulatory expertise and audit experience
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Inspection-ready documentation and evidence management
+                  </li>
+                </ul>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -311,7 +365,7 @@ const SEBICyberAudit = () => {
           <ScrollReveal direction="up" triggerOnce={false}>
             <h2 className="sebi-cta-title">Ready to Achieve SEBI Compliance?</h2>
             <p className="sebi-cta-desc">Schedule a consultation with our experts today</p>
-            <button className="sebi-btn-cta"><Phone size={20} /> Contact Us Now</button>
+            <button className="sebi-btn-cta" onClick={() => navigate('/contact')}><Phone size={20} /> Contact Us Now</button>
           </ScrollReveal>
         </div>
       </section>

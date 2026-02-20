@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/mobile-image.jpg';
@@ -26,6 +27,8 @@ import './MobileAppSecurity.css';
  */
 
 const MobileAppSecurity = () => {
+  const navigate = useNavigate();
+
   // Approach Methodology Data
   const approachSteps = [
     {
@@ -78,7 +81,7 @@ const MobileAppSecurity = () => {
   // Why Choose Data
   const whyChooseItems = [
     {
-      title: "CERT-In Empanelled",
+      title: "Partnered with CERT-In Empanelled Experts",
       description: "Recognized by the Government of India for security audits.",
       icon: <Award size={48} strokeWidth={1.5} />
     },
@@ -142,7 +145,7 @@ const MobileAppSecurity = () => {
               mobile applications across all platforms and deployment scenarios.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary">Start Now</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now</button>
               <button className="btn btn-secondary">Learn More</button>
             </div>
           </div>
@@ -292,7 +295,7 @@ const MobileAppSecurity = () => {
               <p className="cta-description">
                 Enhance protection, reduce risk, and support your growth objectives.
               </p>
-              <button className="btn btn-primary btn-large">
+              <button className="btn btn-primary btn-large" onClick={() => navigate('/contact')}>
                 Contact With Us
               </button>
             </div>

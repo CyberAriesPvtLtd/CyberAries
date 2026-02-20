@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/code-image.jpg';
@@ -26,6 +27,7 @@ import './SourceCodeReview.css';
  */
 
 const SourceCodeReview = () => {
+  const navigate = useNavigate();
   // Approach / methodology data (same content as original Source Code page)
   const approachSteps = [
     {
@@ -87,7 +89,7 @@ const SourceCodeReview = () => {
   // Why Choose data (same as original Source Code Review)
   const whyChooseItems = [
     {
-      title: 'CERT-In Empanelled',
+      title: 'Partnered with CERT-In Empanelled Experts',
       description: 'Recognized by the Government of India for security audits.',
       icon: <Award size={48} strokeWidth={1.5} />
     },
@@ -150,7 +152,7 @@ const SourceCodeReview = () => {
               security and reliability issues.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary">Start Now</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now</button>
               <button className="btn btn-secondary">Learn More</button>
             </div>
           </div>
@@ -319,7 +321,7 @@ const SourceCodeReview = () => {
                 Let&apos;s review your applications at the code level and build
                 a secure-by-design software foundation.
               </p>
-              <button className="btn btn-primary btn-large">
+              <button className="btn btn-primary btn-large" onClick={() => navigate('/contact')}>
                 Contact With Us
               </button>
             </div>

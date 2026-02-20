@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 /* eslint-disable no-unused-vars */
@@ -9,6 +10,7 @@ import {
 import './BSECyberAudit.css';
 
 const BSECyberAudit = () => {
+  const navigate = useNavigate();  // ← add this line
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   // STATE FOR INTERACTIVE COMPONENTS
@@ -25,7 +27,6 @@ const BSECyberAudit = () => {
 
   // TRUST INDICATORS
   const trustItems = [
-    { icon: <Award size={40} />, text: "SEBI Certified" },
     { icon: <Shield size={40} />, text: "ISO Accredited" },
     { icon: <Users size={40} />, text: "500+ Audits" },
     { icon: <Clock size={40} />, text: "24/7 Support" }
@@ -111,7 +112,7 @@ const BSECyberAudit = () => {
             <h1 className="bse-hero-title">BSE Cyber Security <span className="bse-gradient">Audit Services</span></h1>
             <p className="bse-hero-desc">Comprehensive compliance assessment for BSE trading members ensuring adherence to SEBI and BSE cyber security requirements</p>
             <div className="bse-hero-actions">
-              <button className="bse-btn-primary"><Calendar size={20} /> Schedule Audit</button>
+              <button className="bse-btn-primary" onClick={() => navigate('/contact')}>Schedule Audit</button>
               <button className="bse-btn-secondary"><FileText size={20} /> Download Brochure</button>
             </div>
             <div className="bse-stats-bar">
@@ -228,27 +229,82 @@ const BSECyberAudit = () => {
       </section>
 
       {/* COMPARISON TABLE */}
-      <section className="bse-comparison">
+      <section className="cyberaries-difference">
         <div className="container">
-          <ScrollReveal direction="up" triggerOnce={false}>
-            <h2 className="bse-section-title">The Cyberaries Difference</h2>
+          <ScrollReveal animation="fade-up" triggerOnce={false}>
+            <h2 className="difference-title">
+              THE <span className="highlight-red">CYBERARIES</span> DIFFERENCE
+            </h2>
           </ScrollReveal>
 
-          <div className="bse-comparison-grid">
-            <div className="bse-comparison-col">
-              <h3>Traditional Firms</h3>
-              <div className="bse-comparison-item"><X className="bse-icon-no" /> Generic checklists</div>
-              <div className="bse-comparison-item"><X className="bse-icon-no" /> Limited testing</div>
-              <div className="bse-comparison-item"><X className="bse-icon-no" /> Report only</div>
-              <div className="bse-comparison-item"><X className="bse-icon-no" /> Annual audit</div>
-            </div>
-            <div className="bse-comparison-col bse-featured">
-              <h3>Cyberaries Approach</h3>
-              <div className="bse-comparison-item"><Check className="bse-icon-yes" /> BSE-specific framework</div>
-              <div className="bse-comparison-item"><Check className="bse-icon-yes" /> Comprehensive VAPT</div>
-              <div className="bse-comparison-item"><Check className="bse-icon-yes" /> Remediation support</div>
-              <div className="bse-comparison-item"><Check className="bse-icon-yes" /> Continuous monitoring</div>
-            </div>
+          <div className="comparison-grid">
+            {/* Traditional Firms */}
+            <ScrollReveal animation="fade-right" delay={100} triggerOnce={false}>
+              <div className="comparison-column traditional">
+                <h3 className="comparison-heading">Traditional Firms</h3>
+                <ul className="comparison-list">
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Generic checklists not tailored to BSE requirements
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Limited testing scope and depth
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Report only — no implementation support
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Annual audit without continuous monitoring
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Limited understanding of SEBI/BSE regulatory expectations
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Leaves firms unprepared for BSE inspections
+                  </li>
+                </ul>
+              </div>
+            </ScrollReveal>
+
+            {/* Cyberaries Approach */}
+            <ScrollReveal animation="fade-left" delay={200} triggerOnce={false}>
+              <div className="comparison-column cyberaries">
+                <h3 className="comparison-heading cyberaries-heading">
+                  CYBERARIES BSE Security
+                </h3>
+                <ul className="comparison-list">
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    BSE-specific framework aligned with SEBI circulars
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Comprehensive VAPT across all critical systems
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Hands-on remediation support and knowledge transfer
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Continuous compliance monitoring and improvement
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Deep BSE regulatory expertise and audit experience
+                  </li>
+                  <li className="comparison-item">
+                    <span className="bullet">•</span>
+                    Inspection-ready documentation and evidence management
+                  </li>
+                </ul>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -312,7 +368,7 @@ const BSECyberAudit = () => {
           <ScrollReveal direction="up" triggerOnce={false}>
             <h2 className="bse-cta-title">Ready to Achieve BSE Compliance?</h2>
             <p className="bse-cta-desc">Schedule a consultation with our experts today</p>
-            <button className="bse-btn-cta"><Phone size={20} /> Contact Us Now</button>
+            <button className="bse-btn-cta" onClick={() => navigate('/contact')}><Phone size={20} /> Contact Us Now</button>
           </ScrollReveal>
         </div>
       </section>
