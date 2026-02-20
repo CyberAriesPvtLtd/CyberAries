@@ -1,8 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/network-image.jpg';
-
 
 import {
   FileText,
@@ -26,6 +26,8 @@ import './NetworkSecurity.css';
  */
 
 const NetworkSecurity = () => {
+  const navigate = useNavigate();
+
   // Approach Methodology Data
   const approachSteps = [
     {
@@ -115,7 +117,7 @@ const NetworkSecurity = () => {
   };
 
   return (
-    <div className="network-security-page sast-style-page">
+    <div className="network-security-page">
       {/* Hero Section */}
       <section
         className="hero-section"
@@ -143,8 +145,8 @@ const NetworkSecurity = () => {
               across your entire network infrastructure.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary">Start Now</button>
-              <button className="btn btn-secondary">Learn More</button>
+              <button className="btn btn-primary" type="button" onClick={() => navigate('/contact')}>Start Now</button>
+              <button className="btn btn-secondary" type="button">Learn More</button>
             </div>
           </div>
         </div>
@@ -158,15 +160,15 @@ const NetworkSecurity = () => {
               <div className="overview-content">
                 <p className="overview-text">
                   At <strong>Cyberaries</strong>, we conduct comprehensive <strong>network vulnerability assessments and penetration
-                    tests</strong> to identify and remediate security gaps across routers, switches, firewalls, servers, and connected
+                  tests</strong> to identify and remediate security gaps across routers, switches, firewalls, servers, and connected
                   devices. Our approach combines automated scanning with manual validation to deliver accurate,
                   prioritized, risk-based results.
                 </p>
                 <p className="overview-text">
                   We help organizations build <strong>reliable, defense-in-depth security posture</strong> ensuring that every layer of
                   their network architecture meets the highest cybersecurity standards. <strong>Cyberaries</strong> delivers
-                  detailed reporting, practical remediation guidance, and advisory support to build resilient, threat-
-                  resilient networks.
+                  detailed reporting, practical remediation guidance, and advisory support to build resilient,
+                  threat-resilient networks.
                 </p>
               </div>
             </ScrollReveal>
@@ -185,18 +187,12 @@ const NetworkSecurity = () => {
       </section>
 
       {/* Our Approach Section */}
-      <section className="solutions-section our-approach">
+      <section className="solutions-section">
         <div className="container">
-
-          <ScrollReveal direction="up" delay={100}>
+          <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
               <h2 className="section-title">Our Approach</h2>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal direction="up" delay={0}>
-            <div className="methodology-header">
-              <p className="methodology-title">
+              <p className="section-subtitle">
                 Our audit methodology is built around trust, adaptability, and reinforcing your security posture
               </p>
             </div>
@@ -217,7 +213,7 @@ const NetworkSecurity = () => {
         </div>
       </section>
 
-      {/* Why Choose Section - MOVED BEFORE DIFFERENCE */}
+      {/* Why Choose Section */}
       <section className="why-choose">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
@@ -232,9 +228,7 @@ const NetworkSecurity = () => {
                 <div className="why-choose-card">
                   <div className="why-choose-icon">{item.icon}</div>
                   <h3 className="why-choose-title">{item.title}</h3>
-                  <p className="why-choose-description">
-                    {item.description}
-                  </p>
+                  <p className="why-choose-description">{item.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -242,7 +236,7 @@ const NetworkSecurity = () => {
         </div>
       </section>
 
-      {/* Difference Section - MOVED AFTER WHY CHOOSE */}
+      {/* Difference Section */}
       <section className="cyberaries-difference">
         <div className="container">
           <ScrollReveal animation="fade-up">
@@ -297,14 +291,17 @@ const NetworkSecurity = () => {
               <p className="cta-description">
                 Enhance protection, reduce risk, and support your growth objectives.
               </p>
-              <button className="btn btn-primary btn-large">
+              <button
+                className="btn btn-primary btn-large"
+                type="button"
+                onClick={() => navigate('/contact')}
+              >
                 Contact With Us
               </button>
             </div>
           </ScrollReveal>
         </div>
       </section>
-      
     </div>
   );
 };

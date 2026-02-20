@@ -1,274 +1,207 @@
 import React from 'react';
-import ApproachCard from '../../../../components/ApproachCard';
+import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
+import overviewImage from '../../../../images/services/vapt/mobile-image.jpg';
+
 import {
   FileSearch,
-  Users,
   Shield,
-  UserCheck,
-  BookOpen,
-  AlertTriangle,
+  Database,
+  Lock,
   FileText,
-  CheckSquare,
+  AlertTriangle,
+  CheckCircle,
   Award,
-  Headphones
+  Users,
+  Headphones,
+  UserCheck,
+  Settings
 } from 'lucide-react';
 import './ISO27701.css';
 
 /**
  * ISO 27701 Compliance Page
- * Privacy Information Management System Compliance
+ * Privacy Information Management System (PIMS)
  */
-
 const ISO27701 = () => {
-  // Approach Methodology Data
+  const navigate = useNavigate();
+
   const approachSteps = [
     {
-      number: "1",
-      title: "Privacy Gap Assessment",
-      description: "Evaluating the organization's current privacy posture and identifying gaps from ISO 27701 and applicable data protection requirements.",
+      title: "Gap Assessment and PIMS Readiness",
+      description: "Evaluating existing ISMS and privacy frameworks to identify gaps against ISO 27701 requirements and applicable data protection regulations.",
       icon: <FileSearch size={40} />
     },
     {
-      number: "2",
-      title: "Roles and Organization",
-      description: "Creating a defined inventory of personal data and sensitive data processing activities, and roles/parties to ensure lawful processing.",
-      icon: <Users size={40} />
-    },
-    {
-      number: "3",
-      title: "Data Protection and Privacy Impact Assessment (DPIA)",
-      description: "Conducting privacy risk evaluations and DPIAs to assess potential data protection when processing high-risk data.",
+      title: "Privacy Policy and Governance Setup",
+      description: "Establishing a Privacy Information Management System (PIMS), defining privacy roles, responsibilities, and accountability structures across the organization.",
       icon: <Shield size={40} />
     },
     {
-      number: "4",
-      title: "Third-Party Risk Assessment",
-      description: "Reviewing vendor contracts, cloud service providers, and data sharing arrangements to validate privacy compliance obligations.",
-      icon: <UserCheck size={40} />
+      title: "Personal Data Inventory and Mapping",
+      description: "Documenting personal data flows, identifying categories of data subjects, and mapping data lifecycle across all processing activities.",
+      icon: <Database size={40} />
     },
     {
-      number: "5",
-      title: "Privacy Training and Awareness",
-      description: "Designing and delivering targeted awareness programs for managers, employees on data protection principles and responsibilities.",
-      icon: <BookOpen size={40} />
-    },
-    {
-      number: "6",
-      title: "Incident Response and Breach Management",
-      description: "Enhancing breach response readiness and notification procedures, including internal reporting, investigation, and mitigation.",
+      title: "Privacy Risk Assessment and DPIA",
+      description: "Conducting privacy risk assessments and Data Protection Impact Assessments (DPIA) to identify and mitigate privacy risks across operations.",
       icon: <AlertTriangle size={40} />
     },
     {
-      number: "7",
-      title: "Documentation and Record-Keeping",
-      description: "Developing privacy policies, consent management procedures, and data subject requests and maintaining legal records.",
+      title: "Data Subject Rights Management",
+      description: "Implementing processes for managing data subject rights including access, rectification, erasure, and portability requests.",
+      icon: <UserCheck size={40} />
+    },
+    {
+      title: "Consent and Lawful Basis Framework",
+      description: "Establishing mechanisms for obtaining, recording, and managing consent and ensuring lawful basis for all data processing activities.",
       icon: <FileText size={40} />
     },
     {
-      number: "8",
-      title: "Internal Audit and Corrective Actions",
-      description: "Performing internal audits to verify privacy controls and assisting with corrective action plans.",
-      icon: <CheckSquare size={40} />
+      title: "Access Controls and Data Security",
+      description: "Implementing access management, encryption, and technical controls to protect personal data from unauthorized access or disclosure.",
+      icon: <Lock size={40} />
     },
     {
-      number: "9",
-      title: "Audit and Certification Support",
-      description: "Preparing organizations for external pre-certification audits and ensuring readiness for surveillance and recertification monitoring.",
-      icon: <Award size={40} />
+      title: "Third-Party and Processor Management",
+      description: "Assessing data processors and third-party vendors to ensure contractual and operational compliance with privacy obligations.",
+      icon: <Settings size={40} />
+    },
+    {
+      title: "Certification and Continuous Improvement",
+      description: "Preparing for third-party ISO 27701 certification audits and enabling continual improvement of the PIMS.",
+      icon: <CheckCircle size={40} />
     }
   ];
 
-  // Why Choose Data
   const whyChooseItems = [
     {
       title: "Partnered with CERT-In Empanelled",
-      description: "Recognized by the Government of India for security audits.",
+      description: "Recognized by the Government of India for security audits, compliance, and risk management services.",
       icon: <Award size={48} strokeWidth={1.5} />
     },
     {
       title: "Proven Expertise",
-      description: "350+ clients across banking, IT, insurance, healthcare, and manufacturing.",
+      description: "150+ clients across banking, IT, insurance, healthcare, and manufacturing sectors successfully certified.",
       icon: <Users size={48} strokeWidth={1.5} />
     },
     {
       title: "End-to-End Support",
-      description: "From scoping to remediation and final certification.",
+      description: "From scoping to remediation and final certification, we provide full support throughout your compliance journey.",
       icon: <Headphones size={48} strokeWidth={1.5} />
     }
   ];
 
+  const difference = {
+    traditional: [
+      'Generic privacy consulting without structured PIMS implementation or governance.',
+      'Limited alignment with ISO 27701 as an extension of ISO 27001 and ISO 27002.',
+      'Overlooks data subject rights management and consent framework requirements.',
+      'Superficial review of data processor agreements and third-party obligations.',
+      'No formal DPIA or privacy risk assessment integrated into the compliance process.',
+      'Generic reports without actionable, regulation-specific privacy remediation steps.'
+    ],
+    cyberaries: [
+      'Full ISO 27701 PIMS implementation built on your existing ISMS foundation.',
+      'Comprehensive personal data mapping, classification, and lifecycle documentation.',
+      'Structured DPIA and privacy risk assessments aligned with GDPR and DPDPA.',
+      'Robust data subject rights framework with tested workflows and escalation paths.',
+      'Detailed vendor and processor assessments with contractual compliance reviews.',
+      'End-to-end support from initial gap analysis through certification and beyond.'
+    ]
+  };
+
   return (
     <div className="iso-27701-page">
       {/* Hero Section */}
-      <section className="hero-section">
+      <section
+        className="hero-section"
+        style={{ backgroundImage: `url(${heroBgImage})` }}
+      >
         <div className="hero-background"></div>
         <div className="container">
           <div className="hero-content">
-            <div className="hero-badge">
-              <span className="hero-badge__icon">🎓</span>
-              <span className="hero-badge__text">ISO Compliance</span>
-            </div>
+            <p className="hero-subtitle">ISO 27701 Compliance</p>
             <h1 className="hero-title">
-              ISO 27701 - <span className="text-gradient">PRIVACY INFORMATION MANAGEMENT SYSTEM COMPLIANCE</span>
+              BUILD A TRUSTED PRIVACY MANAGEMENT SYSTEM{' '}
+              <span className="text-gradient">
+                WITH EXPERTS IN ISO 27701 COMPLIANCE
+              </span>
             </h1>
             <p className="hero-description">
-              The <strong>ISO 27701:2019 standard</strong> extends ISO 27001 to include privacy-specific requirements, enabling
-              organizations to implement, maintain, and continuously improve a <strong>Privacy Information Management
-                System (PIMS)</strong>. It provides a comprehensive framework for demonstrating compliance with global privacy
-              standards with global privacy laws, such as the <strong>GDPR, India's DPDPA</strong>, and other relevant data
-              protection regulations.
+              <strong>ISO 27701:2019</strong> is an international privacy extension to ISO 27001 that specifies requirements
+              for establishing, implementing, maintaining, and continually improving a <strong>Privacy Information Management
+              System (PIMS)</strong>. It provides a structured framework for managing personal data in compliance with global
+              regulations such as GDPR and DPDPA.
+            </p>
+            <p className="hero-description">
+              Our compliance services cover <strong>privacy governance, personal data mapping, DPIA, data subject rights
+              management, consent frameworks, and third-party assessments</strong>—helping organizations demonstrate
+              accountability and build lasting trust with customers and regulators alike.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary">Start Now</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now</button>
               <button className="btn btn-secondary">Learn More</button>
-            </div>
-          </div>
-          <div className="hero-image">
-            <div className="hero-image__card">
-              <div className="privacy-visual">
-                <div className="certification-badge">
-                  <div className="badge-circle">
-                    <Shield size={60} strokeWidth={2} />
-                  </div>
-                  <div className="badge-steps">
-                    <div className="step-item step-1">
-                      <span className="step-number">1</span>
-                      <span className="step-label">Personal Data Inventory</span>
-                    </div>
-                    <div className="step-item step-2">
-                      <span className="step-number">2</span>
-                      <span className="step-label">Data Mapping</span>
-                    </div>
-                    <div className="step-item step-3">
-                      <span className="step-number">3</span>
-                      <span className="step-label">Risk Assessment</span>
-                    </div>
-                    <div className="step-item step-4">
-                      <span className="step-number">4</span>
-                      <span className="step-label">Privacy Controls</span>
-                    </div>
-                    <div className="step-item step-5">
-                      <span className="step-number">5</span>
-                      <span className="step-label">Incident Response</span>
-                    </div>
-                    <div className="step-item step-6">
-                      <span className="step-number">6</span>
-                      <span className="step-label">Record Management</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Service Overview Section */}
+      {/* Service Overview */}
       <section className="service-overview">
         <div className="container">
           <div className="overview-grid">
             <ScrollReveal direction="left" delay={100}>
               <div className="overview-content">
-                <h2 className="section-title">
-                  ISO 27701 - PRIVACY INFORMATION MANAGEMENT SYSTEM COMPLIANCE
-                </h2>
                 <p className="overview-text">
-                  At <strong>Cyberaries</strong>, we help organizations integrate privacy governance into their existing ISO
-                  27001 frameworks, ensuring responsible data handling, regulatory compliance, and enhanced stakeholder trust. Our <strong>ISO
-                    27701 consulting and audit services</strong> focus on building a structured privacy framework that safeguards
-                  personal information throughout its lifecycle. Our team of <strong>certified ISO 27701 and ISO 27001 lead
-                    auditors</strong> uses a risk-driven methodology tailored to your business requirements, from privacy gap
-                  assessments, data mapping, and readiness for certification audits.
+                  At <strong>Cyberaries</strong>, we help organizations implement a <strong>Privacy Information Management
+                  System (PIMS)</strong> aligned with ISO 27701, strengthening your privacy governance and ensuring compliance
+                  with applicable data protection legislation. Our approach integrates seamlessly with your existing
+                  ISO 27001 ISMS to extend privacy controls across your entire organization.
                 </p>
                 <p className="overview-text">
-                  Our approach ensures seamless integration with <strong>information security and privacy management</strong>,
-                  empowering organizations to build trust, reduce compliance risks, and achieve sustainable privacy
-                  assurance.
+                  Our team of <strong>certified ISO 27701 privacy and information security specialists</strong> guides
+                  clients through gap analysis, data mapping, risk assessments, and control implementation—delivering
+                  a privacy framework that is <strong>audit-ready, regulation-aligned, and operationally resilient</strong>.
+                  ISO 27701 certification signals your commitment to responsible data stewardship and regulatory trust.
                 </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal direction="right" delay={200}>
               <div className="overview-visual">
-                <div className="privacy-badge">
-                  <div className="privacy-badge__content">
-                    <div className="certification-logo">
-                      <div className="logo-circle">
-                        <Shield size={80} strokeWidth={2} />
-                      </div>
-                      <h3 className="cert-title">ISO 27701</h3>
-                      <p className="cert-subtitle">CERTIFICATION</p>
-                      <p className="cert-description">Privacy Information Management System</p>
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src={overviewImage}
+                  alt="ISO 27701 Privacy Information Management"
+                  className="overview-image"
+                />
               </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Integration Section */}
-      <section className="integration-section">
-        <div className="container">
-          <ScrollReveal direction="up" delay={0}>
-            <h2 className="integration-title">
-              Our approach integrates privacy and information security, helping organizations build a resilient PIMS that is aligned with global privacy laws
-            </h2>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Our Approach Section */}
-      <section className="our-approach">
+      {/* Our Approach */}
+      <section className="solutions-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
               <h2 className="section-title">Our Approach</h2>
+              <p className="section-subtitle">
+                Our ISO 27701 methodology is built around privacy governance, accountability, and regulatory confidence
+              </p>
             </div>
           </ScrollReveal>
 
-          <div className="approach-grid">
+          <div className="solutions-grid">
             {approachSteps.map((step, index) => (
-              <ScrollReveal
-                key={index}
-                direction={index % 2 === 0 ? "left" : "right"}
-                delay={index * 100}
-              >
-                <ApproachCard
-                  number={step.number}
-                  title={step.title}
-                  description={step.description}
-                  icon={step.icon}
-                />
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Section */}
-      <section className="why-choose-clean">
-        <div className="container">
-          <ScrollReveal direction="up" delay={0}>
-            <h2 className="section-title-clean">Why Choose Cyberaries?</h2>
-          </ScrollReveal>
-
-          <div className="why-choose-clean-grid">
-            {whyChooseItems.map((item, index) => (
-              <ScrollReveal
-                key={index}
-                direction="up"
-                delay={index * 150}
-              >
-                <div className="why-choose-clean-card">
-                  <div className="why-choose-clean-divider"></div>
-                  <div className="why-choose-clean-icon">
-                    {item.icon}
-                  </div>
-                  <h3 className="why-choose-clean-title">{item.title}</h3>
-                  <p className="why-choose-clean-description">{item.description}</p>
+              <ScrollReveal key={index} direction="up" delay={index * 100}>
+                <div className="solution-card">
+                  <div className="solution-icon">{step.icon}</div>
+                  <h3 className="solution-title">{step.title}</h3>
+                  <p className="solution-description">{step.description}</p>
+                  <div className="solution-indicator"></div>
                 </div>
               </ScrollReveal>
             ))}
@@ -276,16 +209,90 @@ const ISO27701 = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-clean">
+      {/* Why Choose */}
+      <section className="why-choose">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
-            <div className="cta-clean-content">
-              <h2 className="cta-clean-title">Let's Strengthen Your Cyber Defenses</h2>
-              <p className="cta-clean-subtitle">
-                Enhance protection, reduce risk, and support your growth objectives
+            <div className="section-header text-center">
+              <h2 className="section-title">Why Choose Cyberaries?</h2>
+            </div>
+          </ScrollReveal>
+
+          <div className="why-choose-grid">
+            {whyChooseItems.map((item, index) => (
+              <ScrollReveal key={index} direction="up" delay={index * 150}>
+                <div className="why-choose-card">
+                  <div className="why-choose-icon">{item.icon}</div>
+                  <h3 className="why-choose-title">{item.title}</h3>
+                  <p className="why-choose-description">{item.description}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Difference Section */}
+      <section className="cyberaries-difference">
+        <div className="container">
+          <ScrollReveal animation="fade-up">
+            <h2 className="difference-title">
+              THE <span className="highlight-red">CYBERARIES</span> DIFFERENCE
+            </h2>
+          </ScrollReveal>
+
+          <div className="comparison-grid">
+            <ScrollReveal animation="fade-right" delay={100}>
+              <div className="comparison-column traditional">
+                <h3 className="comparison-heading">Traditional Privacy Consulting</h3>
+                <ul className="comparison-list">
+                  {difference.traditional.map((item, idx) => (
+                    <li className="comparison-item" key={idx}>
+                      <span className="bullet">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-left" delay={200}>
+              <div className="comparison-column cyberaries">
+                <h3 className="comparison-heading cyberaries-heading">
+                  Cyberaries ISO 27701 Compliance
+                </h3>
+                <ul className="comparison-list">
+                  {difference.cyberaries.map((item, idx) => (
+                    <li className="comparison-item" key={idx}>
+                      <span className="bullet">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="container">
+          <ScrollReveal direction="up" delay={0}>
+            <div className="cta-content">
+              <h2 className="cta-title">
+                Ready to Protect PII in Your Cloud Environment?
+              </h2>
+              <p className="cta-description">
+                Enhance protection, reduce risk, and support your growth objectives.
               </p>
-              <button className="btn-cta-clean">Start Now</button>
+              <button
+                className="btn btn-primary btn-large"
+                type="button"
+                onClick={() => navigate('/contact')}
+              >
+                Contact With Us
+              </button>
             </div>
           </ScrollReveal>
         </div>

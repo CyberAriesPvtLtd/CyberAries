@@ -1,27 +1,31 @@
 /* ==========================================
-   WIRELESS SECURITY TESTING PAGE - SAST STYLE
+   WIRELESS SECURITY TESTING PAGE
    COLOR PALETTE: Off-White • Black • Red
-========================================== */
+   ========================================== */
 
 @import '../../../../styles/common/global.css';
 
-/* Core palette overrides for SAST-style */
-:root {
+/* ==========================================
+   CORE PALETTE
+   ========================================== */
+
+.wireless-security-page {
   --bg-soft-white: #FAFAF7;
   --bg-soft-panel: #ffffff;
-  --bg-soft-tint: #F4C7C9;
   --text-jet-black: #0F0F0F;
   --heading-crimson: #0B0D18;
   --accent-corporate-red: #C1121F;
   --accent-blush-red: #F4C7C9;
   --border-soft: #E5E5E5;
   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
   --radius-lg: 12px;
   --transition-normal: all 0.3s ease;
-}
 
-/* Global page background + default text */
-.wireless-security-page {
   background: var(--bg-soft-white);
   color: var(--text-jet-black);
 }
@@ -31,8 +35,19 @@
 }
 
 /* ==========================================
+   CONTAINER
+   ========================================== */
+
+.wireless-security-page .container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+/* ==========================================
    HERO SECTION
-========================================== */
+   ========================================== */
 
 .wireless-security-page .hero-section {
   position: relative;
@@ -56,9 +71,6 @@
 .wireless-security-page .hero-section .container {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
   padding-left: 80px;
   padding-right: var(--spacing-xl);
   text-align: left;
@@ -72,7 +84,6 @@
   letter-spacing: 2px;
   margin-bottom: var(--spacing-sm);
   opacity: 0.9;
-  text-align: left;
 }
 
 .wireless-security-page .hero-title {
@@ -81,7 +92,6 @@
   color: #ffffff !important;
   line-height: 1.2;
   margin-bottom: var(--spacing-md);
-  text-align: left;
 }
 
 .wireless-security-page .hero-title .text-gradient {
@@ -90,13 +100,13 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradient-shift 7s ease infinite;
+  animation: wireless-gradient-shift 7s ease infinite;
   display: inline-block;
 }
 
-@keyframes gradient-shift {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
+@keyframes wireless-gradient-shift {
+  0%   { background-position: 0% center; }
+  50%  { background-position: 100% center; }
   100% { background-position: 0% center; }
 }
 
@@ -105,13 +115,8 @@
   line-height: 1.8;
   color: #ffffff;
   max-width: 850px;
-  margin: 0 0 var(--spacing-md);
+  margin: 0 0 var(--spacing-xl);
   opacity: 0.95;
-  text-align: left;
-}
-
-.wireless-security-page .hero-description:last-of-type {
-  margin-bottom: var(--spacing-xl);
 }
 
 .wireless-security-page .hero-description strong {
@@ -127,8 +132,8 @@
 }
 
 /* ==========================================
-   BUTTON STYLES
-========================================== */
+   BUTTONS
+   ========================================== */
 
 .wireless-security-page .btn {
   padding: 0.9rem 2rem;
@@ -145,36 +150,30 @@
 .wireless-security-page .btn-primary {
   background: var(--accent-corporate-red);
   color: #ffffff;
-  box-shadow: 
-    0 6px 0 #9a0f1a,
-    0 8px 18px rgba(193, 18, 31, 0.4);
+  box-shadow: 0 6px 0 #9a0f1a, 0 8px 18px rgba(193, 18, 31, 0.4);
   position: relative;
   top: 0;
 }
 
 .wireless-security-page .btn-primary:hover {
   background: #e01525;
-  box-shadow: 
-    0 4px 0 #9a0f1a,
-    0 6px 15px rgba(193, 18, 31, 0.6);
+  box-shadow: 0 4px 0 #9a0f1a, 0 6px 15px rgba(193, 18, 31, 0.6);
   top: 2px;
 }
 
 .wireless-security-page .btn-primary:active {
-  box-shadow: 
-    0 0 0 #9a0f1a,
-    0 2px 8px rgba(193, 18, 31, 0.4);
+  box-shadow: 0 0 0 #9a0f1a, 0 2px 8px rgba(193, 18, 31, 0.4);
   top: 6px;
 }
 
 .wireless-security-page .btn-secondary {
   background: transparent;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  border: 2px solid #ffffff;
 }
 
 .wireless-security-page .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .wireless-security-page .btn-large {
@@ -183,8 +182,8 @@
 }
 
 /* ==========================================
-   SERVICE OVERVIEW SECTION
-========================================== */
+   SERVICE OVERVIEW
+   ========================================== */
 
 .wireless-security-page .service-overview {
   padding: var(--spacing-2xl) 0;
@@ -193,11 +192,54 @@
 
 .wireless-security-page .overview-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: var(--spacing-xl);
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
   align-items: center;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.wireless-security-page .overview-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.wireless-security-page .overview-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-jet-black);
+  margin: 0;
+}
+
+.wireless-security-page .overview-text strong {
+  color: var(--heading-crimson);
+  font-weight: 700;
+}
+
+.wireless-security-page .overview-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wireless-security-page .overview-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  object-fit: cover;
+}
+
+/* ==========================================
+   OUR APPROACH / SOLUTIONS SECTION
+   ========================================== */
+
+.wireless-security-page .solutions-section {
+  padding: var(--spacing-2xl) 0;
+  background: var(--bg-soft-panel);
 }
 
 .wireless-security-page .section-header {
@@ -214,68 +256,15 @@
 }
 
 .wireless-security-page .section-subtitle {
-  font-size: 1.1rem;
-  color: #6b7280;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.wireless-security-page .overview-text {
   font-size: 1.05rem;
-  line-height: 1.8;
   color: var(--text-jet-black);
-  margin-bottom: var(--spacing-md);
-}
-
-.wireless-security-page .overview-text strong {
-  color: var(--accent-corporate-red);
-  font-weight: 700;
-}
-
-/* Overview Image Styling */
-.wireless-security-page .overview-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.wireless-security-page .overview-image {
-  width: 100%;
-  max-width: 450px;
-  height: auto;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  transition: var(--transition-normal);
-}
-
-.wireless-security-page .overview-image:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* ==========================================
-   SOLUTIONS SECTION (OUR APPROACH)
-========================================== */
-
-.wireless-security-page .solutions-section {
-  padding: var(--spacing-2xl) 0;
-  background: var(--bg-soft-panel);
-}
-
-.wireless-security-page .methodology-header {
-  text-align: center;
-  margin-bottom: var(--spacing-lg);
-}
-
-.wireless-security-page .methodology-title {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #6b7280;
-  max-width: 900px;
+  opacity: 0.8;
+  max-width: 700px;
   margin: 0 auto;
-  line-height: 1.6;
-  font-style: italic;
+}
+
+.wireless-security-page .text-center {
+  text-align: center !important;
 }
 
 .wireless-security-page .solutions-grid {
@@ -337,7 +326,7 @@
 }
 
 .wireless-security-page .solution-description {
-  font-size: 0.90rem;
+  font-size: 0.95rem;
   color: var(--text-jet-black);
   opacity: 0.9;
   line-height: 1.6;
@@ -362,7 +351,7 @@
 
 /* ==========================================
    WHY CHOOSE SECTION
-========================================== */
+   ========================================== */
 
 .wireless-security-page .why-choose {
   padding: var(--spacing-2xl) 0;
@@ -385,12 +374,15 @@
   transition: var(--transition-normal);
   border: 1px solid var(--border-soft);
   box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .wireless-security-page .why-choose-card:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-  transform: translateY(-6px);
-  border-color: rgba(193, 18, 31, 0.4);
+  transform: translateY(-8px);
+  border-color: rgba(193, 18, 31, 0.3);
+  box-shadow: 0 12px 30px rgba(193, 18, 31, 0.12);
 }
 
 .wireless-security-page .why-choose-icon {
@@ -402,14 +394,14 @@
   align-items: center;
   justify-content: center;
   color: var(--accent-corporate-red);
-  margin: 0 auto var(--spacing-md);
+  margin-bottom: var(--spacing-md);
   transition: var(--transition-normal);
 }
 
 .wireless-security-page .why-choose-card:hover .why-choose-icon {
   background: var(--accent-corporate-red);
   color: #ffffff;
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 .wireless-security-page .why-choose-icon svg {
@@ -422,6 +414,11 @@
   font-weight: 700;
   color: var(--heading-crimson);
   margin-bottom: var(--spacing-sm);
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .wireless-security-page .why-choose-description {
@@ -433,7 +430,7 @@
 
 /* ==========================================
    CYBERARIES DIFFERENCE SECTION
-========================================== */
+   ========================================== */
 
 .wireless-security-page .cyberaries-difference {
   padding: var(--spacing-2xl) 0;
@@ -448,11 +445,15 @@
   inset: 0;
   background: radial-gradient(circle at top center, rgba(193, 18, 31, 0.06) 0%, transparent 60%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .wireless-security-page .cyberaries-difference .container {
   position: relative;
   z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
 }
 
 .wireless-security-page .difference-title {
@@ -471,15 +472,15 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradient-shift 7s ease infinite;
+  animation: wireless-gradient-shift 7s ease infinite;
   display: inline-block;
 }
 
 .wireless-security-page .comparison-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-lg);
-  max-width: 2200px;
+  gap: var(--spacing-2xl);
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -490,7 +491,6 @@
   padding: var(--spacing-2xl);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: var(--transition-normal);
-  min-height: 400px;
 }
 
 .wireless-security-page .comparison-column:hover {
@@ -574,7 +574,7 @@
 
 /* ==========================================
    CTA SECTION
-========================================== */
+   ========================================== */
 
 .wireless-security-page .cta-section {
   padding: var(--spacing-2xl) 0;
@@ -590,13 +590,14 @@
   inset: 0;
   background: radial-gradient(circle at center, rgba(193, 18, 31, 0.15) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .wireless-security-page .cta-content {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .wireless-security-page .cta-title {
@@ -615,8 +616,8 @@
 }
 
 /* ==========================================
-   RESPONSIVE DESIGN
-========================================== */
+   RESPONSIVE
+   ========================================== */
 
 @media (max-width: 1024px) {
   .wireless-security-page .hero-section .container {
@@ -625,6 +626,7 @@
 
   .wireless-security-page .overview-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
   }
 
   .wireless-security-page .solutions-grid {
@@ -637,40 +639,122 @@
 
   .wireless-security-page .comparison-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
   }
 }
 
 @media (max-width: 768px) {
+  .wireless-security-page .hero-section .container {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+
   .wireless-security-page .hero-title {
     font-size: 2.1rem;
+  }
+
+  .wireless-security-page .hero-description {
+    font-size: 1rem;
+  }
+
+  .wireless-security-page .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wireless-security-page .service-overview {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .wireless-security-page .overview-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-md);
+  }
+
+  .wireless-security-page .overview-image {
+    max-width: 100%;
   }
 
   .wireless-security-page .section-title {
     font-size: 2.2rem;
   }
 
+  .wireless-security-page .section-subtitle {
+    font-size: 1rem;
+    padding: 0 var(--spacing-md);
+  }
+
   .wireless-security-page .solutions-grid {
     grid-template-columns: 1fr;
+    padding: 0 var(--spacing-md);
   }
 
   .wireless-security-page .why-choose-grid {
     grid-template-columns: 1fr;
+    padding: 0 var(--spacing-md);
+  }
+
+  .wireless-security-page .why-choose-title {
+    min-height: auto;
+    font-size: 1.3rem;
+  }
+
+  .wireless-security-page .cyberaries-difference {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .wireless-security-page .cyberaries-difference .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .wireless-security-page .difference-title {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .wireless-security-page .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .wireless-security-page .comparison-column {
+    padding: var(--spacing-lg);
+  }
+
+  .wireless-security-page .comparison-column.traditional {
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .wireless-security-page .comparison-column.cyberaries {
+    border-left: 3px solid rgba(193, 18, 31, 0.8);
+    border-top: 1px solid rgba(193, 18, 31, 0.6);
+    border-right: 1px solid rgba(193, 18, 31, 0.6);
+    border-bottom: 1px solid rgba(193, 18, 31, 0.6);
+  }
+
+  .wireless-security-page .comparison-heading {
+    font-size: 1.4rem;
+  }
+
+  .wireless-security-page .comparison-item {
+    font-size: 1rem;
+  }
+
+  .wireless-security-page .cta-section {
+    padding: var(--spacing-xl) var(--spacing-md);
   }
 
   .wireless-security-page .cta-title {
     font-size: 2.1rem;
   }
 
-  .wireless-security-page .overview-image {
-    max-width: 350px;
+  .wireless-security-page .cta-description {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .wireless-security-page .hero-section {
-    min-height: auto;
-  }
-
   .wireless-security-page .hero-title {
     font-size: 1.7rem;
   }
@@ -680,18 +764,14 @@
   }
 
   .wireless-security-page .difference-title {
-    font-size: 2rem;
-  }
-
-  .wireless-security-page .hero-actions {
-    flex-direction: column;
-  }
-
-  .wireless-security-page .overview-image {
-    max-width: 100%;
+    font-size: 1.7rem;
   }
 
   .wireless-security-page .cta-title {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
+  }
+
+  .wireless-security-page .comparison-column {
+    padding: var(--spacing-md);
   }
 }

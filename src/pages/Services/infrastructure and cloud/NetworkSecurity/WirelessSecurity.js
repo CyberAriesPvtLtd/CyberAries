@@ -1,8 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import overviewImage from '../../../../images/services/vapt/wireless-image.jpg';
-
 
 import {
   FileText,
@@ -26,6 +26,8 @@ import './WirelessSecurity.css';
  */
 
 const WirelessSecurity = () => {
+  const navigate = useNavigate();
+
   // Approach Methodology Data
   const approachSteps = [
     {
@@ -115,7 +117,7 @@ const WirelessSecurity = () => {
   };
 
   return (
-    <div className="wireless-security-page sast-style-page">
+    <div className="wireless-security-page">
       {/* Hero Section */}
       <section
         className="hero-section"
@@ -132,19 +134,19 @@ const WirelessSecurity = () => {
               </span>
             </h1>
             <p className="hero-description">
-              <strong>Wireless Security Testing</strong> identifies vulnerabilities, misconfigurations, and weak encryption protocols in
-              wireless networks that could allow attackers to <strong>intercept or manipulate sensitive data</strong>. It ensures your
-              wireless infrastructure remains protected against rogue access points, credential theft, and signal-
-              based attacks.
+              <strong>Wireless Security Testing</strong> identifies vulnerabilities, misconfigurations, and weak encryption
+              protocols in wireless networks that could allow attackers to <strong>intercept or manipulate sensitive data</strong>.
+              It ensures your wireless infrastructure remains protected against rogue access points, credential theft,
+              and signal-based attacks.
             </p>
             <p className="hero-description">
               Our comprehensive testing covers <strong>Wi-Fi networks, access points, wireless controllers, encryption protocols
-                (WEP/WPA/WPA2/WPA3), authentication mechanisms, and rogue device detection</strong>—securing your wireless
+              (WEP/WPA/WPA2/WPA3), authentication mechanisms, and rogue device detection</strong>—securing your wireless
               environment against unauthorized access and data breaches.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary">Start Now</button>
-              <button className="btn btn-secondary">Learn More</button>
+              <button className="btn btn-primary" type="button" onClick={() => navigate('/contact')}>Start Now</button>
+              <button className="btn btn-secondary" type="button">Learn More</button>
             </div>
           </div>
         </div>
@@ -158,12 +160,12 @@ const WirelessSecurity = () => {
               <div className="overview-content">
                 <p className="overview-text">
                   At <strong>Cyberaries</strong>, we perform detailed <strong>wireless penetration testing and configuration
-                    assessments</strong> to detect security flaws in Wi-Fi networks, controllers, and connected devices. Our experts
+                  assessments</strong> to detect security flaws in Wi-Fi networks, controllers, and connected devices. Our experts
                   combine manual testing with advanced tools to uncover risks that automated scans often overlook.
                 </p>
                 <p className="overview-text">
-                  We ensure robust <strong>authentication, encryption, and access control mechanisms</strong> are in place to safeguard
-                  your wireless environment from external threats and insider misuse. <strong>Cyberaries</strong> helps
+                  We ensure robust <strong>authentication, encryption, and access control mechanisms</strong> are in place to
+                  safeguard your wireless environment from external threats and insider misuse. <strong>Cyberaries</strong> helps
                   organizations build secure, resilient wireless ecosystems that maintain business continuity and your trust.
                 </p>
               </div>
@@ -183,18 +185,12 @@ const WirelessSecurity = () => {
       </section>
 
       {/* Our Approach Section */}
-      <section className="solutions-section our-approach">
+      <section className="solutions-section">
         <div className="container">
-
-          <ScrollReveal direction="up" delay={100}>
+          <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
               <h2 className="section-title">Our Approach</h2>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal direction="up" delay={0}>
-            <div className="methodology-header">
-              <p className="methodology-title">
+              <p className="section-subtitle">
                 Our audit methodology is built around consistency, insight, and detecting vulnerabilities before they escalate
               </p>
             </div>
@@ -215,7 +211,7 @@ const WirelessSecurity = () => {
         </div>
       </section>
 
-      {/* Why Choose Section - MOVED BEFORE DIFFERENCE */}
+      {/* Why Choose Section */}
       <section className="why-choose">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
@@ -230,9 +226,7 @@ const WirelessSecurity = () => {
                 <div className="why-choose-card">
                   <div className="why-choose-icon">{item.icon}</div>
                   <h3 className="why-choose-title">{item.title}</h3>
-                  <p className="why-choose-description">
-                    {item.description}
-                  </p>
+                  <p className="why-choose-description">{item.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -240,7 +234,7 @@ const WirelessSecurity = () => {
         </div>
       </section>
 
-      {/* Difference Section - MOVED AFTER WHY CHOOSE */}
+      {/* Difference Section */}
       <section className="cyberaries-difference">
         <div className="container">
           <ScrollReveal animation="fade-up">
@@ -295,14 +289,17 @@ const WirelessSecurity = () => {
               <p className="cta-description">
                 Enhance protection, reduce risk, and support your growth objectives.
               </p>
-              <button className="btn btn-primary btn-large">
+              <button
+                className="btn btn-primary btn-large"
+                type="button"
+                onClick={() => navigate('/contact')}
+              >
                 Contact With Us
               </button>
             </div>
           </ScrollReveal>
         </div>
       </section>
-      
     </div>
   );
 };
