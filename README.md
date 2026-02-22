@@ -16,49 +16,49 @@
 
 ## 📋 Table of Contents
 
-- [Overview](#-overview)
-- [Our Mission](#-our-mission)
-- [Services](#-services)
-- [Industries We Serve](#-industries-we-serve)
-- [Why Choose CyberAries](#-why-choose-cyberaries)
-- [Our Approach](#-our-approach)
-- [Contact Us](#-contact-us)
+- [Overview](#overview)
+- [Our Mission](#our-mission)
+- [Services](#services)
+- [Industries We Serve](#industries-we-serve)
+- [Why Choose CyberAries](#why-choose-cyberaries)
+- [Our Approach](#our-approach-the-4d-methodology)
+- [Contact Us](#contact-us)
 
 ---
 
-## 🎯 Overview
+## Overview
 
 **CyberAries Pvt. Ltd.** is a leading cybersecurity consultancy specializing in forensics-driven security solutions for enterprises across banking, IT, insurance, healthcare, and manufacturing sectors.
 
 We provide comprehensive security assessment, vulnerability management, compliance advisory, and incident response services to help organizations build robust defense mechanisms against evolving cyber threats.
 
-### 🏆 Key Highlights
+### Key Highlights
 
-- 🏢 **350+ Enterprise Clients** across BFSI, Healthcare, Manufacturing, and IT
-- 🔐 **Comprehensive Security Services** - VAPT, Compliance, Advisory, and Incident Response
-- ⏰ **24/7 Security Operations** with rapid incident response capabilities
-- 🔬 **Forensics-First Approach** to threat detection and analysis
-- 💼 **Industry-Specific Expertise** with deep domain knowledge
+- **350+ Enterprise Clients** across BFSI, Healthcare, Manufacturing, and IT
+- **Comprehensive Security Services** - VAPT, Compliance, Advisory, and Incident Response
+- **24/7 Security Operations** with rapid incident response capabilities
+- **Forensics-First Approach** to threat detection and analysis
+- **Industry-Specific Expertise** with deep domain knowledge
 
 ---
 
-## 🎯 Our Mission
+## Our Mission
 
 To empower organizations with **proactive, forensics-driven cybersecurity solutions** that protect critical assets, ensure regulatory compliance, and build resilience against sophisticated cyber threats.
 
-We believe in:
-- 🛡️ **Prevention over Reaction** - Identifying vulnerabilities before they're exploited
-- 🔄 **Continuous Improvement** - Evolving security posture with emerging threats
-- 📚 **Knowledge Transfer** - Empowering client teams with security best practices
-- 🚀 **Business Enablement** - Security that supports growth, not hinders it
+**We believe in:**
+- **Prevention over Reaction** - Identifying vulnerabilities before they're exploited
+- **Continuous Improvement** - Evolving security posture with emerging threats
+- **Knowledge Transfer** - Empowering client teams with security best practices
+- **Business Enablement** - Security that supports growth, not hinders it
 
 ---
 
-## 🔒 Services
+## Services
 
-### 🎯 Vulnerability Assessment & Penetration Testing (VAPT)
+### Vulnerability Assessment & Penetration Testing (VAPT)
 
-#### 🌐 **Web Application Security Testing**
+#### Web Application Security Testing
 Comprehensive assessment of web applications to identify OWASP Top 10 vulnerabilities, including:
 - Injection flaws (SQL, XSS, LDAP)
 - Broken authentication and session management
@@ -70,7 +70,7 @@ Comprehensive assessment of web applications to identify OWASP Top 10 vulnerabil
 - Insecure deserialization
 - Components with known vulnerabilities
 
-#### 📱 **Mobile Application Security Testing**
+#### Mobile Application Security Testing
 In-depth security evaluation for Android and iOS applications:
 - Static analysis (SAST) of APK/IPA binaries
 - Dynamic analysis (DAST) during runtime
@@ -80,7 +80,7 @@ In-depth security evaluation for Android and iOS applications:
 - API security validation
 - Reverse engineering protection
 
-#### 🔌 **API Security Testing**
+#### API Security Testing
 Specialized testing for REST, SOAP, and GraphQL APIs:
 - Broken object-level authorization
 - Broken authentication mechanisms
@@ -91,7 +91,7 @@ Specialized testing for REST, SOAP, and GraphQL APIs:
 - Security misconfigurations
 - Injection attacks
 
-#### 🔍 **Vulnerability Assessment**
+#### Vulnerability Assessment
 Systematic identification and prioritization of security weaknesses:
 - Automated and manual scanning
 - Network infrastructure assessment
@@ -101,7 +101,7 @@ Systematic identification and prioritization of security weaknesses:
 - Remediation guidance
 - Re-testing and validation
 
-#### 🎯 **Red Teaming**
+#### Red Teaming
 Full-scope adversary simulation exercises:
 - Multi-vector attack scenarios
 - Social engineering campaigns
@@ -110,7 +110,7 @@ Full-scope adversary simulation exercises:
 - SOC effectiveness assessment
 - Executive threat briefings
 
-#### 💻 **Source Code Review**
+#### Source Code Review
 Line-by-line analysis of application source code:
 - Secure coding practice validation
 - Logic flaw identification
@@ -119,7 +119,7 @@ Line-by-line analysis of application source code:
 - Error handling analysis
 - Business logic testing
 
-#### ⚙️ **SAST & DAST**
+#### SAST & DAST
 Integrated static and dynamic application security testing:
 - Early vulnerability detection in SDLC
 - CI/CD pipeline integration
@@ -130,9 +130,9 @@ Integrated static and dynamic application security testing:
 
 ---
 
-### 📋 Compliance & Advisory Services
+### Compliance & Advisory Services
 
-#### 🏦 **RBI Cyber Security Framework**
+#### RBI Cyber Security Framework
 Compliance assessment and implementation support for:
 - Master Directions on Cyber Security Framework (2016)
 - Baseline cyber security controls
@@ -141,7 +141,7 @@ Compliance assessment and implementation support for:
 - Customer data protection
 - Board-level governance
 
-#### 🏛️ **RBI NBFC Guidelines**
+#### RBI NBFC Guidelines
 Scale-based compliance for Non-Banking Financial Companies:
 - Risk assessment framework
 - Cyber security policy development
@@ -150,7 +150,7 @@ Scale-based compliance for Non-Banking Financial Companies:
 - Vendor risk management
 - Regular security audits
 
-#### 💳 **RBI Payment Systems Security**
+#### RBI Payment Systems Security
 Security compliance for payment service providers:
 - PA-DSS compliance
 - PCI-DSS certification support
@@ -161,7 +161,7 @@ Security compliance for payment service providers:
 
 ---
 
-## 🏭 Industries We Serve
+## Industries We Serve
 
 ### 🏦 Banking, Financial Services & Insurance (BFSI)
 
@@ -244,45 +244,45 @@ Security compliance for payment service providers:
 
 ---
 
-## 🌟 Why Choose CyberAries?
+## Why Choose CyberAries?
 
-### ⚡ Proven Expertise
+### Proven Expertise
 **350+ successful engagements** across diverse industries with measurable security improvements and risk reduction.
 
-### 🔍 Forensics-Driven Approach
+### Forensics-Driven Approach
 Our unique **4D methodology** (Deconstruct, Decipher, Develop, Disseminate) ensures thorough analysis and actionable intelligence.
 
-### 👨‍💼 Experienced Team
+### Experienced Team
 Security professionals with **deep technical expertise** and industry-specific knowledge across BFSI, healthcare, manufacturing, and IT.
 
-### 🛡️ Comprehensive Services
+### Comprehensive Services
 **End-to-end security solutions** from assessment through remediation, including continuous monitoring and incident response.
 
-### 📈 Business-Focused Reporting
+### Business-Focused Reporting
 **Executive-level insights** with clear risk prioritization and ROI-focused remediation roadmaps.
 
-### 🤝 Partnership Approach
+### Partnership Approach
 We work **alongside your teams** to build lasting security capabilities, not just deliver reports.
 
 ---
 
-## 🔄 Our Approach: The 4D Methodology
+## Our Approach: The 4D Methodology
 
-### 🔍 1. Deconstruct
+### 1. Deconstruct
 Systematically analyze security incidents, breach patterns, and attack vectors to understand root causes and impact of cyber threats.
 
-### 🔓 2. Decipher
+### 2. Decipher
 Identify critical vulnerabilities, security gaps, and weaknesses through detailed forensic analysis and threat intelligence.
 
-### 🛠️ 3. Develop
+### 3. Develop
 Design and implement robust security controls, protocols, and defensive strategies tailored to your organization's specific needs.
 
-### 📢 4. Disseminate
+### 4. Disseminate
 Share insights, strengthen security posture, and educate teams to ensure continuous improvement and resilience.
 
 ---
 
-## 📞 Contact Us
+## Contact Us
 
 ### CyberAries Pvt. Ltd.
 
@@ -292,23 +292,23 @@ Powai, Mumbai - 400071
 India
 
 **Get In Touch**  
-✉️ **Email:** [info@cyberaries.com](mailto:info@cyberaries.com)  
-📞 **Phone:** +91 8828495202  
-🌐 **Website:** [www.cyberaries.com](https://cyberaries.com)  
-💼 **LinkedIn:** [linkedin.com/company/cyberaries](https://linkedin.com/company/cyberaries)  
-📝 **Blog:** [medium.com/@cyberaries](https://medium.com/@cyberaries)
+- **Email:** [info@cyberaries.com](mailto:info@cyberaries.com)  
+- **Phone:** +91 8828495202  
+- **Website:** [www.cyberaries.com](https://cyberaries.com)  
+- **LinkedIn:** [linkedin.com/company/cyberaries](https://linkedin.com/company/cyberaries)  
+- **Blog:** [medium.com/@cyberaries](https://medium.com/@cyberaries)
 
 **Business Hours**  
-🕒 Monday - Friday: 9:00 AM - 6:00 PM IST  
-⏰ 24/7 Security Operations Center (SOC)
+Monday - Friday: 9:00 AM - 6:00 PM IST  
+24/7 Security Operations Center (SOC)
 
 ---
 
-## 🚀 Ready to Strengthen Your Security?
+## Ready to Strengthen Your Security?
 
 Whether you need a comprehensive security assessment, compliance audit, or incident response support, our team is ready to help.
 
-**👉 [Schedule a Consultation](mailto:info@cyberaries.com)** | **📞 Call Us: +91 8828495202**
+**[Schedule a Consultation](mailto:info@cyberaries.com)** | **Call Us: +91 8828495202**
 
 ---
 
