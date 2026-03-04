@@ -9,7 +9,6 @@ import {
   Search,
   Settings,
   Shield,
-  Lock,
   AlertTriangle,
   CheckCircle,
   FileCheck,
@@ -146,7 +145,7 @@ const CloudConfigReview = () => {
             </p>
             <p className="hero-description">
               Our comprehensive review covers <strong>IAM policies, security groups, storage configurations, network settings,
-              and logging mechanisms</strong>, providing detailed remediation guidance to strengthen cloud security posture.
+                and logging mechanisms</strong>, providing detailed remediation guidance to strengthen cloud security posture.
             </p>
             <div className="hero-actions">
               <button className="btn btn-primary" type="button" onClick={() => navigate('/contact')}>Get Started</button>

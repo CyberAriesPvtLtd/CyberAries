@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
-import { Shield, FileText, Search, Lock, AlertTriangle, CheckCircle, Settings, BarChart3, Users, Award, RefreshCw, FileCheck, Eye, Database, Globe, Target } from 'lucide-react';
+import { Shield, FileText, Search, Lock, AlertTriangle, CheckCircle, Settings, Users, Award, FileCheck, Eye, Database, Globe, Target } from 'lucide-react';
 import './PCIDSS.css';
 
 const challenges = [

@@ -15,7 +15,6 @@ import {
   FileCheck,
   RefreshCw,
   Award,
-  Cloud,
   Server,
   Network
 } from 'lucide-react';
@@ -146,7 +145,7 @@ const ContainerK8sSecurity = () => {
             </p>
             <p className="hero-description">
               Our comprehensive assessment covers <strong>container images, RBAC policies, network segmentation, secrets management,
-              and runtime security</strong>, providing detailed recommendations to strengthen your cloud-native security posture.
+                and runtime security</strong>, providing detailed recommendations to strengthen your cloud-native security posture.
             </p>
             <div className="hero-actions">
               <button className="btn btn-primary" type="button" onClick={() => navigate('/contact')}>Get Started</button>
