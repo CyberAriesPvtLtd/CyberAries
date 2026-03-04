@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import {
-    Shield, FileText, Search, Lock, AlertTriangle, CheckCircle,
-    Database, Eye, Award, Globe, Settings, FileCheck, Target, Clock, RefreshCw
+    Shield, Search, Lock, AlertTriangle, CheckCircle,
+    Database, Award, Globe, Settings, FileCheck, Clock, RefreshCw
 } from 'lucide-react';
 import './RansomwareRecovery.css';
 

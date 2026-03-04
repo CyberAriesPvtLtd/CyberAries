@@ -4,7 +4,7 @@ import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import {
     Shield, FileText, Search, Lock, AlertTriangle, CheckCircle,
-    Database, Eye, Award, Globe, Settings, FileCheck, Target, Clock
+    Database, Eye, Award, Globe, FileCheck, Clock
 } from 'lucide-react';
 import './ForensicAudit.css';
 

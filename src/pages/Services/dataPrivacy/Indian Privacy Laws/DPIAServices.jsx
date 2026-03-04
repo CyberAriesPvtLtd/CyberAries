@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import {
-    Shield, FileText, Search, Lock, AlertTriangle, CheckCircle,
+    FileText, Search, Lock, AlertTriangle, CheckCircle,
     Settings, Users, Award, Globe, Database, Eye, FileCheck, Target
 } from 'lucide-react';
 import './DPIAServices.css';

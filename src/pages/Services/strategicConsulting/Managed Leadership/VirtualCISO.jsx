@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import {
-    Shield, FileText, Search, Lock, AlertTriangle, CheckCircle,
+    Shield, Search, Lock, AlertTriangle, CheckCircle,
     Database, Eye, Award, Globe, Settings, FileCheck, Target, Users
 } from 'lucide-react';
 import './VirtualCISO.css';

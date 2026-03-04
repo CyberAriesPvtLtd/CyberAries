@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
 import {
-    Shield, FileText, Search, Lock, AlertTriangle, CheckCircle,
-    Settings, BarChart3, Users, Award, RefreshCw, FileCheck,
+    Shield, FileText, Search, Lock, CheckCircle,
+    Settings, BarChart3, Award, RefreshCw, FileCheck,
     Eye, Database, Globe, UserCheck, Fingerprint, Key,
 } from 'lucide-react';
 import './UIDAICompliance.css';
