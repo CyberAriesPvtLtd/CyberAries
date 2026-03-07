@@ -1,3 +1,30 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Block temporary / utility pages
+Disallow: /comingsoon
+Disallow: /resources/survey/
+Disallow: /company/*
+Disallow: /services/*
+
+# Allow important main sections explicitly
+Allow: /services/web-app-security
+Allow: /services/mobile-app-security
+Allow: /services/api-security
+Allow: /services/sast-dast
+Allow: /services/source-code-review
+Allow: /services/red-teaming
+Allow: /services/vulnerability-assessment
+Allow: /services/network-security
+Allow: /services/wireless-security
+Allow: /services/compliance/
+Allow: /services/privacy/
+Allow: /services/regulatory/
+
+Allow: /industries/
+Allow: /about
+Allow: /contact
+Allow: /
+
+Sitemap:https://cyberaries.com/sitemap.xml

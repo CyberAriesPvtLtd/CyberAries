@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
@@ -52,6 +52,33 @@ import ISO27701 from './pages/Services/dataPrivacy/PrivacyFrameworks/ISO27701';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    // Only disable in production
+     if (process.env.NODE_ENV === "production") {
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+  };
+
+  const handleKeyDown = (e) => {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && e.key === "I") ||
+      (e.ctrlKey && e.ctrlKey && e.key === "J") ||
+      (e.ctrlKey && e.key === "u")
+    ) {
+      e.preventDefault();
+    }
+  };
+
+  document.addEventListener("contextmenu", handleContextMenu);
+  document.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    document.removeEventListener("contextmenu", handleContextMenu);
+    document.removeEventListener("keydown", handleKeyDown);
+  };
+}
+}, []);
   return (
     <Router>
       <ScrollToTop />
