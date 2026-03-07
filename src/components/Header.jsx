@@ -4,16 +4,53 @@ import { ChevronDown, ChevronRight, Menu, X, Phone } from 'lucide-react';
 import './Header.css';
 import logoImage from '../images/logos/cyberaries-logo.png';
 
+// Map any known service URL path prefix to its sidebar category key
+const getActiveCategory = (pathname) => {
+  if (
+    pathname.startsWith('/services/regulatory') ||
+    pathname.startsWith('/services/regulatory')
+  ) return 'regulatory';
+  if (
+    pathname.startsWith('/services/web-app-security') ||
+    pathname.startsWith('/services/mobile-app-security') ||
+    pathname.startsWith('/services/api-security') ||
+    pathname.startsWith('/services/sast-dast') ||
+    pathname.startsWith('/services/source-code-review') ||
+    pathname.startsWith('/services/red-teaming') ||
+    pathname.startsWith('/services/vulnerability-assessment')
+  ) return 'offensive';
+  if (
+    pathname.startsWith('/services/cloud') ||
+    pathname.startsWith('/services/infrastructure') ||
+    pathname.startsWith('/services/network-security') ||
+    pathname.startsWith('/services/wireless-security') ||
+    pathname.startsWith('/services/firewall-rule-review')
+  ) return 'infrastructure';
+  if (
+    pathname.startsWith('/services/compliance') ||
+    pathname.startsWith('/services/soc-compliance')
+  ) return 'compliance';
+  if (pathname.startsWith('/services/privacy') ||
+    pathname === '/services/compliance/iso-27701' ||
+    pathname === '/services/compliance/iso-27018'
+  ) return 'privacy';
+  if (pathname.startsWith('/services/consulting')) return 'consulting';
+  return 'regulatory'; // default
+};
+
 const Header = () => {
   const location = useLocation();
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [showNestedSurvey, setShowNestedSurvey] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
 
+  // Services sidebar tab — driven by URL, overrideable by hover click
+  const [activeServiceTab, setActiveServiceTab] = useState(() => getActiveCategory(location.pathname));
+
   // Mobile menu states
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileActiveMenu, setMobileActiveMenu] = useState(null);
-  const [mobileActiveService, setMobileActiveService] = useState('regulatory');
+  const [mobileActiveService, setMobileActiveService] = useState(() => getActiveCategory(location.pathname));
 
   const isActive = (path) => location.pathname === path;
 
@@ -41,15 +78,14 @@ const Header = () => {
 
   const handleTabClick = (e) => {
     const serviceName = e.currentTarget.getAttribute('data-service');
-
-    // Remove active class from all service buttons and panels
-    document.querySelectorAll('.services-category-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.services-category-content').forEach(panel => panel.classList.remove('active'));
-
-    // Add active class to clicked button and corresponding panel
-    e.currentTarget.classList.add('active');
-    document.querySelector(`[data-service-panel="${serviceName}"]`).classList.add('active');
+    setActiveServiceTab(serviceName);
   };
+
+  // Sync activeServiceTab with URL when route changes
+  useEffect(() => {
+    setActiveServiceTab(getActiveCategory(location.pathname));
+    setMobileActiveService(getActiveCategory(location.pathname));
+  }, [location.pathname]);
 
   // Mobile menu handlers
   const toggleMobileMenu = () => {
@@ -165,55 +201,30 @@ const Header = () => {
               <div className="services-mega-menu">
                 {/* Sidebar */}
                 <div className="services-sidebar">
-                  <button
-                    className="services-category-btn active"
-                    data-service="regulatory"
-                    onClick={handleTabClick}
-                  >
-                    Regulatory Audit
-                  </button>
-                  <button
-                    className="services-category-btn"
-                    data-service="offensive"
-                    onClick={handleTabClick}
-                  >
-                    Offensive Security
-                  </button>
-                  <button
-                    className="services-category-btn"
-                    data-service="infrastructure"
-                    onClick={handleTabClick}
-                  >
-                    Infrastructure & Cloud
-                  </button>
-                  <button
-                    className="services-category-btn"
-                    data-service="compliance"
-                    onClick={handleTabClick}
-                  >
-                    Compliance
-                  </button>
-                  <button
-                    className="services-category-btn"
-                    data-service="privacy"
-                    onClick={handleTabClick}
-                  >
-                    Data Privacy
-                  </button>
-                  <button
-                    className="services-category-btn"
-                    data-service="consulting"
-                    onClick={handleTabClick}
-                  >
-                    Strategic Consulting
-                  </button>
+                  {[
+                    { key: 'regulatory', label: 'Regulatory Audit' },
+                    { key: 'offensive', label: 'Offensive Security' },
+                    { key: 'infrastructure', label: 'Infrastructure & Cloud' },
+                    { key: 'compliance', label: 'Compliance' },
+                    { key: 'privacy', label: 'Data Privacy' },
+                    { key: 'consulting', label: 'Strategic Consulting' },
+                  ].map(({ key, label }) => (
+                    <button
+                      key={key}
+                      className={`services-category-btn${activeServiceTab === key ? ' active' : ''}`}
+                      data-service={key}
+                      onClick={handleTabClick}
+                    >
+                      {label}
+                    </button>
+                  ))}
                 </div>
 
                 {/* Content Area */}
                 <div className="services-content-area">
                   {/* Regulatory Audit */}
                   <div
-                    className="services-category-content active"
+                    className={`services-category-content${activeServiceTab === 'regulatory' ? ' active' : ''}`}
                     data-service-panel="regulatory"
                   >
                     <div className="services-grid">
@@ -291,7 +302,7 @@ const Header = () => {
 
                   {/* Offensive Security */}
                   <div
-                    className="services-category-content"
+                    className={`services-category-content${activeServiceTab === 'offensive' ? ' active' : ''}`}
                     data-service-panel="offensive"
                   >
                     <div className="services-grid">
@@ -363,7 +374,7 @@ const Header = () => {
 
                   {/* Infrastructure & Cloud */}
                   <div
-                    className="services-category-content"
+                    className={`services-category-content${activeServiceTab === 'infrastructure' ? ' active' : ''}`}
                     data-service-panel="infrastructure"
                   >
                     <div className="services-grid">
@@ -372,13 +383,13 @@ const Header = () => {
                           IT Infrastructure
                         </h5>
                         <Link
-                          to="/services/infrastructure/network-design"
+                          to="/services/infrastructure/network-architecture"
                           className="services-link"
                         >
                           Network Architecture Design
                         </Link>
                         <Link
-                          to="/services/infrastructure/server-setup"
+                          to="/services/infrastructure/server-storage"
                           className="services-link"
                         >
                           Server & Storage Setup
@@ -401,7 +412,7 @@ const Header = () => {
                           Cloud Security
                         </h5>
                         <Link
-                          to="/services/cloud/configuration-review"
+                          to="/services/cloud/config-review"
                           className="services-link"
                         >
                           Cloud Config Review
@@ -413,7 +424,7 @@ const Header = () => {
                           Cloud Penetration Testing
                         </Link>
                         <Link
-                          to="/services/cloud/container-security"
+                          to="/services/cloud/container-k8s-security"
                           className="services-link"
                         >
                           Container & K8s Security
@@ -436,7 +447,7 @@ const Header = () => {
                           Wireless Security
                         </Link>
                         <Link
-                          to="/services/infrastructure/firewall-review"
+                          to="/services/firewall-rule-review"
                           className="services-link"
                         >
                           Firewall Rule Review
@@ -447,7 +458,7 @@ const Header = () => {
 
                   {/* Compliance */}
                   <div
-                    className="services-category-content"
+                    className={`services-category-content${activeServiceTab === 'compliance' ? ' active' : ''}`}
                     data-service-panel="compliance"
                   >
                     <div className="services-grid">
@@ -520,7 +531,7 @@ const Header = () => {
 
                   {/* Data Privacy */}
                   <div
-                    className="services-category-content"
+                    className={`services-category-content${activeServiceTab === 'privacy' ? ' active' : ''}`}
                     data-service-panel="privacy"
                   >
                     <div className="services-grid">
@@ -586,7 +597,7 @@ const Header = () => {
 
                   {/* Strategic Consulting */}
                   <div
-                    className="services-category-content"
+                    className={`services-category-content${activeServiceTab === 'consulting' ? ' active' : ''}`}
                     data-service-panel="consulting"
                   >
                     <div className="services-grid">
@@ -1032,13 +1043,13 @@ const Header = () => {
                               IT Infrastructure
                             </h6>
                             <Link
-                              to="/services/infrastructure/network-design"
+                              to="/services/infrastructure/network-architecture"
                               onClick={closeMobileMenu}
                             >
                               Network Architecture Design
                             </Link>
                             <Link
-                              to="/services/infrastructure/server-setup"
+                              to="/services/infrastructure/server-storage"
                               onClick={closeMobileMenu}
                             >
                               Server & Storage Setup
@@ -1061,7 +1072,7 @@ const Header = () => {
                               Cloud Security
                             </h6>
                             <Link
-                              to="/services/cloud/configuration-review"
+                              to="/services/cloud/config-review"
                               onClick={closeMobileMenu}
                             >
                               Cloud Config Review
@@ -1073,7 +1084,7 @@ const Header = () => {
                               Cloud Penetration Testing
                             </Link>
                             <Link
-                              to="/services/cloud/container-security"
+                              to="/services/cloud/container-k8s-security"
                               onClick={closeMobileMenu}
                             >
                               Container & K8s Security
@@ -1096,7 +1107,7 @@ const Header = () => {
                               Wireless Security
                             </Link>
                             <Link
-                              to="/services/infrastructure/firewall-review"
+                              to="/services/firewall-rule-review"
                               onClick={closeMobileMenu}
                             >
                               Firewall Rule Review
