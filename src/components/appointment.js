@@ -194,7 +194,9 @@ function Appointment() {
                 <input type="email" name="entry.913903228" placeholder="Email" required className="form-control" />
              </div>
 
-              <input type="tel" name="entry.1429787953" id="phone" placeholder="Phone" required className="form-control" />
+              <input type="tel" name="entry.1429787953" id="phone" placeholder="Phone"inputmode="numeric"
+                    pattern="[0-9]{10}"
+                    title="Enter a valid 10 digit phone number" required className="form-control" />
 
               <textarea
                 name="entry.1035017623"

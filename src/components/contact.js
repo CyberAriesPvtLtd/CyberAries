@@ -215,9 +215,12 @@ function Contact() {
                     type="tel"
                     name="phone"
                     placeholder="Phone Number"
+                    inputmode="numeric"
+                    pattern="[0-9]{10}"
+                    title="Enter a valid 10 digit phone number"
                     required
                   />
-
+                  
                   <input type="text" name="subject" placeholder="Subject" />
 
                   <textarea
