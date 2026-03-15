@@ -8,8 +8,6 @@ import {
   AlertTriangle,
   FileCheck,
   Users,
-  TrendingUp,
-  Award,
   Globe,
   Handshake,
   Database,

@@ -237,7 +237,7 @@ function App() {
           {/* Resources - Survey */}
           <Route path="/resources/survey/grc" element={<GRC />} />
           <Route path="/resources/survey/dpdpa" element={<DPDPA />} />
-          <Route path="/resources/survey/tprm" element={<ComingSoon />} />
+          <Route path="/resources/survey/tprm" element={<TPRM />} />
 
           {/* Resources */}
           <Route path="/resources/case-studies" element={<ComingSoon />} />
@@ -245,7 +245,6 @@ function App() {
           <Route path="/resources/news" element={<ComingSoon />} />
           <Route path="/resources/download" element={<ComingSoon />} />
 
-<<<<<<< HEAD
           {/* Coming Soon catch-all routes */}
           <Route path="/services" element={<ComingSoon />} />
           <Route path="/services/*" element={<ComingSoon />} />
@@ -253,12 +252,6 @@ function App() {
           <Route path="/resources/*" element={<ComingSoon />} />
           <Route path="/company/*" element={<ComingSoon />} />
           <Route path="/blog" element={<ComingSoon />} />
-=======
-          {/* Resources - Survey */}
-          <Route path="/resources/survey/grc" element={<GRC />} />
-          <Route path="/resources/survey/dpdpa" element={<DPDPA />} />
-          <Route path="/resources/survey/tprm" element={<TPRM />} />
->>>>>>> d37821b4987958d41281dd6ef1822801aaee2a67
 
           {/* Fallback for undefined routes - MUST BE LAST */}
           <Route path="*" element={<ComingSoon />} />
