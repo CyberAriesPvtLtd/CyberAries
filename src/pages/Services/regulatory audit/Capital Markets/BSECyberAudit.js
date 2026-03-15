@@ -28,7 +28,7 @@ const BSECyberAudit = () => {
   // TRUST INDICATORS
   const trustItems = [
     { icon: <Shield size={40} />, text: "ISO Accredited" },
-    { icon: <Users size={40} />, text: "500+ Audits" },
+    { icon: <Users size={40} />, text: "Expert Security Auditors" },
     { icon: <Clock size={40} />, text: "24/7 Support" }
   ];
 

@@ -15,6 +15,7 @@ import ComingSoon from './pages/comingsoon.js';
 
 import GRC from './components/GRC';
 import DPDPA from './components/DPDPA';
+import TPRM from './components/TPRM.jsx'
 
 
 // Industries
@@ -258,7 +259,7 @@ function App() {
           {/* Resources - Survey */}
           <Route path="/resources/survey/grc" element={<GRC />} />
           <Route path="/resources/survey/dpdpa" element={<DPDPA />} />
-          <Route path="/resources/survey/tprm" element={<ComingSoon />} />
+          <Route path="/resources/survey/tprm" element={<TPRM />} />
 
 
           {/* Fallback for undefined routes */}

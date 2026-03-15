@@ -175,7 +175,7 @@ const whyChooseItems = [
         icon: <Award size={48} strokeWidth={1.5} />,
     },
     {
-        title: 'CERT-In Empanelled',
+        title: 'Partnered with CERT-In Empanelled',
         description:
             'Government-recognized cybersecurity firm with proven regulatory audit credentials across Indian financial sector and government clients.',
         icon: <Shield size={48} strokeWidth={1.5} />,
