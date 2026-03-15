@@ -508,9 +508,13 @@
   gap: var(--virt-spacing-2xl);
   max-width: 1400px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 .virt-page .virt-comparison-column {
+   height: 100%;
+  display: flex;
+  flex-direction: column;
   background: rgba(60, 60, 60, 0.4);
   backdrop-filter: blur(10px);
   border-radius: var(--virt-radius-lg);
@@ -568,6 +572,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--virt-spacing-md);
+  flex-grow: 1;
 }
 
 .virt-page .virt-comparison-item {
