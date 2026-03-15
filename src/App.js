@@ -16,11 +16,13 @@ import ComingSoon from './pages/comingsoon.js';
 import GRC from './components/GRC';
 import DPDPA from './components/DPDPA';
 
-
 // Industries
 import BFSI from './pages/industries/BFSI';
 import Government from './pages/industries/Government';
 import Technology from './pages/industries/Technology';
+import Education from './pages/industries/Education';
+import Healthcare from './pages/industries/Healthcare';
+import Manufacturing from './pages/industries/Manufacturing';
 
 // RBI Regulatory Audit Services - Banking & Finance
 import RBICyberFramework from './pages/Services/regulatory audit/Banking & Finance/RBICyberFramework';
@@ -149,6 +151,9 @@ function App() {
           <Route path="/industries/bfsi" element={<BFSI />} />
           <Route path="/industries/government" element={<Government />} />
           <Route path="/industries/technology" element={<Technology />} />
+          <Route path="/industries/education" element={<Education />} />
+          <Route path="/industries/healthcare" element={<Healthcare />} />
+          <Route path="/industries/manufacturing" element={<Manufacturing />} />
 
           {/* RBI Regulatory Audit Services - Banking & Finance */}
           <Route path="/services/regulatory/rbi-cyber-framework" element={<RBICyberFramework />} />
@@ -228,26 +233,10 @@ function App() {
           <Route path="/services/compliance/swift" element={<SWIFTAssessment />} />
           <Route path="/services/compliance/fedramp" element={<FedRAMPAssessment />} />
 
-
-          {/* Coming Soon Resources / Pages */}
-          <Route path="/services" element={<ComingSoon />} />
-          <Route path="/services/*" element={<ComingSoon />} />
-          <Route path="/industries/*" element={<ComingSoon />} />
-          <Route path="/resources/*" element={<ComingSoon />} />
-          <Route path="/company/*" element={<ComingSoon />} />
-          <Route path="/blog" element={<ComingSoon />} />
-
-          {/* Strategic Consulting - Forensics & Recovery */}
-          <Route path="/services/consulting/forensic-audit" element={<ComingSoon />} />
-          <Route path="/services/consulting/ransomware-recovery" element={<ComingSoon />} />
-
-          {/* Strategic Consulting - Managed Leadership */}
-          <Route path="/services/consulting/virtual-ciso" element={<ComingSoon />} />
-          <Route path="/services/consulting/dpo-service" element={<ComingSoon />} />
-
-          {/* Strategic Consulting - US Federal Standards */}
-          <Route path="/services/consulting/nist-800-53" element={<ComingSoon />} />
-          <Route path="/services/consulting/nist-800-171" element={<ComingSoon />} />
+          {/* Resources - Survey */}
+          <Route path="/resources/survey/grc" element={<GRC />} />
+          <Route path="/resources/survey/dpdpa" element={<DPDPA />} />
+          <Route path="/resources/survey/tprm" element={<ComingSoon />} />
 
           {/* Resources */}
           <Route path="/resources/case-studies" element={<ComingSoon />} />
@@ -255,13 +244,15 @@ function App() {
           <Route path="/resources/news" element={<ComingSoon />} />
           <Route path="/resources/download" element={<ComingSoon />} />
 
-          {/* Resources - Survey */}
-          <Route path="/resources/survey/grc" element={<GRC />} />
-          <Route path="/resources/survey/dpdpa" element={<DPDPA />} />
-          <Route path="/resources/survey/tprm" element={<ComingSoon />} />
+          {/* Coming Soon catch-all routes */}
+          <Route path="/services" element={<ComingSoon />} />
+          <Route path="/services/*" element={<ComingSoon />} />
+          <Route path="/industries/*" element={<ComingSoon />} />
+          <Route path="/resources/*" element={<ComingSoon />} />
+          <Route path="/company/*" element={<ComingSoon />} />
+          <Route path="/blog" element={<ComingSoon />} />
 
-
-          {/* Fallback for undefined routes */}
+          {/* Fallback for undefined routes - MUST BE LAST */}
           <Route path="*" element={<ComingSoon />} />
 
         </Routes>

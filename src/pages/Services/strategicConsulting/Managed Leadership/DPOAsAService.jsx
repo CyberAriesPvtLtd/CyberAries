@@ -93,8 +93,7 @@ const DPOAsAService = () => {
                 <div className="dpoa-container">
                     <p className="dpoa-eyebrow">Strategic Consulting — Managed Leadership</p>
                     <h1 className="dpoa-hero-title">DPO AS A <span className="dpoa-grad">SERVICE</span></h1>
-                    <p className="dpoa-hero-desc">A <strong>Data Protection Officer (DPO)</strong> is a mandatory appointment under GDPR for qualifying organisations and under India's DPDP Act for Significant Data Fiduciaries. The DPO must be an expert in data protection law, operate with full independence, and serve as the formal contact point for supervisory authorities — obligations that nominal internal appointments frequently fail to fulfil.</p>
-                    <p className="dpoa-hero-desc">Our <strong>DPO-as-a-Service</strong> provides a qualified, truly independent external DPO — covering GDPR DPO obligations and DPDP Act requirements. Services include compliance monitoring, new project advisory, DPIA oversight, DSR management, supervisory authority liaison, breach notification management, and workforce training.</p>
+                    <p className="dpoa-hero-desc">Secure independent expertise for global data protection. Appointing a Data Protection Officer is a legal mandate under GDPR and India’s DPDP Act for qualifying organizations. Our DPO-as-a-Service provides a truly independent external expert to serve as your formal contact for supervisory authorities. We manage the full spectrum of obligations—including compliance monitoring, DPIA oversight, and breach notification management—ensuring your organization meets regulatory standards that internal appointments often fail to fulfill.</p>
                     <div className="dpoa-actions">
                         <button className="dpoa-btn dpoa-btn-p" onClick={() => navigate('/contact')}>Appoint a DPO</button>
                         <button className="dpoa-btn dpoa-btn-s">Learn More</button>

@@ -337,8 +337,8 @@
     align-items: flex-start;
     gap: .85rem;
     padding: 1rem 1.25rem;
-    background: var(--wh);
-    border: 1px solid var(--br);
+       background: #FFE8EB;
+    border: 2px solid #F4C7C9;
     border-radius: 8px;
     transition: var(--tr)
 }
@@ -521,8 +521,8 @@
     display: flex;
     align-items: flex-start;
     gap: .75rem;
-    font-size: .98rem;
-    line-height: 1.65;
+    font-size: 1.15rem;
+    line-height: 1.75;
     color: #ddd
 }
 
@@ -550,11 +550,41 @@
     padding: 2rem;
     box-shadow: var(--sh);
     transition: var(--tr);
-    display: flex;
-    flex-direction: column;
+    display: grid;  /* Changed from flex */
+    grid-template-columns: auto 1fr;  /* Icon column + text column */
+    grid-template-rows: auto 1fr;  /* Header row + content row */
+    gap: 0 1rem;  /* Gap between icon and text */
     height: 100%
 }
 
+.gdpr-del-ic {
+    color: var(--r);
+    margin-bottom: 0;  /* Remove bottom margin */
+    grid-row: 1;  /* First row */
+    grid-column: 1;  /* First column */
+    align-self: center;  /* Center vertically */
+}
+
+.gdpr-del-ic svg {
+    stroke: currentColor !important;
+    fill: none !important
+}
+
+.gdpr-dt {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--hd);
+    margin-bottom: 1rem;
+    grid-row: 1;  /* First row (same as icon) */
+    grid-column: 2;  /* Second column */
+    align-self: center;  /* Center vertically with icon */
+}
+
+/* Make the list span both columns */
+.gdpr-dl {
+    grid-column: 1 / -1;  /* Span both columns */
+    grid-row: 2;  /* Second row */
+}
 .gdpr-del-card:hover {
     transform: translateY(-6px);
     border-color: rgba(193, 18, 31, .35);

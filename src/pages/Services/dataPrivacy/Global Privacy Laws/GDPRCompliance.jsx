@@ -92,9 +92,8 @@ const GDPRCompliance = () => {
                 <div className="gdpr-hero-bg" />
                 <div className="gdpr-container">
                     <p className="gdpr-eyebrow">Data Privacy — Global Privacy Laws</p>
-                    <h1 className="gdpr-hero-title">GDPR <span className="gdpr-grad">COMPLIANCE & DATA PROTECTION</span></h1>
-                    <p className="gdpr-hero-desc">The <strong>General Data Protection Regulation (GDPR)</strong> is the world's most comprehensive data protection law, applying to any organization that processes personal data of EU/EEA residents — regardless of where the organization is established. Non-compliance exposes organizations to fines of up to €20 million or 4% of global annual turnover.</p>
-                    <p className="gdpr-hero-desc">Our <strong>GDPR compliance programme</strong> covers the full accountability framework — from data mapping and ROPA through lawful basis, DSR workflows, DPIAs, international transfer mechanisms, technical controls, breach response, and ongoing DPO advisory support.</p>
+                    <h1 className="gdpr-hero-title">GDPR COMPLIANCE<span className="gdpr-grad"> & DATA PROTECTION</span></h1>
+                    <p className="gdpr-hero-desc">Navigate the world’s strictest data laws with ease. We manage your end-to-end compliance journey to safeguard your organization and your customers. By implementing streamlined DSR workflows, secure international transfer mechanisms, and robust technical controls, we ensure your business stays ahead of complex regulatory shifts. Our expert-led approach builds a foundation of digital trust, protecting your global reputation while maintaining operational efficiency and mitigating the risk of heavy non-compliance penalties.</p>
                     <div className="gdpr-actions">
                         <button className="gdpr-btn gdpr-btn-p" onClick={() => navigate('/contact')}>Schedule a GDPR Assessment</button>
                         <button className="gdpr-btn gdpr-btn-s">Learn More</button>

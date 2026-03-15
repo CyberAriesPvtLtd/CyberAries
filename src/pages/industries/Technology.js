@@ -130,13 +130,13 @@ const ITeS = () => {
           <div className="hero-content">
             <p className="hero-subtitle">Cybersecurity For ITeS Industry</p>
             <h1 className="hero-title">
-              Keep Your Digital Operations Secure with <span className="text-gradient">Future-Proof Cybersecurity Solutions</span>
+              Future-Proof Your Digital Operations
             </h1>
             <p className="hero-description">
               In today's hyper-connected world, the Information Technology-Enabled Services (ITeS) industry stands at both a vanguard of innovation and a prime target for cyber threats. With digitization becoming integral to business operations, data breaches and sophisticated attacks against your clients' sensitive information are multiplying fast. Comprehensive security solutions now demand proactive defense strategies, rigorous compliance management, and continuous monitoring to safeguard your business reputation and maintain client trust.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary">Get Started</button>
+              <button className="btn btn-primary">Schedule Consultation</button>
             </div>
           </div>
         </div>
@@ -308,7 +308,7 @@ const ITeS = () => {
               <p className="cta-description">
                 Let's discuss how we can help you build a comprehensive security framework for your ITeS operations
               </p>
-              <button className="btn btn-primary btn-large">Contact With Us</button>
+              <button className="btn btn-primary btn-large">Contact Us</button>
             </div>
           </ScrollReveal>
         </div>

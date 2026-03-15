@@ -93,8 +93,7 @@ const HIPAACompliance = () => {
                 <div className="hpa-container">
                     <p className="hpa-eyebrow">Data Privacy — Global Privacy Laws</p>
                     <h1 className="hpa-hero-title">HIPAA <span className="hpa-grad">COMPLIANCE PROGRAMME</span></h1>
-                    <p className="hpa-hero-desc">The <strong>Health Insurance Portability and Accountability Act (HIPAA)</strong> mandates comprehensive privacy and security protections for Protected Health Information (PHI). Covered entities and their Business Associates face significant exposure — OCR settlements have exceeded $16 million for a single HIPAA violation, and state attorneys general increasingly pursue independent enforcement actions.</p>
-                    <p className="hpa-hero-desc">Our <strong>HIPAA compliance programme</strong> provides end-to-end support — Security Risk Analysis, Security Rule safeguards implementation, Privacy Rule compliance, Business Associate management, breach notification programme, and OCR audit-ready documentation portfolio.</p>
+                    <p className="hpa-hero-desc">Ensure total protection for sensitive health data. We provide end-to-end support for covered entities and business associates to navigate complex HIPAA mandates and avoid costly OCR settlements. By conducting thorough Security Risk Analyses and implementing robust Privacy Rule safeguards, we help you manage Business Associate agreements and breach notification protocols with precision. Our expert-led approach delivers an audit-ready documentation portfolio, ensuring your organization maintains regulatory adherence while building patient and partner trust.</p>
                     <div className="hpa-actions">
                         <button className="hpa-btn hpa-btn-p" onClick={() => navigate('/contact')}>Schedule a HIPAA Assessment</button>
                         <button className="hpa-btn hpa-btn-s">Learn More</button>

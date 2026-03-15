@@ -14,122 +14,121 @@ import {
   Handshake,
   Database,
   Server,
-  CheckCircle
+  CheckCircle,
+  Heart,
+  Activity
 } from 'lucide-react';
-import './BFSI.css';
+import './Healthcare.css';
 
 /**
- * BFSI Industry Page
- * Banking, Financial Services, and Insurance Security Solutions
+ * Healthcare Industry Page
+ * Healthcare and Medical Institutions Security Solutions
  * Fully Responsive for PC, Tablet, and Mobile
  */
 
-const BFSI = () => {
+const Healthcare = () => {
   // Key Challenges Data
   const challengesData = [
     {
-      title: "Evolving Fraud and Ransomware Attacks",
-      description: "Cybercriminals are increasingly targeting financial institutions with sophisticated fraud schemes and ransomware attacks.",
+      title: "Patient Data Privacy and HIPAA Compliance",
+      description: "Healthcare organizations must protect sensitive patient health information while maintaining compliance with HIPAA, state privacy laws, and international regulations.",
+      icon: <Shield size={40} />
+    },
+    {
+      title: "Ransomware and Cyber Attacks",
+      description: "Hospitals and clinics are prime targets for ransomware attacks that can disrupt critical patient care services and compromise life-saving medical systems.",
       icon: <AlertTriangle size={40} />
     },
     {
-      title: "Impacts of Attacks on BFSI Sector",
-      description: "Breaches can lead to significant financial losses, regulatory penalties, and damage to customer trust and brand reputation.",
-      icon: <TrendingUp size={40} />
+      title: "Medical Device and IoT Security",
+      description: "Connected medical devices, IoMT systems, and legacy equipment create unique vulnerabilities that require specialized security approaches.",
+      icon: <Activity size={40} />
     },
     {
-      title: "Confusion in Architecture and Technology Stack",
-      description: "Complex legacy systems combined with modern digital platforms create security gaps and integration challenges.",
-      icon: <Server size={40} />
-    },
-    {
-      title: "Addressing BFSI-Specific Security and Regulatory Compliance",
-      description: "Meeting stringent requirements from RBI, SEBI, IRDAI, and global standards like PCI-DSS and ISO 27001.",
-      icon: <FileCheck size={40} />
+      title: "Third-Party and Vendor Risk",
+      description: "Healthcare providers work with numerous vendors and partners, creating complex supply chain security challenges and compliance requirements.",
+      icon: <Users size={40} />
     }
   ];
 
   // Solutions Data
   const solutionsData = [
     {
-      title: "Manage Ransomware and Data Breaches",
-      description: "Cyberaries offers real-time APT, malware, and ransomware protection. Deploying multi-layered security defenses and incident response protocols to minimize damage and ensure quick recovery.",
-      icon: <Shield size={40} />
+      title: "HIPAA Compliance and Privacy Protection",
+      description: "Cyberaries provides comprehensive HIPAA compliance solutions including risk assessments, privacy policy development, and ongoing compliance monitoring to protect patient data.",
+      icon: <FileCheck size={40} />
     },
     {
-      title: "Quickly Respond to Cybersecurity Gaps",
-      description: "Cyberaries provides comprehensive visibility and control through DLP, EDR, XDR, and threat detection solutions. Implementing continuous monitoring and rapid response capabilities to address vulnerabilities.",
-      icon: <Lock size={40} />
+      title: "Medical Device Security",
+      description: "Secure connected medical devices and IoMT ecosystems with specialized security controls, network segmentation, and real-time monitoring solutions.",
+      icon: <Activity size={40} />
     },
     {
-      title: "Keep Customer Data Safe",
-      description: "Utilize AES and other best-in-class encryption standards. Multi-factor authentication and role-based access controls ensure that sensitive customer data remains protected at all times.",
+      title: "Electronic Health Records Security",
+      description: "Protect EHR systems with encryption, access controls, audit logging, and security monitoring to ensure confidentiality and integrity of patient records.",
       icon: <Database size={40} />
     },
     {
-      title: "Protect Your Corporate and Customer Info",
-      description: "Deploy endpoint protection, email security, and network monitoring. Use advanced encryption and access controls to safeguard both corporate intellectual property and customer information.",
-      icon: <Users size={40} />
+      title: "Ransomware Defense and Recovery",
+      description: "Deploy multi-layered ransomware protection including backup solutions, endpoint security, email filtering, and incident response capabilities.",
+      icon: <Shield size={40} />
     },
     {
-      title: "Defend Against Ransomware and Phishing",
-      description: "Deploy AI/ML-driven anti-ransomware and anti-phishing tools. Regular security awareness training and email filtering help detect and block malicious attempts before they cause harm.",
-      icon: <AlertTriangle size={40} />
+      title: "Network and Infrastructure Security",
+      description: "Implement secure network architecture with segmentation, zero-trust principles, and continuous monitoring to protect clinical and administrative systems.",
+      icon: <Server size={40} />
     },
     {
-      title: "Ensure Compliance with Data Privacy Regulations",
-      description: "Meet RBI, SEBI, IRDAI mandates along with PCI-DSS and ISO 27001 requirements. Conduct regular audits, risk assessments, and implement privacy-by-design principles.",
-      icon: <FileCheck size={40} />
+      title: "Third-Party Risk Management",
+      description: "Assess and manage vendor risks through comprehensive due diligence, business associate agreements, and ongoing security monitoring programs.",
+      icon: <Lock size={40} />
     }
   ];
 
   // Why Choose Cyberaries Data
   const whyChooseItems = [
     {
-      title: "Partnered CERT-In Empanelled",
-      description: "Recognized by the Government of India for security audits.",
-      icon: <Award size={50} />
+      title: "Healthcare Security Expertise",
+      description: "Specialized experience in HIPAA and healthcare cybersecurity.",
+      icon: <Heart size={50} />
     },
     {
-      title: "350+ Clients Across Different Sector",
+      title: "350+ Clients Across Different Sectors",
       description: "Proven expertise across diverse industries.",
       icon: <Globe size={50} />
     },
     {
       title: "End-to-End Support",
-      description: "From scoping to remediation and final certification.",
+      description: "From compliance to implementation and continuous monitoring.",
       icon: <Handshake size={50} />
     }
   ];
 
   // Smooth scroll to contact section or page
   const handleGetStarted = () => {
-    // Navigate to contact page or scroll to contact section
     window.location.href = '/contact';
-    // OR if you have a contact section on the same page:
-    // document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <div className="bfsi-page">
+    <div className="healthcare-page">
       {/* Hero Section */}
       <section className="hero-section" style={{ backgroundImage: `url(${heroBgImage})` }}>
         <div className="hero-background"></div>
         <div className="container">
           <div className="hero-content">
             <ScrollReveal animation="fade-down" delay={0}>
-              <p className="hero-subtitle">Cybersecurity For BFSI Industry</p>
+              <p className="hero-subtitle">Cybersecurity For Healthcare Industry</p>
             </ScrollReveal>
             
             <ScrollReveal animation="fade-up" delay={100}>
               <h1 className="hero-title">
-                Infuse Digital Trust
+                Protect Patient Data and <span className="text-gradient">Secure Critical Care Systems</span>
               </h1>
             </ScrollReveal>
             
             <ScrollReveal animation="fade-up" delay={200}>
               <p className="hero-description">
-                The BFSI sector is at the forefront of digital transformation, making it a prime target for cyber threats. As financial institutions digitize operations, they face evolving challenges like ransomware, data breaches, and regulatory compliance. Securing customer trust and meeting stringent standards requires a proactive cybersecurity approach to safeguard sensitive data, ensure business continuity, and maintain regulatory adherence.
+                Healthcare organizations face unprecedented cybersecurity challenges, from protecting electronic health records to securing connected medical devices. As the industry embraces digital transformation, hospitals, clinics, and healthcare providers must safeguard patient privacy, ensure HIPAA compliance, and defend against ransomware attacks while maintaining uninterrupted patient care delivery.
               </p>
             </ScrollReveal>
             
@@ -149,9 +148,9 @@ const BFSI = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
-              <h2 className="section-title">Key Cybersecurity Challenges Facing the BFSI Industry</h2>
+              <h2 className="section-title">Key Cybersecurity Challenges Facing Healthcare Organizations</h2>
               <p className="section-description">
-                Understanding the unique threats that financial institutions face in today's digital landscape
+                Understanding the critical security threats that impact patient care and data protection
               </p>
             </div>
           </ScrollReveal>
@@ -177,9 +176,9 @@ const BFSI = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
-              <h2 className="section-title">With Cyberaries, Take a Proactive Cyber Security Approach</h2>
+              <h2 className="section-title">With Cyberaries, Build a Secure Healthcare Ecosystem</h2>
               <p className="section-description">
-                Comprehensive security solutions tailored for the financial services industry
+                Comprehensive security solutions tailored for healthcare providers and medical institutions
               </p>
             </div>
           </ScrollReveal>
@@ -208,7 +207,7 @@ const BFSI = () => {
             <div className="section-header text-center">
               <h2 className="section-title">Why Choose Cyberaries?</h2>
               <p className="section-description">
-                Trusted by leading financial institutions across India
+                Trusted by healthcare organizations across India
               </p>
             </div>
           </ScrollReveal>
@@ -301,7 +300,7 @@ const BFSI = () => {
                     <span className="bullet">
                       <CheckCircle size={18} className="check-icon" />
                     </span>
-                    <span>Creates business-specific security architecture</span>
+                    <span>Creates healthcare-specific security architecture</span>
                   </li>
                   <li className="comparison-item">
                     <span className="bullet">
@@ -327,9 +326,9 @@ const BFSI = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">
-              <h2 className="cta-title">Ready to Secure Your Financial Operations?</h2>
+              <h2 className="cta-title">Ready to Secure Your Healthcare Operations?</h2>
               <p className="cta-description">
-                Let's discuss how we can help you build a robust cybersecurity framework
+                Let's discuss how we can help you protect patient data and ensure HIPAA compliance
               </p>
               <div className="cta-buttons">
                 <Link to="/contact" className="btn btn-secondary btn-large">
@@ -344,4 +343,4 @@ const BFSI = () => {
   );
 };
 
-export default BFSI;
+export default Healthcare;

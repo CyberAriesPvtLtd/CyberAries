@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ScrollReveal from '../../components/ScrollReveal';
 import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
 import { 
@@ -15,7 +14,6 @@ import {
   Globe,
   Handshake,
   CheckCircle,
-  ArrowRight
 } from 'lucide-react';
 import './Government.css';
 
@@ -133,7 +131,7 @@ const Government = () => {
             
             <ScrollReveal animation="fade-up" delay={100}>
               <h1 className="hero-title">
-                Fortify Critical Infrastructure with <span className="text-gradient">Robust and Reliable Security Solutions</span>
+                Robust Security for Public Entities
               </h1>
             </ScrollReveal>
             
@@ -143,7 +141,14 @@ const Government = () => {
               </p>
             </ScrollReveal>
             
-            {/* No buttons in hero section as per requirement */}
+            <ScrollReveal animation="fade-up" delay={300}>
+              <div className="hero-actions">
+                <button className="btn btn-primary" onClick={handleContactUs}>
+                  Schedule Consultation
+                </button>
+              </div>
+            </ScrollReveal>
+            
           </div>
         </div>
       </section>
@@ -337,11 +342,7 @@ const Government = () => {
               <div className="cta-buttons">
                 <button className="btn btn-primary btn-large" onClick={handleContactUs}>
                   Contact Us
-                  <ArrowRight size={20} className="btn-icon" />
                 </button>
-                <Link to="/contact" className="btn btn-secondary btn-large">
-                  Schedule Consultation
-                </Link>
               </div>
             </div>
           </ScrollReveal>

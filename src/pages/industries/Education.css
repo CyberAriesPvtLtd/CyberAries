@@ -1,5 +1,5 @@
 /* ==========================================
-   BFSI INDUSTRY PAGE - FULLY RESPONSIVE
+   EDUCATION INDUSTRY PAGE - FULLY RESPONSIVE
    COLOR PALETTE: Off-White • Black • Red
    Mobile First, Tablet & Desktop Optimized
 ========================================== */
@@ -37,13 +37,13 @@ body {
   color: var(--text-jet-black);
 }
 
-.bfsi-page {
+.education-page {
   width: 100%;
   overflow-x: hidden;
 }
 
-.bfsi-page,
-.bfsi-page * {
+.education-page,
+.education-page * {
   color: inherit;
 }
 
@@ -98,7 +98,7 @@ body {
   opacity: 0.9;
 }
 
-.hero-.hero-title {
+.hero-title {
   font-size: 3.5rem;
   font-weight: 800;
   color: #ffffff !important;
