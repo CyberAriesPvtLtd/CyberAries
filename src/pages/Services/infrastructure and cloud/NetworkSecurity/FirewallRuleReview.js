@@ -80,7 +80,7 @@ const FirewallRuleReview = () => {
   // Why Choose Data
   const whyChooseItems = [
     {
-      title: "CERT-In Empanelled",
+      title: "Partnered with CERT-In Empanelled",
       description: "Government-recognized for conducting security audits and assessments.",
       icon: <Award size={48} strokeWidth={1.5} />
     },
