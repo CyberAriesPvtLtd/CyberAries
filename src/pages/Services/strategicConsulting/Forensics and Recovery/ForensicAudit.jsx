@@ -55,7 +55,7 @@ const checklist = [
 ];
 
 const why = [
-    { icon: <Award size={48} strokeWidth={1.5} />, title: 'CERT-In Empanelled Forensic Investigators', desc: 'CyberAries is recognized by CERT-In for forensic investigation services — providing credibility with regulators, insurers, and courts in Indian and international proceedings.' },
+    { icon: <Award size={48} strokeWidth={1.5} />, title: ' Partnered CERT-In Empanelled Forensic Investigators', desc: 'CyberAries is recognized by CERT-In for forensic investigation services — providing credibility with regulators, insurers, and courts in Indian and international proceedings.' },
     { icon: <Clock size={48} strokeWidth={1.5} />, title: '24/7 Rapid Response', desc: 'Our forensic response team is available around the clock — deploying within hours to preserve volatile evidence and begin acquisition before critical data is lost or tampered with.' },
     { icon: <Shield size={48} strokeWidth={1.5} />, title: 'Legal-Grade Evidence Standards', desc: 'Every acquisition follows documented forensic protocols — write-block verification, dual hash signing, chain-of-custody logs — ensuring findings are defensible in any legal or regulatory forum.' },
 ];

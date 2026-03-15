@@ -482,9 +482,13 @@
   gap: var(--spacing-2xl);
   max-width: 1400px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 .network-security-page .comparison-column {
+  height: 100%;
+  display: flex;
+  flex-direction:column ;
   background: rgba(60, 60, 60, 0.4);
   backdrop-filter: blur(10px);
   border-radius: var(--radius-lg);
@@ -542,6 +546,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  flex-grow: 1;
 }
 
 .network-security-page .comparison-item {

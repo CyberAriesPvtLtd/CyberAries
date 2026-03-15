@@ -80,7 +80,7 @@ const NetworkSecurity = () => {
   // Why Choose Data
   const whyChooseItems = [
     {
-      title: "CERT-In Empanelled",
+      title: "Partnered with CERT-In Empanelled",
       description: "Recognized by the Government of India for security audits.",
       icon: <Award size={48} strokeWidth={1.5} />
     },

@@ -42,7 +42,7 @@ const approachSteps = [
 
 const whyChooseItems = [
     { title: 'IRDAI Regulatory Expertise', description: 'Deep knowledge of IRDAI ISNP cybersecurity circulars, inspection frameworks, and compliance expectations across insurance platform categories.', icon: <Award size={48} strokeWidth={1.5} /> },
-    { title: 'CERT-In Empanelled', description: 'Government-recognized cybersecurity firm with proven audit credentials across Indian financial sector, insurance, and government organizations.', icon: <Shield size={48} strokeWidth={1.5} /> },
+    { title: 'Partnered with CERT-In Empanelled', description: 'Government-recognized cybersecurity firm with proven audit credentials across Indian financial sector, insurance, and government organizations.', icon: <Shield size={48} strokeWidth={1.5} /> },
     { title: 'End-to-End Implementation', description: 'From platform architecture assessment through policy development, VAPT, incident response planning, and inspection-ready evidence compilation.', icon: <CheckCircle size={48} strokeWidth={1.5} /> },
 ];
 

@@ -42,7 +42,7 @@ const approachSteps = [
 
 const whyChooseItems = [
     { title: 'UIDAI Compliance Expertise', description: 'Hands-on experience with UIDAI AUA/KUA certification requirements, technical specifications, and security standards across BFSI, government, and enterprise AUAs.', icon: <Award size={48} strokeWidth={1.5} /> },
-    { title: 'CERT-In Empanelled', description: 'Government-recognized cybersecurity firm with proven regulatory audit credentials — a mandatory requirement for UIDAI AUA/KUA security audits.', icon: <Shield size={48} strokeWidth={1.5} /> },
+    { title: 'Partnered with CERT-In Empanelled', description: 'Government-recognized cybersecurity firm with proven regulatory audit credentials — a mandatory requirement for UIDAI AUA/KUA security audits.', icon: <Shield size={48} strokeWidth={1.5} /> },
     { title: 'Technical & Regulatory Alignment', description: 'We align technical implementation — API security, encryption, audit logging — precisely with UIDAI\'s regulatory evidence requirements for certification.', icon: <CheckCircle size={48} strokeWidth={1.5} /> },
 ];
 

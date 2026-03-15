@@ -90,7 +90,7 @@ const CloudConfigReview = () => {
       icon: <Cloud size={48} strokeWidth={1.5} />
     },
     {
-      title: "CERT-In Empanelled",
+      title: "Partnered with CERT-In Empanelled",
       description: "Government-recognized security audit firm with proven track record.",
       icon: <Award size={48} strokeWidth={1.5} />
     },

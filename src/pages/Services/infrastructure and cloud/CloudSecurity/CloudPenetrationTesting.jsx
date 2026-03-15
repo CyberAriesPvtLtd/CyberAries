@@ -91,7 +91,7 @@ const CloudPenetrationTesting = () => {
       icon: <Cloud size={48} strokeWidth={1.5} />
     },
     {
-      title: "CERT-In Empanelled",
+      title: "Partnered with CERT-In Empanelled",
       description: "Government-recognized for conducting advanced security assessments.",
       icon: <Award size={48} strokeWidth={1.5} />
     },
