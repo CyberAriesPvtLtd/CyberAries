@@ -91,7 +91,7 @@ const whyChooseItems = [
     icon: <Server size={48} strokeWidth={1.5} />,
   },
   {
-    title: 'CERT-In Empanelled',
+    title: 'Partnered with CERT-In Empanelled',
     description:
       'Government-recognized security firm delivering compliant infrastructure for BFSI, government, and enterprise clients.',
     icon: <Award size={48} strokeWidth={1.5} />,

@@ -90,7 +90,7 @@ const ContainerK8sSecurity = () => {
       icon: <Box size={48} strokeWidth={1.5} />
     },
     {
-      title: "CERT-In Empanelled",
+      title: "Partnered with CERT-In Empanelled",
       description: "Government-recognized for advanced security auditing and penetration testing.",
       icon: <Award size={48} strokeWidth={1.5} />
     },
