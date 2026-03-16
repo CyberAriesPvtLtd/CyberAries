@@ -44,6 +44,7 @@ import UIDAICompliance from './pages/Services/regulatory audit/Government & Digi
 import WebAppSecurity from './pages/Services/offensiveSecurity/ApplicationSecurity/WebAppSecurity';
 import MobileAppSecurity from './pages/Services/offensiveSecurity/ApplicationSecurity/MobileAppSecurity';
 import APISecurityTesting from './pages/Services/offensiveSecurity/ApplicationSecurity/APISecurityTesting';
+import ThickClientSecurity from './pages/Services/offensiveSecurity/ApplicationSecurity/ThickClientSecurity';
 import SASTandDAST from './pages/Services/offensiveSecurity/CodeSecurity/SASTandDAST';
 import SourceCodeReview from './pages/Services/offensiveSecurity/CodeSecurity/SourceCodeReview';
 import RedTeaming from './pages/Services/offensiveSecurity/AdvancedTesting/RedTeaming';
@@ -174,6 +175,7 @@ function App() {
           {/* Offensive Security Services */}
           <Route path="/services/web-app-security" element={<WebAppSecurity />} />
           <Route path="/services/mobile-app-security" element={<MobileAppSecurity />} />
+          <Route path="/services/thick-client-security" element={<ThickClientSecurity />} />
           <Route path="/services/api-security" element={<APISecurityTesting />} />
           <Route path="/services/sast-dast" element={<SASTandDAST />} />
           <Route path="/services/source-code-review" element={<SourceCodeReview />} />

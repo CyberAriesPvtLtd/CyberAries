@@ -13,6 +13,7 @@ const getActiveCategory = (pathname) => {
   if (
     pathname.startsWith('/services/web-app-security') ||
     pathname.startsWith('/services/mobile-app-security') ||
+    pathname.startsWith('/services/thick-client-security') ||
     pathname.startsWith('/services/api-security') ||
     pathname.startsWith('/services/sast-dast') ||
     pathname.startsWith('/services/source-code-review') ||
