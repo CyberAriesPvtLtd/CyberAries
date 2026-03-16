@@ -7,8 +7,6 @@ import overviewImage from '../../../../images/services/vapt/wast-image.jpg';
 import {
   FileText,
   Search,
-  Target,
-  Shield,
   Code,
   AlertTriangle,
   FileCheck,
@@ -150,7 +148,7 @@ const ThickClientSecurity = () => {
             </p>
             <p className="hero-description">
               At <strong>Cyberaries</strong>, we conduct comprehensive <strong>manual and automated thick client
-              security assessments</strong> covering ERP systems, trading platforms, banking software, and enterprise
+                security assessments</strong> covering ERP systems, trading platforms, banking software, and enterprise
               desktop applications. Our certified experts identify vulnerabilities that traditional web scanners simply
               cannot detect.
             </p>
@@ -176,7 +174,7 @@ const ThickClientSecurity = () => {
                 </p>
                 <p className="overview-text">
                   Our testing methodology addresses <strong>authentication bypass, privilege escalation, insecure
-                  local storage, hardcoded credentials, improper session handling, and business logic flaws</strong>—
+                    local storage, hardcoded credentials, improper session handling, and business logic flaws</strong>—
                   ensuring complete protection across your entire thick client application ecosystem including
                   Java, .NET, Electron, and proprietary frameworks.
                 </p>
