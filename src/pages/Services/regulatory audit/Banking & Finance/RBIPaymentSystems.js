@@ -231,7 +231,7 @@ const RBIPaymentSystems = () => {
               Payment systems are the backbone of financial services, handling billions of transactions daily across cards, UPI, NEFT, RTGS, and digital wallets. <strong>RBI mandates rigorous security audits</strong> to protect customer data, prevent fraud, and ensure business continuity. <strong>Our comprehensive payment system audits</strong> cover security architecture, fraud controls, PCI-DSS compliance, and penetration testing to safeguard your payment infrastructure.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary btn-large">REQUEST PAYMENT SYSTEMS AUDIT</button>
+              <button className="btn btn-primary btn-large" onClick={() => window.location.href='/contact'}>REQUEST PAYMENT SYSTEMS AUDIT &rarr;</button>
             </div>
           </div>
         </div>
@@ -310,6 +310,7 @@ const RBIPaymentSystems = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100} triggerOnce={false}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">
                     {step.icon}
                   </div>
@@ -588,7 +589,7 @@ const RBIPaymentSystems = () => {
               <p className="cta-description">
                 Partner with payment security experts for comprehensive RBI-compliant audits
               </p>
-              <button className="btn btn-primary btn-large">Request Payment Systems Audit</button>
+              <button className="btn btn-primary btn-large" onClick={() => window.location.href='/contact'}>Request Payment Systems Audit &rarr;</button>
             </div>
           </ScrollReveal>
         </div>

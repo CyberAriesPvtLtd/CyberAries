@@ -123,11 +123,9 @@ const ISO27018 = () => {
           <div className="hero-content">
             <p className="hero-subtitle">ISO 27018:2019 Compliance</p>
             <h1 className="hero-title">
-              SECURE PII ON PUBLIC CLOUDS{' '}
-              <span className="text-gradient">
-                WITH EXPERTS IN ISO 27018 COMPLIANCE
-              </span>
+              SECURE PII ON PUBLIC CLOUDS
             </h1>
+            <p className="hero-subheading">WITH EXPERTS IN ISO 27018 COMPLIANCE</p>
             <p className="hero-description">
               The <strong>ISO 27018:2019 standard</strong> provides guidelines for protecting personally identifiable
               information (PII) in public cloud environments. It extends ISO 27001 and ISO 27002 by focusing on
@@ -140,7 +138,7 @@ const ISO27018 = () => {
               cloud operations align with regulations including GDPR and DPDPA.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
               <button className="btn btn-secondary">Learn More</button>
             </div>
           </div>
@@ -198,6 +196,7 @@ const ISO27018 = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">{step.icon}</div>
                   <h3 className="solution-title">{step.title}</h3>
                   <p className="solution-description">{step.description}</p>

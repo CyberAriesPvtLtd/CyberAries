@@ -231,7 +231,7 @@ const RBINBFCGuidelines = () => {
               The Reserve Bank of India has issued comprehensive <strong>Cyber Security Guidelines for NBFCs</strong> (Non-Banking Financial Companies) to ensure robust security posture across digital lending, payment systems, and customer data protection. <strong>Our specialized services help NBFCs achieve proportionate compliance</strong> aligned with their scale, operations, and digital footprint while managing costs effectively.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary btn-large">REQUEST NBFC COMPLIANCE ASSESSMENT</button>
+              <button className="btn btn-primary btn-large" onClick={() => window.location.href='/contact'}>REQUEST NBFC COMPLIANCE ASSESSMENT &rarr;</button>
             </div>
           </div>
         </div>
@@ -310,6 +310,7 @@ const RBINBFCGuidelines = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100} triggerOnce={false}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">
                     {step.icon}
                   </div>
@@ -532,7 +533,7 @@ const RBINBFCGuidelines = () => {
               <p className="cta-description">
                 Partner with NBFC security specialists for cost-effective, proportionate RBI compliance
               </p>
-              <button className="btn btn-primary btn-large">Request NBFC Compliance Assessment</button>
+              <button className="btn btn-primary btn-large" onClick={() => window.location.href='/contact'}>Request NBFC Compliance Assessment &rarr;</button>
             </div>
           </ScrollReveal>
         </div>

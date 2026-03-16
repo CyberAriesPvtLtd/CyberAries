@@ -127,11 +127,9 @@ const RedTeaming = () => {
           <div className="hero-content">
             <p className="hero-subtitle">Advanced Security Testing</p>
             <h1 className="hero-title">
-              RED TEAMING SERVICES{' '}
-              <span className="text-gradient">
-                ADVERSARY SIMULATION
-              </span>
+              RED TEAMING SERVICES
             </h1>
+            <p className="hero-subheading">ADVERSARY SIMULATION</p>
             <p className="hero-description">
               <strong>Red Teaming</strong> is a full-scope, adversary-simulation exercise that evaluates an organization's detection,
               response, and recovery capabilities by simulating realistic attack scenarios, direct pursuit, processes, and
@@ -140,7 +138,7 @@ const RedTeaming = () => {
               reveal actual risk and coordination gaps.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
               <button className="btn btn-secondary">Learn More</button>
             </div>
           </div>
@@ -197,6 +195,7 @@ const RedTeaming = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">{step.icon}</div>
                   <h3 className="solution-title">{step.title}</h3>
                   <p className="solution-description">{step.description}</p>

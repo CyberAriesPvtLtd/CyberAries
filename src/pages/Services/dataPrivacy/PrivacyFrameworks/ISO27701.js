@@ -124,11 +124,9 @@ const ISO27701 = () => {
           <div className="hero-content">
             <p className="hero-subtitle">ISO 27701 Compliance</p>
             <h1 className="hero-title">
-              BUILD A TRUSTED PRIVACY MANAGEMENT SYSTEM{' '}
-              <span className="text-gradient">
-                WITH EXPERTS IN ISO 27701 COMPLIANCE
-              </span>
+              BUILD A TRUSTED PRIVACY MANAGEMENT SYSTEM
             </h1>
+            <p className="hero-subheading">WITH EXPERTS IN ISO 27701 COMPLIANCE</p>
             <p className="hero-description">
               <strong>ISO 27701:2019</strong> is an international privacy extension to ISO 27001 that specifies requirements
               for establishing, implementing, maintaining, and continually improving a <strong>Privacy Information Management
@@ -141,7 +139,7 @@ const ISO27701 = () => {
               accountability and build lasting trust with customers and regulators alike.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
               <button className="btn btn-secondary">Learn More</button>
             </div>
           </div>
@@ -198,6 +196,7 @@ const ISO27701 = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">{step.icon}</div>
                   <h3 className="solution-title">{step.title}</h3>
                   <p className="solution-description">{step.description}</p>
