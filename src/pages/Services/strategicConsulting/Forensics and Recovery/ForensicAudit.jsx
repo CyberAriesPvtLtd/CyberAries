@@ -92,9 +92,8 @@ const ForensicAudit = () => {
                 <div className="faud-hero-bg" />
                 <div className="faud-container">
                     <p className="faud-eyebrow">Strategic Consulting — Forensics &amp; Recovery</p>
-                    <h1 className="faud-hero-title">FORENSIC <span className="faud-grad">AUDIT &amp; INVESTIGATION</span></h1>
-                    <p className="faud-hero-desc"><strong>Digital Forensic Investigation</strong> is the disciplined process of identifying, preserving, acquiring, analysing, and reporting on digital evidence following a cybersecurity incident, data breach, insider threat, or fraud event. Forensic-grade evidence collection and analysis is required for regulatory investigations, litigation, law enforcement cooperation, and insurance claims.</p>
-                    <p className="faud-hero-desc">Our <strong>forensic audit practice</strong> provides end-to-end investigation services — forensically sound acquisition across endpoints, servers, cloud, and SaaS platforms; malware analysis; timeline reconstruction; root cause determination; and court-ready reporting with expert witness capability.</p>
+                    <h1 className="faud-hero-title">FORENSIC AUDIT <br /><span className="faud-grad"> &amp; INVESTIGATION</span></h1>
+                    <p className="faud-hero-desc">Uncover the truth with disciplined digital forensics. We provide end-to-end investigation services to identify, preserve, and analyze evidence following cyber incidents, data breaches, or fraud events. Our forensic-grade approach covers endpoints, cloud, and SaaS platforms, ensuring every acquisition is forensically sound for litigation and regulatory needs. By combining deep malware analysis and timeline reconstruction with expert witness reporting, we help you determine the root cause of threats while providing the court-ready documentation necessary for insurance claims and law enforcement cooperation.</p>
                     <div className="faud-actions">
                         <button className="faud-btn faud-btn-p" onClick={() => navigate('/contact')}>Request Emergency Forensics</button>
                         <button className="faud-btn faud-btn-s">Learn More</button>

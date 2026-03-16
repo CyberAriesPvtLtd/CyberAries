@@ -93,8 +93,7 @@ const DPDPActCompliance = () => {
                 <div className="dpdp-container">
                     <p className="dpdp-eyebrow">Data Privacy — Indian Privacy Laws</p>
                     <h1 className="dpdp-hero-title">DPDP ACT <span className="dpdp-grad">COMPLIANCE PROGRAMME</span></h1>
-                    <p className="dpdp-hero-desc">The <strong>Digital Personal Data Protection Act 2023 (DPDP Act)</strong> is India's comprehensive data protection legislation, establishing a framework for lawful personal data processing with rights for Data Principals and obligations for Data Fiduciaries. The Data Protection Board of India enforces compliance with penalties up to ₹250 crore per individual violation.</p>
-                    <p className="dpdp-hero-desc">Our <strong>DPDP Act compliance programme</strong> covers all Data Fiduciary obligations — personal data inventory, DPDP Act-compliant consent notices, consent management, Data Principal rights procedures, grievance redressal, security safeguards, breach notification, and Significant Data Fiduciary compliance.</p>
+                    <p className="dpdp-hero-desc">Align with India’s new data privacy landscape. We provide a comprehensive framework to help Data Fiduciaries meet their legal obligations and avoid penalties of up to ₹250 crore. Our programme streamlines personal data inventory, DPDP-compliant consent management, and Data Principal rights procedures. By implementing robust security safeguards, grievance redressal mechanisms, and breach notification protocols, we ensure your organization achieves full compliance while building digital trust in the Indian economy.</p>
                     <div className="dpdp-actions">
                         <button className="dpdp-btn dpdp-btn-p" onClick={() => navigate('/contact')}>Schedule a DPDP Act Assessment</button>
                         <button className="dpdp-btn dpdp-btn-s">Learn More</button>

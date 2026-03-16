@@ -93,8 +93,7 @@ const CCPACompliance = () => {
                 <div className="ccpa-container">
                     <p className="ccpa-eyebrow">Data Privacy — Global Privacy Laws</p>
                     <h1 className="ccpa-hero-title">CCPA/CPRA <span className="ccpa-grad">COMPLIANCE PROGRAMME</span></h1>
-                    <p className="ccpa-hero-desc">The <strong>California Consumer Privacy Act (CCPA)</strong> as amended by the <strong>California Privacy Rights Act (CPRA)</strong> gives California consumers comprehensive rights over their personal information and imposes significant obligations on businesses meeting qualifying thresholds. The California Privacy Protection Agency (CPPA) enforces CPRA with fines up to $7,500 per intentional violation.</p>
-                    <p className="ccpa-hero-desc">Our <strong>CCPA/CPRA compliance programme</strong> covers all obligations — PI inventory, "Do Not Sell or Share" infrastructure, GPC signal recognition, consumer rights workflows, sensitive PI controls, service provider agreements, and ongoing CPPA regulatory monitoring.</p>
+                    <p className="ccpa-hero-desc">Master California’s privacy standards with confidence. We manage your end-to-end compliance obligations to protect your business from significant regulatory fines. By integrating PI inventory management, "Do Not Sell or Share" infrastructure, and automated consumer rights workflows, we ensure your organization meets every CPPA requirement. Our programme provides the technical controls and ongoing monitoring needed to safeguard sensitive data, maintain consumer trust, and navigate evolving privacy thresholds seamlessly.</p>
                     <div className="ccpa-actions">
                         <button className="ccpa-btn ccpa-btn-p" onClick={() => navigate('/contact')}>Schedule a CCPA Assessment</button>
                         <button className="ccpa-btn ccpa-btn-s">Learn More</button>

@@ -337,8 +337,8 @@
     align-items: flex-start;
     gap: .85rem;
     padding: 1rem 1.25rem;
-    background: var(--wh);
-    border: 1px solid var(--br);
+    background: #FFE8EB;
+    border: 2px solid #F4C7C9;  
     border-radius: 8px;
     transition: var(--tr)
 }
@@ -521,8 +521,8 @@
     display: flex;
     align-items: flex-start;
     gap: .75rem;
-    font-size: .98rem;
-    line-height: 1.65;
+    font-size: 1.15rem;
+    line-height: 1.75;    
     color: #ddd
 }
 
