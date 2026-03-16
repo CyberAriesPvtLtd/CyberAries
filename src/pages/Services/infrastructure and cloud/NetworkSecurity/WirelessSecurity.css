@@ -482,7 +482,7 @@
   gap: var(--spacing-2xl);
   max-width: 1400px;
   margin: 0 auto;
-  align-items: center;
+  align-items: stretch;
 }
 
 .wireless-security-page .comparison-column {

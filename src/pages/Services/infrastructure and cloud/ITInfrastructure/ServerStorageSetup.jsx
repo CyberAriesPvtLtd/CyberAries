@@ -139,7 +139,7 @@ const ServerStorageSetup = () => {
             <p className="sss-hero-subtitle">IT Infrastructure Services</p>
             <h1 className="sss-hero-title">
               SERVER &amp; STORAGE{' '}
-              <span className="sss-text-gradient">SETUP &amp; OPTIMIZATION</span>
+              <span className="sss-text-gradient">SETUP AND OPTIMIZATION</span>
             </h1>
             <p className="sss-hero-description">
               <strong>Server &amp; Storage Setup</strong> provides enterprise-grade provisioning,
