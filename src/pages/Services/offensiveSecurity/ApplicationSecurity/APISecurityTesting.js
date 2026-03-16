@@ -129,11 +129,9 @@ const APISecurityTesting = () => {
           <div className="hero-content">
             <p className="hero-subtitle">API Security Assessment</p>
             <h1 className="hero-title">
-              API SECURITY TESTING{' '}
-              <span className="text-gradient">
-                ENSURING SECURE DATA EXCHANGE
-              </span>
+              API SECURITY TESTING
             </h1>
+            <p className="hero-subheading">ENSURING SECURE DATA EXCHANGE</p>
             <p className="hero-description">
               <strong>API Security Testing</strong> focuses on identifying vulnerabilities and misconfigurations in Application
               Programming Interfaces (APIs) that could lead to <strong>unauthorized access, data loss, or service disruptions</strong>.
@@ -147,7 +145,7 @@ const APISecurityTesting = () => {
               across all protocols and deployment models.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
               <button className="btn btn-secondary">Learn More</button>
             </div>
           </div>
@@ -203,6 +201,7 @@ const APISecurityTesting = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">{step.icon}</div>
                   <h3 className="solution-title">{step.title}</h3>
                   <p className="solution-description">{step.description}</p>

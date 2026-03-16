@@ -138,11 +138,9 @@ const SourceCodeReview = () => {
           <div className="hero-content">
             <p className="hero-subtitle">Application Security Testing</p>
             <h1 className="hero-title">
-              SOURCE CODE REVIEW{' '}
-              <span className="text-gradient">
-                SECURING APPLICATIONS AT THE CODE LEVEL
-              </span>
+              SOURCE CODE REVIEW
             </h1>
+            <p className="hero-subheading">SECURING APPLICATIONS AT THE CODE LEVEL</p>
             <p className="hero-description">
               <strong>Source Code Review</strong> is a systematic examination of
               an application's codebase to identify vulnerabilities, logic
@@ -152,7 +150,7 @@ const SourceCodeReview = () => {
               security and reliability issues.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
               <button className="btn btn-secondary">Learn More</button>
             </div>
           </div>
@@ -228,6 +226,7 @@ const SourceCodeReview = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">{step.icon}</div>
                   <h3 className="solution-title">{step.title}</h3>
                   <p className="solution-description">{step.description}</p>

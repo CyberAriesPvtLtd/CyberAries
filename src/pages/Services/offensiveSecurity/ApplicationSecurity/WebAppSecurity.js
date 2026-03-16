@@ -128,11 +128,9 @@ const WebAppSecurity = () => {
           <div className="hero-content">
             <p className="hero-subtitle">Application Security Testing</p>
             <h1 className="hero-title">
-              WEB APPLICATION SECURITY TESTING{' '}
-              <span className="text-gradient">
-                PROTECTING YOUR DIGITAL PLATFORMS
-              </span>
+              WEB APPLICATION SECURITY TESTING
             </h1>
+            <p className="hero-subheading">PROTECTING YOUR DIGITAL PLATFORMS</p>
             <p className="hero-description">
               <strong>Web Application Security Testing (WAST)</strong> is a proactive process that identifies vulnerabilities,
               misconfigurations, and security loopholes in web applications before attackers can exploit them. It
@@ -145,7 +143,7 @@ const WebAppSecurity = () => {
               traditional scanners often miss.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
               <button className="btn btn-secondary">Learn More</button>
             </div>
           </div>
@@ -202,6 +200,7 @@ const WebAppSecurity = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">{step.icon}</div>
                   <h3 className="solution-title">{step.title}</h3>
                   <p className="solution-description">{step.description}</p>

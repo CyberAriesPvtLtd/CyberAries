@@ -128,11 +128,9 @@ const WirelessSecurity = () => {
           <div className="hero-content">
             <p className="hero-subtitle">Wireless Infrastructure Security</p>
             <h1 className="hero-title">
-              WIRELESS SECURITY TESTING{' '}
-              <span className="text-gradient">
-                PROTECTING WIRELESS NETWORKS
-              </span>
+              WIRELESS SECURITY TESTING
             </h1>
+            <p className="hero-subheading">PROTECTING WIRELESS NETWORKS</p>
             <p className="hero-description">
               <strong>Wireless Security Testing</strong> identifies vulnerabilities, misconfigurations, and weak encryption
               protocols in wireless networks that could allow attackers to <strong>intercept or manipulate sensitive data</strong>.
@@ -145,7 +143,7 @@ const WirelessSecurity = () => {
               environment against unauthorized access and data breaches.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" type="button" onClick={() => navigate('/contact')}>Start Now</button>
+              <button className="btn btn-primary" type="button" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
               <button className="btn btn-secondary" type="button">Learn More</button>
             </div>
           </div>
@@ -200,6 +198,7 @@ const WirelessSecurity = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">{step.icon}</div>
                   <h3 className="solution-title">{step.title}</h3>
                   <p className="solution-description">{step.description}</p>

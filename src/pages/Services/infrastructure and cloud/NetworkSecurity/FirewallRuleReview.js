@@ -128,11 +128,9 @@ const FirewallRuleReview = () => {
           <div className="hero-content">
             <p className="hero-subtitle">Network Security Services</p>
             <h1 className="hero-title">
-              FIREWALL RULE REVIEW{' '}
-              <span className="text-gradient">
-                OPTIMIZED NETWORK PROTECTION
-              </span>
+              FIREWALL RULE REVIEW
             </h1>
+            <p className="hero-subheading">OPTIMIZED NETWORK PROTECTION</p>
             <p className="hero-description">
               <strong>Firewall Rule Review</strong> optimizes your network security by identifying
               <strong> redundant, conflicting, and overly permissive firewall rules</strong> that create security gaps
@@ -145,7 +143,7 @@ const FirewallRuleReview = () => {
               posture while maintaining operational efficiency.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" type="button" onClick={() => navigate('/contact')}>Get Started</button>
+              <button className="btn btn-primary" type="button" onClick={() => navigate('/contact')}>Get Started &rarr;</button>
               <button className="btn btn-secondary" type="button">Learn More</button>
             </div>
           </div>
@@ -201,6 +199,7 @@ const FirewallRuleReview = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">{step.icon}</div>
                   <h3 className="solution-title">{step.title}</h3>
                   <p className="solution-description">{step.description}</p>

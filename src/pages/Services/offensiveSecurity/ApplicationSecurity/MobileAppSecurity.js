@@ -129,11 +129,9 @@ const MobileAppSecurity = () => {
           <div className="hero-content">
             <p className="hero-subtitle">Mobile Security Testing</p>
             <h1 className="hero-title">
-              MOBILE APPLICATION SECURITY TESTING{' '}
-              <span className="text-gradient">
-                SECURING ANDROID AND IOS APPS
-              </span>
+              MOBILE APPLICATION SECURITY TESTING
             </h1>
+            <p className="hero-subheading">SECURING ANDROID AND iOS APPS</p>
             <p className="hero-description">
               <strong>Mobile Application Security Testing (MAST)</strong> ensures your Android and iOS applications are protected
               against vulnerabilities that could expose <strong>sensitive user data, enable unauthorized access, or compromise
@@ -145,7 +143,7 @@ const MobileAppSecurity = () => {
               mobile applications across all platforms and deployment scenarios.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
               <button className="btn btn-secondary">Learn More</button>
             </div>
           </div>
@@ -204,6 +202,7 @@ const MobileAppSecurity = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">{step.icon}</div>
                   <h3 className="solution-title">{step.title}</h3>
                   <p className="solution-description">{step.description}</p>

@@ -146,7 +146,7 @@ const SASTandDAST = () => {
               Modern applications demand security at every layer. <strong>Static Application Security Testing (SAST)</strong> and <strong>Dynamic Application Security Testing (DAST)</strong> are critical techniques to identify vulnerabilities during development and after deployment. Secure your software development lifecycle with comprehensive testing that catches vulnerabilities before they reach production.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Get Started</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Get Started &rarr;</button>
             </div>
           </div>
         </div>
@@ -190,6 +190,7 @@ const SASTandDAST = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">
                     {step.icon}
                   </div>

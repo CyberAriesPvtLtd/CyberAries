@@ -128,11 +128,9 @@ const NetworkSecurity = () => {
           <div className="hero-content">
             <p className="hero-subtitle">Network Infrastructure Security</p>
             <h1 className="hero-title">
-              NETWORK SECURITY TESTING{' '}
-              <span className="text-gradient">
-                INFRASTRUCTURE RESILIENCE
-              </span>
+              NETWORK SECURITY TESTING
             </h1>
+            <p className="hero-subheading">INFRASTRUCTURE RESILIENCE</p>
             <p className="hero-description">
               <strong>Network Security Testing</strong> evaluates the resilience of your IT infrastructure by identifying
               <strong> misconfigurations, vulnerabilities, and weaknesses</strong> in internal and external network components. It
@@ -145,7 +143,7 @@ const NetworkSecurity = () => {
               across your entire network infrastructure.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" type="button" onClick={() => navigate('/contact')}>Start Now</button>
+              <button className="btn btn-primary" type="button" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
               <button className="btn btn-secondary" type="button">Learn More</button>
             </div>
           </div>
@@ -202,6 +200,7 @@ const NetworkSecurity = () => {
             {approachSteps.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
                 <div className="solution-card">
+                  <div className="solution-step-number">{index + 1}</div>
                   <div className="solution-icon">{step.icon}</div>
                   <h3 className="solution-title">{step.title}</h3>
                   <p className="solution-description">{step.description}</p>
