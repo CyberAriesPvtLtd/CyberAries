@@ -146,12 +146,16 @@
   background:#dc2626;
   color:white;
   padding:16px 40px;
-  border-radius:10px;
+  border-radius:50px;
   font-weight:600;
   text-decoration:none;
   font-size:17px;
-  transition:.3s;
+  transition:all .3s;
   box-shadow:0 10px 30px rgba(220,38,38,.6);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
 }
 
 .tprm-btn-primary:hover{
@@ -166,11 +170,15 @@
   border:2px solid rgba(255,255,255,.4);
   color:white;
   padding:16px 36px;
-  border-radius:10px;
+  border-radius:50px;
   font-size:17px;
   text-decoration:none;
-  transition:.3s;
+  transition:all .3s;
   backdrop-filter:blur(6px);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
 }
 
 .tprm-btn-secondary:hover{
