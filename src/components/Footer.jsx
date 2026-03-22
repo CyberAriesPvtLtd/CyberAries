@@ -12,16 +12,16 @@ const Footer = () => {
             At Cyber Aries Pvt. Ltd., we're committed to delivering professional, high-quality cybersecurity solutions. From proactive threat monitoring to advanced data protection.
           </p>
           <div style={{ display: 'flex', gap: '15px', fontSize: '1.2rem' }}>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--bg-soft-white)' }}>
+            <a href="https://www.linkedin.com/company/cyberaries/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--bg-soft-white)' }}>
               <i className="fab fa-linkedin"></i>
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--bg-soft-white)' }}>
+            <a href="https://x.com/Cyberarmorknigt" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--bg-soft-white)' }}>
               <i className="fab fa-twitter"></i>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--bg-soft-white)' }}>
+            <a href="https://www.linkedin.com/company/cyberariespvtltd/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--bg-soft-white)' }}>
               <i className="fab fa-facebook"></i>
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--bg-soft-white)' }}>
+            <a href="https://www.instagram.com/cyberarmorknight/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--bg-soft-white)' }}>
               <i className="fab fa-instagram"></i>
             </a>
           </div>
@@ -33,16 +33,16 @@ const Footer = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/services">Our Services</Link></li>
             <li><Link to="/about">About Us</Link></li>
-            <li>  
-                <a
-                  href="https://medium.com/@cyberaries"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="blog-link"
-                  >
-                  Blogs
-                </a>
-              </li>
+            <li>
+              <a
+                href="https://medium.com/@cyberaries"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="blog-link"
+              >
+                Blogs
+              </a>
+            </li>
             <li><Link to="/careers">Career</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </ul>
