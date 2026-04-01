@@ -12,6 +12,7 @@ import TermsConditions from './components/TermsConditions';
 import PrivacyPolicy from './components/PrivacyPolicy';
 
 import ComingSoon from './pages/comingsoon.js';
+import AprilFool from "./pages/AprilFool.jsx"
 
 import GRC from './components/GRC';
 import DPDPA from './components/DPDPA';
@@ -138,7 +139,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="App">
-        <Header />
+        <Header />  
         <Routes>
           {/* Main Pages */}
           <Route path="/" element={<Home />} />
@@ -257,7 +258,8 @@ function App() {
 
           {/* Fallback for undefined routes - MUST BE LAST */}
           <Route path="*" element={<ComingSoon />} />
-
+         
+          <Route path="/sentinelAI" element={<AprilFool />} />
         </Routes>
         <Footer />
       </div>
