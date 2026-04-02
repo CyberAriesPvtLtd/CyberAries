@@ -777,7 +777,7 @@ const Header = () => {
   href="https://book.titan.email/cyberaries"
   target="_blank"
   rel="noopener noreferrer"
-  className="mobile-consult-btn"
+  className="quick-contact-btn desktop-only"
 >
   Consult With Us
 </a>
