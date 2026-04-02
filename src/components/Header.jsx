@@ -773,8 +773,13 @@ const Header = () => {
           </div>
 
           {/* Consult Button */}
-          <a href="https://book.titan.email/cyberaries" target="_blank" rel="noopener noreferrer">
-  <button className="quick-contact-btn desktop-only">Consult With Us</button>
+         <a
+  href="https://book.titan.email/cyberaries"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mobile-consult-btn"
+>
+  Consult With Us
 </a>
           
         </nav>
