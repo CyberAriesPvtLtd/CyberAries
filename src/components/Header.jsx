@@ -773,10 +773,10 @@ const Header = () => {
           </div>
 
           {/* Consult Button */}
-          <Link to="/contact" className="quick-contact-btn desktop-only">
-            <Phone size={18} />
-            Consult With Us
-          </Link>
+          <a href="https://book.titan.email/cyberaries" target="_blank" rel="noopener noreferrer">
+  <button className="quick-contact-btn desktop-only">Consult With Us</button>
+</a>
+          
         </nav>
 
         {/* Mobile Menu Toggle */}
