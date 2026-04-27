@@ -105,6 +105,7 @@ import PCIDSS from './pages/Services/compliance/Global Attestations/PCIDSS';
 import SWIFTAssessment from './pages/Services/compliance/Global Attestations/SWIFTAssessment';
 import FedRAMPAssessment from './pages/Services/compliance/Global Attestations/FedRAMPAssessment';
 
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 
 function App() {
@@ -262,6 +263,7 @@ function App() {
           <Route path="/sentinelAI" element={<AprilFool />} />
         </Routes>
         <Footer />
+        <Analytics />
       </div>
     </Router>
   );
