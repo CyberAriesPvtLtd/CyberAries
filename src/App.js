@@ -11,6 +11,7 @@ import Appointment from './components/appointment';
 import TermsConditions from './components/TermsConditions';
 import PrivacyPolicy from './components/PrivacyPolicy';
 
+
 import ComingSoon from './pages/comingsoon.js';
 import AprilFool from "./pages/AprilFool.jsx"
 
@@ -25,6 +26,11 @@ import Technology from './pages/industries/Technology';
 import Education from './pages/industries/Education';
 import Healthcare from './pages/industries/Healthcare';
 import Manufacturing from './pages/industries/Manufacturing';
+
+// Reusable Service Category / Solution Domain architecture
+// (Footer -> Category -> Solution Domains -> Individual Services)
+import ServiceCategoryPage from './pages/Services/ServiceCategoryPage';
+import SolutionDomainPage from './pages/Services/SolutionDomainPage';
 
 // RBI Regulatory Audit Services - Banking & Finance
 import RBICyberFramework from './pages/Services/regulatory audit/Banking & Finance/RBICyberFramework';
@@ -157,6 +163,41 @@ function App() {
           <Route path="/industries/education" element={<Education />} />
           <Route path="/industries/healthcare" element={<Healthcare />} />
           <Route path="/industries/manufacturing" element={<Manufacturing />} />
+
+          {/* Regulatory Audit - category landing + solution domains */}
+          <Route path="/services/regulatory-audit" element={<ServiceCategoryPage categorySlug="regulatory-audit" />} />
+          <Route path="/services/regulatory-audit/banking-finance" element={<SolutionDomainPage categorySlug="regulatory-audit" domainSlug="banking-finance" />} />
+          <Route path="/services/regulatory-audit/capital-markets" element={<SolutionDomainPage categorySlug="regulatory-audit" domainSlug="capital-markets" />} />
+          <Route path="/services/regulatory-audit/government-digital" element={<SolutionDomainPage categorySlug="regulatory-audit" domainSlug="government-digital" />} />
+
+          {/* Offensive Security - category landing + solution domains */}
+          <Route path="/services/offensive-security" element={<ServiceCategoryPage categorySlug="offensive-security" />} />
+          <Route path="/services/offensive-security/application-security" element={<SolutionDomainPage categorySlug="offensive-security" domainSlug="application-security" />} />
+          <Route path="/services/offensive-security/code-security" element={<SolutionDomainPage categorySlug="offensive-security" domainSlug="code-security" />} />
+          <Route path="/services/offensive-security/advanced-testing" element={<SolutionDomainPage categorySlug="offensive-security" domainSlug="advanced-testing" />} />
+
+          {/* Infrastructure & Cloud - category landing + solution domains */}
+          <Route path="/services/infrastructure-cloud" element={<ServiceCategoryPage categorySlug="infrastructure-cloud" />} />
+          <Route path="/services/infrastructure-cloud/it-infrastructure" element={<SolutionDomainPage categorySlug="infrastructure-cloud" domainSlug="it-infrastructure" />} />
+          <Route path="/services/infrastructure-cloud/cloud-security" element={<SolutionDomainPage categorySlug="infrastructure-cloud" domainSlug="cloud-security" />} />
+          <Route path="/services/infrastructure-cloud/network-security" element={<SolutionDomainPage categorySlug="infrastructure-cloud" domainSlug="network-security" />} />
+
+          {/* Compliance - category landing + solution domains */}
+          <Route path="/services/compliance" element={<ServiceCategoryPage categorySlug="compliance" />} />
+          <Route path="/services/compliance/iso-standards" element={<SolutionDomainPage categorySlug="compliance" domainSlug="iso-standards" />} />
+          <Route path="/services/compliance/global-attestations" element={<SolutionDomainPage categorySlug="compliance" domainSlug="global-attestations" />} />
+
+          {/* Data Privacy - category landing + solution domains */}
+          <Route path="/services/data-privacy" element={<ServiceCategoryPage categorySlug="data-privacy" />} />
+          <Route path="/services/data-privacy/global-privacy-laws" element={<SolutionDomainPage categorySlug="data-privacy" domainSlug="global-privacy-laws" />} />
+          <Route path="/services/data-privacy/indian-privacy-laws" element={<SolutionDomainPage categorySlug="data-privacy" domainSlug="indian-privacy-laws" />} />
+          <Route path="/services/data-privacy/privacy-frameworks" element={<SolutionDomainPage categorySlug="data-privacy" domainSlug="privacy-frameworks" />} />
+
+          {/* Strategic Consulting - category landing + solution domains */}
+          <Route path="/services/strategic-consulting" element={<ServiceCategoryPage categorySlug="strategic-consulting" />} />
+          <Route path="/services/strategic-consulting/forensics-recovery" element={<SolutionDomainPage categorySlug="strategic-consulting" domainSlug="forensics-recovery" />} />
+          <Route path="/services/strategic-consulting/managed-leadership" element={<SolutionDomainPage categorySlug="strategic-consulting" domainSlug="managed-leadership" />} />
+          <Route path="/services/strategic-consulting/us-federal-standards" element={<SolutionDomainPage categorySlug="strategic-consulting" domainSlug="us-federal-standards" />} />
 
           {/* RBI Regulatory Audit Services - Banking & Finance */}
           <Route path="/services/regulatory/rbi-cyber-framework" element={<RBICyberFramework />} />

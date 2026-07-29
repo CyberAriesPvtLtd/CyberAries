@@ -1,118 +1,361 @@
+/* =========================================================
+   ABOUT HERO — enterprise cybersecurity redesign
+
+   SCOPE NOTE: every selector in this file is prefixed with
+   "about-" so it cannot collide with same-named classes on
+   other pages (e.g. .about-btn-primary instead of .btn-primary).
+   Do not reintroduce unprefixed generic classnames here.
+
+   EXTERNAL DEPENDENCY: this file references global CSS
+   variables defined OUTSIDE this file (likely a root/theme
+   stylesheet): --accent-corporate-red, --ui-light-ash,
+   --text-charcoal, --text-graphite. If colors/borders on this
+   page look wrong after an unrelated change elsewhere in the
+   project, check that stylesheet first. Fallback values have
+   been added below so a missing/renamed variable degrades
+   gracefully instead of breaking.
+   ========================================================= */
 .about-hero {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(55, 59, 82, 0) 0%,
-      rgba(35, 43, 43, 0.88) 100%
-    ),
-    url("../../public/assets/aboutbakg.webp");
-  padding: 100px 6px 17px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background: radial-gradient(120% 140% at 50% -10%, #101826 0%, #05070c 55%, #030406 100%);
+  padding: 75px 24px 100px;
   text-align: center;
   position: relative;
-  min-height: 100vh;
+  min-height: 78vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Layered background: grid + red glow + scanline sweep */
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.about-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(220, 38, 38, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 38, 38, 0.09) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(80% 70% at 50% 35%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(80% 70% at 50% 35%, #000 0%, transparent 78%);
+  opacity: 0.6;
+}
+
+.about-hero-glow {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  width: 900px;
+  height: 700px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.28) 0%, rgba(220, 38, 38, 0.08) 45%, transparent 72%);
+  filter: blur(10px);
+}
+
+.about-hero-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(180deg, transparent 0%, rgba(220, 38, 38, 0.12) 50%, transparent 100%);
+  animation: about-hero-scan 9s linear infinite;
+}
+
+@keyframes about-hero-scan {
+  0% { top: -140px; opacity: 0; }
+  8% { opacity: 1; }
+  50% { opacity: 1; }
+  92% { opacity: 0; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-hero-scanline { animation: none; opacity: 0.3; top: 30%; }
 }
 
 .about-hero-container {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
-  /* margin-top:20px; */
   margin: 0 auto;
-  padding: 24px;
+  padding: 8px 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 70px;
-}
-
-/* LEFT TEXT */
-.about-hero-text {
-  flex: 1.2;
-}
-
-.about-hero-text h1 {
-  font-size: 92px;
-  font-weight: 700;
-  /* color: #dc2626; jet black */
-  background: linear-gradient(90deg, #ff3c4d, #ffffff);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 20px;
-  letter-spacing: -0.5px;
-}
-
-.about-hero-text p {
-  font-size: 20px;
-  line-height: 1.7;
-  max-width: 700px;
-  color: #e6ecff; /* graphite */
-  margin-bottom: 15px;
-}
-
-.about-hero-quote {
-  display: block;
-  margin-top: 24px;
-  padding-left: 14px;
-  border-left: 3px solid #dc2626;
-  color: rgb(246, 246, 131); /* dark gray */
-  font-size: 24px;
-  font-weight: 500;
-  font-style: normal;
-}
-
-/* RIGHT IMAGE */
-.about-hero-image {
-  flex: 1;
-  display: flex;
   justify-content: center;
 }
 
-.about-hero-image img {
-  background: transparent;
-  max-width: 100%;
-  height: auto;
-  max-height: 280px;
+/* TEXT COLUMN
+   Widened from 820px -> 860px so the paragraph (now up to 800px)
+   has comfortable breathing room inside it. Heading is unaffected
+   since it already wraps based on font-size, not this container. */
+.about-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 860px;
+}
+
+.about-hero-badge {
+  font-family: "Lexend", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  color: #ff8a93;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  /* was 20px — nudged up 4px so the gap before the heading
+     reads consistently with the other gaps in this rhythm */
+  margin-bottom: 24px;
+}
+
+.about-hero-heading {
+  font-family: "Lexend", sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, #ffffff, #ffd7d7 60%, #ff3c4d);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* was 20px — nudged up further to create clearer visual
+     separation between the heading and the description below it */
+  margin-bottom: 32px;
+}
+
+.about-hero-description {
+  font-family: "Lexend", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.75;
+  /* WIDTH FIX: 680px -> 800px (within the requested 760–820px
+     range) so the paragraph occupies more horizontal space under
+     the heading and avoids the previous cramped line breaks.
+     font-size, font-weight, line-height, and color are untouched. */
+  max-width: 800px;
+  color: #b7bdd1;
+  /* was 26px — increased so the trust indicators (now unboxed,
+     lighter-weight elements) get enough breathing room and don't
+     feel like they're crowding the paragraph text above them */
+  margin-bottom: 36px;
+}
+
+.about-hero-trust {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 32px;
+  /* was 0 0 28px — increased slightly to balance against the
+     larger description margin-bottom above it */
+  margin: 0 0 36px;
+  padding: 0;
+  width: 100%;
+}
+
+/* TRUST INDICATOR ITEM — was styled as a white button/pill
+   (background, border, border-radius, box-shadow, hover-lift).
+   All of that is removed below. This is now plain inline text
+   + icon sitting directly on the hero background, matching the
+   lightweight "trust bar" pattern used by enterprise security
+   sites (Microsoft Security, CrowdStrike, Wiz, SentinelOne). */
+.about-hero-trust li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: "Lexend", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  /* light, low-opacity text instead of dark text on a white
+     button — sits quietly on the dark hero background */
+  color: rgba(255, 255, 255, 0.72);
+  /* removed: background, border, border-radius, box-shadow, padding */
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  /* subtle, non-button hover: only color brightens, nothing
+     structural moves/lifts/glows */
+  transition: color 0.3s ease;
+}
+
+/* Text brightens slightly on hover — no transform, no
+   background, no border, no shadow, so it never reads as a
+   clickable button, just a quiet acknowledgement of interaction */
+.about-hero-trust li:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.about-hero-trust li svg {
+  /* icon kept in the accent red, but dimmed via opacity so it
+     reads as a subtle marker rather than a bold button icon */
+  color: #ff3c4d;
+  opacity: 0.85;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Icon micro-animation on hover: a gentle scale-up + opacity
+   lift only — deliberately no rotation, no bounce, no shadow,
+   so it stays premium/quiet rather than playful/button-like */
+.about-hero-trust li:hover svg {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.about-hero-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.about-hero-btn-secondary {
+  font-family: "Lexend", sans-serif;
+  display: inline-block;
+  padding: 14px 31px;
+  border-radius: 10px;
+  background-color: #dc2626;
+  border: 1px solid #dc2626;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(220, 38, 38, 0.35);
+  transition: all 0.25s ease;
+  /* was margin-top: 20px — removed. That stacked on top of
+     .about-hero-trust's margin-bottom (28px), producing a 48px
+     gap before the button vs. much smaller gaps everywhere else
+     above it. Spacing above the button is now handled entirely
+     by .about-hero-trust's margin-bottom (36px), matching the
+     rest of the vertical rhythm. Button itself is unchanged. */
+}
+
+.about-hero-btn-secondary:hover {
+  background-color: #232323;
+  border-color: #232323;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(11, 13, 24, 0.45);
 }
 
 /* RESPONSIVE */
+@media (max-width: 900px) {
+  .about-hero-heading {
+    font-size: 48px;
+  }
+}
+
 @media (max-width: 768px) {
-  .about-hero-container {
-    flex-direction: column;
-    text-align: center;
+  .about-hero {
+    padding: 140px 20px 90px;
   }
 
-  .about-hero-text h1 {
+  .about-hero-heading {
     font-size: 36px;
   }
-  .about-hero-quote {
+
+  .about-hero-description {
     font-size: 16px;
   }
-  .about-hero-p {
-    font-size: 16px;
+
+  .about-hero-trust {
+    gap: 12px 20px;
   }
-}
-.about-hero-image img {
-  max-height: 320px;
-  opacity: 0.9;
-  filter: saturate(0.9) contrast(1.05);
+
+  /* padding override removed — trust items no longer have a
+     button box, so there is no padding left to adjust here */
 }
 
+@media (max-width: 480px) {
+  .about-hero-heading {
+    font-size: 30px;
+  }
+
+  .about-hero-badge {
+    font-size: 11px;
+    padding: 7px 16px;
+  }
+
+  .about-hero-trust {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-hero-trust li {
+    font-size: 13px;
+    justify-content: center;
+  }
+
+  .about-hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .about-hero-btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+.about-experience {
+  padding: 0;
+  margin: 0;
+}
 
 .about-exp {
-  background-color: #fafaf7;
+  background: linear-gradient(
+    180deg,
+    #fafaf8 0%,
+    #f7f7f5 55%,
+    #f3f3f1 100%
+  );
   padding: 50px 0;
-  /* border-top: 1px solid var(--ui-light-ash); */
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  /* border-top: 1px solid var(--ui-light-ash, rgba(0,0,0,0.08)); */
+}
+
+/* Subtle technical grid, matching hero design language */
+.about-exp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(220, 38, 38, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 38, 38, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(80% 70% at 50% 50%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(80% 70% at 50% 50%, #000 0%, transparent 78%);
+  opacity: 0.6;
 }
 
 .about-exp-container {
   max-width: 1200px;
   margin: auto;
   padding: 0 24px;
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
@@ -121,23 +364,28 @@
 
 /* Right */
 .about-exp-tag {
+  font-family: "Lexend", sans-serif;
   display: inline-block;
   font-size: 20px;
   letter-spacing: 2px;
   font-weight: 600;
-  color: var(--accent-corporate-red);
+  color: var(--accent-corporate-red, #dc2626);
   margin-bottom: 14px;
 }
 
 .about-exp-text h2 {
+  font-family: "Lexend", sans-serif;
   font-size: 42px;
+  font-weight: 700;
   color: #dc2626;
   margin-bottom: 20px;
   line-height: 1.2;
 }
 
 .about-exp-text p {
+  font-family: "Lexend", sans-serif;
   font-size: 17px;
+  font-weight: 400;
   color: #212121;
   line-height: 1.7;
   max-width: 520px;
@@ -158,7 +406,7 @@
 }
 
 /* EXPERIENCE CARD */
-.exp-card {
+.about-exp-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,20 +426,22 @@
   text-align: center;
 
   box-shadow: 0 20px 40px rgba(11, 13, 24, 0.25);
-  border: 1px solid var(--ui-light-ash);
+  border: 1px solid var(--ui-light-ash, rgba(0,0,0,0.08));
 }
 
-.exp-number {
+.about-exp-number {
+  font-family: "Lexend", sans-serif;
   font-size: 36px;
   font-weight: 700;
-  color: var(--accent-corporate-red);
+  color: var(--accent-corporate-red, #dc2626);
   display: block;
 }
 
-.exp-label {
+.about-exp-label {
+  font-family: "Lexend", sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-charcoal);
+  color: var(--text-charcoal, #0e0e10);
 }
 
 
@@ -210,14 +460,15 @@
     margin: 40px auto 0;
   }
 
-  .exp-card {
+  .about-exp-card {
     position: static;
     transform: none;
     margin: 0 auto 16px;
   }
 }
 /* experience-btn */
-.exp-cta-btn {
+.about-exp-cta-btn {
+  font-family: "Lexend", sans-serif;
   display: inline-block;
   margin-top: 26px;
 
@@ -235,241 +486,283 @@
   transition: all 0.25s ease;
 }
 
-.exp-cta-btn:hover {
+.about-exp-cta-btn:hover {
   background-color: #232323;
   transform: translateY(-2px);
   box-shadow: 0 14px 32px rgba(11, 13, 24, 0.35);
 }
 .about-expertise {
   padding: 100px 0;
-  background-color: #fafaf7;
-  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.05);
+  background: radial-gradient(120% 140% at 50% -10%, #101826 0%, #05070c 55%, #030406 100%);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Red accent glow, matching Hero — softened so cards remain the focal point */
+.about-expertise::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  width: 900px;
+  height: 700px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.19) 0%, rgba(220, 38, 38, 0.05) 45%, transparent 72%);
+  filter: blur(10px);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .about-expertise-header {
+  font-family: "Lexend", sans-serif;
   text-align: center;
   max-width: 900px;
-  margin: 0 auto 70px;
+  margin: 0 auto 94px;
+  position: relative;
+  z-index: 1;
 }
 
-.expertise-tag {
+.about-expertise-tag {
+  font-family: "Lexend", sans-serif;
   display: inline-block;
   font-size: 13px;
   letter-spacing: 2px;
   font-weight: 600;
-  color: #1b1212;
+  color: #ff6b74;
   margin-bottom: 14px;
 }
 
 .about-expertise-header h2 {
+  font-family: "Lexend", sans-serif;
   font-size: 42px;
-  color: #dc2626;
+  font-weight: 700;
+  color: #ffffff;
   line-height: 1.2;
 }
 
-/* CONTENT GRID */
-.about-expertise-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-  align-items: center;
-}
-
-/* LEFT VISUAL */
-.expertise-visual {
+/* TRUST CARDS GRID */
+.about-trust-grid {
   position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  align-items: stretch;
 }
 
-.img-main {
-  width: 100%;
-  border-radius: 18px;
-  box-shadow: 0 30px 60px rgba(11, 13, 24, 0.2);
-}
-
-.img-overlay {
-  width: 60%;
-  position: absolute;
-  bottom: -40px;
-  right: -40px;
-  border-radius: 18px;
-  box-shadow: 0 30px 60px rgba(11, 13, 24, 0.25);
-}
-
-/* STAT CARD */
-.expertise-stat {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  background: #dc2626;
-  color: #ffffff;
-  padding: 22px 26px;
-  border-radius: 14px;
-  box-shadow: 0 20px 40px rgba(79, 111, 214, 0.45);
-}
-
-.expertise-stat h3 {
-  font-size: 36px;
-  margin: 0;
-  color: #ffff;
-}
-
-.expertise-stat p {
-  font-size: 14px;
-  margin-top: 6px;
-  color: #ffff;
-}
-
-/* RIGHT LIST */
-.expertise-list {
+.about-trust-card {
+  font-family: "Lexend", sans-serif;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 16px;
+  padding: 32px 26px;
+  height: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
 }
 
-.expertise-item {
-  display: flex;
-  gap: 20px;
+.about-trust-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(220, 38, 38, 0.5);
+  box-shadow: 0 28px 54px rgba(0, 0, 0, 0.5);
 }
 
-.icon-circle {
+.about-trust-card .about-icon-circle {
   width: 56px;
   height: 56px;
-  border-radius: 50%;
-  padding: 10px;
-  min-width: 56px; /* IMPORTANT */
+  min-width: 56px;
   min-height: 56px;
-  background: rgba(79, 111, 214, 0.12);
-  padding-top: 15px;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  color: #dc2626;
-  padding: 0px;
-  margin: -9px 0px 0px 11px;
+  color: #ff3c4d;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
 }
 
-.expertise-item h4 {
-  font-size: 20px;
-  margin-bottom: 6px;
-  color: var(--text-charcoal);
-  border-left: 3px solid #dc2626;
-  padding-left: 10px;
+.about-trust-card:hover .about-icon-circle {
+  transform: scale(1.07);
 }
 
-.expertise-item p {
+.about-trust-card h4 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.about-trust-card p {
   font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-graphite);
+  line-height: 1.65;
+  color: #b7bdd1;
 }
 
 /* MOBILE */
-@media (max-width: 900px) {
-  .about-expertise-content {
-    grid-template-columns: 1fr;
-  }
-
-  .img-overlay {
-    position: static;
-    width: 100%;
-    margin-top: 24px;
-  }
-
-  .expertise-stat {
-    position: static;
-    margin-top: 20px;
+@media (max-width: 1024px) {
+  .about-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-/* about overview */
+
+@media (max-width: 600px) {
+  .about-trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* mission & vision */
 .about-overview {
-  padding: 70px 0;
-  background-color: #fafaf7;
-  color: #dc2626;
+  padding: 100px 0;
+  background: linear-gradient(
+    180deg,
+    #fafaf8 0%,
+    #f7f7f5 55%,
+    #f3f3f1 100%
+  );
   box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-.wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 50px;
-  align-items: center;
+/* Subtle technical grid, matching the rest of the light sections */
+.about-overview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(220, 38, 38, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 38, 38, 0.09) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(80% 70% at 50% 50%, #000 0%, transparent 78%);
+  mask-image: radial-gradient(80% 70% at 50% 50%, #000 0%, transparent 78%);
+  opacity: 0.8;
 }
 
-.label {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  color: black;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 12px;
-}
-
-.overview-text h3 {
-  font-size: 26px;
-  line-height: 1.4;
-  margin-bottom: 16px;
-  font-weight: 700;
-  color: #dc2626;
-}
-
-.overview-text p {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #212121;
-  margin-bottom: 20px;
-  max-width: 520px;
-}
-
-.overview-text ul {
-  padding-left: 18px;
-}
-
-.overview-text ul li {
-  font-size: 20px;
-  line-height: 1.5rem;
-  margin-bottom: 10px;
-  color: #0e0e10;
-  font-weight: 600;
-}
-
-.overview-image img {
+.about-overview-header {
+  font-family: "Lexend", sans-serif;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 70px;
+  position: relative;
   z-index: 1;
-  width: 100%;
-  border-radius: 6px;
-  object-fit: cover;
+  padding: 0 20px;
 }
 
-/* No dramatic overlay */
-.overview-image::after {
-  content: none;
+.about-overview-tag {
+  font-family: "Lexend", sans-serif;
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #dc2626;
+  margin-bottom: 14px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .wrap {
+.about-overview-header h2 {
+  font-family: "Lexend", sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #0e0e10;
+  line-height: 1.2;
+}
+
+/* MISSION / VISION CARDS */
+.about-mv-grid {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+.about-mv-card {
+  font-family: "Lexend", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  padding: 40px 34px;
+  height: 100%;
+  box-shadow: 0 20px 40px rgba(11, 13, 24, 0.08);
+  transition: all 0.3s ease;
+}
+
+.about-mv-card:hover {
+  transform: translateY(-6px);
+  border-color: #0e0e10;
+  box-shadow: 0 24px 48px rgba(11, 13, 24, 0.14);
+}
+
+.about-mv-card .about-icon-circle {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dc2626;
+  margin-bottom: 20px;
+}
+
+.about-mv-card h4 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-charcoal, #0e0e10);
+}
+
+.about-mv-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-graphite, #4a4a4a);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .about-mv-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-overview-header h2 {
+    font-size: 32px;
   }
 }
 
 /* team section */
-.team-section {
+.about-team-section {
   /* background: #060b23; */
   padding: 100px 0;
   color: #313234;
 }
 
-.team-container {
+.about-team-container {
   max-width: 1200px;
   margin: auto;
   padding: 0 20px;
   text-align: center;
 }
 
-.section-tag {
+.about-section-tag {
   color: #e56e94;
   font-size: 12px;
   letter-spacing: 2px;
@@ -478,68 +771,68 @@
   margin-bottom: 14px;
 }
 
-.section-title {
+.about-section-title {
   font-size: 36px;
   font-weight: 600;
   margin-bottom: 60px;
 }
 
-.team-grid {
+.about-team-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
 
-.team-card {
+.about-team-card {
   background: #0b1338;
   border-radius: 14px;
   padding: 20px;
   transition: all 0.3s ease;
 }
 
-.team-card img {
+.about-team-card img {
   width: 100%;
   border-radius: 12px;
   object-fit: cover;
   margin-bottom: 18px;
 }
 
-.team-card h4 {
+.about-team-card h4 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 6px;
 }
 
-.team-card p {
+.about-team-card p {
   font-size: 14px;
   color: #b8c1ec;
 }
 
 /* Hover – subtle cyber feel */
-.team-card:hover {
+.about-team-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(79, 195, 247, 0.12);
 }
 
 /* Responsive */
 @media (max-width: 1000px) {
-  .team-grid {
+  .about-team-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
-  .team-grid {
+  .about-team-grid {
     grid-template-columns: 1fr;
   }
 
-  .section-title {
+  .about-section-title {
     font-size: 28px;
   }
 }
 /* cta section  */
-.cta-section {
-  background-color: #080808;
+.about-cta-section {
+  background: radial-gradient(120% 140% at 50% -10%, #101826 0%, #05070c 55%, #030406 100%);
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -548,46 +841,122 @@
   justify-content: center;
 }
 
-.cta-section::after {
+/* GLOW ALIGNMENT FIX:
+   was `right: -120px` — the glow sat off to the right edge of the
+   section, disconnected from the centered content. Repositioned
+   to the horizontal/vertical center (same left:50% + translate
+   pattern already used by .about-hero-glow) so it sits directly
+   behind the content instead of off to one side. Size, color,
+   blur, and opacity are all unchanged. */
+.about-cta-section::after {
   content: "";
   position: absolute;
-  right: -120px;
   top: 50%;
+  left: 50%;
   width: 400px;
   height: 400px;
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.08),
+    rgba(220, 38, 38, 0.18),
     transparent 70%
   );
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
 }
 
-.cta-container {
+.about-cta-container {
   max-width: 1200px;
-  /* margin: auto; */
+  /* re-enabled — was commented out, so the container had no
+     explicit centering of its own and relied entirely on the
+     parent flex box. Restoring it matches the pattern used by
+     .about-hero-container and keeps this section correct even
+     if the parent's display/flex settings ever change. */
+  margin: 0 auto;
   padding: 20px;
+  width: 100%;
 }
 
-.cta-content {
-  max-width: 700px;
+/* CONTENT WRAPPER — was a plain block with no alignment rules
+   of its own (badge/heading were left-aligned by default while
+   only the paragraph had manual text-align/margin:auto). Now
+   uses the same centered flex-column pattern as .about-hero-text
+   so every child (badge, heading, description, buttons) shares
+   one consistent horizontal centerline — this was the main
+   cause of the "unbalanced" feeling. */
+.about-cta-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* WIDTH FIX: was 700px with no lower/upper guidance — set to
+     730px, inside the requested 700–760px target range */
+  max-width: 730px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-.cta-content h2 {
+.about-cta-badge {
+  font-family: "Lexend", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  color: #ff8a93;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  /* kept at 20px — this now matches the badge->heading gap used
+     in the Hero section for a consistent rhythm across the page */
+  margin-bottom: 20px;
+}
+
+.about-cta-content h2 {
+  font-family: "Lexend", sans-serif;
   font-size: 40px;
   font-weight: 600;
-  margin-bottom: 16px;
-  color: #ffff;
+  /* was solid white (#ffff) — now the same gradient treatment as
+     .about-hero-heading (white fading into a reddish tone) so the
+     CTA heading echoes the Hero's "little bit reddish" look.
+     font-size and font-weight are untouched. */
+  background: linear-gradient(90deg, #ffffff, #ffd7d7 60%, #ff3c4d);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.25;
+  /* HEADING WIDTH FIX: heading previously spanned the full
+     700px content box with no wrap guidance, sometimes breaking
+     awkwardly mid-phrase. Constraining it to 600px (centered via
+     the parent's align-items:center) forces cleaner, more
+     balanced line breaks without touching font-size. */
+  max-width: 600px;
+  /* was 20px — increased further so there's clearer separation
+     before the description paragraph */
+  margin: 0 0 32px;
 }
 
-.cta-content p {
-  font-size: 20px;
-  line-height: 1.7;
+.about-cta-content p {
+  font-family: "Lexend", sans-serif;
+  /* was 20px — reduced slightly per request. font-weight and
+     line-height are untouched. */
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.75;
   color: #e6ecff;
-  margin-bottom: 30px;
+  /* WIDTH FIX: was 740px — wider than its own 700px parent, so it
+     was already being clipped to the parent's width and the 740
+     value was doing nothing. Set to 680px (inside the requested
+     650–700px range), which now fits cleanly inside the 730px
+     content container. */
+  max-width: 680px;
+  /* centering now comes from the parent's flex/align-items:center,
+     so the manual `margin: 0 auto` / `text-align: center` that
+     lived here are no longer needed */
+  margin: 0 0 32px;
 }
 
-.cta-actions {
+.about-cta-actions {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -595,42 +964,92 @@
   flex-wrap: wrap;
 }
 
-.btn-primary {
+/* BUTTON SIZING — both buttons now share identical padding,
+   border width (via a transparent border on the primary button),
+   box-sizing, and line-height, so they render at exactly the same
+   height regardless of their different background/border styling.
+   This fixes the "visually unbalanced" button pair. Colors and
+   hover animations are unchanged. */
+.about-btn-primary {
+  font-family: "Lexend", sans-serif;
   background: #ffffff;
   color: #0e0e10;
-  padding: 14px 28px;
+  /* unified padding (was 14px 28px) to match the secondary button */
+  padding: 14px 32px;
+  /* transparent border of the same width as the secondary
+     button's real border, so both buttons compute to the same
+     total height */
+  border: 1px solid transparent;
   border-radius: 8px;
   font-weight: 600;
+  line-height: 1.2;
+  text-transform: capitalize;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
+.about-btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px #454444;
   background-color: #dc2626;
   color: #fff;
 }
 
-.btn-secondary {
+.about-btn-secondary {
+  font-family: "Lexend", sans-serif;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.6);
   color: #fff;
-  padding: 15px 30px;
+  font-weight: 600;
+  letter-spacing: 0;
+  /* unified padding (was 15px 30px) to match the primary button */
+  padding: 14px 32px;
+  line-height: 1.2;
   border-radius: 8px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transition: all 0.3s ease;
-  transform: translateY(-2px);
+.about-btn-secondary:hover {
+  background: rgba(220, 38, 38, 0.1);
+  border-color: #dc2626;
+  color: #fff;
+  letter-spacing: 0.4px;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 30px rgba(220, 38, 38, 0.3);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .cta-content h2 {
+  .about-cta-content h2 {
     font-size: 28px;
+    /* narrower heading box on tablet so the reduced font-size
+       still wraps into a balanced 2-line shape rather than one
+       long line */
+    max-width: 480px;
+  }
+}
+
+/* Buttons stack only below this breakpoint, per spec — desktop
+   and tablet keep both buttons on one line via .about-cta-actions
+   above (flex-wrap already handles any edge-case overflow). */
+@media (max-width: 560px) {
+  .about-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .about-btn-primary,
+  .about-btn-secondary {
+    width: 100%;
+    text-align: center;
   }
 }

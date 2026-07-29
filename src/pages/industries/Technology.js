@@ -1,165 +1,219 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
-import { 
+import heroBgImage from '../../images/industries/technology/hero-image.png';
+import {
+  Cloud,
+  GitBranch,
+  Code2,
+  Layers,
+  Boxes,
+  KeyRound,
   Shield,
   Lock,
   AlertTriangle,
   FileCheck,
   Users,
-  TrendingUp,
   Award,
   Globe,
   Handshake,
-  Database,
-  Server,
-  Wifi,
-  UserX,
-  BookOpen
+  Rocket,
+  CheckCircle,
+  ArrowRight
 } from 'lucide-react';
 import './Technology.css';
+
 /**
- * ITeS Industry Page
- * Information Technology Enabled Services Security Solutions
+ * Technology Industry Page
+ * Enterprise Software, Cloud, DevSecOps and SaaS Security Solutions
+ * Alternating dark/light rhythm matching the BFSI / Government design system.
+ * Fully Responsive for PC, Tablet, and Mobile
  */
 
-const ITeS = () => {
+const Technology = () => {
   // Key Challenges Data
   const challengesData = [
     {
-      title: "Data Security & Privacy",
-      description: "Handling sensitive customer data across borders requires robust encryption and compliance with regulations like GDPR, HIPAA, and SOC 2 to prevent data breaches.",
-      icon: <Lock size={40} />
+      title: "Rapid Cloud Migration Risks",
+      description: "Fast-moving migrations to multi-cloud and hybrid environments often outpace security controls, leaving misconfigurations and exposed assets.",
+      icon: <Cloud size={28} />
     },
     {
-      title: "Infrastructure Vulnerability",
-      description: "Complex hybrid and multi-cloud environments create multiple attack surfaces that need continuous monitoring and protection.",
-      icon: <Server size={40} />
+      title: "Insecure CI/CD Pipelines",
+      description: "Build and deployment pipelines that lack embedded security checks let vulnerabilities and secrets slip straight into production.",
+      icon: <GitBranch size={28} />
     },
     {
-      title: "Emerging Threat Landscape",
-      description: "Sophisticated phishing attacks, ransomware, and insider threats targeting remote workforce and cloud infrastructure.",
-      icon: <AlertTriangle size={40} />
+      title: "API and Microservices Exposure",
+      description: "Distributed, API-driven architectures expand the attack surface, with poorly authenticated endpoints becoming prime targets.",
+      icon: <Code2 size={28} />
     },
     {
-      title: "Remote Work Exposure",
-      description: "Distributed teams accessing corporate resources from various locations increase the risk of unauthorized access and data leakage.",
-      icon: <Wifi size={40} />
+      title: "SaaS Sprawl and Shadow IT",
+      description: "Unmanaged SaaS adoption across teams creates blind spots in visibility, access control, and data governance.",
+      icon: <Layers size={28} />
     },
     {
-      title: "Supply Chain Weakness",
-      description: "Third-party vendors and partners in the ecosystem can introduce vulnerabilities and compliance risks.",
-      icon: <Users size={40} />
+      title: "Third-Party and Open-Source Vulnerabilities",
+      description: "Dependencies on open-source libraries and third-party vendors introduce supply-chain risk that's difficult to track and patch.",
+      icon: <Boxes size={28} />
     },
     {
-      title: "Business Continuity Risk",
-      description: "Cyber incidents can disrupt operations, leading to service downtime, financial losses, and damage to client relationships.",
-      icon: <TrendingUp size={40} />
-    },
-    {
-      title: "Meeting Regulatory Compliance",
-      description: "Adhering to industry-specific regulations and maintaining certifications like ISO 27001, SOC 2, and PCI-DSS.",
-      icon: <FileCheck size={40} />
-    },
-    {
-      title: "Insider Threat Management",
-      description: "Monitoring and controlling access by employees and contractors to prevent data theft and unauthorized activities.",
-      icon: <UserX size={40} />
+      title: "Scaling Identity and Access Management",
+      description: "Rapidly growing engineering teams and services make consistent, least-privilege access control harder to enforce at scale.",
+      icon: <KeyRound size={28} />
     }
   ];
 
   // Solutions Data
   const solutionsData = [
     {
-      title: "Protect Sensitive Data and Achieve Compliance",
-      description: "Implement comprehensive data protection strategies including encryption, tokenization, and DLP solutions. Ensure compliance with regulations like GDPR, HIPAA, and SOC 2 to safeguard client data. Regular audits help track compliance status and quickly identify potential vulnerabilities, reducing the risk of hefty fines and loss of customer trust. Supports multi-cloud compliance posture by integrating security controls across hybrid infrastructures. Automated tools verify that privacy policies align with regulatory frameworks, even as rules evolve globally.",
-      icon: <Shield size={40} />
+      title: "Secure Your Cloud Infrastructure",
+      description: "Cyberaries hardens multi-cloud and hybrid environments with continuous configuration audits, workload protection, and automated compliance monitoring across AWS, Azure, and GCP.",
+      icon: <Cloud size={28} />
     },
     {
-      title: "Strengthen Defense Against Advanced Cyber Threats",
-      description: "This ITeS industry relies on services such as BPO, KPO, and software outsourcing and each of these faces unique challenges. With a growing threat landscape, you need to build a security posture that can predict, detect, and respond to advanced cyber risks. Leverage AI-driven threat intelligence, next-gen firewalls, and intrusion detection/prevention systems to neutralize sophisticated cyber risks. Implement Zero Trust architecture and multi-layered defenses backed by advanced threat hunting capabilities to ensure timely and effective mitigation. Stay ahead of threats like malware, ransomware, phishing, insider risks, and more with continuous monitoring and real-time incident response.",
-      icon: <Lock size={40} />
+      title: "Embed Security into DevSecOps Pipelines",
+      description: "Shift security left with automated SAST, DAST, and dependency scanning built directly into your CI/CD workflows, catching vulnerabilities before they ship.",
+      icon: <GitBranch size={28} />
     },
     {
-      title: "Simplify Mobile Security and Device Management",
-      description: "Enforce unified policies across all employee-owned devices in a Bring Your Own Device (BYOD) environment. Secure Enterprise Mobility Management (EMM) strategies keep corporate data separated from personal use, ensuring authorized access and protecting sensitive information. Use Mobile Device Management (MDM) platforms to enable encryption, data wiping capabilities, ensuring that any stolen or misplaced device doesn't result in data breaches. This comprehensive approach ensures seamless operations while maintaining strict security standards for remote and on-site employees.",
-      icon: <Database size={40} />
+      title: "Protect Your APIs and Microservices",
+      description: "Deploy API gateways, schema validation, and runtime protection to secure service-to-service communication and prevent unauthorized data access.",
+      icon: <Shield size={28} />
     },
     {
-      title: "Deploy Proactive Threat Detection and Response",
-      description: "Establish a security operations center (SOC) when needed to, identify vulnerabilities early, and minimize potential damage. Integrating Security Information and Event Management (SIEM) solutions with Endpoint Detection and Response (EDR) or Extended Detection and Response (XDR) capabilities provides 24/7 insight into your network. Real-time threat intelligence feeds and AI-driven analysis help you quickly prioritize incidents that matter most, reducing response times from hours to minutes. Proactive monitoring and swift handling not only prevent significant damage but also maintain client confidence and regulatory compliance.",
-      icon: <AlertTriangle size={40} />
+      title: "Strengthen Your SaaS Security Posture",
+      description: "Gain unified visibility into SaaS usage with CASB and SSPM tooling, enforcing consistent policies and eliminating shadow IT risk across the organization.",
+      icon: <Lock size={28} />
     },
     {
-      title: "Strengthen Your Cyber Resilience",
-      description: "To enable the company to face the challenges of a multi-faceted threat landscape, you need to build security awareness. Ensure that employees understand threats like phishing, social engineering, and data mishandling. Having a detailed incident response plan that covers everything from initial detection and immediate containment to post-incident analysis is crucial. Keep your disaster recovery solutions updated with automated backups and failover mechanisms. Regularly practice tabletop exercises to ensure your teams are prepared for real-world scenarios. By turning every employee into a potential defender and having a mature security posture, you create a security-first culture that can swiftly detect and mitigate cyber risks before they escalate, protecting your reputation and bottom line.",
-      icon: <BookOpen size={40} />
+      title: "Manage Identity and Access at Scale",
+      description: "Implement Zero Trust access, SSO, and fine-grained RBAC/ABAC controls that scale cleanly as your engineering and product teams grow.",
+      icon: <KeyRound size={28} />
     },
     {
-      title: "Securing Remote Access and Collaboration",
-      description: "The rise of distributed and remote work forces the ITeS industry to enable VPN, two-factor authentication, and endpoint security. Secure collaboration tools with built-in encryption for video calls, file sharing, and project management platforms that meet security standards. Application layer security ensures that even when employees access resources from their own devices or unsecured networks, corporate data remains protected. Role-based access controls limit users' privileges to only what they need, preventing unauthorized users from accessing internal data breaches. Regular vulnerability scanning, coupled with patch management, keeps the entire environment resilient and compliant with evolving industry and client-specific security requirements.",
-      icon: <Wifi size={40} />
+      title: "Enable Secure Digital Transformation",
+      description: "Partner with our team to modernize infrastructure and applications with security engineered in from day one, not bolted on after launch.",
+      icon: <Rocket size={28} />
     }
   ];
 
   // Why Choose Cyberaries Data
   const whyChooseItems = [
     {
-      title: "Partnered with CERT-In Empanelled",
+      title: "Partnered CERT-In Empanelled",
       description: "Recognized by the Government of India for security audits.",
-      icon: <Award size={50} />
+      icon: <Award size={28} />
     },
     {
       title: "350+ Clients Across Different Sector",
       description: "Proven expertise across diverse industries.",
-      icon: <Globe size={50} />
+      icon: <Globe size={28} />
     },
     {
       title: "End-to-End Support",
       description: "From scoping to remediation and final certification.",
-      icon: <Handshake size={50} />
+      icon: <Handshake size={28} />
     }
   ];
 
+  // Smooth scroll to contact section or page
+  const handleGetStarted = () => {
+    window.location.href = '/contact';
+  };
+
+  // Desktop-only parallax for the hero artwork layer. Parallax is
+  // intentionally skipped on tablet/mobile per the design brief, and
+  // the particle layer is hidden there via CSS as well.
+  const heroRef = useRef(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1025px)');
+    const updateIsDesktop = () => setIsDesktop(mediaQuery.matches);
+    updateIsDesktop();
+    mediaQuery.addEventListener('change', updateIsDesktop);
+    return () => mediaQuery.removeEventListener('change', updateIsDesktop);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start']
+  });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, 70]);
+
   return (
-    <div className="ites-page">
-      {/* Hero Section */}
-      <section className="hero-section" style={{ backgroundImage: `url(${heroBgImage})` }}>
-        <div className="hero-background"></div>
+    <div className="technology-page">
+      {/* Hero Section — Dark */}
+      <section className="hero-section" ref={heroRef}>
+        <motion.div
+          className="hero-bg-layer"
+          style={{
+            backgroundImage: `url(${heroBgImage})`,
+            y: isDesktop ? parallaxY : 0
+          }}
+        />
+        <div className="hero-overlay"></div>
+        <div className="hero-glow"></div>
+        <div className="hero-particles" aria-hidden="true">
+          {Array.from({ length: 7 }).map((_, i) => (
+            <span key={i} className="hero-particle" style={{ '--i': i }} />
+          ))}
+        </div>
+
         <div className="container">
           <div className="hero-content">
-            <p className="hero-subtitle">Cybersecurity For ITeS Industry</p>
-            <h1 className="hero-title">
-              Future-Proof Your Digital Operations
-            </h1>
-            <p className="hero-description">
-              In today's hyper-connected world, the Information Technology-Enabled Services (ITeS) industry stands at both a vanguard of innovation and a prime target for cyber threats. With digitization becoming integral to business operations, data breaches and sophisticated attacks against your clients' sensitive information are multiplying fast. Comprehensive security solutions now demand proactive defense strategies, rigorous compliance management, and continuous monitoring to safeguard your business reputation and maintain client trust.
-            </p>
-            <div className="hero-actions">
-              <button className="btn btn-primary">Schedule Consultation</button>
-            </div>
+            <ScrollReveal animation="fade-down" delay={0}>
+              <p className="hero-subtitle">Cybersecurity For Technology Industry</p>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={100}>
+              <h1 className="hero-title">
+                <span className="text-gradient">Engineer Security Into Every Deployment</span>
+              </h1>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={200}>
+              <p className="hero-description">
+                The technology sector moves faster than any other, and that speed is exactly what attackers exploit. As software companies scale across cloud, APIs, and SaaS ecosystems, the attack surface grows just as quickly. Staying ahead requires security that's built into the development lifecycle itself, not bolted on after release, so you can ship fast without shipping risk.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={300}>
+              <div className="hero-actions">
+                <button className="btn btn-primary" onClick={handleGetStarted}>
+                  Schedule Consultation
+                </button>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Key Challenges Section */}
-      <section className="key-challenges">
+      {/* Key Challenges Section — Light + Grid */}
+      <section className="key-challenges tech-light-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
-              <h2 className="section-title">Key Cybersecurity Challenges For The ITeS Industry</h2>
+              <p className="section-subtitle">The Threat Landscape</p>
+              <h2 className="section-title">Key Cybersecurity Challenges Facing the Technology Industry</h2>
+              <p className="section-description">
+                Understanding the unique risks that software and technology companies face in a fast-shipping world
+              </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="challenges-grid">
             {challengesData.map((challenge, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="challenge-card">
-                  <div className="challenge-icon">
+                <div className="tech-card">
+                  <div className="tech-icon">
                     {challenge.icon}
                   </div>
-                  <h3 className="challenge-title">{challenge.title}</h3>
-                  <p className="challenge-description">{challenge.description}</p>
+                  <h3 className="tech-card-title">{challenge.title}</h3>
+                  <p className="tech-card-description">{challenge.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -167,25 +221,28 @@ const ITeS = () => {
         </div>
       </section>
 
-      {/* Solutions Section */}
-      <section className="solutions-section">
+      {/* CyberAries Approach + Solution Cards — one continuous Dark section */}
+      <section className="cyberaries-approach tech-dark-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
-              <h2 className="section-title">Take a Multi-Layered Security Approach To Protect Your Business</h2>
+              <p className="section-subtitle">Our Approach</p>
+              <h2 className="section-title">With Cyberaries, Take a Proactive Cyber Security Approach</h2>
+              <p className="section-description">
+                Comprehensive security solutions tailored for cloud-native and fast-scaling technology teams
+              </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="solutions-grid">
             {solutionsData.map((solution, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="solution-card">
-                  <div className="solution-icon">
+                <div className="tech-card tech-card--dark">
+                  <div className="tech-icon">
                     {solution.icon}
                   </div>
-                  <h3 className="solution-title">{solution.title}</h3>
-                  <p className="solution-description">{solution.description}</p>
-                  <div className="solution-indicator"></div>
+                  <h3 className="tech-card-title">{solution.title}</h3>
+                  <p className="tech-card-description">{solution.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -193,24 +250,28 @@ const ITeS = () => {
         </div>
       </section>
 
-      {/* Why Choose Section */}
-      <section className="why-choose">
+      {/* Why Choose Section — Light + Grid, matching Key Challenges */}
+      <section className="why-choose tech-light-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">Trusted Partner</p>
               <h2 className="section-title">Why Choose Cyberaries?</h2>
+              <p className="section-description">
+                Trusted by leading technology companies across India
+              </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="why-choose-grid">
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150}>
-                <div className="why-choose-card">
-                  <div className="why-choose-icon">
+                <div className="tech-card">
+                  <div className="tech-icon">
                     {item.icon}
                   </div>
-                  <h3 className="why-choose-title">{item.title}</h3>
-                  <p className="why-choose-description">{item.description}</p>
+                  <h3 className="tech-card-title">{item.title}</h3>
+                  <p className="tech-card-description">{item.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -218,44 +279,44 @@ const ITeS = () => {
         </div>
       </section>
 
-      {/* Cyberaries Difference Section */}
-      <section className="cyberaries-difference">
+      {/* Cyberaries Difference Section — Dark, matches Our Approach section */}
+      <section className="cyberaries-difference tech-dark-section">
         <div className="container">
           <ScrollReveal animation="fade-up">
             <h2 className="difference-title">
               THE <span className="highlight-red">CYBERARIES</span> DIFFERENCE
-            </h2>          
+            </h2>
           </ScrollReveal>
 
           <div className="comparison-grid">
             {/* Traditional Security Consulting */}
             <ScrollReveal animation="fade-right" delay={100}>
-              <div className="comparison-column traditional">
+              <div className="comparison-column traditional tech-card tech-card--dark">
                 <h3 className="comparison-heading">Traditional Security Consulting</h3>
                 <ul className="comparison-list">
                   <li className="comparison-item">
                     <span className="bullet">•</span>
-                    Creates dependencies through ongoing services
+                    <span>Creates dependencies through ongoing services</span>
                   </li>
                   <li className="comparison-item">
                     <span className="bullet">•</span>
-                    Delivers static PDFs that sit unimplemented
+                    <span>Delivers static PDFs that sit unimplemented</span>
                   </li>
                   <li className="comparison-item">
                     <span className="bullet">•</span>
-                    Focuses on finding problems, not building solutions
+                    <span>Focuses on finding problems, not building solutions</span>
                   </li>
                   <li className="comparison-item">
                     <span className="bullet">•</span>
-                    Recommends generic security practices
+                    <span>Recommends generic security practices</span>
                   </li>
                   <li className="comparison-item">
                     <span className="bullet">•</span>
-                    Adds more tools to an already complex environment
+                    <span>Adds more tools to an already complex environment</span>
                   </li>
                   <li className="comparison-item">
                     <span className="bullet">•</span>
-                    Takes their knowledge when they leave
+                    <span>Takes their knowledge when they leave</span>
                   </li>
                 </ul>
               </div>
@@ -263,34 +324,46 @@ const ITeS = () => {
 
             {/* Cyberaries Security Engineering */}
             <ScrollReveal animation="fade-left" delay={200}>
-              <div className="comparison-column cyberaries">
+              <div className="comparison-column cyberaries tech-card tech-card--featured">
                 <h3 className="comparison-heading cyberaries-heading">
                   CYBERARIES Security Engineering
                 </h3>
                 <ul className="comparison-list">
                   <li className="comparison-item">
-                    <span className="bullet">•</span>
-                    Builds self-sustaining security capabilities
+                    <span className="bullet">
+                      <CheckCircle size={18} className="check-icon" />
+                    </span>
+                    <span>Builds self-sustaining security capabilities</span>
                   </li>
                   <li className="comparison-item">
-                    <span className="bullet">•</span>
-                    Delivers working code and automated systems
+                    <span className="bullet">
+                      <CheckCircle size={18} className="check-icon" />
+                    </span>
+                    <span>Delivers working code and automated systems</span>
                   </li>
                   <li className="comparison-item">
-                    <span className="bullet">•</span>
-                    Engineers solutions, not just identifies problems
+                    <span className="bullet">
+                      <CheckCircle size={18} className="check-icon" />
+                    </span>
+                    <span>Engineers solutions, not just identifies problems</span>
                   </li>
                   <li className="comparison-item">
-                    <span className="bullet">•</span>
-                    Creates business-specific security architecture
+                    <span className="bullet">
+                      <CheckCircle size={18} className="check-icon" />
+                    </span>
+                    <span>Creates business-specific security architecture</span>
                   </li>
                   <li className="comparison-item">
-                    <span className="bullet">•</span>
-                    Integrates and optimizes your existing investments
+                    <span className="bullet">
+                      <CheckCircle size={18} className="check-icon" />
+                    </span>
+                    <span>Integrates and optimizes your existing investments</span>
                   </li>
                   <li className="comparison-item">
-                    <span className="bullet">•</span>
-                    Embeds knowledge permanently in your systems
+                    <span className="bullet">
+                      <CheckCircle size={18} className="check-icon" />
+                    </span>
+                    <span>Embeds knowledge permanently in your systems</span>
                   </li>
                 </ul>
               </div>
@@ -299,16 +372,21 @@ const ITeS = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
+      {/* CTA Section — Light, matches Key Challenges / Why Choose sections */}
+      <section className="cta-section tech-light-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">
-              <h2 className="cta-title">Contact our Cybersecurity Experts</h2>
+              <h2 className="cta-title">Ready to Secure Your Technology Stack?</h2>
               <p className="cta-description">
-                Let's discuss how we can help you build a comprehensive security framework for your ITeS operations
+                Let's discuss how we can help you build a security framework that keeps pace with your engineering velocity. Our team works closely with you to identify real risks, close gaps across cloud and code, and strengthen your defenses for the long term, not just for the next release.
               </p>
-              <button className="btn btn-primary btn-large">Contact Us</button>
+              <div className="cta-buttons">
+                <Link to="/contact" className="btn btn-primary btn-large cta-btn">
+                  <span>Contact Us</span>
+                  <ArrowRight size={18} className="btn-icon" />
+                </Link>
+              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -317,4 +395,4 @@ const ITeS = () => {
   );
 };
 
-export default ITeS;
+export default Technology;

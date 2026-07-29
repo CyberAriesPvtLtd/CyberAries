@@ -3,38 +3,156 @@
 }
 
 .careers-hero {
-  background: linear-gradient(135deg, rgba(11, 13, 24, 0.92) 0%, rgba(35, 43, 43, 0.88) 100%), 
-              url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=600&fit=crop') center/cover no-repeat;
-  padding: 180px 20px 100px;
-  text-align: center;
   position: relative;
   min-height: 100vh;
+  padding: clamp(150px, 18vw, 200px) 20px clamp(90px, 10vw, 120px);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  font-family: 'Lexend', sans-serif;
 }
 
+/* Background image layer — new uploaded artwork, cover-cropped so the
+   office/SOC scene on the right stays in frame across breakpoints */
 .careers-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(209,40,56,0.08)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-  opacity: 0.2;
+  z-index: 0;
+  background-image: url('../images/careers/hero-bg-careers.png');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+
+/* Premium dark overlay — only as strong as needed for text contrast;
+   the artwork already carries a dark left-hand zone, so this layer is
+   a light top-up rather than a full duplicate wash */
+.careers-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to right,
+      rgba(8, 8, 10, 0.55) 0%,
+      rgba(8, 8, 10, 0.35) 35%,
+      rgba(8, 8, 10, 0.1) 60%,
+      rgba(8, 8, 10, 0) 85%),
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0) 18%,
+      rgba(0, 0, 0, 0.35) 100%);
+}
+
+.careers-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem 0 clamp(2rem, 8vw, 5rem);
+  text-align: left;
+  color: #ffffff;
+}
+
+.careers-hero .hero-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(220, 38, 38, 0.15);
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  max-width: 780px;
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0 0 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.careers-hero .hero-description {
+  max-width: 620px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 400;
+  margin: 0;
 }
 
 .careers-main {
-  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 60px 20px 80px;
+}
+
+/* Faint circuit/grid texture — a plain 46px-tiled grid on its own
+   layer so it repeats reliably across the FULL height of this section
+   no matter how many job cards are loaded (unlike a single stretched
+   background, a tiled pattern doesn't distort or cut off on tall
+   pages). */
+.careers-main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(220, 38, 38, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 38, 38, 0.045) 1px, transparent 1px);
+  background-size: 46px 46px;
+  pointer-events: none;
+}
+
+/* Soft red glow — kept as two small, fixed-size circles anchored to
+   the top and bottom of the section (rather than stretched to the
+   section's full, variable height) and toned down further so it reads
+   as a faint accent, not a colored wash. */
+.careers-main::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle 460px at 8% 4%, rgba(220, 38, 38, 0.05), transparent 70%),
+    radial-gradient(circle 460px at 92% 100%, rgba(220, 38, 38, 0.04), transparent 70%);
+  animation: careersMainGlowPulse 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes careersMainGlowPulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+.careers-main > * {
+  position: relative;
+  z-index: 1;
 }
 
 .controls {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
   margin-bottom: 40px;
   background: var(--bg-pure-white);
-  padding: 30px;
+  padding: 32px;
   border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--ui-light-ash);
+  box-shadow: 0 5px 24px rgba(0, 0, 0, 0.06);
+  margin-top: 50px;
 }
 
 .controls-row {
@@ -43,69 +161,82 @@
   flex-wrap: wrap;
   align-items: center;
 }
-.hero-title {
-  font-size: 72px;
-  font-weight: 900;
-  line-height: 1.05;
-  margin: 25px 0;
-
-  background: linear-gradient(90deg, #ff3c4d, #ffffff);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-
 
 .input, .select, .btn {
-  padding: 12px 18px;
-  border-radius: 10px;
-  border: 2px solid var(--ui-light-ash);
-  font-family: inherit;
-  font-size: 1rem;
-  transition: all 0.3s;
+  height: 52px;
+  padding: 0 20px;
+  border-radius: 12px;
+  border: 1.5px solid var(--ui-light-ash);
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.98rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 
 .input {
   flex: 1;
   min-width: 250px;
+  height: 66px;
+  padding: 0 24px;
   background: var(--bg-soft-white);
   color: var(--text-jet-black);
+}
+
+.input::placeholder {
+  color: var(--text-graphite);
+}
+
+.input:hover {
+  border-color: rgba(209, 40, 56, 0.35);
 }
 
 .input:focus {
   outline: none;
   border-color: var(--accent-corporate-red);
-  box-shadow: 0 0 0 3px rgba(209, 40, 56, 0.1);
+  box-shadow: 0 0 0 4px rgba(209, 40, 56, 0.12);
 }
 
 .select {
-  background: var(--bg-soft-white);
+  background-color: var(--bg-soft-white);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path d="M1 1L6 6L11 1" stroke="%23D0050D" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  appearance: none;
+  -webkit-appearance: none;
   color: var(--text-jet-black);
   cursor: pointer;
-  min-width: 180px;
+  min-width: 190px;
+  padding-right: 42px;
+}
+
+.select:hover {
+  border-color: rgba(209, 40, 56, 0.35);
 }
 
 .select:focus {
   outline: none;
   border-color: var(--accent-corporate-red);
+  box-shadow: 0 0 0 4px rgba(209, 40, 56, 0.12);
 }
 
 .btn {
   background: var(--accent-corporate-red);
   color: white;
-  border: 2px solid var(--accent-corporate-red);
+  border: 1.5px solid var(--accent-corporate-red);
   cursor: pointer;
   font-weight: 700;
-  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 32px;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(209, 40, 56, 0.25);
+  white-space: nowrap;
 }
 
 .btn:hover {
   background: var(--accent-dark-crimson);
   border-color: var(--accent-dark-crimson);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(209, 40, 56, 0.3);
+  box-shadow: 0 10px 24px rgba(209, 40, 56, 0.4);
 }
 
 .meta-row {
@@ -125,29 +256,53 @@
 .jobs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 30px;
+  gap: 32px;
   list-style: none;
   margin-bottom: 40px;
 }
 
 .job-card {
+  position: relative;
   background: var(--bg-pure-white);
-  border: 2px solid transparent;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 20px;
-  padding: 30px;
+  padding: 34px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 280px;
-  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.2, 1);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   cursor: pointer;
 }
 
+/* Top accent line — same reveal-on-hover treatment as the Homepage's
+   feature/service cards, kept here for a unified card language */
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-corporate-red), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
 .job-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(209, 40, 56, 0.15);
-  border-color: var(--accent-corporate-red);
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.09),
+    0 8px 20px rgba(209, 40, 56, 0.12);
+  border-color: rgba(209, 40, 56, 0.35);
+}
+
+.job-card:hover::before {
+  opacity: 1;
 }
 
 .card-head {
@@ -155,7 +310,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .job-title {
@@ -163,36 +318,47 @@
   font-weight: 700;
   font-size: 1.3rem;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.35;
+  letter-spacing: -0.2px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.job-card:hover .job-title {
+  color: var(--accent-corporate-red);
+  transform: translateX(3px);
 }
 
 .job-badge {
-  font-size: 0.75rem;
-  padding: 6px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 7px 14px;
   border-radius: 20px;
   background: rgba(209, 40, 56, 0.1);
   color: var(--accent-corporate-red);
-  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
   white-space: nowrap;
-  border: 1px solid var(--accent-corporate-red);
+  border: 1px solid rgba(209, 40, 56, 0.3);
+  flex-shrink: 0;
 }
 
 .job-meta {
   color: var(--text-graphite);
-  font-size: 0.95rem;
-  margin-bottom: 15px;
+  font-size: 0.92rem;
+  margin-bottom: 16px;
   display: flex;
-  gap: 15px;
+  gap: 16px;
   align-items: center;
   flex-wrap: wrap;
 }
 
 .job-meta i {
   color: var(--accent-corporate-red);
+  margin-right: 4px;
 }
 
 .job-bullets {
-  margin: 15px 0;
+  margin: 16px 0;
   padding-left: 20px;
   color: var(--text-charcoal);
   flex-grow: 1;
@@ -201,15 +367,15 @@
 .job-bullets li {
   margin-bottom: 8px;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.65;
 }
+
 .job-summary {
   font-size: 0.95rem;
   color: var(--text-graphite);
-  margin: 15px 0;
-  line-height: 1.6;
+  margin: 16px 0;
+  line-height: 1.7;
 }
-
 
 .apply-row {
   display: flex;
@@ -222,51 +388,65 @@
 }
 
 .apply-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: var(--accent-corporate-red);
   color: white;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 12px 26px;
+  border-radius: 50px;
   cursor: pointer;
   font-weight: 700;
-  border: 2px solid var(--accent-corporate-red);
-  transition: all 0.3s;
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1.5px solid var(--accent-corporate-red);
+  box-shadow: 0 8px 20px rgba(209, 40, 56, 0.25);
+  transition: background 0.3s ease, border-color 0.3s ease,
+    transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .apply-btn:hover {
   background: var(--accent-dark-crimson);
   border-color: var(--accent-dark-crimson);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(209, 40, 56, 0.3);
+  box-shadow: 0 10px 24px rgba(209, 40, 56, 0.4);
 }
 
 .apply-btn i {
-  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.apply-btn:hover i {
+  transform: translateX(4px);
 }
 
 .load-more-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 60px 0px 100px;
-  margin-bottom:20px;
+  margin: 60px 0 20px;
 }
 
 .load-more-btn {
-  padding: 15px 40px;
-  border-radius: 30px;
-  border: 2px solid var(--accent-corporate-red);
+  padding: 15px 42px;
+  border-radius: 50px;
+  border: 1.5px solid var(--accent-corporate-red);
   background: transparent;
   color: var(--accent-corporate-red);
   cursor: pointer;
   font-weight: 700;
-  font-size: 1.1rem;
-  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.2, 1);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background 0.3s ease, color 0.3s ease,
+    transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .load-more-btn:hover {
   background: var(--accent-corporate-red);
   color: white;
   transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(209, 40, 56, 0.2);
+  box-shadow: 0 10px 26px rgba(209, 40, 56, 0.28);
 }
 
 .empty-msg {
@@ -376,10 +556,68 @@
   margin-right: 8px;
 }
 
+@media (max-width: 1024px) {
+  .careers-hero::before {
+    background-position: 68% center;
+  }
+
+  .careers-hero .hero-content {
+    padding-left: clamp(2rem, 6vw, 3rem);
+  }
+
+  .hero-title {
+    font-size: 2.75rem;
+    max-width: 620px;
+  }
+
+  .careers-hero .hero-description {
+    font-size: 1.05rem;
+  }
+
+}
+
 @media (max-width: 768px) {
   .careers-hero {
     padding: 140px 20px 80px;
     min-height: 85vh;
+    justify-content: center;
+  }
+
+  .careers-hero::before {
+    background-position: 62% center;
+  }
+
+  .careers-hero::after {
+    background: linear-gradient(to bottom,
+        rgba(8, 8, 10, 0.88) 0%,
+        rgba(8, 8, 10, 0.8) 100%);
+  }
+
+  .careers-hero .hero-content {
+    max-width: 100%;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .careers-hero .hero-subtitle {
+    font-size: 0.75rem;
+    padding: 8px 16px;
+    margin-bottom: 0.875rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    max-width: 100%;
+    margin-bottom: 1.25rem;
+  }
+
+  .careers-hero .hero-description {
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .controls {
+    padding: 24px;
   }
 
   .jobs-grid {
@@ -390,7 +628,7 @@
     flex-direction: column;
   }
 
-  .input, .select {
+  .input, .select, .btn {
     width: 100%;
   }
 }

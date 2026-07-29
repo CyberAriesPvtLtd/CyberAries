@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronRight, Menu, X, Phone } from 'lucide-react';
+import { ChevronDown, ChevronRight, Phone } from 'lucide-react';
 import './Header.css';
 import logoImage from '../images/logos/cyberaries-logo.png';
 
@@ -42,8 +42,10 @@ const getActiveCategory = (pathname) => {
 const Header = () => {
   const location = useLocation();
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [closingDropdown, setClosingDropdown] = useState(null);
   const [showNestedSurvey, setShowNestedSurvey] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
+  const [closeTimeoutId, setCloseTimeoutId] = useState(null);
 
   // Services sidebar tab — driven by URL, overrideable by hover click
   const [activeServiceTab, setActiveServiceTab] = useState(() => getActiveCategory(location.pathname));
@@ -55,6 +57,15 @@ const Header = () => {
 
   const isActive = (path) => location.pathname === path;
 
+  // Scroll effect for premium sticky navbar (shrinks + increases blur/opacity on scroll)
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // Desktop hover handlers
   const handleMouseEnter = (dropdown) => {
     // Only work on desktop
@@ -62,6 +73,11 @@ const Header = () => {
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
+      if (closeTimeoutId) {
+        clearTimeout(closeTimeoutId);
+        setCloseTimeoutId(null);
+      }
+      setClosingDropdown(null);
       setActiveDropdown(dropdown);
     }
   };
@@ -70,7 +86,16 @@ const Header = () => {
     // Only work on desktop
     if (window.innerWidth > 968) {
       const id = setTimeout(() => {
-        setActiveDropdown(null);
+        setActiveDropdown((current) => {
+          if (current) {
+            setClosingDropdown(current);
+            // Keep the dropdown mounted just long enough to play its
+            // exit animation, then unmount it entirely.
+            const closeId = setTimeout(() => setClosingDropdown(null), 280);
+            setCloseTimeoutId(closeId);
+          }
+          return null;
+        });
         setShowNestedSurvey(false);
       }, 150);
       setTimeoutId(id);
@@ -137,19 +162,24 @@ const Header = () => {
   useEffect(() => {
     return () => {
       document.body.style.overflow = '';
+      if (timeoutId) clearTimeout(timeoutId);
+      if (closeTimeoutId) clearTimeout(closeTimeoutId);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <header className="main-header">
+    <header className={`main-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         {/* Logo */}
         <Link to="/" className="header-logo" onClick={closeMobileMenu}>
-          <img
-            src={logoImage}
-            alt="Cyber Aries Security Solutions"
-            className="logo-image"
-          />
+          <span className="logo-container">
+            <img
+              src={logoImage}
+              alt="Cyber Aries Security Solutions"
+              className="logo-image"
+            />
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -170,13 +200,16 @@ const Header = () => {
             onMouseEnter={() => handleMouseEnter("company")}
             onMouseLeave={handleMouseLeave}
           >
-            <button className="nav-link">
+            <button
+              className={`nav-link ${activeDropdown === "company" ? "dropdown-open" : ""}`}
+            >
               Company
-              <ChevronDown size={14} />
+              <ChevronDown size={14} className={`nav-chevron ${activeDropdown === "company" ? "rotated" : ""}`} />
             </button>
 
-            {activeDropdown === "company" && (
-              <div className="dropdown-menu">
+            {(activeDropdown === "company" || closingDropdown === "company") && (
+              <div className={`dropdown-menu dropdown-menu--company ${activeDropdown === "company" ? "is-open" : "is-closing"}`}>
+                <span className="dropdown-pointer" aria-hidden="true" />
                 <Link to="/about" className="dropdown-item">
                   About Us
                 </Link>
@@ -193,13 +226,16 @@ const Header = () => {
             onMouseEnter={() => handleMouseEnter("services")}
             onMouseLeave={handleMouseLeave}
           >
-            <button className="nav-link">
+            <button
+              className={`nav-link ${activeDropdown === "services" ? "dropdown-open" : ""}`}
+            >
               Services
-              <ChevronDown size={14} />
+              <ChevronDown size={14} className={`nav-chevron ${activeDropdown === "services" ? "rotated" : ""}`} />
             </button>
 
-            {activeDropdown === "services" && (
-              <div className="services-mega-menu">
+            {(activeDropdown === "services" || closingDropdown === "services") && (
+              <div className={`services-mega-menu ${activeDropdown === "services" ? "is-open" : "is-closing"}`}>
+                <span className="dropdown-pointer dropdown-pointer--services" aria-hidden="true" />
                 {/* Sidebar */}
                 <div className="services-sidebar">
                   {[
@@ -666,13 +702,16 @@ const Header = () => {
             onMouseEnter={() => handleMouseEnter("industries")}
             onMouseLeave={handleMouseLeave}
           >
-            <button className="nav-link">
+            <button
+              className={`nav-link ${activeDropdown === "industries" ? "dropdown-open" : ""}`}
+            >
               Industries
-              <ChevronDown size={14} />
+              <ChevronDown size={14} className={`nav-chevron ${activeDropdown === "industries" ? "rotated" : ""}`} />
             </button>
 
-            {activeDropdown === "industries" && (
-              <div className="dropdown-menu">
+            {(activeDropdown === "industries" || closingDropdown === "industries") && (
+              <div className={`dropdown-menu dropdown-menu--industries ${activeDropdown === "industries" ? "is-open" : "is-closing"}`}>
+                <span className="dropdown-pointer" aria-hidden="true" />
                 <Link to="/industries/bfsi" className="dropdown-item">
                   BFSI
                 </Link>
@@ -701,13 +740,16 @@ const Header = () => {
             onMouseEnter={() => handleMouseEnter("resources")}
             onMouseLeave={handleMouseLeave}
           >
-            <button className="nav-link">
+            <button
+              className={`nav-link ${activeDropdown === "resources" ? "dropdown-open" : ""}`}
+            >
               Resources
-              <ChevronDown size={14} />
+              <ChevronDown size={14} className={`nav-chevron ${activeDropdown === "resources" ? "rotated" : ""}`} />
             </button>
 
-            {activeDropdown === "resources" && (
-              <div className="dropdown-menu">
+            {(activeDropdown === "resources" || closingDropdown === "resources") && (
+              <div className={`dropdown-menu dropdown-menu--resources ${activeDropdown === "resources" ? "is-open" : "is-closing"}`}>
+                <span className="dropdown-pointer" aria-hidden="true" />
                 <Link to="/resources/case-studies" className="dropdown-item">
                   Case Studies
                 </Link>
@@ -728,7 +770,7 @@ const Header = () => {
 
                 {/* Nested Survey Dropdown */}
                 <div
-                  className="dropdown-item nested-dropdown"
+                  className={`dropdown-item nested-dropdown ${showNestedSurvey ? "nested-open" : ""}`}
                   onMouseEnter={() => setShowNestedSurvey(true)}
                   onMouseLeave={() => setShowNestedSurvey(false)}
                 >
@@ -786,11 +828,16 @@ const Header = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="mobile-menu-toggle"
+          className={`mobile-menu-toggle ${isMobileMenuOpen ? 'open' : ''}`}
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <span className="hamburger">
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+            <span className="hamburger-line" />
+          </span>
         </button>
       </div>
 

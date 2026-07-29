@@ -1,0 +1,150 @@
+/* ================================
+   SERVICE ARCHITECTURE (SHARED)
+   Reusable hero + breadcrumb + card-button styling for the
+   Footer -> Category -> Solution Domain -> Service flow.
+
+   The card grids themselves reuse the site's existing global
+   ".services" / ".services-grid" / ".service-card" classes (defined
+   in Home.css) so the background, grid texture, card, icon, title
+   and description treatment stay pixel-identical to the homepage.
+   Only the pieces that don't already exist anywhere else — the dark
+   sub-page hero, the breadcrumb, and the in-card button — are defined
+   here.
+================================ */
+
+.service-arch-page {
+  font-family: 'Lexend', sans-serif;
+}
+
+/* -------- Hero -------- */
+.service-arch-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 160px 20px 110px;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(220, 38, 38, 0.16), transparent 45%),
+    radial-gradient(circle at 90% 15%, rgba(220, 38, 38, 0.10), transparent 40%),
+    linear-gradient(180deg, #0d0e14 0%, #0a0a10 55%, var(--accent-dark-crimson) 100%);
+}
+
+.service-arch-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px, 48px 48px;
+  pointer-events: none;
+}
+
+.service-arch-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+}
+
+.service-arch-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 28px;
+  transition: color 0.3s ease;
+}
+
+.service-arch-breadcrumb:hover {
+  color: #ffffff;
+}
+
+.service-arch-breadcrumb span {
+  opacity: 0.5;
+}
+
+.service-arch-breadcrumb .current {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.service-arch-title {
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.service-arch-description {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 680px;
+}
+
+/* -------- In-card button (View Services / Know More) -------- */
+.service-arch-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  margin-top: 24px;
+  padding: 0.85rem 1.7rem;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid #dc2626;
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
+  transition: all 0.3s ease;
+}
+
+.service-arch-card-btn i {
+  transition: transform 0.3s ease;
+}
+
+.service-arch-card-btn:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+  box-shadow: 0 12px 28px rgba(220, 38, 38, 0.5);
+}
+
+.service-arch-card-btn:hover i {
+  transform: translateX(4px);
+}
+
+.service-arch-card-btn--disabled {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.4);
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: none;
+  cursor: default;
+}
+
+.service-arch-card-btn--disabled:hover {
+  background: transparent;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: none;
+}
+
+/* Pushes the button to a consistent baseline even when descriptions
+   wrap to different heights, since .service-card-inner is already a
+   flex column (see Home.css). */
+.service-card-inner > .service-arch-card-btn {
+  margin-top: auto;
+  padding-top: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .service-arch-hero {
+    padding: 130px 20px 80px;
+  }
+}

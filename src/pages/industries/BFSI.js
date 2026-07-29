@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import ScrollReveal from '../../components/ScrollReveal';
 import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
-import { 
+import {
   Shield,
   Lock,
   AlertTriangle,
@@ -14,13 +15,15 @@ import {
   Handshake,
   Database,
   Server,
-  CheckCircle
+  CheckCircle,
+  ArrowRight
 } from 'lucide-react';
 import './BFSI.css';
 
 /**
  * BFSI Industry Page
  * Banking, Financial Services, and Insurance Security Solutions
+ * Alternating dark/light rhythm matching the Home page design system.
  * Fully Responsive for PC, Tablet, and Mobile
  */
 
@@ -30,22 +33,22 @@ const BFSI = () => {
     {
       title: "Evolving Fraud and Ransomware Attacks",
       description: "Cybercriminals are increasingly targeting financial institutions with sophisticated fraud schemes and ransomware attacks.",
-      icon: <AlertTriangle size={40} />
+      icon: <AlertTriangle size={28} />
     },
     {
       title: "Impacts of Attacks on BFSI Sector",
       description: "Breaches can lead to significant financial losses, regulatory penalties, and damage to customer trust and brand reputation.",
-      icon: <TrendingUp size={40} />
+      icon: <TrendingUp size={28} />
     },
     {
       title: "Confusion in Architecture and Technology Stack",
       description: "Complex legacy systems combined with modern digital platforms create security gaps and integration challenges.",
-      icon: <Server size={40} />
+      icon: <Server size={28} />
     },
     {
       title: "Addressing BFSI-Specific Security and Regulatory Compliance",
       description: "Meeting stringent requirements from RBI, SEBI, IRDAI, and global standards like PCI-DSS and ISO 27001.",
-      icon: <FileCheck size={40} />
+      icon: <FileCheck size={28} />
     }
   ];
 
@@ -54,32 +57,32 @@ const BFSI = () => {
     {
       title: "Manage Ransomware and Data Breaches",
       description: "Cyberaries offers real-time APT, malware, and ransomware protection. Deploying multi-layered security defenses and incident response protocols to minimize damage and ensure quick recovery.",
-      icon: <Shield size={40} />
+      icon: <Shield size={28} />
     },
     {
       title: "Quickly Respond to Cybersecurity Gaps",
       description: "Cyberaries provides comprehensive visibility and control through DLP, EDR, XDR, and threat detection solutions. Implementing continuous monitoring and rapid response capabilities to address vulnerabilities.",
-      icon: <Lock size={40} />
+      icon: <Lock size={28} />
     },
     {
       title: "Keep Customer Data Safe",
       description: "Utilize AES and other best-in-class encryption standards. Multi-factor authentication and role-based access controls ensure that sensitive customer data remains protected at all times.",
-      icon: <Database size={40} />
+      icon: <Database size={28} />
     },
     {
       title: "Protect Your Corporate and Customer Info",
       description: "Deploy endpoint protection, email security, and network monitoring. Use advanced encryption and access controls to safeguard both corporate intellectual property and customer information.",
-      icon: <Users size={40} />
+      icon: <Users size={28} />
     },
     {
       title: "Defend Against Ransomware and Phishing",
       description: "Deploy AI/ML-driven anti-ransomware and anti-phishing tools. Regular security awareness training and email filtering help detect and block malicious attempts before they cause harm.",
-      icon: <AlertTriangle size={40} />
+      icon: <AlertTriangle size={28} />
     },
     {
       title: "Ensure Compliance with Data Privacy Regulations",
       description: "Meet RBI, SEBI, IRDAI mandates along with PCI-DSS and ISO 27001 requirements. Conduct regular audits, risk assessments, and implement privacy-by-design principles.",
-      icon: <FileCheck size={40} />
+      icon: <FileCheck size={28} />
     }
   ];
 
@@ -88,51 +91,82 @@ const BFSI = () => {
     {
       title: "Partnered CERT-In Empanelled",
       description: "Recognized by the Government of India for security audits.",
-      icon: <Award size={50} />
+      icon: <Award size={28} />
     },
     {
       title: "350+ Clients Across Different Sector",
       description: "Proven expertise across diverse industries.",
-      icon: <Globe size={50} />
+      icon: <Globe size={28} />
     },
     {
       title: "End-to-End Support",
       description: "From scoping to remediation and final certification.",
-      icon: <Handshake size={50} />
+      icon: <Handshake size={28} />
     }
   ];
 
   // Smooth scroll to contact section or page
   const handleGetStarted = () => {
-    // Navigate to contact page or scroll to contact section
     window.location.href = '/contact';
-    // OR if you have a contact section on the same page:
-    // document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Desktop-only parallax for the hero artwork layer. Parallax is
+  // intentionally skipped on tablet/mobile per the design brief, and
+  // the particle layer is hidden there via CSS as well.
+  const heroRef = useRef(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1025px)');
+    const updateIsDesktop = () => setIsDesktop(mediaQuery.matches);
+    updateIsDesktop();
+    mediaQuery.addEventListener('change', updateIsDesktop);
+    return () => mediaQuery.removeEventListener('change', updateIsDesktop);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start']
+  });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [0, 70]);
 
   return (
     <div className="bfsi-page">
-      {/* Hero Section */}
-      <section className="hero-section" style={{ backgroundImage: `url(${heroBgImage})` }}>
-        <div className="hero-background"></div>
+      {/* Hero Section — Dark */}
+      <section className="hero-section" ref={heroRef}>
+        <motion.div
+          className="hero-bg-layer"
+          style={{
+            backgroundImage: `url(${heroBgImage})`,
+            y: isDesktop ? parallaxY : 0
+          }}
+        />
+        <div className="hero-overlay"></div>
+        <div className="hero-glow"></div>
+        <div className="hero-particles" aria-hidden="true">
+          {Array.from({ length: 7 }).map((_, i) => (
+            <span key={i} className="hero-particle" style={{ '--i': i }} />
+          ))}
+        </div>
+
         <div className="container">
           <div className="hero-content">
             <ScrollReveal animation="fade-down" delay={0}>
               <p className="hero-subtitle">Cybersecurity For BFSI Industry</p>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={100}>
               <h1 className="hero-title">
-                Infuse Digital Trust
+                <span className="text-gradient">Infuse Digital Trust</span>
               </h1>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={200}>
               <p className="hero-description">
                 The BFSI sector is at the forefront of digital transformation, making it a prime target for cyber threats. As financial institutions digitize operations, they face evolving challenges like ransomware, data breaches, and regulatory compliance. Securing customer trust and meeting stringent standards requires a proactive cybersecurity approach to safeguard sensitive data, ensure business continuity, and maintain regulatory adherence.
               </p>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={300}>
               <div className="hero-actions">
                 <button className="btn btn-primary" onClick={handleGetStarted}>
@@ -144,27 +178,28 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* Key Challenges Section */}
-      <section className="key-challenges">
+      {/* Key Challenges Section — Light + Grid */}
+      <section className="key-challenges bfsi-light-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">The Threat Landscape</p>
               <h2 className="section-title">Key Cybersecurity Challenges Facing the BFSI Industry</h2>
               <p className="section-description">
                 Understanding the unique threats that financial institutions face in today's digital landscape
               </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="challenges-grid">
             {challengesData.map((challenge, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="challenge-card">
-                  <div className="challenge-icon">
+                <div className="bfsi-card">
+                  <div className="bfsi-icon">
                     {challenge.icon}
                   </div>
-                  <h3 className="challenge-title">{challenge.title}</h3>
-                  <p className="challenge-description">{challenge.description}</p>
+                  <h3 className="bfsi-card-title">{challenge.title}</h3>
+                  <p className="bfsi-card-description">{challenge.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -172,28 +207,28 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* Solutions Section */}
-      <section className="solutions-section">
+      {/* CyberAries Approach + Solution Cards — one continuous Dark section */}
+      <section className="cyberaries-approach bfsi-dark-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">Our Approach</p>
               <h2 className="section-title">With Cyberaries, Take a Proactive Cyber Security Approach</h2>
               <p className="section-description">
                 Comprehensive security solutions tailored for the financial services industry
               </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="solutions-grid">
             {solutionsData.map((solution, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="solution-card">
-                  <div className="solution-icon">
+                <div className="bfsi-card bfsi-card--dark">
+                  <div className="bfsi-icon">
                     {solution.icon}
                   </div>
-                  <h3 className="solution-title">{solution.title}</h3>
-                  <p className="solution-description">{solution.description}</p>
-                  <div className="solution-indicator"></div>
+                  <h3 className="bfsi-card-title">{solution.title}</h3>
+                  <p className="bfsi-card-description">{solution.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -201,27 +236,28 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* Why Choose Section */}
-      <section className="why-choose">
+      {/* Why Choose Section — Light + Grid, matching Key Challenges */}
+      <section className="why-choose bfsi-light-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">Trusted Partner</p>
               <h2 className="section-title">Why Choose Cyberaries?</h2>
               <p className="section-description">
                 Trusted by leading financial institutions across India
               </p>
             </div>
           </ScrollReveal>
-          
+
           <div className="why-choose-grid">
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150}>
-                <div className="why-choose-card">
-                  <div className="why-choose-icon">
+                <div className="bfsi-card">
+                  <div className="bfsi-icon">
                     {item.icon}
                   </div>
-                  <h3 className="why-choose-title">{item.title}</h3>
-                  <p className="why-choose-description">{item.description}</p>
+                  <h3 className="bfsi-card-title">{item.title}</h3>
+                  <p className="bfsi-card-description">{item.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -229,19 +265,19 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* Cyberaries Difference Section */}
-      <section className="cyberaries-difference">
+      {/* Cyberaries Difference Section — Dark, matches Our Approach section */}
+      <section className="cyberaries-difference bfsi-dark-section">
         <div className="container">
           <ScrollReveal animation="fade-up">
             <h2 className="difference-title">
               THE <span className="highlight-red">CYBERARIES</span> DIFFERENCE
-            </h2>          
+            </h2>
           </ScrollReveal>
 
           <div className="comparison-grid">
             {/* Traditional Security Consulting */}
             <ScrollReveal animation="fade-right" delay={100}>
-              <div className="comparison-column traditional">
+              <div className="comparison-column traditional bfsi-card bfsi-card--dark">
                 <h3 className="comparison-heading">Traditional Security Consulting</h3>
                 <ul className="comparison-list">
                   <li className="comparison-item">
@@ -274,7 +310,7 @@ const BFSI = () => {
 
             {/* Cyberaries Security Engineering */}
             <ScrollReveal animation="fade-left" delay={200}>
-              <div className="comparison-column cyberaries">
+              <div className="comparison-column cyberaries bfsi-card bfsi-card--featured">
                 <h3 className="comparison-heading cyberaries-heading">
                   CYBERARIES Security Engineering
                 </h3>
@@ -322,18 +358,19 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
+      {/* CTA Section — Light, matches Key Challenges / Why Choose sections */}
+      <section className="cta-section bfsi-light-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">
               <h2 className="cta-title">Ready to Secure Your Financial Operations?</h2>
               <p className="cta-description">
-                Let's discuss how we can help you build a robust cybersecurity framework
+                Let's discuss how we can help you build a robust cybersecurity framework tailored to your institution. Our team works closely with you to identify real risks, close compliance gaps, and strengthen your defenses for the long term, not just for the next audit cycle.
               </p>
               <div className="cta-buttons">
-                <Link to="/contact" className="btn btn-secondary btn-large">
-                  Contact Us
+                <Link to="/contact" className="btn btn-primary btn-large cta-btn">
+                  <span>Contact Us</span>
+                  <ArrowRight size={18} className="btn-icon" />
                 </Link>
               </div>
             </div>

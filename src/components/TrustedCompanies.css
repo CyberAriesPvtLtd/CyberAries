@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ================================
+   TRUSTED BY LEADING ENTERPRISES
+   Premium off-white section (matches Why Choose Us / Services /
+   Testimonials): soft grid texture + very low-opacity red glow.
+   Logos run in a continuous, seamless CSS marquee.
+================================ */
+.trusted-companies {
+  position: relative;
+  overflow: hidden;
+  font-family: 'Lexend', sans-serif;
+  /* Flat tone matching Testimonials above (see that section's comment
+     for why this replaced the gradient) — same shared "Client Trust"
+     block, no seam at the boundary. */
+  background: #f7f7f5;
+  /* Top padding trimmed (was 56px) to sit close behind Testimonials'
+     reduced bottom padding, so the two read as one continuous white
+     "Client Trust" block instead of two stacked sections. */
+  padding: 30px 0 120px;
+}
+
+/* Faint grid texture + soft brand-red glow, kept extremely low-opacity
+   so it never competes with the logos. Same treatment used across the
+   site's other off-white sections. */
+.trusted-companies::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(208, 5, 13, 0.07), transparent 45%),
+    radial-gradient(circle at 88% 80%, rgba(208, 5, 13, 0.05), transparent 45%),
+    linear-gradient(rgba(17, 17, 17, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 46px 46px, 46px 46px;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.trusted-companies-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Heading */
+.trusted-companies-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 70px;
+}
+
+.trusted-companies-subtitle {
+  color: #D0050D;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.trusted-companies-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #161616;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.trusted-companies-title-accent {
+  color: #D0050D;
+}
+
+.trusted-companies-description {
+  font-size: 1.05rem;
+  color: #5b5b5b;
+  line-height: 1.8;
+}
+
+/* Marquee */
+.trusted-companies-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* Soft fade at both edges so logos don't hard-cut at the container walls */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.trusted-companies-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: trustedCompaniesScroll 32s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover — applies to the whole track regardless of which
+   logo triggered it, per spec. */
+.trusted-companies-marquee-wrapper:hover .trusted-companies-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes trustedCompaniesScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    /* Exactly half the track width (the roster is duplicated once),
+       so this frame is pixel-identical to the starting frame. */
+    transform: translateX(-50%);
+  }
+}
+
+.trusted-companies-logo-item {
+  flex: 0 0 auto;
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 0 15px;
+}
+
+/* Fixed-height stage so every entry — image logo or monogram
+   placeholder — lines up on the same baseline regardless of the
+   source logo's natural aspect ratio. */
+.trusted-companies-logo-mark {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trusted-companies-logo-img {
+  height: 40px;
+  max-width: 180px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+/* Monogram badge shown when no logoUrl is supplied yet — a neutral,
+   enterprise-style stand-in rather than leaving a blank slot. */
+.trusted-companies-logo-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(208, 5, 13, 0.06);
+  border: 1px solid rgba(208, 5, 13, 0.16);
+  color: #D0050D;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: transform 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+}
+
+.trusted-companies-logo-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #3a3a3a;
+  text-align: center;
+  white-space: nowrap;
+  transition: transform 0.35s ease;
+}
+
+.trusted-companies-logo-item:hover .trusted-companies-logo-img {
+  transform: scale(1.08);
+}
+
+.trusted-companies-logo-item:hover .trusted-companies-logo-placeholder {
+  background: rgba(208, 5, 13, 0.1);
+  border-color: rgba(208, 5, 13, 0.3);
+  transform: scale(1.08);
+}
+
+/* Respect the visitor's OS-level reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .trusted-companies-marquee-track {
+    animation: none;
+  }
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .trusted-companies {
+    padding: 48px 0 100px;
+  }
+
+  .trusted-companies-title {
+    font-size: 2.2rem;
+  }
+
+  .trusted-companies-logo-item {
+    width: 160px;
+    padding: 0 16px;
+  }
+
+  .trusted-companies-logo-img {
+    height: 34px;
+  }
+
+  .trusted-companies-logo-placeholder {
+    width: 42px;
+    height: 42px;
+  }
+
+  .trusted-companies-logo-name {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .trusted-companies {
+    padding: 40px 0 80px;
+  }
+
+  .trusted-companies-header {
+    margin-bottom: 50px;
+  }
+
+  .trusted-companies-title {
+    font-size: 1.9rem;
+  }
+
+  .trusted-companies-description {
+    font-size: 0.95rem;
+  }
+
+  /* Single moving row, slowed down for a calmer feel on small screens */
+  .trusted-companies-marquee-track {
+    animation-duration: 46s;
+  }
+
+  .trusted-companies-logo-item {
+    width: 130px;
+    gap: 10px;
+    padding: 0 12px;
+  }
+
+  .trusted-companies-logo-img {
+    height: 28px;
+  }
+
+  .trusted-companies-logo-mark {
+    height: 40px;
+  }
+
+  .trusted-companies-logo-placeholder {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  .trusted-companies-logo-name {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .trusted-companies-title {
+    font-size: 1.6rem;
+  }
+
+  .trusted-companies-logo-item {
+    width: 110px;
+    padding: 0 10px;
+  }
+}

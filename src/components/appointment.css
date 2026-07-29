@@ -24,21 +24,31 @@
    LEFT CONTENT (TEXT)
 ================================ */
 .appointment-hero-text {
+  font-family: "Lexend", sans-serif;
   color: #ffff;
-  margin-bottom: 100px;
+  margin-bottom: 0;
 }
 
 .hero-tag {
+  font-family: "Lexend", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.4);
   font-size: 13px;
-  letter-spacing: 2px;
+  letter-spacing: 1.6px;
   font-weight: 600;
-  color: #ffff;
+  color: #ff8a93;
+  text-transform: uppercase;
 }
 
 .appointment-hero-text h1 {
+  font-family: "Lexend", sans-serif;
   font-size: 42px;
   font-weight: 700;
-  margin: 16px 0;
+  margin: 20px 0 18px;
   line-height: 1.2;
   /* color: #dc2626; */
   background: linear-gradient(90deg, #ff3c4d, #ffffff);
@@ -47,16 +57,60 @@
 }
 
 .appointment-hero-text p {
+  font-family: "Lexend", sans-serif;
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.75;
   color: #d1d5db;
   max-width: 520px;
+  margin-bottom: 14px;
 }
+
+/* TRUST INDICATORS */
+.trust-indicators {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trust-indicators li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Lexend", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #e5e7eb;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.trust-indicators li:hover {
+  transform: translateX(6px);
+  color: #ffffff;
+}
+
+.trust-indicators li svg {
+  color: #ff3c4d;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.trust-indicators li:hover svg {
+  transform: scale(1.2) rotate(-6deg);
+  color: #ff8a93;
+}
+
  .hero-quote {
-  margin-top: 20px;
+  margin-top: 8px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(220, 38, 38, 0.4);
+  font-family: "Lexend", sans-serif;
   font-style: italic;
-  color: rgb(255, 199, 121) !important;
-  font-size: 20px !important;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 15px;
 }
 
 /* ===============================
@@ -64,8 +118,8 @@
 ================================ */
 .appointment-form-wrapper {
   background: #ffffff;
-  border-radius: 14px;
-  padding: 32px;
+  border-radius: 16px;
+  padding: 36px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.45);
 }
 
@@ -73,28 +127,30 @@
    FORM ELEMENTS
 ================================ */
 .form-title {
+  font-family: "Lexend", sans-serif;
   font-size: 22px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   color: #dc2626;
 }
 /* margin-right: 122px; */
 
 .form-control {
   width: 100%;
-  padding: 14px 14px;
+  padding: 16px 16px;
   box-sizing: border-box;
   font-size: 14px;
-  border-radius: 8px;
+  font-family: "Lexend", sans-serif;
+  border-radius: 10px;
   border: 1px solid #e5e7eb;
-  margin-bottom: 14px;
-  font-family: inherit;
+  margin-bottom: 16px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .form-control:focus {
   outline: none;
   border-color: #dc2626;
-  box-shadow: 0 0 0 2px rgba(220,38,38,0.15);
+  box-shadow: 0 0 0 3px rgba(220,38,38,0.12);
 }
 
 textarea.form-control {
@@ -105,7 +161,7 @@ textarea.form-control {
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 12px;
   width: 100%;
 
 }
@@ -114,27 +170,24 @@ textarea.form-control {
    SUBMIT BUTTON
 ================================ */
 .btn-primary1 {
-    
+  font-family: "Lexend", sans-serif;
   width: 100%;
   background: #dc2626;
   color: #ffffff;
   border: none;
-  padding: 14px;
-  border-radius: 8px;
+  padding: 15px;
+  border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-  /* transition: all 0.3s ease ; */
-  /* transform: translateY(0); */
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-primary1:hover {
   background: #b91c1c;
   color: #e5e7eb;
-  transform: translateY(-1px);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+  box-shadow: 0 10px 24px rgba(220, 38, 38, 0.4);
 }
 
 /* ===============================
@@ -151,6 +204,7 @@ textarea.form-control {
 }
 
 .success-box {
+  font-family: "Lexend", sans-serif;
   background: #0b1221;
   color: #ffffff;
   padding: 24px;
@@ -217,7 +271,17 @@ textarea.form-control {
   }
 
   .appointment-hero-text p {
-    margin: 0 auto;
+    margin: 0 auto 14px;
+  }
+
+  .trust-indicators {
+    align-items: center;
+  }
+
+  .hero-quote {
+    margin: 8px auto 0;
+    text-align: left;
+    max-width: 420px;
   }
 }
 

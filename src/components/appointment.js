@@ -3,6 +3,7 @@ import "./appointment.css"; // create this file (CSS given earlier)
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Clock, CheckCircle2, UserCheck } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +49,7 @@ function Appointment() {
       modal.style.display = "none";
 
       const btn = document.getElementById("send_message");
-      btn.value = "Send Appointment";
+      btn.value = "Schedule Consultation";
       btn.style.cursor = "pointer";
       btn.style.opacity = "1";
       btn.disabled = false;
@@ -105,6 +106,23 @@ function Appointment() {
   );
 
   /* ============================
+     TRUST INDICATORS (STAGGER)
+     ============================ */
+  gsap.fromTo(
+    ".trust-indicators li",
+    { opacity: 0, x: -30 },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 0.6,
+      stagger: 0.18,
+      delay: 0.6,
+      ease: "back.out(1.7)",
+      clearProps: "all",
+    }
+  );
+
+  /* ============================
      INPUT STAGGER (SUBTLE)
      ============================ */
   gsap.fromTo(
@@ -121,17 +139,6 @@ function Appointment() {
     }
   );
 
-  /* ============================
-     OPTIONAL FLOAT (SAFE)
-     ============================ */
-  gsap.to(".appointment-hero-text", {
-    y: -6,
-    duration: 3,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut",
-  });
-
   return () => {
     ScrollTrigger.getAll().forEach(t => t.kill());
   };
@@ -146,15 +153,36 @@ function Appointment() {
 
           {/* LEFT CONTENT */}
           <div className="appointment-hero-text">
-            <span className="hero-tag">BOOK APPOINTMENT</span>
-            <h1>Book a Free Cybersecurity Consultation</h1>
+            <span className="hero-tag">BOOK CONSULTATION</span>
+            <h1>Schedule Your Free Cybersecurity Consultation</h1>
             <p>
-              Concerned about cyber threats? Schedule a free consultation with
-              our cybersecurity experts and get guidance on securing your
-              systems, data, and business operations.
+              Meet with our cybersecurity specialists to discuss your current
+              security challenges, evaluate potential risks, and receive
+              practical recommendations tailored to your organization.
             </p>
+            <p>
+              Whether you're strengthening your security posture, preparing
+              for compliance, or planning future security initiatives, our
+              team is here to help you move forward with confidence.
+            </p>
+
+            <ul className="trust-indicators">
+              <li>
+                <Clock size={18} strokeWidth={2} />
+                <span>Free Consultation</span>
+              </li>
+              <li>
+                <CheckCircle2 size={18} strokeWidth={2} />
+                <span>No Obligation</span>
+              </li>
+              <li>
+                <UserCheck size={18} strokeWidth={2} />
+                <span>Personalized Security Guidance</span>
+              </li>
+            </ul>
+
             <div className="hero-quote">
-              “Security is built on preparation, not reaction.”
+              “Strong cybersecurity begins with informed decisions.”
             </div>
           </div>
 
@@ -167,7 +195,7 @@ function Appointment() {
               action="https://docs.google.com/forms/d/e/1FAIpQLSdCFuDARkRQbPWw-7RnDEhLW5uUz11Ncx4QbAPxak3nS-TA-Q/formResponse"
               onSubmit={handleSubmit}
             >
-              <h3 className="form-title">Book a Free Consultation</h3>
+              <h3 className="form-title">Schedule Your Consultation</h3>
 
               <select name="entry.2100516128" id="service" className="form-control">
                 <option value="">Select Cybersecurity Service</option>
@@ -191,12 +219,12 @@ function Appointment() {
 
               <div className="form-row">
                 <input type="text" name="entry.1783163467" id="name" placeholder="Name" required className="form-control" />
-                <input type="email" name="entry.913903228" placeholder="Email" required className="form-control" />
-             </div>
-
-              <input type="tel" name="entry.1429787953" id="phone" placeholder="Phone"inputmode="numeric"
+                <input type="tel" name="entry.1429787953" id="phone" placeholder="Phone" inputmode="numeric"
                     pattern="[0-9]{10}"
                     title="Enter a valid 10 digit phone number" required className="form-control" />
+             </div>
+
+              <input type="email" name="entry.913903228" placeholder="Email" required className="form-control" />
 
               <textarea
                 name="entry.1035017623"
@@ -211,7 +239,7 @@ function Appointment() {
                 type="submit"
                 id="send_message"
                 className="btn-primary1"
-                value="Send Appointment"
+                value="Schedule Consultation"
               />
             </form>
           </div>

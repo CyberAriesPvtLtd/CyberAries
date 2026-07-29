@@ -120,7 +120,7 @@ const Education = () => {
             
             <ScrollReveal animation="fade-up" delay={100}>
               <h1 className="hero-title">
-                Secure Learning Environments and <span className="text-gradient">Protect Student Data</span>
+                <span className="text-gradient">Secure Learning Environments and Protect Student Data</span>
               </h1>
             </ScrollReveal>
             

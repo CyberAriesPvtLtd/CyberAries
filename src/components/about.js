@@ -2,21 +2,22 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./about.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ShieldAlert, Lock, BadgeCheck } from "lucide-react";
+import { ShieldAlert, Lock, BadgeCheck, ShieldCheck, Users, Handshake, Settings2, Target, Compass } from "lucide-react";
 
 // import about_image from "../../public/about_image.png";
 const About = () => {
 const heroTextRef = useRef(null);
+const heroTrustRef = useRef(null);
 const expTextRef = useRef(null);
 const expImgRef = useRef(null);
 const expertiseRef = useRef(null);
 const overviewRef = useRef(null);
 const teamRef = useRef(null);
 const ctaRef = useRef(null);
-const imgRef = useRef(null);
-const titleRef = useRef(null);
-const textRef = useRef(null);
-const quoteRef = useRef(null);
+const heroTitleRef = useRef(null);
+const heroDescRef = useRef(null);
+const expertiseTagRef = useRef(null);
+const expertiseTitleRef = useRef(null);
 
  useEffect(() => {
   gsap.registerPlugin(ScrollTrigger);
@@ -47,18 +48,38 @@ const quoteRef = useRef(null);
     }
 
     /* ----------------------------------
-       HERO IMAGE FLOAT
+       HERO TRUST LIST (Enterprise Security,
+       Risk & Compliance, Continuous Protection)
     ---------------------------------- */
-    if (imgRef.current) {
-      gsap.to(imgRef.current, {
-        y: -12,
-        rotate: 1.5,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: "power1.inOut",
-      });
+    if (heroTrustRef.current?.children) {
+      gsap.fromTo(
+        heroTrustRef.current.children,
+        { opacity: 0, y: 20, scale: 0.85 },
+        {
+          scrollTrigger: {
+            trigger: heroTrustRef.current,
+            start: "top 85%",
+            once: true,
+          },
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          stagger: 0.15,
+          duration: 0.7,
+          delay: 0.5,
+          ease: "back.out(1.7)",
+          clearProps: "opacity,transform",
+        }
+      );
     }
+
+    /* ----------------------------------
+       HERO IMAGE FLOAT — removed.
+       No hero <img> currently exists in this component
+       (see commented-out import at the top of the file).
+       If a hero image is reintroduced, re-add a dedicated
+       ref (e.g. heroImgRef) and this float animation.
+    ---------------------------------- */
 
     /* ----------------------------------
        EXPERIENCE IMAGE
@@ -88,7 +109,7 @@ const quoteRef = useRef(null);
     ---------------------------------- */
     if (expTextRef.current?.children) {
       const expTextItems = Array.from(expTextRef.current.children).filter(
-        el => !el.classList.contains("exp-cta-btn")
+        el => !el.classList.contains("about-exp-cta-btn")
       );
 
       gsap.fromTo(
@@ -183,10 +204,12 @@ const quoteRef = useRef(null);
        CTA SECTION (TEXT ONLY — BUTTON SAFE)
     ---------------------------------- */
     if (ctaRef.current?.children) {
-      const [heading, text] = ctaRef.current.children;
+      const ctaTextItems = Array.from(ctaRef.current.children).filter(
+        el => !el.classList.contains("about-cta-actions")
+      );
 
       gsap.fromTo(
-        [heading, text],
+        ctaTextItems,
         { opacity: 0, y: 30 },
         {
           scrollTrigger: {
@@ -196,6 +219,7 @@ const quoteRef = useRef(null);
           },
           opacity: 1,
           y: 0,
+          stagger: 0.15,
           duration: 1,
           ease: "power2.out",
           clearProps: "opacity,transform",
@@ -214,31 +238,50 @@ const quoteRef = useRef(null);
   return (
       <>
     <section className="about-hero">
-      <div className="about-hero-container">
-        {/* LEFT CONTENT */}
-        <div className="about-hero-text" ref={heroTextRef}>
-          <h1 ref={titleRef}>About Us</h1>
+      <div className="about-hero-bg" aria-hidden="true">
+        <div className="about-hero-grid"></div>
+        <div className="about-hero-glow"></div>
+        <div className="about-hero-scanline"></div>
+      </div>
 
-          <p ref={textRef}>
-            We are a cybersecurity-focused organization dedicated to protecting
-            businesses from evolving digital threats through proactive defense,
-            risk analysis, and continuous monitoring.
+      <div className="about-hero-container">
+        <div className="about-hero-text" ref={heroTextRef}>
+          <span className="about-hero-badge">Trusted Cybersecurity Partner</span>
+
+          <h1 ref={heroTitleRef} className="about-hero-heading">
+            Building Trust Through
+            <br />
+            Proactive Cybersecurity
+          </h1>
+
+          <p ref={heroDescRef} className="about-hero-description">
+            CyberAries exists to help organizations stay ahead of threats,
+            not react to them. We pair deep technical expertise with
+            continuous monitoring and risk-led strategy, so security becomes
+            a foundation your business can grow on.
           </p>
 
-          <span className="about-hero-quote" ref={quoteRef}>
-            “Security is built on preparation, not reaction.”
-          </span>
-        </div>
+          <ul className="about-hero-trust" ref={heroTrustRef}>
+            <li>
+              <ShieldAlert size={18} strokeWidth={2} />
+              <span>Enterprise Security</span>
+            </li>
+            <li>
+              <BadgeCheck size={18} strokeWidth={2} />
+              <span>Risk &amp; Compliance</span>
+            </li>
+            <li>
+              <Lock size={18} strokeWidth={2} />
+              <span>Continuous Protection</span>
+            </li>
+          </ul>
 
-        {/* RIGHT IMAGE */}
-        {/* <div className="about-hero-image">
-          <img
-            ref={imgRef}
-            src="../"
-            alt="Cybersecurity confidence illustration"
-          />
-        </div> */}
-        
+          <div className="about-hero-cta">
+            <a href="/contact" className="about-hero-btn-secondary">
+              Contact Us
+            </a>
+          </div>
+        </div>
       </div>
       </section>
       <section className="about-experience">
@@ -246,9 +289,9 @@ const quoteRef = useRef(null);
       <div className="about-exp">
         <div className="about-exp-container">
           <div className="about-exp-visual">
-            <div className="exp-card">
-              <span className="exp-number">10+</span>
-              <span className="exp-label">Years of Experience</span>
+            <div className="about-exp-card">
+              <span className="about-exp-number">10+</span>
+              <span className="about-exp-label">Years of Experience</span>
             </div>
 
             <img
@@ -261,19 +304,25 @@ const quoteRef = useRef(null);
           
           {/* LEFT CONTENT */}
           <div className="about-exp-text" ref={expTextRef}>
-            <span className="about-exp-tag" >OUR EXPERIENCE</span>
+            <span className="about-exp-tag" >OUR STORY</span>
 
             <h2>
-              Trusted Cybersecurity <br /> Expertise
+              Driven by Trust. <br /> Built for Security.
             </h2>
 
             <p>
-              With years of hands-on experience, we help organizations identify
-              vulnerabilities before attackers do. Our approach combines deep
-              technical expertise, risk analysis, and continuous monitoring to
-              secure modern digital infrastructure.
+              CyberAries was founded on a simple belief: businesses shouldn't
+              have to choose between growth and security. Too many
+              organizations only think about cybersecurity after a breach
+              has already happened, so we built our company around getting
+              ahead of that moment instead of responding to it. Every
+              engagement is guided by the same principle &mdash; understand the
+              real risk first, then build defenses that hold up under
+              pressure, not just on paper. That commitment has shaped how we
+              work with every client, and it's the same standard we hold
+              ourselves to as threats continue to evolve.
             </p>
-            <a href="/contact" className="exp-cta-btn">
+            <a href="/contact" className="about-exp-cta-btn">
               Start For Free
             </a>
           </div>
@@ -285,114 +334,101 @@ const quoteRef = useRef(null);
 
       <section className="about-expertise">
         <div className="about-expertise-header">
-          <span className="expertise-tag" ref={textRef}>CYBERSECURITY EXPERTS</span>
-          <h2 ref={titleRef}>Comprehensive Cybersecurity Solutions for Modern Threats</h2>
-          {/* <a href="/contact" className="expertise-cta">Learn More</a> */}
+          <span className="about-expertise-tag" ref={expertiseTagRef}>WHY CYBERARIES</span>
+          <h2 ref={expertiseTitleRef}>Why Organizations Trust CyberAries</h2>
         </div>
 
-        <div className="about-expertise-content">
-          {/* LEFT VISUAL */}
-          <div className="expertise-visual">
-            <img
-              src="/assets/expert2.webp"
-              alt="Security Operations Center"
-              className="img-main"
-            />
-
-            <img
-            
-              src="./assets/download1.webp"
-              alt="Cybersecurity shield"
-              className="img-overlay"
-              style={{  }}
-            />
-
-            <div className="expertise-stat">
-              <h3>99.9%</h3>
-              <p>Threat detection and prevention rate</p>
-            </div>
+        <div className="about-trust-grid" ref={expertiseRef}>
+          <div className="about-trust-card">
+            <div className="about-icon-circle"><ShieldCheck size={22} /></div>
+            <h4>Proactive Security Approach</h4>
+            <p>
+              We identify and address risk before it becomes an incident,
+              building defenses around what could happen, not just what
+              already has.
+            </p>
           </div>
 
-          {/* RIGHT CONTENT */}
-          <div className="expertise-list" ref={expertiseRef}>
-            <div className="expertise-item">
-              <div className="icon-circle"><ShieldAlert size={22} /></div>
-              <div>
-                <h4>Vulnerability Assessment</h4>
-                <p>
-                  Identify weaknesses before attackers do, reduce risk exposure,
-                  and strengthen your overall security posture.
-                </p>
-              </div>
-            </div>
+          <div className="about-trust-card">
+            <div className="about-icon-circle"><Users size={22} /></div>
+            <h4>Experienced Security Professionals</h4>
+            <p>
+              Our team brings years of hands-on security expertise across
+              industries, so every recommendation is grounded in real-world
+              practice.
+            </p>
+          </div>
 
-            <div className="expertise-item">
-              <div className="icon-circle"><Lock size={22} /></div>
-              <div>
-                <h4>Data Protection</h4>
-                <p>
-                  Safeguard sensitive data against breaches and leaks with
-                  strong encryption and access control.
-                </p>
-              </div>
-            </div>
+          <div className="about-trust-card">
+            <div className="about-icon-circle"><Settings2 size={22} /></div>
+            <h4>Tailored Business Solutions</h4>
+            <p>
+              We take time to understand your business before proposing a
+              single solution, so every strategy fits how you actually
+              operate.
+            </p>
+          </div>
 
-            <div className="expertise-item">
-              <div className="icon-circle"> <BadgeCheck size={22} /></div>
-              <div>
-                <h4>Brand Reputation</h4>
-                <p>
-                  Maintain customer trust and brand integrity by preventing
-                  cyber incidents.
-                </p>
-              </div>
-            </div>
+          <div className="about-trust-card">
+            <div className="about-icon-circle"><Handshake size={22} /></div>
+            <h4>Long-Term Security Partnership</h4>
+            <p>
+              Security is never static. We stay engaged well beyond
+              onboarding, adapting alongside your business as new threats
+              emerge.
+            </p>
           </div>
         </div>
       </section>
       <section className="about-overview">
-        <div className="wrap">
-          <div className="overview-text" ref={overviewRef}>
-            <span className="label">Company Overview</span>
+        <div className="about-overview-header">
+          <span className="about-overview-tag">MISSION &amp; VISION</span>
+          <h2>Where We're Headed</h2>
+        </div>
 
-            <h3>Cybersecurity Solutions for Complete Digital Safety</h3>
-
+        <div className="about-mv-grid" ref={overviewRef}>
+          <div className="about-mv-card">
+            <div className="about-icon-circle"><Target size={22} /></div>
+            <h4>Our Mission</h4>
             <p>
-              CyberAries provides comprehensive cybersecurity services that help
-              organizations protect their digital assets, infrastructure, and
-              data. Our solutions focus on proactive defense, continuous
-              monitoring, and rapid response to evolving cyber threats.
+              To help organizations operate with confidence by making
+              strong security practical, not just theoretical. We focus on
+              real risk, clear communication, and defenses that hold up
+              under actual pressure, not just in a report.
             </p>
-
-            <ul>
-              <li>Continuous threat monitoring and incident response</li>
-              <li>Advanced malware and ransomware protection</li>
-              <li>Customized security architecture</li>
-              <li>Compliance-aligned security practices</li>
-            </ul>
           </div>
 
-          <div class="overview-image">
-            <img src="/assets/team1.webp" alt="Security monitoring center" />
+          <div className="about-mv-card">
+            <div className="about-icon-circle"><Compass size={22} /></div>
+            <h4>Our Vision</h4>
+            <p>
+              To become the security partner organizations turn to first,
+              not after something goes wrong. We're building toward a
+              future where proactive protection is the standard, not the
+              exception.
+            </p>
           </div>
         </div>
       </section>
       
-      <section className="cta-section">
-        <div className="cta-container">
-          <div className="cta-content" ref={ctaRef}>
-            <h2>24/7 Cyber Protection Backed by Experts</h2>
+      <section className="about-cta-section">
+        <div className="about-cta-container">
+          <div className="about-cta-content" ref={ctaRef}>
+            <span className="about-cta-badge">LET'S BUILD A SECURE FUTURE</span>
+
+            <h2>Ready to Strengthen Your Cybersecurity Strategy?</h2>
             <p>
-              Protect your organization from evolving cyber threats with
-              continuous monitoring, rapid incident response, and
-              enterprise-grade security strategies tailored to your business.
+              Whether you're looking to strengthen your security posture,
+              improve compliance, or proactively defend your business
+              against evolving cyber threats, CyberAries is here to help.
+              Let's build a secure and resilient digital future together.
             </p>
 
-            <div className="cta-actions">
-              <a href="/appointment" className="btn-primary">
+            <div className="about-cta-actions">
+              <a href="/appointment" className="about-btn-primary">
                 Schedule Free Consultation
               </a>
-              <a href="/services" className="btn-secondary">
+              <a href="#" className="about-btn-secondary">
                 Explore Services
               </a>
             </div>

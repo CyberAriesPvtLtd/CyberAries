@@ -132,28 +132,8 @@ const Careers = () => {
         </div>
       </section>
 
-      <section className="stats">
-        <div className="stats-container">
-          <div className="stat-item">
-            <div className="stat-number">50+</div>
-            <div className="stat-label">Security Professionals</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">100+</div>
-            <div className="stat-label">Projects Delivered</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">24/7</div>
-            <div className="stat-label">Support Coverage</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">10+</div>
-            <div className="stat-label">Years of Excellence</div>
-          </div>
-        </div>
-      </section>
-
-      <main className="careers-main container">
+      <main className="careers-main">
+        <div className="container">
         <div className="controls">
           <input
             className="input"
@@ -240,8 +220,9 @@ const Careers = () => {
               </div>
             )}
           </>
-        )}
-      </main>
+          )}
+      </div>
+    </main>
 
       {modalOpen && selectedJob && (
         <div className="modal-backdrop" onClick={closeModal}>
