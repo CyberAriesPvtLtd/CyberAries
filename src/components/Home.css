@@ -25,7 +25,7 @@ main {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url('../images/cybersecurity/hero-bg-cyber.png');
+  background-image: url('../images/cybersecurity/hero-bg-cyber.webp');
   background-size: cover;
   background-position: right center;
   background-repeat: no-repeat;
@@ -851,7 +851,7 @@ section {
     inset:0;
     z-index:0;
 
-    background-image:url("../images/security/your-security-mission-bg.png");
+    background-image:url("../images/security/your-security-mission-bg.webp");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -1301,26 +1301,26 @@ section {
    non-positioned wrapper: its children still resolve their absolute
    coordinates against .security-circle, but the wrapper itself lets
    us group-hover the badge, connector and card together. */
-.process-step {
+.secure-process-step {
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
 
 
-.process-step-top:hover .step-badge-top,
-.process-step-bottom:hover .step-badge-bottom,
-.process-step-top.is-active .step-badge-top,
-.process-step-bottom.is-active .step-badge-bottom {
+.secure-process-step-top:hover .step-badge-top,
+.secure-process-step-bottom:hover .step-badge-bottom,
+.secure-process-step-top.is-active .step-badge-top,
+.secure-process-step-bottom.is-active .step-badge-bottom {
   transform: translateX(-50%) scale(1.12);
   box-shadow: 0 0 0 6px rgba(var(--sec-red-rgb), 0.15), 0 8px 26px rgba(var(--sec-red-rgb), 0.6);
 }
 
 
-.process-step-left:hover .step-badge-left,
-.process-step-right:hover .step-badge-right,
-.process-step-left.is-active .step-badge-left,
-.process-step-right.is-active .step-badge-right {
+.secure-process-step-left:hover .step-badge-left,
+.secure-process-step-right:hover .step-badge-right,
+.secure-process-step-left.is-active .step-badge-left,
+.secure-process-step-right.is-active .step-badge-right {
   transform: translateY(-50%) scale(1.12);
   box-shadow: 0 0 0 6px rgba(var(--sec-red-rgb), 0.15), 0 8px 26px rgba(var(--sec-red-rgb), 0.6);
 }
@@ -1437,45 +1437,45 @@ section {
 
 /* Hovering anywhere in the step (badge or card) lifts the card,
    reveals its accent line and animates its icon. */
-.process-step-top:hover .cycle-card.top,
-.process-step-top.is-active .cycle-card.top {
+.secure-process-step-top:hover .cycle-card.top,
+.secure-process-step-top.is-active .cycle-card.top {
   transform: translate(-50%, calc(-100% - var(--card-offset))) scale(1.03);
 }
 
 
-.process-step-bottom:hover .cycle-card.bottom,
-.process-step-bottom.is-active .cycle-card.bottom {
+.secure-process-step-bottom:hover .cycle-card.bottom,
+.secure-process-step-bottom.is-active .cycle-card.bottom {
   transform: translate(-50%, calc(100% + var(--card-offset))) scale(1.03);
 }
 
 
-.process-step-left:hover .cycle-card.left,
-.process-step-left.is-active .cycle-card.left {
+.secure-process-step-left:hover .cycle-card.left,
+.secure-process-step-left.is-active .cycle-card.left {
   transform: translate(calc(-100% - var(--card-offset)), -50%) scale(1.03);
 }
 
 
-.process-step-right:hover .cycle-card.right,
-.process-step-right.is-active .cycle-card.right {
+.secure-process-step-right:hover .cycle-card.right,
+.secure-process-step-right.is-active .cycle-card.right {
   transform: translate(calc(100% + var(--card-offset)), -50%) scale(1.03);
 }
 
 
-.process-step:hover .cycle-card,
-.process-step.is-active .cycle-card {
+.secure-process-step:hover .cycle-card,
+.secure-process-step.is-active .cycle-card {
   box-shadow: 0 0 0 1px rgba(var(--sec-red-rgb), 0.3), 0 18px 36px rgba(15, 15, 20, 0.14);
   border-color: rgba(var(--sec-red-rgb), 0.35);
 }
 
 
-.process-step:hover .cycle-card::before,
-.process-step.is-active .cycle-card::before {
+.secure-process-step:hover .cycle-card::before,
+.secure-process-step.is-active .cycle-card::before {
   opacity: 1;
 }
 
 
-.process-step:hover .cycle-card-icon,
-.process-step.is-active .cycle-card-icon {
+.secure-process-step:hover .cycle-card-icon,
+.secure-process-step.is-active .cycle-card-icon {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 12px 22px rgba(var(--sec-red-rgb), 0.38);
 }
@@ -1535,8 +1535,8 @@ section {
 }
 
 
-.process-step:hover .cycle-card::after,
-.process-step.is-active .cycle-card::after {
+.secure-process-step:hover .cycle-card::after,
+.secure-process-step.is-active .cycle-card::after {
   opacity: 1;
 }
 
@@ -1608,18 +1608,18 @@ section {
 }
 
 
-.process-step-top:hover .cycle-card.top::before,
-.process-step-bottom:hover .cycle-card.bottom::before,
-.process-step-top.is-active .cycle-card.top::before,
-.process-step-bottom.is-active .cycle-card.bottom::before {
+.secure-process-step-top:hover .cycle-card.top::before,
+.secure-process-step-bottom:hover .cycle-card.bottom::before,
+.secure-process-step-top.is-active .cycle-card.top::before,
+.secure-process-step-bottom.is-active .cycle-card.bottom::before {
   transform: translateX(-50%) scale(1.35);
 }
 
 
-.process-step-left:hover .cycle-card.left::before,
-.process-step-right:hover .cycle-card.right::before,
-.process-step-left.is-active .cycle-card.left::before,
-.process-step-right.is-active .cycle-card.right::before {
+.secure-process-step-left:hover .cycle-card.left::before,
+.secure-process-step-right:hover .cycle-card.right::before,
+.secure-process-step-left.is-active .cycle-card.left::before,
+.secure-process-step-right.is-active .cycle-card.right::before {
   transform: translateY(-50%) scale(1.35);
 }
 
@@ -2089,7 +2089,7 @@ section {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../images/cybersecurity/stats-bg-enterprise.png');
+  background-image: url('../images/cybersecurity/stats-bg-enterprise.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -2242,7 +2242,7 @@ section {
 .home-secure-cta {
   background-image:
     linear-gradient(90deg, rgba(5, 0, 0, 0.62) 0%, rgba(5, 0, 0, 0.4) 38%, rgba(5, 0, 0, 0.12) 68%, rgba(5, 0, 0, 0.05) 100%),
-    url('../images/cta/cta-background.png');
+    url('../images/cta/cta-background.webp');
   background-size: cover;
   background-position: right center;
   background-repeat: no-repeat;
@@ -2371,14 +2371,11 @@ section {
     font-size: 2.2rem;
   }
 
-  .security-circle {
-    width: 600px;
-    height: 600px;
-  }
-
-  .cycle-card {
-    width: 290px;
-    padding: 22px 24px;
+  .home-container {
+    --circle-size: 600px;
+    --card-width: 290px;
+    --card-offset: 40px;
+    --badge-size: 36px;
   }
 
   .cycle-card h4 {
@@ -2387,36 +2384,6 @@ section {
 
   .cycle-card p {
     font-size: 14px;
-  }
-
-  .cycle-card.left {
-    left: -165px;
-  }
-
-  .cycle-card.right {
-    right: -165px;
-  }
-
-  .step-badge {
-    width: 36px;
-    height: 36px;
-    font-size: 0.8rem;
-  }
-
-  .step-badge-top {
-    top: 125px;
-  }
-
-  .step-badge-right {
-    right: 125px;
-  }
-
-  .step-badge-bottom {
-    bottom: 125px;
-  }
-
-  .step-badge-left {
-    left: 125px;
   }
 
   .services {

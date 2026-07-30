@@ -1003,7 +1003,7 @@ const Home = () => {
 
          {/* Box 1 - Security Assessment */}
           <motion.div
-            className={`process-step process-step-top${activeSecureStep === 'top' ? ' is-active' : ''}`}
+            className={`secure-process-step secure-process-step-top${activeSecureStep === 'top' ? ' is-active' : ''}`}
             variants={secureCardVariants}
             onClick={() => toggleSecureStep('top')}
           >
@@ -1024,7 +1024,7 @@ const Home = () => {
 
           {/* Box 2 - Risk Analysis */}
           <motion.div
-            className={`process-step process-step-right${activeSecureStep === 'right' ? ' is-active' : ''}`}
+            className={`secure-process-step secure-process-step-right${activeSecureStep === 'right' ? ' is-active' : ''}`}
             variants={secureCardVariants}
             onClick={() => toggleSecureStep('right')}
           >
@@ -1045,7 +1045,7 @@ const Home = () => {
 
           {/* Box 3 - Implementation */}
           <motion.div
-            className={`process-step process-step-bottom${activeSecureStep === 'bottom' ? ' is-active' : ''}`}
+            className={`secure-process-step secure-process-step-bottom${activeSecureStep === 'bottom' ? ' is-active' : ''}`}
             variants={secureCardVariants}
             onClick={() => toggleSecureStep('bottom')}
           >
@@ -1066,7 +1066,7 @@ const Home = () => {
 
           {/* Box 4 - Audit & Report */}
           <motion.div
-            className={`process-step process-step-left${activeSecureStep === 'left' ? ' is-active' : ''}`}
+            className={`secure-process-step secure-process-step-left${activeSecureStep === 'left' ? ' is-active' : ''}`}
             variants={secureCardVariants}
             onClick={() => toggleSecureStep('left')}
           >
