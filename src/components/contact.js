@@ -36,7 +36,7 @@ gsap.registerPlugin(ScrollTrigger);
 const PHONE_DISPLAY = "+91 88284 95202";
 const PHONE_HREF = "tel:+918828495202";
 const EMAIL_SALES = "info@cyberaries.com";
-const EMAIL_SUPPORT = "info@cyberaries.com"; // swap when a support alias exists
+
 const OFFICE_LINE =
   "WeWork Lightbridge, 6th Floor, Hiranandani Business Park, Saki Vihar Road, Chandivali, Powai, Mumbai, Maharashtra 400072";
 const OFFICE_HOURS = "Monday – Friday, 9:00 AM – 6:00 PM IST";
