@@ -1,426 +1,1247 @@
- .contact-page {
+/* ==================================================================
+   CYBERARIES — CONTACT PAGE
+   ------------------------------------------------------------------
+   Design tokens carried over unchanged from the Homepage/About
+   redesign so this page reads as the same site:
+
+     Type          Lexend, 700/800 headings, -0.02em display tracking
+     Light ground  #fafaf7 → #f3f3f1 off-white gradient sections
+     Dark ground   #0B0B0B → #111111 with a red radial glow
+     Accent        #dc2626 (UI) / #D0050D (display red)
+     Ink           #0f172a headings, #64748b secondary
+     Radius        20px cards, 24px panels, 12px inputs, 50px buttons
+     Lift          translateY(-6px) on cards, -2px on buttons
+     Easing        cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+   Nothing new is introduced. New sections reuse the existing card,
+   button and heading recipes.
+================================================================== */
+
+.contact-page {
   width: 100%;
   overflow-x: hidden;
   background: #fafaf7;
   color: #0f172a;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  
+  font-family: 'Lexend', sans-serif;
 }
-/* hero section  */
+
+/* Keyboard focus was invisible across the previous page. One ring,
+   applied globally, matching the accent. */
+.contact-page a:focus-visible,
+.contact-page button:focus-visible,
+.contact-page input:focus-visible,
+.contact-page select:focus-visible,
+.contact-page textarea:focus-visible {
+  outline: 3px solid rgba(220, 38, 38, 0.55);
+  outline-offset: 3px;
+}
+
+.text-accent-red {
+  color: #D0050D;
+}
+
+/* ================================================================
+   SHARED — section heading recipe
+   ================================================================ */
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #dc2626;
+  margin-bottom: 12px;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 660px;
+  margin: 0 auto 56px;
+}
+
+.section-heading h2 {
+  font-family: 'Lexend', sans-serif;
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.section-heading p {
+  font-family: 'Lexend', sans-serif;
+  font-size: 1.05rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ================================================================
+   1. HERO
+   Same dark ground and red glow as the homepage hero. The badge
+   pill has been replaced by a credential row below the actions —
+   proof reads better after the promise than before it.
+   ================================================================ */
+
 .contact-hero {
-  background:url("../../public/assets/contact-bg.webp");
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 900px 520px at 12% 10%, rgba(208, 5, 13, 0.24), transparent 60%),
+    radial-gradient(ellipse 700px 520px at 88% 90%, rgba(217, 35, 68, 0.18), transparent 60%),
+    linear-gradient(180deg, #0B0B0B 0%, #111111 100%);
   background-repeat: no-repeat;
   background-size: cover;
-  /* width: 100%; */
-  padding: 120px 24px 80px;
-  color: #D81716 ;
+  background-position: center;
+  padding: 150px 30px 120px;
+  color: #F8F8F8;
+}
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 48%;
+  height: 100%;
+  transform: translateY(-50%);
+  background: url('../images/contactus/contactUs_sectionBg.png') no-repeat right center;
+  background-size: contain;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 11, 11, 0.55) 0%, rgba(11, 11, 11, 0.85) 100%);
+  pointer-events: none;
 }
 
 .contact-hero-inner {
-  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #D0050D;
+  margin: 0 0 18px;
 }
 
 .contact-hero h1 {
-  font-size: 56px;
+  font-family: 'Lexend', sans-serif;
+  font-size: clamp(38px, 5vw, 60px);
   font-weight: 700;
   line-height: 1.1;
-  color: #ffff;
-  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 22px;
 }
 
-.contact-hero h1::after {
-  content: "";
-  display: block;
-  width: 64px;
-  height: 4px;
-  background: #D81716;
-  margin-top: 16px;
-  border-radius: 2px;
-}
-
-.contact-hero p {
+.hero-lede {
+  font-family: 'Lexend', sans-serif;
   font-size: 18px;
-  color: #cbd5f5;
-  max-width: 520px;
+  line-height: 1.65;
+  color: rgba(248, 248, 248, 0.78);
+  max-width: 600px;
+  margin: 0 auto;
 }
-
-.contact-hero .row {
+/* Credential row — replaces the old unbacked "trusted by" pill.
+   With the hero buttons removed this is the only element under the
+   lede, so it carries the spacing that the button row used to. */
+.hero-credentials {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 46px 0 0;
+  padding: 0;
 }
 
-.hero-quote {
-  font-size: 16px;
+.hero-credentials li {
+  padding: 7px 16px;
+  font-family: 'Lexend', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(248, 248, 248, 0.82);
+  background: rgba(208, 5, 13, 0.1);
+  border: 1px solid rgba(217, 35, 68, 0.32);
+  border-radius: 999px;
+}
+
+/* ================================================================
+   2. ROUTE BY INTENT
+   Three lanes on a 1.35fr / 1fr / 1fr grid. The weighting is the
+   point: the primary lane is not one of three equal options.
+   ================================================================ */
+
+.intent-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 110px 20px 100px;
+  background: linear-gradient(180deg, #fafaf8 0%, #f7f7f5 100%);
+}
+
+/* Same faint grid + glow wash used on the homepage light sections. */
+.intent-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 12% 15%, rgba(220, 38, 38, 0.035), transparent 45%),
+    radial-gradient(circle at 88% 85%, rgba(220, 38, 38, 0.025), transparent 45%),
+    linear-gradient(rgba(220, 38, 38, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 38, 38, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 46px 46px, 46px 46px;
+  pointer-events: none;
+}
+
+.intent-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.intent-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  height: 100%;
+  padding: 34px 28px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Button reset so the scroll-triggered lane matches the anchors. */
+.intent-card-button {
+  appearance: none;
+  background: #ffffff;
+  width: 100%;
+}
+
+.intent-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 44px rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+/* Primary lane — a red hairline and a warmer ground, not a
+   different component. Enough to establish rank, not enough to
+   look like a separate design language. */
+.intent-card-featured {
+  background: linear-gradient(180deg, #ffffff 0%, #fffafa 100%);
+  border-color: rgba(220, 38, 38, 0.22);
+  box-shadow: 0 18px 44px rgba(220, 38, 38, 0.08);
+}
+
+.intent-card-featured:hover {
+  border-color: rgba(220, 38, 38, 0.4);
+  box-shadow: 0 24px 54px rgba(220, 38, 38, 0.14);
+}
+
+.intent-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  background: rgba(220, 38, 38, 0.06);
+  border: 1px solid rgba(220, 38, 38, 0.15);
+  color: #dc2626;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.intent-card:hover .intent-card-icon {
+  background: #dc2626;
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+.intent-card-label {
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.intent-card-title {
+  font-family: 'Lexend', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #181818;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.intent-card-body {
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+/* Small supporting line under the body — currently the office hours
+   on the phone lane. Kept visually quieter than the body so the two
+   don't compete. */
+.intent-card-footnote {
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
   color: #94a3b8;
-  font-style: italic;
+  line-height: 1.5;
+  margin: -14px 0 24px;
 }
 
-.hero-trust {
-  margin-top: 12px;
-  font-size: 24px;
-  color: #8e5903;
-  letter-spacing: 0.3px;
+.intent-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  transition: gap 0.25s ease, color 0.25s ease;
+  word-break: break-word;
 }
 
-/* main content grid */
-.contact-content {
-  padding: 80px 20px;
+.intent-card:hover .intent-card-cta {
+  gap: 10px;
+  color: #dc2626;
 }
 
-.contact-grid {
+/* ================================================================
+   3. CONSULTATION REQUEST
+   ================================================================ */
+
+.consultation-section {
+  padding: 110px 20px 130px;
+  background: #f3f3f1;
+}
+
+.consultation-container {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 50px;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 56px;
+  align-items: start;
 }
 
-/* left-address */
-.contact-info-box h3 {
-  font-size: 24px;
-  margin-bottom: 14px;
-  color: #d81716;
+/* -------- left rail -------- */
+
+.consultation-aside {
+  padding-top: 12px;
 }
 
-.contact-info-box p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #334155;
+.consultation-aside h2 {
+  font-family: 'Lexend', sans-serif;
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
 }
 
-.contact-info {
+.consultation-lede {
+  font-family: 'Lexend', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #555555;
+  max-width: 440px;
+  margin: 0;
+}
+
+.aside-block {
+  margin-top: 36px;
+}
+
+.aside-heading {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin: 24px 0;
-}
-
-.contact-info-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-info-item .label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #d81716; /* muted gray */
+  align-items: center;
+  gap: 9px;
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.09em;
+  color: #0f172a;
+  margin: 0 0 16px;
 }
 
-.contact-info-item .value {
-  font-size: 16px;
-  color: #0f172a; /* near-black */
-  line-height: 1.5;
+.aside-heading svg {
+  color: #dc2626;
+  flex-shrink: 0;
 }
 
-.contact-info-box iframe {
-  width: 100%;
-  height: 260px;
-  border: none;
-  border-radius: 12px;
+.aside-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* right-form */
-.contact-form-box {
+.aside-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #475569;
+}
+
+.aside-list li svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: #dc2626;
+}
+
+/* Confidentiality sits inside a panel so it reads as a commitment
+   rather than another bullet list. Folded in here rather than given
+   its own section, to keep the page short. */
+.confidentiality-block {
+  padding: 26px 24px;
   background: #ffffff;
-  padding: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-left: 3px solid #dc2626;
   border-radius: 16px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
-  color: #D81716;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
 }
 
-.contact-form-box h3 {
-  font-size: 24px;
-  margin-bottom: 20px;
+.confidentiality-list li {
+  display: list-item;
+  list-style: none;
+  padding-left: 16px;
+  position: relative;
+  font-size: 0.89rem;
 }
 
-/* form grid */
+.confidentiality-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #dc2626;
+}
+
+/* -------- form panel -------- */
+
+.consultation-box {
+  position: relative;
+  background: #ffffff;
+  padding: 48px;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.06),
+    0 8px 20px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+/* Red hairline that lights up while the form is in use. */
+.consultation-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #dc2626, transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.consultation-box:focus-within::before {
+  opacity: 1;
+}
+
+.consultation-box:focus-within {
+  border-color: rgba(220, 38, 38, 0.2);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.08),
+    0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
 .contact-form {
   width: 100%;
 }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 16px;
-  grid-auto-rows: auto;
-  align-items:start;
+/* Honeypot — off-screen rather than display:none, which some bots
+   detect and skip. */
+.form-honeypot {
+  position: absolute !important;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.form-grid textarea,
-.form-grid button {
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-field-full,
+.form-grid .submit-wrapper {
   grid-column: 1 / -1;
 }
 
-/* input text area */
+.form-field-label {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Optional fields are marked explicitly. Unmarked fields read as
+   required, which is the safer default for a B2B form. */
+.form-field-optional {
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #94a3b8;
+  text-transform: none;
+}
+
 .form-grid input,
+.form-grid select,
 .form-grid textarea {
   width: 100%;
-  padding: 14px 16px;
+  padding: 16px 20px;
+  font-family: 'Lexend', sans-serif;
   font-size: 15px;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  background: #ffffff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  color: #1a202c;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fbfbfa;
+  transition: border-color 0.25s ease, background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .form-grid textarea {
   display: block;
-  min-height: 120px;
+  min-height: 150px;
   resize: vertical;
 }
 
+.form-grid input:hover,
+.form-grid select:hover,
+.form-grid textarea:hover {
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
 .form-grid input:focus,
+.form-grid select:focus,
 .form-grid textarea:focus {
   outline: none;
-  border-color: #D81716;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+  background: #ffffff;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
 }
 
-/* submit button */
-.form-grid button {
-  background: #D81716;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 14px;
-  border-radius: 12px;
-  border: none;
+/* Native select chrome differs per OS, so it's suppressed and a
+   lucide chevron is layered in to match the FAQ accordion. */
+.form-select-wrapper {
+  position: relative;
+  display: block;
+}
+
+.form-grid .form-select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 46px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-  /* transition: all 0.3s ease; */
-  /* text-transform: uppercase; */
 }
 
-.form-grid button:hover {
-  background: #b60e0e;
-  color:#ffffff;
-  transform: translateY(-1px);
+.form-grid .form-select-wrapper select:invalid {
+  color: #8b8b8b; /* placeholder option reads as a placeholder */
+}
+
+.form-select-chevron {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  pointer-events: none;
+}
+
+.submit-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.contact-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #dc2626;
+  color: #ffffff;
+  font-family: 'Lexend', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 1.125rem 2.5rem;
+  width: 100%;
+  border-radius: 50px;
+  border: 2px solid #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.4);
+  transition: background 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact-submit-btn:hover:not(:disabled) {
+  background: #b91c1c;
+  border-color: #b91c1c;
+  box-shadow: 0 12px 30px rgba(220, 38, 38, 0.6);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
 }
 
-.form-grid button:disabled {
+.contact-submit-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
 }
 
-/* success and error msg */
-.success {
-  margin-top: 16px;
-  color: #16a34a;
-  font-weight: 600;
-  display: none;
+/* One line, not the old two-item checklist — the response promise
+   it used to repeat now lives in "What happens next". */
+.form-footnote {
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #64748b;
+  text-align: center;
+  margin: 0;
+  max-width: 420px;
 }
 
 .error {
-  margin-top: 16px;
-  color: #D81716;
+  margin-top: 20px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(208, 5, 13, 0.06);
+  border: 1px solid rgba(208, 5, 13, 0.18);
+  color: #D0050D;
+  font-family: 'Lexend', sans-serif;
   font-weight: 600;
-  display: none;
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
-/* responsive */
-@media (max-width: 900px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+.error a {
+  color: #D0050D;
+  text-decoration: underline;
+}
+
+/* -------- inline success state (replaces the old modal) -------- */
+
+.form-success {
+  text-align: center;
+  padding: 26px 8px;
+}
+
+.form-success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.18);
+  color: #dc2626;
+}
+
+.form-success h3 {
+  font-family: 'Lexend', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  outline: none;
+}
+
+.form-success p {
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #475569;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.form-success-alt {
+  margin-top: 18px !important;
+  font-size: 0.9rem !important;
+  color: #64748b !important;
+}
+
+.form-success-alt a {
+  color: #dc2626;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.form-success-alt a:hover {
+  text-decoration: underline;
+}
+
+/* ================================================================
+   4. WHAT HAPPENS NEXT
+   Numbered because the content genuinely is a sequence — the order
+   is information the reader needs, not decoration.
+   ================================================================ */
+
+.process-section {
+  padding: 100px 20px;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.process-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: none;
+}
+
+.process-step {
+  position: relative;
+  padding: 36px 28px 32px;
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-6px);
+  background: #ffffff;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.06);
+}
+
+/* The connector hairline between steps — the one piece of ornament
+   on this section, and it encodes the sequence. Hidden as soon as
+   the grid stops being a single row. */
+.process-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 58px;
+  right: -24px;
+  width: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(220, 38, 38, 0.35), rgba(220, 38, 38, 0.05));
+}
+
+.process-step-index {
+  position: absolute;
+  top: 24px;
+  right: 26px;
+  font-family: 'Lexend', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: rgba(15, 23, 42, 0.06);
+  line-height: 1;
+}
+
+.process-step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 22px;
+  border-radius: 14px;
+  background: rgba(220, 38, 38, 0.07);
+  border: 1px solid rgba(220, 38, 38, 0.14);
+  color: #dc2626;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.process-step:hover .process-step-icon {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.process-step h3 {
+  font-family: 'Lexend', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #181818;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+
+.process-step p {
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ================================================================
+   5. OFFICE — one instance, one map
+   ================================================================ */
+
+.office-section {
+  padding: 100px 20px 110px;
+  background: #f3f3f1;
+}
+
+.office-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.office-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.office-info {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.office-info h2 {
+  font-family: 'Lexend', sans-serif;
+  font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+}
+
+.office-info > p {
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #64748b;
+  margin: 0 0 20px;
+}
+
+.office-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 9px 0;
+  line-height: 1.6;
+  color: #1a1a1a;
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.office-detail svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: #dc2626;
+}
+
+.office-detail a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.office-detail a:hover {
+  color: #dc2626;
+}
+
+.office-directions-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 26px;
+  width: fit-content;
+  padding: 14px 28px;
+  background: #0f172a;
+  color: #ffffff;
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.office-directions-btn:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(220, 38, 38, 0.3);
+}
+
+.office-map-container {
+  min-height: 340px;
+  background: #e9e9e6; /* holds the space before the iframe paints */
+}
+
+.office-map-container iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  border: none;
+}
+
+/* ================================================================
+   6. CLOSING BAND
+   Same dark ground as the hero, closing the page where it opened.
+   One action; the phone number is a text fallback rather than a
+   competing button.
+   ================================================================ */
+
+.closing-band {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 700px 400px at 50% 0%, rgba(208, 5, 13, 0.22), transparent 65%),
+    linear-gradient(180deg, #0B0B0B 0%, #111111 100%);
+  padding: 116px 20px;
+  text-align: center;
+}
+
+.closing-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.closing-inner h2 {
+  font-family: 'Lexend', sans-serif;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 18px;
+}
+
+.closing-inner > p {
+  font-family: 'Lexend', sans-serif;
+  font-size: 1.05rem;
+  color: rgba(248, 248, 248, 0.72);
+  line-height: 1.65;
+  margin: 0 0 36px;
+}
+
+.closing-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.closing-alt {
+  margin: 26px 0 0;
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.92rem;
+  color: rgba(248, 248, 248, 0.5);
+}
+
+.closing-alt a {
+  color: rgba(248, 248, 248, 0.9);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(220, 38, 38, 0.5);
+  padding-bottom: 1px;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.closing-alt a:hover {
+  color: #ffffff;
+  border-color: #dc2626;
+}
+
+/* ================================================================
+   SHARED BUTTONS — used in the hero and the closing band
+   ================================================================ */
+
+.cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #dc2626;
+  color: #ffffff;
+  font-family: 'Lexend', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1.05rem 2.4rem;
+  border-radius: 50px;
+  border: 2px solid #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.4);
+  transition: background 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.cta-btn-primary:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+  box-shadow: 0 12px 30px rgba(220, 38, 38, 0.6);
+  transform: translateY(-2px);
+}
+
+/* ================================================================
+   RESPONSIVE
+   Breakpoints unchanged from the rest of the site: 1024 / 900 /
+   640 / 480.
+   ================================================================ */
+
+@media (max-width: 1100px) {
+  /* Four process steps become two rows — the connector hairline
+     would point into empty space, so it goes. */
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .contact-hero-inner {
-    /* display: flex; */
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    align-content: center;
-  }
-
-  .hero-quote {
-    margin-top: 20px;
+  .process-step:not(:last-child)::after {
     display: none;
   }
 }
 
-@media (max-width: 600px) {
-  .contact-hero h1 {
-    font-size: 36px;
+@media (max-width: 1024px) {
+  .consultation-container {
+    gap: 44px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Three equal lanes stack into one column — no card is ever wider
+     than another at any breakpoint. */
+  .intent-grid {
+    grid-template-columns: 1fr;
   }
 
-  .contact-form-box {
-    padding: 28px;
+  .contact-hero {
+    padding: 130px 24px 100px;
+  }
+
+  .consultation-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Form above the supporting rail on narrow screens — the ask
+     should not sit below a scroll of explanation. */
+  .consultation-box {
+    order: -1;
+  }
+
+  .consultation-lede {
+    max-width: none;
+  }
+
+  .office-card {
+    grid-template-columns: 1fr;
+  }
+
+  .office-map-container {
+    min-height: 260px;
+    order: -1;
+  }
+
+  .office-map-container iframe {
+    min-height: 260px;
+  }
+
+  .process-section {
+    padding: 80px 20px 100px;
+  }
+}
+
+@media (max-width: 640px) {
+  .process-grid {
+    grid-template-columns: 1fr;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
   }
-}
-.sideimage {
-  display: flex;
-  justify-content: flex-end;
-}
-.sideimage img {
-  max-width: 420px;
-  width: 100%;
-  height: auto;
-  padding: 100;
-  
-}
 
-@media (max-width: 900px) {
-  .sideimage {
-    display: none; /* hide image on mobile */
-  }
-}
-@media (max-width: 480px) {
-  .contact-form-box {
-    padding: 22px 18px;
-    border-radius: 12px;
+  .consultation-box {
+    padding: 30px;
   }
 
-  .form-grid {
-    gap: 12px;
+  .office-info {
+    padding: 32px 28px;
   }
 
-  .form-grid input,
-  .form-grid textarea {
-    font-size: 14px;
-    padding: 12px 14px;
-  }
-
-  .form-grid button {
-    padding: 12px;
-    font-size: 15px;
+  .closing-band {
+    padding: 90px 20px;
   }
 }
+
 @media (max-width: 480px) {
   .contact-hero {
-    padding: 80px 16px 50px;
-    text-align: center;
+    padding: 110px 16px 80px;
   }
 
-  .contact-hero-inner {
-    flex-direction: column;
-    gap: 24px;
+  .intent-section,
+  .consultation-section,
+  .office-section {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
-  .contact-hero h1 {
-    font-size: 32px;
-    line-height: 1.2;
+  .intent-card {
+    padding: 28px 22px;
   }
 
-  .contact-hero p {
-    font-size: 15px;
-    max-width: 100%;
-  }
-
-  .hero-trust {
-    font-size: 16px;
-  }
-
-  .hero-quote {
-    font-size: 14px;
-  }
-}
-@media (max-width: 480px) {
-  .contact-form-box {
-    padding: 22px 18px;
-    border-radius: 12px;
+  .consultation-box {
+    padding: 24px 20px;
+    border-radius: 20px;
   }
 
   .form-grid {
-    gap: 12px;
+    gap: 16px;
   }
 
   .form-grid input,
+  .form-grid select,
   .form-grid textarea {
-    font-size: 14px;
-    padding: 12px 5px;
+    /* 16px prevents iOS Safari from zooming on focus. */
+    font-size: 16px;
+    padding: 14px 16px;
   }
 
-  .form-grid button {
-    padding: 12px;
-    font-size: 15px;
+  .contact-submit-btn,
+  .cta-btn-primary {
+    padding: 15px 22px;
+    font-size: 0.92rem;
+  }
+
+  .closing-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .closing-actions .cta-btn-primary {
+    width: 100%;
+  }
+
+  .confidentiality-block {
+    padding: 22px 20px;
   }
 }
 
+/* ================================================================
+   REDUCED MOTION
+   The component skips GSAP entirely when this is set; these rules
+   cover the CSS-driven movement that remains.
+   ================================================================ */
 
-/* ===== SUCCESS MODAL OVERLAY ===== */
-.success-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(2, 6, 23, 0.75);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-/* ===== MESSAGE BOX ===== */
-.success-box {
-  background: #ffffff;
-  padding: 36px 32px;
-  border-radius: 18px;
-  max-width: 420px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
-  animation: successPop 0.3s ease;
-}
-
-.success-box h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  color: #d81716;
-}
-
-.success-box p {
-  font-size: 15px;
-  color: #cbd5f5;
-  margin-bottom: 24px;
-}
-
-/* ===== CLOSE BUTTON ===== */
-.success-btn {
-  background: #D81716;
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.success-btn:hover {
-  background: #D81716;
-}
-
-/* ===== SMALL ANIMATION ===== */
-@keyframes successPop {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
+@media (prefers-reduced-motion: reduce) {
+  .contact-page *,
+  .contact-page *::before,
+  .contact-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-.contact-hero h1::after {
-  transform-origin: left;
-  animation: underlineGrow 0.6s ease forwards;
-}
 
-@keyframes underlineGrow {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
+  .intent-card:hover,
+  .process-step:hover,
+  .cta-btn-primary:hover,
+  .contact-submit-btn:hover:not(:disabled),
+  .office-directions-btn:hover {
+    transform: none;
   }
 }
