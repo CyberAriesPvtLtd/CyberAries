@@ -425,12 +425,8 @@ const expertiseTitleRef = useRef(null);
             </p>
 
             <div className="about-cta-actions">
-              <a href="/appointment" className="about-btn-primary">
-                Schedule Free Consultation
-              </a>
-              <a href="#" className="about-btn-secondary">
-                Explore Services
-              </a>
+              <a href="/appointment" className="about-btn-primary">Schedule Free Consultation</a>
+             
             </div>
           </div>
         </div>

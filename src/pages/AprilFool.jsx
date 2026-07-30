@@ -1,48 +1,47 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./AprilFool.css";
-import { useRef } from "react";
 import confetti from "canvas-confetti";
+
+const lines = [
+  "Initializing SentinelAI...",
+  "Verifying secure environment...",
+  "Analyzing system...",
+  "Running deep scan...",
+  "⚠ SYSTEM BREACH DETECTED — IMMEDIATE ACTION REQUIRED",
+];
+
 export default function AprilFool() {
   const [started, setStarted] = useState(false);
   const [visibleLines, setVisibleLines] = useState([]);
   const [showFinal, setShowFinal] = useState(false);
   const introRef = useRef(null);
-  const lines = [
-    "Initializing SentinelAI...",
-    "Verifying secure environment...",
-    "Analyzing system...",
-    "Running deep scan...",
-    "⚠ SYSTEM BREACH DETECTED — IMMEDIATE ACTION REQUIRED",
-  ];
 
-  useEffect(() => {
-    if (!started) return;
+  // useEffect goes here...
+useEffect(() => {
+  if (!started) return;
 
-    let i = 0;
+  let i = 0;
 
-    const interval = setInterval(() => {
-      setVisibleLines((prev) => [...prev, lines[i]]);
-      i++;
+  const interval = setInterval(() => {
+    setVisibleLines((prev) => [...prev, lines[i]]);
+    i++;
 
-      if (i === lines.length) {
-        clearInterval(interval);
+    if (i === lines.length) {
+      clearInterval(interval);
 
-        setTimeout(() => {
-          setShowFinal(true);
+      setTimeout(() => {
+        setShowFinal(true);
 
-          if (introRef.current) {
-  introRef.current.style.display = "none";
-}
+        if (introRef.current) {
+          introRef.current.style.display = "none";
+        }
+      }, 1200);
+    }
+  }, 900);
 
-        }, 1200);
-        
-      }
-      
-    }, 900);
-    return () => clearInterval(interval);
-  }, [started]
+  return () => clearInterval(interval);
+}, [started]);
 
-);
 useEffect(() => {
   if (showFinal) {
     const duration = 2000;

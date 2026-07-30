@@ -23,7 +23,10 @@ import './BFSI.css';
 /**
  * BFSI Industry Page
  * Banking, Financial Services, and Insurance Security Solutions
- * Alternating dark/light rhythm matching the Home page design system.
+ * Dark Hero -> one continuous off-white content canvas -> Dark Footer.
+ * All sections between Hero and Footer share the same off-white
+ * surface + grid pattern (.bfsi-content-section); hierarchy comes
+ * from spacing, typography, and cards rather than background color.
  * Fully Responsive for PC, Tablet, and Mobile
  */
 
@@ -178,8 +181,8 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* Key Challenges Section — Light + Grid */}
-      <section className="key-challenges bfsi-light-section">
+      {/* Key Challenges Section — part of the continuous off-white canvas */}
+      <section className="key-challenges bfsi-content-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
@@ -207,8 +210,8 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* CyberAries Approach + Solution Cards — one continuous Dark section */}
-      <section className="cyberaries-approach bfsi-dark-section">
+      {/* CyberAries Approach + Solution Cards — part of the continuous off-white canvas */}
+      <section className="cyberaries-approach bfsi-content-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
@@ -223,7 +226,7 @@ const BFSI = () => {
           <div className="solutions-grid">
             {solutionsData.map((solution, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="bfsi-card bfsi-card--dark">
+                <div className="bfsi-card">
                   <div className="bfsi-icon">
                     {solution.icon}
                   </div>
@@ -236,8 +239,8 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* Why Choose Section — Light + Grid, matching Key Challenges */}
-      <section className="why-choose bfsi-light-section">
+      {/* Why Choose Section — part of the continuous off-white canvas */}
+      <section className="why-choose bfsi-content-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
@@ -265,8 +268,8 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* Cyberaries Difference Section — Dark, matches Our Approach section */}
-      <section className="cyberaries-difference bfsi-dark-section">
+      {/* Cyberaries Difference Section — part of the continuous off-white canvas */}
+      <section className="cyberaries-difference bfsi-content-section">
         <div className="container">
           <ScrollReveal animation="fade-up">
             <h2 className="difference-title">
@@ -277,7 +280,7 @@ const BFSI = () => {
           <div className="comparison-grid">
             {/* Traditional Security Consulting */}
             <ScrollReveal animation="fade-right" delay={100}>
-              <div className="comparison-column traditional bfsi-card bfsi-card--dark">
+              <div className="comparison-column traditional bfsi-card">
                 <h3 className="comparison-heading">Traditional Security Consulting</h3>
                 <ul className="comparison-list">
                   <li className="comparison-item">
@@ -358,8 +361,8 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* CTA Section — Light, matches Key Challenges / Why Choose sections */}
-      <section className="cta-section bfsi-light-section">
+      {/* CTA Section — final part of the continuous off-white canvas, before the dark Footer */}
+      <section className="cta-section bfsi-content-section">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">

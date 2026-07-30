@@ -10,7 +10,32 @@ footer {
   color: var(--bg-soft-white);
   padding: clamp(70px, 8vw, 100px) 20px 0;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 -30px 60px -20px rgba(0, 0, 0, 0.45),   /* depth — helps when the section above is light */
+    0 -1px 50px rgba(220, 38, 38, 0.2);        /* soft ambient glow */
+}
+
+/* ------------------------------------------------------------------
+   Glowing accent seam. Relies on saturated color rather than dark/light
+   contrast, so it reads the same whether the section above the footer
+   is light OR dark themed — a shadow alone disappears against a dark
+   section, but a lit color line doesn't. Centered, brand red, capped
+   at the same max-width as the footer content.
+------------------------------------------------------------------ */
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1300px, calc(100% - 40px));
+  height: 2px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent 0%, rgba(220, 38, 38, 0.9) 50%, transparent 100%);
+  box-shadow:
+    0 0 16px 3px rgba(220, 38, 38, 0.55),
+    0 0 40px 10px rgba(220, 38, 38, 0.3);
 }
 
 .footer-grid {

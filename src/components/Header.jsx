@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronRight, Phone } from 'lucide-react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 import './Header.css';
 import logoImage from '../images/logos/cyberaries-logo.png';
 
