@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -10,7 +10,6 @@ import Contact from './components/contact';
 import Appointment from './components/appointment';
 import TermsConditions from './components/TermsConditions';
 import PrivacyPolicy from './components/PrivacyPolicy';
-
 
 import ComingSoon from './pages/comingsoon.js';
 import AprilFool from "./pages/AprilFool.jsx"
@@ -155,6 +154,9 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
+          {/* Redirect: cyberaries.com/slidedeck -> Home */}
+          <Route path="/slidedeck" element={<Navigate to="/" replace />} />
 
           {/* Industries */}
           <Route path="/industries/bfsi" element={<BFSI />} />
