@@ -1,324 +1,1905 @@
-/* SEBI CYBER SECURITY AUDIT - COMPLETE INTERACTIVE STYLES */
+/* ═══════════════════════════════════════════════════════════════════
+   BSE CYBER SECURITY AUDIT — PREMIUM ENTERPRISE REDESIGN
+   CyberAries Design System
+   ═══════════════════════════════════════════════════════════════════ */
 
 :root {
   --sebi-red: #C1121F;
+  --sebi-red-glow: rgba(193, 18, 31, 0.18);
+  --sebi-red-border: rgba(193, 18, 31, 0.35);
   --sebi-dark: #0F0F0F;
-  --sebi-white: #FAFAF7;
-  --sebi-light: #ffffff;
-  --sebi-gray: #6B666B;
-  --sebi-border: #E5E5E5;
+  --sebi-dark-2: #161616;
+  --sebi-dark-3: #1e1e1e;
+  --sebi-off-white: #F3F3F1;
+  --sebi-white: #ffffff;
+  --sebi-card-bg: #F8FAFC;
+  --sebi-gray: #6B6B6B;
+  --sebi-gray-light: #9a9a9a;
+  --sebi-border: #E5E5E0;
+  --sebi-border-dark: rgba(255, 255, 255, 0.1);
 }
 
-.sebi-page { background: var(--sebi-white); color: var(--sebi-dark); }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-
-/* HERO */
-.sebi-hero { position: relative; min-height: 600px; display: flex; align-items: center; background-size: cover; background-position: center; padding: 4rem 0; }
-.sebi-hero-overlay { position: absolute; inset: 0; background: rgba(15, 15, 15, 0.85); }
-.sebi-badge { display: inline-block; background: rgba(193, 18, 31, 0.2); color: #fff; padding: 8px 20px; border-radius: 30px; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; border: 1px solid rgba(193, 18, 31, 0.4); }
-.sebi-hero-title { font-size: 3.5rem; font-weight: 800; color: #fff; margin-bottom: 1.5rem; line-height: 1.2; }
-.sebi-gradient { background: linear-gradient(90deg, var(--sebi-red), #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.sebi-hero-desc { font-size: 1.15rem; color: #fff; opacity: 0.95; max-width: 800px; line-height: 1.7; margin-bottom: 2rem; }
-.sebi-hero-actions { display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
-.sebi-btn-primary, .sebi-btn-secondary { padding: 1rem 2rem; font-size: 1rem; font-weight: 600; border-radius: 50px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s; }
-.sebi-btn-primary { background: var(--sebi-red); color: #fff; box-shadow: 0 4px 15px rgba(193, 18, 31, 0.4); }
-.sebi-btn-primary:hover { background: #e01525; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(193, 18, 31, 0.6); }
-.sebi-btn-secondary { background: transparent; color: #fff; border: 2px solid #fff; }
-.sebi-btn-secondary:hover { background: #fff; color: var(--sebi-red); }
-.sebi-stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; padding: 2rem; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2); }
-.sebi-stat { text-align: center; padding: 1rem; }
-.sebi-stat-num { font-size: 2.5rem; font-weight: 800; color: #ff6b6b; margin-bottom: 0.5rem; }
-.sebi-stat-label { font-size: 0.9rem; color: #fff; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; }
-
-/* TRUST */
-.sebi-trust { padding: 3rem 0; background: var(--sebi-light); border-bottom: 1px solid var(--sebi-border); }
-.sebi-trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.sebi-trust-item { text-align: center; padding: 1.5rem; }
-.sebi-trust-icon { width: 70px; height: 70px; background: rgba(193, 18, 31, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: var(--sebi-red); transition: all 0.3s; }
-.sebi-trust-item:hover .sebi-trust-icon { background: var(--sebi-red); color: #fff; transform: scale(1.1); }
-.sebi-trust-text { font-weight: 600; color: var(--sebi-dark); }
-
-/* SECTIONS */
-.sebi-challenges, .sebi-tabs-section, .sebi-timeline-section, .sebi-comparison, .sebi-pricing, .sebi-faq, .sebi-testimonials { padding: 4rem 0; }
-.sebi-section-title { font-size: 2.5rem; font-weight: 700; color: var(--sebi-dark); text-align: center; margin-bottom: 1rem; }
-.sebi-section-desc { text-align: center; font-size: 1.1rem; color: var(--sebi-gray); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-
-/* CARDS */
-.sebi-card { background: var(--sebi-light); padding: 2rem; border-radius: 15px; border: 1px solid var(--sebi-border); transition: all 0.3s; text-align: center; }
-.sebi-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(193, 18, 31, 0.15); border-color: rgba(193, 18, 31, 0.3); }
-.sebi-card-icon { width: 70px; height: 70px; background: rgba(193, 18, 31, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: var(--sebi-red); transition: all 0.3s; }
-.sebi-card:hover .sebi-card-icon { background: var(--sebi-red); color: #fff; transform: rotate(360deg); }
-.sebi-card-title { font-size: 1.25rem; font-weight: 700; color: var(--sebi-dark); margin-bottom: 0.75rem; }
-.sebi-card-desc { color: var(--sebi-gray); line-height: 1.6; }
-
-/* CHALLENGE GRID */
-.sebi-challenge-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
-
-/* TABS */
-.sebi-tabs-section { background: var(--sebi-light); }
-.sebi-tabs-header { display: flex; gap: 1rem; border-bottom: 2px solid var(--sebi-border); margin-bottom: 3rem; overflow-x: auto; }
-.sebi-tab-btn { padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; font-size: 1rem; font-weight: 600; color: var(--sebi-gray); cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 0.3s; white-space: nowrap; }
-.sebi-tab-btn:hover { color: var(--sebi-red); }
-.sebi-tab-btn.active { color: var(--sebi-red); border-bottom-color: var(--sebi-red); }
-.sebi-tab-content { animation: fadeIn 0.5s; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.sebi-tab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-
-/* TIMELINE */
-.sebi-timeline-section { background: var(--sebi-white); }
-.sebi-timeline { position: relative; max-width: 900px; margin: 2rem auto; }
-.sebi-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--sebi-red), rgba(193, 18, 31, 0.3)); transform: translateX(-50%); }
-.sebi-timeline-item { display: flex; gap: 2rem; margin-bottom: 3rem; position: relative; }
-.sebi-timeline-item.right { flex-direction: row-reverse; }
-.sebi-timeline-number { width: 45px; height: 45px; background: var(--sebi-red); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; flex-shrink: 0; box-shadow: 0 0 0 8px var(--sebi-white); position: relative; z-index: 1; }
-.sebi-timeline-card { flex: 1; background: var(--sebi-light); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); border: 1px solid var(--sebi-border); transition: all 0.3s; }
-.sebi-timeline-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(193, 18, 31, 0.15); }
-.sebi-timeline-icon { width: 50px; height: 50px; background: rgba(193, 18, 31, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--sebi-red); margin-bottom: 1rem; }
-.sebi-timeline-title { font-size: 1.2rem; font-weight: 700; color: var(--sebi-dark); margin-bottom: 0.5rem; }
-.sebi-timeline-desc { color: var(--sebi-gray); }
-
-/* COMPARISON - RBI STYLE */
-.cyberaries-difference {
-  padding: 4rem 0;
-  background: #0f0f0f;
-  position: relative;
-  overflow: hidden;
+/* ─── BASE ──────────────────────────────────────────────────────── */
+.sebi-page {
+  background: var(--sebi-off-white);
+  color: var(--sebi-dark);
+  font-family: 'Lexend', sans-serif;
 }
 
-.cyberaries-difference::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top center, rgba(193, 18, 31, 0.06) 0%, transparent 60%);
-  pointer-events: none;
+.sebi-page button,
+.sebi-page input,
+.sebi-page select,
+.sebi-page textarea {
+  font-family: 'Lexend', sans-serif;
 }
 
-.cyberaries-difference .container {
-  position: relative;
-  z-index: 1;
-  max-width: 1300px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.difference-title {
-  font-size: 2.8rem;
-  font-weight: 800;
-  text-align: center;
-  color: #ffffff;
-  margin-bottom: 3rem;
-  letter-spacing: 2px;
+/* ─── EYEBROW LABELS ────────────────────────────────────────────── */
+.sebi-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  color: var(--sebi-red);
+  margin-bottom: 0.75rem;
 }
 
-.highlight-red {
-  background: linear-gradient(90deg, #C1121F 0%, #ff6b6b 50%, #C1121F 100%);
+.sebi-eyebrow-dark {
+  color: var(--sebi-red);
+}
+
+/* Centered eyebrow — used in sections that have a centered title */
+.sebi-eyebrow-center {
+  display: block;
+  text-align: center;
+}
+
+/* ─── SHARED TEXT ───────────────────────────────────────────────── */
+.sebi-section-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--sebi-dark);
+  text-align: center;
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.sebi-section-title--left {
+  text-align: left;
+}
+
+.sebi-section-desc {
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--sebi-gray);
+  margin: 0 auto 3rem;
+  max-width: 680px;
+  line-height: 1.7;
+}
+
+.sebi-red-text {
+  color: var(--sebi-red);
+}
+
+.sebi-text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #ffd9d9 20%, #ff8080 45%, #ff3b3b 70%, #C1121F 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradient-shift 7s ease infinite;
+  animation: sebiGrad 7s ease infinite;
   display: inline-block;
 }
 
-@keyframes gradient-shift {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
+@keyframes sebiGrad {
+  0%   { background-position: 0% center; }
+  50%  { background-position: 100% center; }
   100% { background-position: 0% center; }
 }
 
-.comparison-grid {
+/* ─── BUTTONS ───────────────────────────────────────────────────── */
+.sebi-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.875rem 2rem;
+  background: var(--sebi-red);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(193, 18, 31, 0.38);
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.sebi-btn-primary:hover {
+  background: #d91422;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(193, 18, 31, 0.52);
+}
+
+.sebi-btn-primary--large {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+}
+
+.sebi-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.sebi-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.sebi-btn-ghost--large {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+}
+
+/* ═══════════════════════════════════════════
+   1. HERO — DARK
+═══════════════════════════════════════════ */
+.sebi-hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center right;
+  padding-top: 5rem;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.sebi-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+      rgba(10, 10, 10, 0.96) 0%,
+      rgba(10, 10, 10, 0.88) 45%,
+      rgba(10, 10, 10, 0.55) 70%,
+      rgba(10, 10, 10, 0.25) 100%);
+}
+
+.sebi-hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(193, 18, 31, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(193, 18, 31, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+.sebi-hero-inner {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 3.5rem;
+}
+
+.sebi-hero-content {
+  max-width: 640px;
+}
+
+.sebi-hero-title {
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0.5rem 0 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.sebi-hero-desc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  max-width: 560px;
+}
+
+.sebi-hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+/* Stats Panel */
+.sebi-stats-panel {
+  position: relative;
+  z-index: 3;
+  background: rgba(15, 15, 15, 0.95);
+  border-top: 1px solid rgba(193, 18, 31, 0.3);
+  backdrop-filter: blur(14px);
+  padding: 0;
+  margin-top: 2.5rem;
+  /* breathing gap between hero content and stats */
+}
+
+.sebi-stats-panel-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+  padding: 1.4rem 2rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sebi-stats-panel-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sebi-red);
+  display: block;
+}
+
+.sebi-stats-panel-sub {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.42);
+  letter-spacing: 0.04em;
+  display: block;
+}
+
+.sebi-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.sebi-stat-item {
+  padding: 1.8rem 2rem 1.6rem;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  position: relative;
+}
+
+.sebi-stat-item:last-child {
+  border-right: none;
+}
+
+.sebi-stat-num {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--sebi-red);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.sebi-stat-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ═══════════════════════════════════════════
+   2. TRUST STRIP — OFF-WHITE + SUBTLE GRID
+═══════════════════════════════════════════ */
+.sebi-trust {
+  position: relative;
+  background: var(--sebi-off-white);
+  padding: 3.5rem 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--sebi-border);
+}
+
+.sebi-trust-grid-bg {
+  display: none;
+}
+
+.sebi-trust-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sebi-red);
+  margin-bottom: 2rem;
+}
+
+.sebi-eyebrow-line {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--sebi-red);
+  opacity: 0.6;
+}
+
+.sebi-trust-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--sebi-border);
+  border: 1px solid var(--sebi-border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.sebi-trust-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.75rem 2rem;
+  background: var(--sebi-card-bg);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* BFSI top-border reveal */
+.sebi-trust-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--sebi-red), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.sebi-trust-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.10), 0 10px 25px rgba(193, 18, 31, 0.12);
+  z-index: 2;
+}
+
+.sebi-trust-card:hover::before {
+  opacity: 1;
+}
+
+.sebi-trust-card:hover .sebi-trust-icon {
+  transform: scale(1.06) rotate(-2deg);
+  background: linear-gradient(135deg, var(--sebi-red), #8B0010);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(193, 18, 31, 0.38);
+}
+
+/* Shine sweep on trust icon */
+.sebi-trust-icon::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.55s ease;
+}
+
+.sebi-trust-card:hover .sebi-trust-icon::before {
+  transform: translateX(100%);
+}
+
+.sebi-trust-card:hover .sebi-trust-title {
+  color: var(--sebi-red);
+}
+
+.sebi-trust-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: rgba(193, 18, 31, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sebi-red);
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    color 0.3s ease,
+    transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.3s ease;
+}
+
+.sebi-trust-body {}
+
+.sebi-trust-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--sebi-dark);
+  margin-bottom: 0.2rem;
+  transition: color 0.3s ease;
+}
+
+.sebi-trust-desc {
+  font-size: 0.88rem;
+  color: var(--sebi-gray);
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.sebi-trust-card:hover .sebi-trust-desc {
+  color: #444;
+}
+
+/* ═══════════════════════════════════════════
+   3. KEY SECURITY CHALLENGES — WHITE
+═══════════════════════════════════════════ */
+.sebi-challenges {
+  position: relative;
+  background: var(--sebi-white);
+  padding: 5rem 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sebi-challenges::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(193,18,31,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(193,18,31,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.sebi-challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  align-items: stretch;
+}
+
+.sebi-challenge-grid > * {
+  height: 100%;
+}
+
+.sebi-challenge-card {
+  background: var(--sebi-card-bg);
+  border: 1px solid var(--sebi-border);
+  border-radius: 12px;
+  padding: 2rem 1.75rem;
+  position: relative;
+  height: 100%;
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* BFSI top-border reveal */
+.sebi-challenge-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--sebi-red), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.sebi-challenge-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 0, 0, 0.28);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.10), 0 10px 25px rgba(193, 18, 31, 0.13);
+}
+
+.sebi-challenge-card:hover::before {
+  opacity: 1;
+}
+
+.sebi-challenge-card:hover .sebi-challenge-icon {
+  transform: scale(1.06) rotate(-2deg);
+  background: linear-gradient(135deg, var(--sebi-red), #8B0010);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(193, 18, 31, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Shine sweep on challenge icon */
+.sebi-challenge-icon::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.55s ease;
+}
+
+.sebi-challenge-card:hover .sebi-challenge-icon::before {
+  transform: translateX(100%);
+}
+
+.sebi-challenge-card:hover .sebi-challenge-title {
+  color: var(--sebi-red);
+}
+
+.sebi-challenge-card:hover .sebi-challenge-desc {
+  color: #444;
+}
+
+.sebi-challenge-num {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: rgba(193, 18, 31, 0.45);
+  margin-bottom: 1rem;
+}
+
+.sebi-challenge-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(193, 18, 31, 0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sebi-red);
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    color 0.3s ease,
+    transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.3s ease;
+}
+
+.sebi-challenge-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--sebi-dark);
+  margin: 0 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.sebi-challenge-desc {
+  font-size: 0.9rem;
+  color: var(--sebi-gray);
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* ═══════════════════════════════════════════
+   4. AUDIT FRAMEWORK — OFF-WHITE + GRID
+═══════════════════════════════════════════ */
+.sebi-framework {
+  position: relative;
+  background: var(--sebi-off-white);
+  padding: 5rem 0;
+  overflow: hidden;
+}
+
+.sebi-framework-grid-bg {
+  display: none;
+}
+
+.sebi-framework .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tabs Nav */
+.sebi-tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border-bottom: 2px solid var(--sebi-border);
+  margin-bottom: 2.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.sebi-tabs-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.sebi-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 1rem 1.75rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--sebi-gray);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.sebi-tab-btn:hover {
+  color: var(--sebi-red);
+}
+
+.sebi-tab-btn--active {
+  color: var(--sebi-red);
+  border-bottom-color: var(--sebi-red);
+}
+
+/* Tab Panel */
+.sebi-tab-panel {
+  animation: sebi-fadeUp 0.38s ease both;
+}
+
+@keyframes sebi-fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sebi-tab-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.sebi-framework-card {
+  background: var(--sebi-card-bg);
+  border: 1px solid var(--sebi-border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  animation: sebi-fadeUp 0.38s ease both;
+}
+
+/* BFSI top-border reveal */
+.sebi-framework-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--sebi-red), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.sebi-framework-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.10), 0 10px 25px rgba(193, 18, 31, 0.13);
+  border-color: rgba(0, 0, 0, 0.28);
+}
+
+.sebi-framework-card:hover::before {
+  opacity: 1;
+}
+
+.sebi-framework-card:hover .sebi-framework-icon {
+  transform: scale(1.06) rotate(-2deg);
+  background: linear-gradient(135deg, var(--sebi-red), #8B0010);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(193, 18, 31, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.sebi-framework-card:hover .sebi-framework-icon::before {
+  transform: translateX(100%);
+}
+
+.sebi-framework-card:hover .sebi-framework-card-title {
+  color: var(--sebi-red);
+}
+
+.sebi-framework-card:hover .sebi-framework-card-desc {
+  color: #444;
+}
+
+.sebi-framework-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(193, 18, 31, 0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sebi-red);
+  margin: 0 auto 1rem;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    color 0.3s ease,
+    transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.3s ease;
+}
+
+/* Shine sweep */
+.sebi-framework-icon::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.55s ease;
+}
+
+.sebi-framework-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--sebi-dark);
+  margin: 0 0 0.4rem;
+  transition: color 0.3s ease;
+}
+
+.sebi-framework-card-desc {
+  font-size: 0.88rem;
+  color: var(--sebi-gray);
+  line-height: 1.55;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* ═══════════════════════════════════════════
+   5. AUDIT PROCESS TIMELINE — WHITE
+═══════════════════════════════════════════ */
+.sebi-process {
+  position: relative;
+  background: var(--sebi-white);
+  padding: 5rem 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sebi-process::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(193,18,31,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(193,18,31,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   DESKTOP SNAKE TIMELINE — SEPARATED DOTS / CARDS APPROACH
+   
+   Architecture: each row is split into TWO separate strips:
+     1. bse-tl-dots-row  — contains ONLY the dots + the horizontal line
+                           The line is z-index:0, dots are z-index:2.
+                           Line NEVER touches cards because cards are
+                           in a different DOM element below.
+     2. bse-tl-cards-row — contains ONLY the cards, no line at all.
+
+   The vertical turn connector (.sebi-tl-turn-line) lives in a
+   dedicated wrapper between the two row-pairs, positioned so it
+   sits entirely in the whitespace between row-1-cards and row-2-dots.
+
+   z-index stack (desktop):
+     0 = .sebi-tl-hline (horizontal line)
+     1 = .sebi-tl-turn-line (vertical turn)
+     2 = .sebi-timeline-dot (numbered circles)
+     3 = .sebi-timeline-node-card (cards — never share a DOM layer with any line)
+══════════════════════════════════════════════════════════════ */
+
+.sebi-timeline-desktop {
+  display: block;
+  margin-top: 2rem;
+}
+
+/* ──────────────────────────────────────────
+   DOTS ROW — 4 equal cells, line behind them
+─────────────────────────────────────────── */
+.sebi-tl-dots-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  /* line is absolute inside this */
+  padding: 0;
+  margin-bottom: 1rem;
+  /* gap between dots and the cards below */
+  /* Extra horizontal padding = half-dot-width so line starts/ends
+     at dot centres, not at the grid's very edge */
+}
+
+/* Horizontal connector line — absolute, behind dots */
+.sebi-tl-hline {
+  position: absolute;
+  /* Vertical centre: dot is 56px tall, so centre = 28px from top */
+  top: 28px;
+  /* Horizontal span: from centre of col-1 to centre of col-4.
+     With 4 equal cols (no gap between cells here), each cell = 25%.
+     Centre of col-1 = 12.5% from left.
+     Centre of col-4 = 12.5% from right. */
+  left: 12.5%;
+  right: 12.5%;
+  height: 2px;
+  background: var(--sebi-red);
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 1px;
+}
+
+/* Each cell in the dots row just centres its dot */
+.sebi-tl-dot-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+/* ──────────────────────────────────────────
+   NUMBERED DOT
+─────────────────────────────────────────── */
+.sebi-timeline-dot {
+  width: 56px;
+  height: 56px;
+  /* Glass effect — white/transparent with blur */
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(193, 18, 31, 0.75);
+  color: var(--sebi-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 900;
+  /* Number readability — dark red with white backing shadow */
+  text-shadow:
+    0 0 0 transparent,
+    /* reset */
+    0 1px 3px rgba(255, 255, 255, 0.9),
+    0 0 8px rgba(255, 255, 255, 0.6);
+  letter-spacing: -0.02em;
+  /* Outer glow ring matching the red border */
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.55),
+    0 0 0 6px rgba(193, 18, 31, 0.18),
+    0 4px 20px rgba(193, 18, 31, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+/* ──────────────────────────────────────────
+   CARDS ROW — no line, just the 4 cards
+─────────────────────────────────────────── */
+.sebi-tl-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+  /* all cells same height */
+}
+
+/* RTL row: row-2 cards are in DOM order 8,7,6,5 */
+.sebi-tl-cards-row--rtl {
+  /* No extra adjustments needed — DOM order matches visual */
+}
+
+.sebi-tl-card-cell {
+  display: flex;
+  flex-direction: column;
+  /* card inside stretches vertically */
+  position: relative;
+  /* allows ::before vertical connector */
+}
+
+/* Thin vertical line from card top up to meet the dot above.
+   Height = the margin-bottom of .sebi-tl-dots-row (1rem).
+   Sits at the horizontal centre of the cell. */
+.sebi-tl-card-cell::before {
+  content: '';
+  position: absolute;
+  top: -1rem;
+  /* bridge the gap above */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 1rem;
+  /* exactly matches the dots-row margin-bottom */
+  background: var(--sebi-red);
+  border-radius: 1px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ──────────────────────────────────────────
+   CARD
+─────────────────────────────────────────── */
+.sebi-timeline-node-card {
+  background: var(--sebi-card-bg);
+  border: 1px solid var(--sebi-border);
+  border-radius: 12px;
+  padding: 1.5rem 1rem 1.25rem;
+  width: 100%;
+  flex: 1;
+  /* fills the card-cell height equally */
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  position: relative;
+  z-index: 3;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* BFSI top-border reveal on hover */
+.sebi-timeline-node-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--sebi-red), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.sebi-timeline-node-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.10),
+    0 10px 25px rgba(193, 18, 31, 0.13);
+  border-color: rgba(0, 0, 0, 0.28);
+}
+
+.sebi-timeline-node-card:hover::before {
+  opacity: 1;
+}
+
+/* ──────────────────────────────────────────
+   CARD ICON
+─────────────────────────────────────────── */
+.sebi-timeline-node-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--sebi-red), #8B0010);
+  border-radius: 12px;
+  color: #fff;
+  margin: 0 auto 0.875rem;
+  box-shadow: 0 6px 18px rgba(193, 18, 31, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Shine sweep */
+.sebi-timeline-node-icon::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.55s ease;
+}
+
+.sebi-timeline-node-card:hover .sebi-timeline-node-icon::before {
+  transform: translateX(100%);
+}
+
+.sebi-timeline-node-card:hover .sebi-timeline-node-icon {
+  transform: scale(1.06) rotate(-2deg);
+  box-shadow: 0 12px 30px rgba(193, 18, 31, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* ──────────────────────────────────────────
+   CARD TEXT
+─────────────────────────────────────────── */
+.sebi-timeline-node-title {
+  font-size: 0.97rem;
+  font-weight: 700;
+  color: var(--sebi-dark);
+  margin: 0 0 0.35rem;
+  transition: color 0.3s ease;
+}
+
+.sebi-timeline-node-card:hover .sebi-timeline-node-title {
+  color: var(--sebi-red);
+}
+
+.sebi-timeline-node-desc {
+  font-size: 0.83rem;
+  color: var(--sebi-gray);
+  line-height: 1.55;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.sebi-timeline-node-card:hover .sebi-timeline-node-desc {
+  color: #444;
+}
+
+/* ──────────────────────────────────────────
+   VERTICAL TURN CONNECTOR (between the two row-pairs)
+   Lives in .sebi-tl-turn-wrap which has a fixed height
+   = the whitespace between row-1-cards and row-2-dots.
+─────────────────────────────────────────── */
+.sebi-tl-turn-wrap {
+  position: relative;
+  height: 2.5rem;
+  /* the inter-row gap — line travels through here */
+  /* No overflow, no content — purely a spacer for the line */
+}
+
+.sebi-tl-turn-line {
+  position: absolute;
+  /* Right edge: centre of rightmost (col-4) column = 12.5% from right */
+  right: 12.5%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--sebi-red);
+  z-index: 1;
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+/* ──────────────────────────────────────────
+   ROW 2 spacing — dots row sits directly under the turn line
+─────────────────────────────────────────── */
+.sebi-tl-dots-row--rtl {
+  /* no extra top margin — turn-wrap provides the gap */
+  margin-bottom: 1rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE VERTICAL TIMELINE
+   Single vertical line on the left, dots on the line,
+   cards entirely to the right — no overlap anywhere.
+══════════════════════════════════════════════════════════════ */
+.sebi-timeline-mobile {
+  display: none;
+  /* shown via media query */
+  position: relative;
+  /* Left padding = line-left-offset + dot-width/2 + gap */
+  padding-left: 4.5rem;
+}
+
+/* The continuous vertical line */
+.sebi-tl-mobile-line {
+  position: absolute;
+  left: 1.6rem;
+  /* centre of the 38px dot = left + 19px ≈ 1.6rem */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--sebi-red) 80%, rgba(193, 18, 31, 0.1) 100%);
+  z-index: 0;
+  /* behind everything */
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+/* Each step row */
+.sebi-tl-mobile-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* Dot — positioned over the line */
+.sebi-tl-mobile-dot {
+  position: absolute;
+  left: -3.1rem;
+  top: 0.2rem;
+  width: 38px;
+  height: 38px;
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(193, 18, 31, 0.75);
+  color: var(--sebi-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  font-weight: 900;
+  text-shadow:
+    0 1px 3px rgba(255, 255, 255, 0.9),
+    0 0 8px rgba(255, 255, 255, 0.6);
+  letter-spacing: -0.02em;
+  /* White halo so line appears behind the dot */
+  box-shadow:
+    0 0 0 3px var(--sebi-white),
+    0 0 0 5px rgba(193, 18, 31, 0.18),
+    0 2px 12px rgba(193, 18, 31, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+/* Card — entirely to the right, no overlap with line */
+.sebi-tl-mobile-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: var(--sebi-white);
+  border: 1px solid var(--sebi-border);
+  border-radius: 10px;
+  padding: 0.875rem 1rem;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 3;
+  /* above everything */
+}
+
+/* Mobile icon */
+.sebi-tl-mobile-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--sebi-red), #8B0010);
+  border-radius: 8px;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(193, 18, 31, 0.3);
+}
+
+.sebi-tl-mobile-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.sebi-tl-mobile-title {
+  font-size: 0.93rem;
+  font-weight: 700;
+  color: var(--sebi-dark);
+  margin: 0 0 0.2rem;
+}
+
+.sebi-tl-mobile-desc {
+  font-size: 0.82rem;
+  color: var(--sebi-gray);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════
+   6. CYBERARIES DIFFERENCE — OFF-WHITE + GRID
+═══════════════════════════════════════════ */
+.sebi-difference {
+  background: var(--sebi-off-white);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Subtle grid background matching BFSI white sections */
+.sebi-difference-grid-bg {
+  display: none;
+}
+
+.sebi-difference .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* BFSI-style uppercase title */
+.sebi-difference-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--sebi-dark);
+  text-align: center;
+  margin: 0 0 3rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sebi-difference-highlight {
+  color: #D92344;
+  text-shadow: 0 0 20px rgba(217, 35, 68, 0.3);
+}
+
+/* Comparison grid */
+.sebi-comparison-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  max-width: 100%;
-  margin: 0 auto;
+  align-items: stretch;
 }
 
-.comparison-column {
-  background: rgba(60, 60, 60, 0.4);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+.sebi-comparison-grid > * {
+  height: 100%;
 }
 
-.comparison-column:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+/* ── Traditional card — white, BFSI bfsi-card style ── */
+.sebi-diff-card {
+  border-radius: 18px;
+  padding: 2.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.comparison-column.traditional {
-  border-color: rgba(255, 255, 255, 0.15);
+.sebi-diff-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--sebi-red), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
 }
 
-.comparison-column.cyberaries {
-  background: rgba(251, 228, 230, 0.15);
-  border: 2px solid rgba(193, 18, 31, 0.6);
-  box-shadow: 0 0 30px rgba(193, 18, 31, 0.2);
+.sebi-diff-card--traditional {
+  background: var(--sebi-white);
 }
 
-.comparison-column.cyberaries:hover {
-  border-color: #C1121F;
-  box-shadow: 0 0 45px rgba(193, 18, 31, 0.35), 0 15px 40px rgba(0, 0, 0, 0.4);
+.sebi-diff-card--traditional:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.10), 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.comparison-heading {
-  font-size: 1.6rem;
+.sebi-diff-card--traditional:hover::before {
+  opacity: 1;
+}
+
+/* ── Featured / CyberAries card — dark, BFSI bfsi-card--featured style ── */
+.sebi-diff-card--featured {
+  background: linear-gradient(180deg, #0B0B0B 0%, #111111 100%);
+  border: 2px solid rgba(193, 18, 31, 0.55);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35), 0 0 40px rgba(193, 18, 31, 0.12);
+}
+
+/* Inner radial glow */
+.sebi-diff-card-inner-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(217, 35, 68, 0.12), transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sebi-diff-card--featured>* {
+  position: relative;
+  z-index: 1;
+}
+
+.sebi-diff-card--featured:hover {
+  transform: translateY(-8px);
+  border-color: var(--sebi-red);
+  box-shadow: 0 30px 65px rgba(0, 0, 0, 0.45), 0 0 55px rgba(193, 18, 31, 0.20);
+}
+
+/* Heading */
+.sebi-diff-heading {
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  text-align: center;
+  color: var(--sebi-dark);
+  margin: 0 0 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.07);
+  text-align: center;
+  transition: color 0.3s ease;
 }
 
-.cyberaries-heading {
-  color: #ff6b6b;
-  border-bottom-color: rgba(255, 107, 107, 0.5);
+.sebi-diff-card--traditional:hover .sebi-diff-heading {
+  color: var(--sebi-red);
 }
 
-.comparison-list {
+.sebi-diff-heading--red {
+  color: #D92344;
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+  text-shadow: 0 0 16px rgba(217, 35, 68, 0.3);
+}
+
+/* List */
+.sebi-diff-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.9rem;
+  flex-grow: 1;
 }
 
-.comparison-item {
+.sebi-diff-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
-  font-size: 1.05rem;
+  gap: 0.85rem;
+  font-size: 1rem;
   line-height: 1.7;
-  color: #e0e0e0;
-  padding: 0.75rem 0;
+  color: var(--sebi-gray);
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
 }
 
-.cyberaries .comparison-item {
-  color: #ffffff;
+.sebi-diff-card--traditional:hover .sebi-diff-item {
+  color: #333;
 }
 
-.bullet {
-  color: #888888;
+.sebi-diff-bullet {
+  color: #9a9a9a;
   font-size: 1.3rem;
   font-weight: 700;
   flex-shrink: 0;
-  margin-top: 2px;
   line-height: 1;
-  min-width: 20px;
+  margin-top: 2px;
 }
 
-.cyberaries .bullet {
-  color: #ff6b6b;
+.sebi-diff-item--featured {
+  color: rgba(240, 240, 240, 0.9);
 }
 
-/* PRICING */
-.sebi-pricing { background: var(--sebi-light); }
-.sebi-pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
-.sebi-pricing-card { background: var(--sebi-white); padding: 2.5rem; border-radius: 15px; border: 2px solid var(--sebi-border); text-align: center; transition: all 0.3s; position: relative; }
-.sebi-pricing-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(193, 18, 31, 0.2); border-color: var(--sebi-red); }
-.sebi-pricing-card.popular { border-color: var(--sebi-red); transform: scale(1.05); }
-.sebi-pricing-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--sebi-red); color: #fff; padding: 6px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; }
-.sebi-pricing-name { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
-.sebi-pricing-price { font-size: 2.5rem; font-weight: 800; color: var(--sebi-red); margin-bottom: 0.5rem; }
-.sebi-pricing-period { color: var(--sebi-gray); margin-bottom: 2rem; }
-.sebi-pricing-features { list-style: none; padding: 0; margin: 0 0 2rem 0; text-align: left; }
-.sebi-pricing-features li { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; color: var(--sebi-dark); }
-.sebi-pricing-features li svg { color: #22c55e; flex-shrink: 0; }
-.sebi-btn-pricing { width: 100%; padding: 1rem; background: var(--sebi-red); color: #fff; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.3s; }
-.sebi-btn-pricing:hover { background: #e01525; transform: translateX(5px); }
+.sebi-diff-card--featured:hover .sebi-diff-item--featured {
+  color: #fff;
+}
+
+.sebi-diff-check {
+  color: #F63136;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ═══════════════════════════════════════════
+   7. FAQ + TESTIMONIALS — WHITE (plain, no grid)
+═══════════════════════════════════════════ */
+.sebi-faq-testimonials {
+  position: relative;
+  background: var(--sebi-white);
+  padding: 5rem 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sebi-faq-testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(193,18,31,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(193,18,31,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.sebi-faq-grid-bg {
+  display: none;
+  /* plain white — no grid pattern */
+}
+
+.sebi-faq-testimonials .container {
+  position: relative;
+  z-index: 1;
+}
+
+.sebi-faq-testimonials-inner {
+  display: grid;
+  /* FAQ col | thin divider | testimonials col */
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 3.5rem;
+  align-items: start;
+}
+
+/* Vertical gradient divider */
+.sebi-faq-divider {
+  width: 1px;
+  align-self: stretch;
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(193, 18, 31, 0.25) 15%,
+      rgba(193, 18, 31, 0.45) 40%,
+      rgba(193, 18, 31, 0.45) 60%,
+      rgba(193, 18, 31, 0.25) 85%,
+      transparent 100%);
+  pointer-events: none;
+}
 
 /* FAQ */
-.sebi-faq { background: var(--sebi-white); }
-.sebi-faq-list { max-width: 800px; margin: 2rem auto; }
-.sebi-faq-item { background: var(--sebi-light); margin-bottom: 1rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--sebi-border); transition: all 0.3s; }
-.sebi-faq-item:hover { box-shadow: 0 4px 15px rgba(193, 18, 31, 0.1); }
-.sebi-faq-question { padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--sebi-dark); transition: all 0.3s; }
-.sebi-faq-question:hover { color: var(--sebi-red); }
-.sebi-faq-icon { transition: transform 0.3s; color: var(--sebi-red); }
-.sebi-faq-icon.rotated { transform: rotate(180deg); }
-.sebi-faq-answer { padding: 0 1.5rem 1.5rem; color: var(--sebi-gray); line-height: 1.7; animation: slideDown 0.3s; }
-@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.sebi-faq-col {}
 
-/* TESTIMONIALS */
-.sebi-testimonials { background: var(--sebi-light); }
-.sebi-testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
-.sebi-testimonial-card { background: var(--sebi-white); padding: 2rem; border-radius: 15px; border: 1px solid var(--sebi-border); transition: all 0.3s; }
-.sebi-testimonial-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(193, 18, 31, 0.1); }
-.sebi-testimonial-stars { display: flex; gap: 4px; margin-bottom: 1rem; }
-.sebi-testimonial-text { font-size: 1.1rem; color: var(--sebi-dark); line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
-.sebi-testimonial-author { display: flex; align-items: center; gap: 1rem; }
-.sebi-testimonial-avatar { width: 50px; height: 50px; background: var(--sebi-red); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; }
-.sebi-testimonial-name { font-weight: 700; color: var(--sebi-dark); }
-.sebi-testimonial-role { font-size: 0.9rem; color: var(--sebi-gray); }
+.sebi-faq-list {
+  margin-top: 1.5rem;
+}
 
-/* CTA */
-.sebi-cta { background: linear-gradient(135deg, #1a1a1a, #0f0f0f); padding: 4rem 0; text-align: center; }
-.sebi-cta-title { font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 1rem; }
-.sebi-cta-desc { font-size: 1.2rem; color: #e0e0e0; margin-bottom: 2rem; }
-.sebi-btn-cta { padding: 1.25rem 3rem; background: var(--sebi-red); color: #fff; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; }
-.sebi-btn-cta:hover { background: #e01525; transform: scale(1.05); box-shadow: 0 8px 25px rgba(193, 18, 31, 0.4); }
+.sebi-faq-item {
+  background: var(--sebi-card-bg);
+  border: 1px solid var(--sebi-border);
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  transition: box-shadow 0.25s, border-color 0.25s;
+}
 
-/* RESPONSIVE */
+.sebi-faq-item--open,
+.sebi-faq-item:hover {
+  box-shadow: 0 4px 18px rgba(193, 18, 31, 0.08);
+  border-color: rgba(193, 18, 31, 0.2);
+}
+
+.sebi-faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--sebi-dark);
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.25s;
+}
+
+.sebi-faq-question:hover {
+  color: var(--sebi-red);
+}
+
+.sebi-faq-chevron {
+  color: var(--sebi-red);
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.sebi-faq-chevron--open {
+  transform: rotate(180deg);
+}
+
+.sebi-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.sebi-faq-answer--open {
+  max-height: 300px;
+}
+
+.sebi-faq-answer-inner {
+  padding: 0 1.5rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--sebi-gray);
+  line-height: 1.7;
+}
+
+/* Testimonials */
+.sebi-testimonials-col {}
+
+.sebi-testimonial-list {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sebi-testimonial-card {
+  background: var(--sebi-card-bg);
+  border: 1px solid var(--sebi-border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* No red top-border reveal on testimonial cards */
+.sebi-testimonial-card::before {
+  display: none;
+}
+
+.sebi-testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.10), 0 10px 25px rgba(0, 0, 0, 0.07);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.sebi-testimonial-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 0.875rem;
+}
+
+.sebi-testimonial-quote {
+  font-size: 0.98rem;
+  color: var(--sebi-dark);
+  line-height: 1.7;
+  font-style: italic;
+  margin: 0 0 1.25rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.sebi-testimonial-quote::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -4px;
+  font-size: 2rem;
+  color: var(--sebi-red);
+  opacity: 0.5;
+  font-style: normal;
+  line-height: 1;
+}
+
+.sebi-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.sebi-testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  background: var(--sebi-red);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.sebi-testimonial-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--sebi-dark);
+}
+
+.sebi-testimonial-role {
+  font-size: 0.82rem;
+  color: var(--sebi-gray);
+}
+
+/* ═══════════════════════════════════════════
+   8. CTA — DARK WITH BG IMAGE (BFSI style)
+═══════════════════════════════════════════ */
+.sebi-cta {
+  /* bg image set inline in JSX */
+  background-color: #0B0B0B;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 5.5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Dark radial gradient overlay — keeps text legible over the image */
+.sebi-cta-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 900px 500px at 50% 45%,
+      rgba(11, 11, 11, 0.82) 0%,
+      rgba(11, 11, 11, 0.55) 45%,
+      rgba(11, 11, 11, 0.18) 75%,
+      rgba(11, 11, 11, 0.02) 100%),
+    linear-gradient(180deg, rgba(11, 11, 11, 0.5) 0%, rgba(17, 17, 17, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* Red glow bloom */
+.sebi-cta-red-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse 700px 400px at 50% 0%, rgba(193, 18, 31, 0.22), transparent 65%);
+  pointer-events: none;
+}
+
+.sebi-cta .container {
+  position: relative;
+  z-index: 1;
+}
+
+.sebi-cta-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.sebi-cta .sebi-eyebrow {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.sebi-cta-title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sebi-cta-desc {
+  font-size: 1.12rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 auto 2.5rem;
+  max-width: 560px;
+  line-height: 1.8;
+}
+
+.sebi-cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+
 @media (max-width: 1024px) {
-  .sebi-stats-bar, .sebi-trust-grid { grid-template-columns: repeat(3, 1fr); }
-  .sebi-challenge-grid, .sebi-tab-grid { grid-template-columns: repeat(2, 1fr); }
-  .sebi-pricing-grid { grid-template-columns: 1fr; }
+  .sebi-hero-title {
+    font-size: 2.8rem;
+  }
+
+  .sebi-section-title {
+    font-size: 2rem;
+  }
+
+  .sebi-challenge-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sebi-tab-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Tablet: tighten card gap, desktop layout still holds 4-col */
+  .sebi-tl-cards-row {
+    gap: 0.75rem;
+  }
+
+  /* Diff cards */
+  .sebi-diff-card {
+    padding: 2rem;
+  }
+
+  .sebi-diff-heading {
+    font-size: 1.3rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .sebi-hero-title { font-size: 2.5rem; }
-  .sebi-stats-bar, .sebi-trust-grid, .sebi-challenge-grid, .sebi-tab-grid, .sebi-testimonial-grid { grid-template-columns: 1fr; }
-  .sebi-timeline::before { left: 22px; }
-  .sebi-timeline-item, .sebi-timeline-item.right { flex-direction: row; padding-left: 80px; }
-  .sebi-timeline-number { position: absolute; left: 0; }
-
-  /* Comparison section mobile */
-  .cyberaries-difference {
-    padding-left: 0;
-    padding-right: 0;
+  .sebi-hero {
+    min-height: auto;
   }
 
-  .cyberaries-difference .container {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    box-sizing: border-box;
+  .sebi-hero-title {
+    font-size: 2.2rem;
   }
 
-  .comparison-grid {
+  .sebi-hero-desc {
+    font-size: 0.97rem;
+  }
+
+  .sebi-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sebi-stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .sebi-trust-strip {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    width: 100%;
-    box-sizing: border-box;
   }
 
-  .comparison-grid > div {
-    width: 100%;
-    box-sizing: border-box;
+  .sebi-section-title {
+    font-size: 1.8rem;
   }
 
-  .comparison-column {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 1.25rem;
+  .sebi-challenge-grid {
+    grid-template-columns: 1fr;
   }
 
-  .comparison-column.cyberaries {
-    border: 2px solid rgba(193, 18, 31, 0.6);
+  .sebi-tab-grid {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .difference-title {
+  /* Switch to vertical timeline on mobile */
+  .sebi-timeline-desktop {
+    display: none;
+  }
+
+  .sebi-timeline-mobile {
+    display: block;
+  }
+
+  /* Diff section */
+  .sebi-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sebi-difference-title {
+    font-size: 1.8rem;
+  }
+
+  .sebi-diff-card {
+    padding: 1.75rem;
+  }
+
+  /* CTA */
+  .sebi-cta-title {
     font-size: 2rem;
-    padding: 0 0.5rem;
   }
 
-  .comparison-heading {
-    font-size: 1.25rem;
+  /* FAQ + testimonials: stack vertically, hide divider */
+  .sebi-faq-testimonials-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem 0;
   }
 
-  .comparison-item {
-    font-size: 0.95rem;
+  .sebi-faq-divider {
+    display: none;
+  }
+
+  .sebi-cta-title {
+    font-size: 1.9rem;
+  }
+
+  .sebi-cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sebi-btn-primary--large,
+  .sebi-btn-ghost--large {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sebi-hero-actions {
+    flex-direction: column;
+  }
+
+  .sebi-hero-actions .sebi-btn-primary,
+  .sebi-hero-actions .sebi-btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .sebi-hero-title {
+    font-size: 1.9rem;
+  }
+
+  .sebi-section-title {
+    font-size: 1.6rem;
+  }
+
+  .sebi-tab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sebi-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sebi-stat-num {
+    font-size: 1.7rem;
+  }
+
+  .sebi-cta-title {
+    font-size: 1.65rem;
+  }
+}
+
+/* ─── REDUCED MOTION ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
