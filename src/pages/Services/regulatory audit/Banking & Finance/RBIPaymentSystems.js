@@ -5,7 +5,7 @@ import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/services/bank-finance.webp';
 import ctaBgImage from '../../../../images/cta/cta-background.webp';
 import {
-  FileText, AlertTriangle, CheckCircle,
+  Shield, FileText, AlertTriangle, CheckCircle,
   BarChart3, Database, Bell, Eye, Award, Handshake,
   RefreshCw, FileCheck, UserCheck, Network, ArrowRight,
   Server, CreditCard, Smartphone, Zap, Key,
@@ -182,26 +182,27 @@ const RBIPaymentSystems = () => {
   ];
 
   const standardsData = [
-    {
-      title: "RBI Guidelines",
-      description: "Reserve Bank of India payment system regulations and security guidelines for all regulated entities."
-    },
-    {
-      title: "PCI-DSS v4.0",
-      description: "Payment Card Industry Data Security Standard — latest version compliance for card data environments.",
-      icon: <CreditCard size={28} />
-    },
-    {
-      title: "NPCI Standards",
-      description: "National Payments Corporation of India security requirements for UPI, IMPS, and NACH systems.",
-      icon: <Network size={28} />
-    },
-    {
-      title: "ISO 20022",
-      description: "International payment messaging and security standards for cross-border and domestic transactions.",
-      icon: <Key size={28} />
-    }
-  ];
+  {
+    title: "RBI Guidelines",
+    description: "Reserve Bank of India payment system regulations and security guidelines for all regulated entities.",
+    icon: <Shield size={28} />
+  },
+  {
+    title: "PCI-DSS v4.0",
+    description: "Payment Card Industry Data Security Standard — latest version compliance for card data environments.",
+    icon: <CreditCard size={28} />
+  },
+  {
+    title: "NPCI Standards",
+    description: "National Payments Corporation of India security requirements for UPI, IMPS, and NACH systems.",
+    icon: <Network size={28} />
+  },
+  {
+    title: "ISO 20022",
+    description: "International payment messaging and security standards for cross-border and domestic transactions.",
+    icon: <Key size={28} />
+  }
+];
 
   return (
     <div className="rbi-payment-page">
