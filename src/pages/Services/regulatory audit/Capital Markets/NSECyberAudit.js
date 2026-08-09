@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
-import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
 import ctaBgImage from '../../../../images/cta/cta-background.webp';
 /* eslint-disable no-unused-vars */
 import {
@@ -23,7 +23,6 @@ const NSECyberAudit = () => {
   // Animate hero stats counter
   useEffect(() => {
     const targets = [500, 98, 10, 100];
-    const suffixes = ['+', '%', '+', '%'];
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !statsAnimated.current) {
