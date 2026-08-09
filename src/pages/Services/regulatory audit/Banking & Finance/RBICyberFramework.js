@@ -5,10 +5,9 @@ import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/services/bank-finance.webp';
 import ctaBgImage from '../../../../images/cta/cta-background.webp';
 import {
-  Shield, Lock, FileText, AlertTriangle, CheckCircle,
-  Settings, BarChart3, Users, Globe, Database, Bell,
+  Lock, FileText, AlertTriangle, CheckCircle, BarChart3, Users, Globe, Database, Bell,
   Eye, Award, Handshake, RefreshCw, FileCheck,
-  UserCheck, Network, BookOpen, Target, ArrowRight,
+  UserCheck, Network, ArrowRight,
   Landmark
 } from 'lucide-react';
 import './RBICyberFramework.css';
@@ -38,15 +37,15 @@ const RBICyberFramework = () => {
     { title: "Cyber Crisis Management Plan", description: "Developing and testing comprehensive incident response and crisis management frameworks for cyber incidents.", icon: <AlertTriangle size={28} /> },
     { title: "Third-Party Risk Management", description: "Managing cyber security risks from vendors, service providers, and third-party integrations.", icon: <Network size={28} /> },
     { title: "Advanced Threat Detection", description: "Implementing real-time monitoring, threat intelligence, and anomaly detection systems.", icon: <Eye size={28} /> },
-    { title: "Baseline Cyber Security Controls", description: "Implementing and maintaining 24 baseline controls covering identity management, data protection, and network security.", icon: <Shield size={28} /> }
+    { title: "Baseline Cyber Security Controls", description: "Implementing and maintaining 24 baseline controls covering identity management, data protection, and network security." }
   ];
 
   const approachSteps = [
     { title: "Governance Assessment", description: "Evaluate existing cyber security governance structure, board oversight, and policy framework against RBI requirements.", icon: <FileCheck size={28} /> },
     { title: "Gap Analysis", description: "Conduct comprehensive gap assessment across all 24 baseline controls and governance requirements.", icon: <BarChart3 size={28} /> },
-    { title: "Risk Profiling", description: "Develop cyber risk profile based on bank's size, operations, digital presence, and customer base.", icon: <Target size={28} /> },
-    { title: "Policy Development", description: "Draft board-approved cyber security policy, strategy, and supporting procedures aligned with RBI framework.", icon: <BookOpen size={28} /> },
-    { title: "Technical Controls Implementation", description: "Deploy baseline security controls including identity management, encryption, network security, and monitoring.", icon: <Settings size={28} /> },
+    { title: "Risk Profiling", description: "Develop cyber risk profile based on bank's size, operations, digital presence, and customer base."},
+    { title: "Policy Development", description: "Draft board-approved cyber security policy, strategy, and supporting procedures aligned with RBI framework.",  },
+    { title: "Technical Controls Implementation", description: "Deploy baseline security controls including identity management, encryption, network security, and monitoring." },
     { title: "Cyber Crisis Management Framework", description: "Establish incident response plan, business continuity procedures, and crisis communication protocols.", icon: <Bell size={28} /> },
     { title: "Third-Party Risk Management", description: "Implement vendor assessment framework, contractual controls, and ongoing monitoring mechanisms.", icon: <UserCheck size={28} /> },
     { title: "Security Operations Center (SOC)", description: "Set up or enhance SOC capabilities for 24/7 monitoring, threat detection, and incident response.", icon: <Eye size={28} /> },
@@ -57,7 +56,7 @@ const RBICyberFramework = () => {
   ];
 
   const frameworkComponents = [
-    { title: "Governance Framework", description: "Board oversight, cyber security strategy, risk management framework, and accountability structure.", icon: <Shield size={28} /> },
+    { title: "Governance Framework", description: "Board oversight, cyber security strategy, risk management framework, and accountability structure." },
     { title: "Baseline Security Controls", description: "24 mandatory controls covering identity, data protection, network security, and resilience.", icon: <Lock size={28} /> },
     { title: "Cyber Crisis Management", description: "Incident response, business continuity, crisis communication, and recovery procedures.", icon: <AlertTriangle size={28} /> },
     { title: "Third-Party Risk Management", description: "Vendor assessment, contractual safeguards, and continuous monitoring of outsourced services.", icon: <Network size={28} /> },
@@ -71,24 +70,6 @@ const RBICyberFramework = () => {
     { title: "End-to-End Implementation", description: "Complete support from gap analysis to implementation, testing, and ongoing compliance maintenance.", icon: <Handshake size={28} /> }
   ];
 
-  const baselineControls = [
-    "Identity & Access Management with privileged access controls",
-    "Strong authentication mechanisms including multi-factor authentication",
-    "Data security and encryption at rest and in transit",
-    "Network security with segmentation and perimeter defense",
-    "Security monitoring and incident detection systems",
-    "Patch and vulnerability management processes",
-    "Application security throughout SDLC",
-    "Security testing including VAPT and code reviews",
-    "Change management with security validation",
-    "Configuration and asset management",
-    "Backup and recovery with off-site storage",
-    "Business continuity and disaster recovery",
-    "Vendor and third-party risk management",
-    "User awareness and training programs",
-    "Cyber insurance coverage",
-    "Security audit and compliance monitoring"
-  ];
 
   return (
     <div className="rbi-cyber-framework-page">
@@ -547,7 +528,6 @@ const RBICyberFramework = () => {
                 <span className="rbi-pillar-bg-num" aria-hidden="true">02</span>
                 <div className="rbi-pillar-top">
                   <div className="rbi-pillar-icon-wrap">
-                    <Settings size={28} />
                   </div>
                   <div>
                     <span className="rbi-pillar-num">02</span>
