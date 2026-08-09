@@ -9,7 +9,7 @@ import {
   BarChart3, Database, Bell, Eye, Award, Handshake,
   RefreshCw, FileCheck, UserCheck, Network, ArrowRight,
   Server, CreditCard, Smartphone, Zap, Key,
-  ShieldCheck, Activity, FileSearch, GitBranch, Globe, Landmark
+  ShieldCheck, Activity, FileSearch, GitBranch, Globe, Landmark, Target
 } from 'lucide-react';
 import './RBIPaymentSystems.css';
 
@@ -81,9 +81,10 @@ const RBIPaymentSystems = () => {
       icon: <Network size={28} />
     },
     {
-      title: "Security Controls Assessment",
-      description: "Evaluate authentication, authorization, encryption, tokenization, and access control mechanisms."
-    },
+  title: "Security Controls Assessment",
+  description: "Evaluate authentication, authorization, encryption, tokenization, and access control mechanisms.",
+  icon: <ShieldCheck size={28} />
+},
     {
       title: "Transaction Security Testing",
       description: "Test payment processing security, session management, and transaction integrity controls.",
@@ -106,7 +107,8 @@ const RBIPaymentSystems = () => {
     },
     {
       title: "Penetration Testing",
-      description: "Conduct ethical hacking of payment applications, mobile apps, and payment gateways."
+      description: "Conduct ethical hacking of payment applications, mobile apps, and payment gateways.",
+      icon: <Target size={28} />
     },
     {
       title: "Third-Party Integration Security",
