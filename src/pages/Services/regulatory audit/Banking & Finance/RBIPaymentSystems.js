@@ -5,7 +5,7 @@ import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/services/bank-finance.webp';
 import ctaBgImage from '../../../../images/cta/cta-background.webp';
 import {
-  Shield, Lock, FileText, AlertTriangle, CheckCircle,
+  FileText, AlertTriangle, CheckCircle,
   BarChart3, Database, Bell, Eye, Award, Handshake,
   RefreshCw, FileCheck, UserCheck, Network, ArrowRight,
   Server, CreditCard, Smartphone, Zap, Key,
@@ -82,8 +82,7 @@ const RBIPaymentSystems = () => {
     },
     {
       title: "Security Controls Assessment",
-      description: "Evaluate authentication, authorization, encryption, tokenization, and access control mechanisms.",
-      icon: <Lock size={28} />
+      description: "Evaluate authentication, authorization, encryption, tokenization, and access control mechanisms."
     },
     {
       title: "Transaction Security Testing",
@@ -107,8 +106,7 @@ const RBIPaymentSystems = () => {
     },
     {
       title: "Penetration Testing",
-      description: "Conduct ethical hacking of payment applications, mobile apps, and payment gateways.",
-      icon: <Shield size={28} />
+      description: "Conduct ethical hacking of payment applications, mobile apps, and payment gateways."
     },
     {
       title: "Third-Party Integration Security",
@@ -186,8 +184,7 @@ const RBIPaymentSystems = () => {
   const standardsData = [
     {
       title: "RBI Guidelines",
-      description: "Reserve Bank of India payment system regulations and security guidelines for all regulated entities.",
-      icon: <Shield size={28} />
+      description: "Reserve Bank of India payment system regulations and security guidelines for all regulated entities."
     },
     {
       title: "PCI-DSS v4.0",

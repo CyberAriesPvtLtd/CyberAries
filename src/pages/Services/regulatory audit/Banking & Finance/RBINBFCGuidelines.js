@@ -5,10 +5,10 @@ import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/services/bank-finance.webp';
 import ctaBgImage from '../../../../images/cta/cta-background.webp';
 import {
-  Shield, Lock, FileText, AlertTriangle, CheckCircle,
-  Settings, BarChart3, Users, Database, Bell,
+  Lock, FileText, AlertTriangle, CheckCircle,
+   BarChart3, Users, Database, Bell,
   Eye, Award, Handshake, RefreshCw, FileCheck,
-  UserCheck, Network, BookOpen, Target, ArrowRight,
+  UserCheck, Network, ArrowRight,
   TrendingUp, Laptop, Building, ShieldCheck, Smartphone, DollarSign, Landmark
 } from 'lucide-react';
 import './RBINBFCGuidelines.css';
