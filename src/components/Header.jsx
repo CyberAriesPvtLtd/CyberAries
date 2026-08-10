@@ -845,8 +845,8 @@ const Header = () => {
       {isMobileMenuOpen && (
         <>
           <div className="mobile-overlay" onClick={closeMobileMenu}></div>
-          <nav className="mobile-nav">
-            <div className="mobile-nav-content">
+          <nav className="mobile-menu">
+            <div className="mobile-menu-content">
               {/* Home */}
               <Link
                 to="/"

@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/technology/hero-image.png';
+import heroBgImage from '../../images/industries/technology/hero-image.webp';
+import ctaBgImage from '../../images/cta/cta-background.webp';
 import {
   Cloud,
   GitBranch,
@@ -218,8 +219,9 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* CyberAries Approach + Solution Cards — one continuous Dark section */}
-      <section className="cyberaries-approach tech-dark-section">
+      {/* CyberAries Approach + Solution Cards — Light, plain — alternates
+          with the gridded Key Challenges section above. */}
+      <section className="cyberaries-approach tech-section-white">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
@@ -234,7 +236,7 @@ const Technology = () => {
           <div className="solutions-grid">
             {solutionsData.map((solution, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="tech-card tech-card--dark">
+                <div className="tech-card">
                   <div className="tech-icon">
                     {solution.icon}
                   </div>
@@ -276,8 +278,8 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* Cyberaries Difference Section — Dark, matches Our Approach section */}
-      <section className="cyberaries-difference tech-dark-section">
+      {/* Cyberaries Difference Section — Light + grid, matches BFSI / Government Difference section */}
+      <section className="cyberaries-difference tech-light-section">
         <div className="container">
           <ScrollReveal animation="fade-up">
             <h2 className="difference-title">
@@ -288,7 +290,7 @@ const Technology = () => {
           <div className="comparison-grid">
             {/* Traditional Security Consulting */}
             <ScrollReveal animation="fade-right" delay={100}>
-              <div className="comparison-column traditional tech-card tech-card--dark">
+              <div className="comparison-column traditional tech-card">
                 <h3 className="comparison-heading">Traditional Security Consulting</h3>
                 <ul className="comparison-list">
                   <li className="comparison-item">
@@ -369,8 +371,11 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* CTA Section — Light, matches Key Challenges / Why Choose sections */}
-      <section className="cta-section tech-light-section">
+      {/* CTA Section — Dark + bg image, closes the rhythm into the dark Footer (matches BFSI / Government) */}
+      <section
+        className="cta-section tech-dark-section"
+        style={{ backgroundImage: `url(${ctaBgImage})` }}
+      >
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">

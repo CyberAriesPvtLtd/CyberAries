@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import heroBgImage from '../../images/industries/bfsi/hero-image.webp';
+import ctaBgImage from '../../images/cta/cta-background.webp';
 import { 
   Shield,
   Lock,
@@ -110,8 +111,13 @@ const Manufacturing = () => {
   return (
     <div className="manufacturing-page">
       {/* Hero Section */}
-      <section className="hero-section" style={{ backgroundImage: `url(${heroBgImage})` }}>
-        <div className="hero-background"></div>
+      <section className="hero-section">
+        <div
+          className="hero-bg-layer"
+          style={{ backgroundImage: `url(${heroBgImage})` }}
+        ></div>
+        <div className="hero-overlay"></div>
+        <div className="hero-glow"></div>
         <div className="container">
           <div className="hero-content">
             <ScrollReveal animation="fade-down" delay={0}>
@@ -120,7 +126,7 @@ const Manufacturing = () => {
             
             <ScrollReveal animation="fade-up" delay={100}>
               <h1 className="hero-title">
-                Secure Industrial Operations and <span className="text-gradient">Protect Manufacturing IP</span>
+                <span className="text-gradient">Secure Industrial Operations and Protect Manufacturing IP</span>
               </h1>
             </ScrollReveal>
             
@@ -146,6 +152,7 @@ const Manufacturing = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">The Threat Landscape</p>
               <h2 className="section-title">Key Cybersecurity Challenges Facing Manufacturing</h2>
               <p className="section-description">
                 Understanding the unique security threats that impact industrial operations and production systems
@@ -174,6 +181,7 @@ const Manufacturing = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">Our Approach</p>
               <h2 className="section-title">With Cyberaries, Build Resilient Manufacturing Security</h2>
               <p className="section-description">
                 Comprehensive security solutions designed for modern manufacturing and industrial environments
@@ -203,6 +211,7 @@ const Manufacturing = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">Trusted Partner</p>
               <h2 className="section-title">Why Choose Cyberaries?</h2>
               <p className="section-description">
                 Trusted by manufacturing organizations across India
@@ -319,8 +328,11 @@ const Manufacturing = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
+      {/* CTA Section — Dark + bg image, matches all other industry pages */}
+      <section
+        className="cta-section"
+        style={{ backgroundImage: `url(${ctaBgImage})` }}
+      >
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">

@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './TrustedCompanies.css';
-import ethonhurstLogo from '../images/clients/ethonhurst.png';
-import nafaLogo from '../images/clients/nafa.png';
-import otpVenturesLogo from '../images/clients/otp-ventures.png';
-import samaraCapitalLogo from '../images/clients/samara-capital.png';
-import araliVenturesLogo from '../images/clients/arali-ventures.png';
-import kitaraCapitalLogo from '../images/clients/kitara-capital.png';
-import profesCapitalLogo from '../images/clients/profes-capital.png';
-import soonicornVenturesLogo from '../images/clients/soonicorn-ventures.png';
-import sunriseLogo from '../images/clients/sunrise.png';
-import twoXCapitalLogo from '../images/clients/twox-capital.png';
+import ethonhurstLogo from '../images/clients/ethonhurst.webp';
+import nafaLogo from '../images/clients/nafa.webp';
+import otpVenturesLogo from '../images/clients/otp-ventures.webp';
+import samaraCapitalLogo from '../images/clients/samara-capital.webp';
+import araliVenturesLogo from '../images/clients/arali-ventures.webp';
+import kitaraCapitalLogo from '../images/clients/kitara-capital.webp';
+import profesCapitalLogo from '../images/clients/profes-capital.webp';
+import soonicornVenturesLogo from '../images/clients/soonicorn-ventures.webp';
+import sunriseLogo from '../images/clients/sunrise.webp';
+import twoXCapitalLogo from '../images/clients/twox-capital.webp';
 
 // ------------------------------------------------------------------
 // Turns a company name into a short monogram (e.g. "Northbridge

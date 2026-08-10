@@ -527,7 +527,7 @@ body {
 
 .comparison-column {
   background: rgba(60, 60, 60, 0.4);
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
   border-radius: var(--radius-lg);
   padding: var(--spacing-2xl);
   border: 1px solid rgba(255, 255, 255, 0.1);

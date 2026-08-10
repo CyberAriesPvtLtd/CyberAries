@@ -70,6 +70,7 @@
   align-items: center;
   gap: 0.5rem;
   background: rgba(255, 255, 255, 0.15);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(10px);
   padding: 0.5rem 1.25rem;
   border-radius: 2rem;
@@ -166,6 +167,7 @@
   align-items: center;
   justify-content: center;
   color: var(--text-light);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   animation: pulse-glow 3s ease-in-out infinite;
@@ -190,6 +192,7 @@
 
 .step-item {
   background: rgba(255, 255, 255, 0.15);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-md);
@@ -327,6 +330,7 @@
   align-items: center;
   justify-content: center;
   color: var(--text-light);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   animation: float-rotate 6s ease-in-out infinite;}
@@ -576,7 +580,7 @@
 
 @media (max-width: 480px) {
   .iso-27701-page .hero-section {
-    min-height: auto;
+    min-height: unset;
   }
   
   .iso-27701-page .hero-title {

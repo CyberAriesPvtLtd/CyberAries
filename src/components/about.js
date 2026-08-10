@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./about.css";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ShieldAlert, Lock, BadgeCheck, ShieldCheck, Users, Handshake, Settings2, Target, Compass } from "lucide-react";
+import { ShieldAlert, Lock, BadgeCheck, ShieldCheck, Users, Handshake, Settings2, Target, Compass, ArrowRight } from "lucide-react";
 
 // import about_image from "../../public/about_image.png";
 const About = () => {
@@ -386,9 +386,14 @@ const expertiseTitleRef = useRef(null);
           <h2>Where We're Headed</h2>
         </div>
 
-        <div className="about-mv-grid" ref={overviewRef}>
-          <div className="about-mv-card">
-            <div className="about-icon-circle"><Target size={22} /></div>
+        <div className="about-mv-journey" ref={overviewRef}>
+          {/* TODAY — MISSION */}
+          <div className="about-mv-card about-mv-mission">
+            <span className="about-mv-watermark" aria-hidden="true">Mission</span>
+            <div className="about-mv-top">
+              <span className="about-mv-eyebrow">Today</span>
+              <div className="about-mv-icon"><Target size={20} /></div>
+            </div>
             <h4>Our Mission</h4>
             <p>
               To help organizations operate with confidence by making
@@ -396,10 +401,28 @@ const expertiseTitleRef = useRef(null);
               real risk, clear communication, and defenses that hold up
               under actual pressure, not just in a report.
             </p>
+            <div className="about-mv-footer">
+              <span className="about-mv-footer-line" aria-hidden="true"></span>
+              <span className="about-mv-micro">Practical Security</span>
+            </div>
           </div>
 
-          <div className="about-mv-card">
-            <div className="about-icon-circle"><Compass size={22} /></div>
+          {/* CONNECTOR */}
+          <div className="about-mv-connector" aria-hidden="true">
+            <span className="about-mv-connector-line"></span>
+            <span className="about-mv-connector-node">
+              <ArrowRight size={16} strokeWidth={2.5} />
+            </span>
+            <span className="about-mv-connector-line"></span>
+          </div>
+
+          {/* FUTURE — VISION */}
+          <div className="about-mv-card about-mv-vision">
+            <span className="about-mv-watermark" aria-hidden="true">Vision</span>
+            <div className="about-mv-top">
+              <span className="about-mv-eyebrow">Future</span>
+              <div className="about-mv-icon"><Compass size={20} /></div>
+            </div>
             <h4>Our Vision</h4>
             <p>
               To become the security partner organizations turn to first,
@@ -407,6 +430,10 @@ const expertiseTitleRef = useRef(null);
               future where proactive protection is the standard, not the
               exception.
             </p>
+            <div className="about-mv-footer">
+              <span className="about-mv-footer-line" aria-hidden="true"></span>
+              <span className="about-mv-micro">Future-Ready Protection</span>
+            </div>
           </div>
         </div>
       </section>

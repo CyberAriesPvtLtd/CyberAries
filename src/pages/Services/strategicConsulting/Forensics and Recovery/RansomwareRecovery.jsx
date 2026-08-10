@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
-import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
 import {
     Shield, Search, Lock, AlertTriangle, CheckCircle,
     Database, Award, Globe, Settings, FileCheck, Clock, RefreshCw

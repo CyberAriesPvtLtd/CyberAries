@@ -23,7 +23,7 @@
   /* Surfaces */
   --dark-bg: #0B0B0B;
   --dark-surface: #111111;
-  --light-bg: #F8F8F8;
+  --light-bg: #fafaf7;
 
   /* Text */
   --text-dark: #181818;
@@ -80,23 +80,14 @@ body {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background: linear-gradient(180deg, #fafaf8 0%, #f7f7f5 55%, #f3f3f1 100%);
+  background: var(--light-bg) !important;
   padding: var(--spacing-3xl) 0;
 }
 
 .tech-light-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image:
-    radial-gradient(circle at 12% 15%, rgba(var(--sec-red-rgb), 0.07), transparent 45%),
-    radial-gradient(circle at 88% 85%, rgba(var(--sec-red-rgb), 0.05), transparent 45%),
-    linear-gradient(rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 46px 46px, 46px 46px;
-  animation: techGridGlowPulse 10s ease-in-out infinite;
-  pointer-events: none;
+  content: none !important;
+  display: none !important;
+  background-image: none !important;
 }
 
 @keyframes techGridGlowPulse {
@@ -105,6 +96,48 @@ body {
 }
 
 .tech-light-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Plain variant — same off-white ground as .tech-light-section but
+   without the grid overlay. Used for the CyberAries Approach
+   section so the grid rhythm alternates: Key Challenges (grid) ->
+   Approach (plain) -> Why Choose (grid) -> Difference (plain). */
+.tech-section-white {
+  position: relative;
+  background: #ffffff !important;
+  padding: var(--spacing-3xl) 0;
+}
+
+.tech-section-white::before {
+  content: '' !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 12% 15%, rgba(var(--sec-red-rgb), 0.035), transparent 40%),
+    radial-gradient(circle at 88% 85%, rgba(var(--sec-red-rgb), 0.025), transparent 40%),
+    linear-gradient(rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 100%, 46px 46px, 46px 46px;
+  animation: techGridGlowPulse 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Tinted plain variant — same off-white ground as .tech-light-section
+   but without the grid overlay. Used for the CyberAries Difference
+   section, closing out the grid/plain alternation before the dark
+   CTA. */
+.tech-section-tint {
+  position: relative;
+  overflow: hidden;
+  background: var(--light-bg) !important;
+  padding: var(--spacing-3xl) 0;
+}
+
+.tech-section-tint .container {
   position: relative;
   z-index: 1;
 }
@@ -144,13 +177,13 @@ body {
   margin-bottom: var(--spacing-2xl);
 }
 
-.section-subtitle {
+.technology-page .section-subtitle {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: var(--spacing-sm);
-  color: var(--sec-red);
+  margin-bottom: 24px !important;
+  color: var(--sec-red) !important;
 }
 
 .tech-dark-section .section-subtitle {
@@ -416,7 +449,8 @@ body {
   opacity: 1;
 }
 
-/* Dark-surface variant, used on the Why Choose section */
+/* Dark-surface variant — no longer used now that Approach and Why
+   Choose sit on light sections, kept for backward compatibility. */
 .tech-card--dark {
   background: rgba(255, 255, 255, 0.03);
   border-color: var(--border-soft-dark);
@@ -430,16 +464,23 @@ body {
 }
 
 /* Featured variant for the CyberAries column in the Difference
-   comparison. Uses the same dark surface as the "Our Approach"
-   section (not the translucent Why Choose variant) so it reads as
-   a clearly legible, standout panel against the light section bg. */
-.tech-card--featured {
-  background: linear-gradient(180deg, var(--dark-bg) 0%, var(--dark-surface) 100%);
-  border: 2px solid rgba(var(--sec-red-rgb), 0.55);
-  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35), 0 0 40px rgba(var(--sec-red-rgb), 0.12);
+   comparison — same dark surface as the old Approach dark card so
+   it reads as a standout panel against the light section bg.
+
+   Chained as .tech-card.tech-card--featured (rather than relying on
+   .tech-card--featured alone) and backed with !important on the
+   background/border/text-affecting properties: this card's dark
+   background is load-bearing for its text's contrast, so it can't
+   be allowed to lose a cascade fight with some other stylesheet
+   that happens to load after this one and also touches .tech-card. */
+.tech-card.tech-card--featured {
+  background-color: #0B0B0B !important;
+  background: linear-gradient(180deg, #0B0B0B 0%, #111111 100%) !important;
+  border: 2px solid rgba(var(--sec-red-rgb), 0.55) !important;
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35), 0 0 40px rgba(var(--sec-red-rgb), 0.12) !important;
 }
 
-.tech-card--featured::after {
+.tech-card.tech-card--featured::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -448,15 +489,15 @@ body {
   pointer-events: none;
 }
 
-.tech-card--featured > * {
+.tech-card.tech-card--featured > * {
   position: relative;
   z-index: 1;
 }
 
-.tech-card--featured:hover {
+.tech-card.tech-card--featured:hover {
   transform: translateY(-8px);
-  border-color: var(--sec-red);
-  box-shadow: 0 30px 65px rgba(0, 0, 0, 0.45), 0 0 55px rgba(var(--sec-red-rgb), 0.2);
+  border-color: var(--sec-red) !important;
+  box-shadow: 0 30px 65px rgba(0, 0, 0, 0.45), 0 0 55px rgba(var(--sec-red-rgb), 0.2) !important;
 }
 
 .tech-icon {
@@ -616,16 +657,45 @@ body {
 }
 
 /* ==========================================
-   CYBERARIES DIFFERENCE SECTION (light + grid)
+   CYBERARIES DIFFERENCE SECTION (light + plain, shared card system)
 ========================================== */
+
+/* Explicit light bg — beats any global .cyberaries-difference dark
+   override regardless of stylesheet load order. The animated grid
+   surface is provided by .tech-light-section on the same element in
+   JSX; this rule just locks the background colour. */
+.cyberaries-difference {
+  background: linear-gradient(180deg, #fafaf8 0%, #f7f7f5 55%, #f3f3f1 100%) !important;
+}
+
 .difference-title {
   font-size: 2.8rem;
   font-weight: 800;
   text-align: center;
-  color: var(--text-on-dark);
+  color: #181818 !important;
   margin-bottom: var(--spacing-2xl);
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.technology-page .cyberaries-difference {
+  background: #ffffff !important;
+}
+
+.technology-page .cyberaries-difference::before {
+  content: '' !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 12% 15%, rgba(var(--sec-red-rgb), 0.035), transparent 40%),
+    radial-gradient(circle at 88% 85%, rgba(var(--sec-red-rgb), 0.025), transparent 40%),
+    linear-gradient(rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 100%, 46px 46px, 46px 46px;
+  animation: techGridGlowPulse 10s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .difference-title .highlight-red {
@@ -650,25 +720,33 @@ body {
   padding: var(--spacing-2xl);
 }
 
+/* Base heading is now dark ink — it belongs to the traditional
+   column, which sits on the plain light tech-card since the section
+   itself is no longer dark. */
 .comparison-heading {
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--text-on-dark);
+  color: var(--text-dark);
   margin-bottom: var(--spacing-lg);
   text-align: center;
   padding-bottom: var(--spacing-md);
-  border-bottom: 2px solid var(--border-soft-dark);
-  transition: color 0.3s ease;
+  border-bottom: 2px solid var(--border-soft);
+  transition: border-color 0.3s ease;
 }
 
+/* CyberAries heading keeps its own dark-card styling, independent
+   of the section background. !important guards against the
+   .technology-page * { color: inherit; } reset (or any other
+   stylesheet) silently winning the cascade and flattening this back
+   to inherited body text color. */
 .cyberaries-heading {
-  color: var(--accent-red);
+  color: var(--accent-red) !important;
   border-bottom-color: rgba(255, 255, 255, 0.15);
   text-shadow: 0 0 16px rgba(var(--accent-red-rgb), 0.3);
 }
 
 .comparison-column.traditional:hover .comparison-heading {
-  color: var(--accent-red);
+  border-bottom-color: rgba(var(--sec-red-rgb), 0.4);
 }
 
 .comparison-list {
@@ -681,27 +759,36 @@ body {
   flex-grow: 1;
 }
 
+/* Base item color is dark-muted ink for the traditional column
+   (light card). The CyberAries column overrides back to white
+   below, since its card stays dark. Same !important guard as the
+   heading above — this text has to stay legible against a dark
+   card no matter what else is on the page. */
 .comparison-item {
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-md);
   font-size: 1.02rem;
   line-height: 1.7;
-  color: var(--text-on-dark-muted);
+  color: var(--text-muted);
   padding: var(--spacing-sm) 0;
   transition: color 0.3s ease;
 }
 
 .comparison-column.cyberaries .comparison-item {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
-.comparison-column:hover .comparison-item {
-  color: rgba(255, 255, 255, 0.92);
+.comparison-column.traditional:hover .comparison-item {
+  color: #1f2937;
+}
+
+.comparison-column.cyberaries:hover .comparison-item {
+  color: rgba(255, 255, 255, 0.97) !important;
 }
 
 .bullet {
-  color: #b5b5b5;
+  color: #94a3b8;
   font-size: 1.3rem;
   font-weight: 700;
   flex-shrink: 0;
@@ -714,7 +801,7 @@ body {
 }
 
 .comparison-column.cyberaries .check-icon {
-  color: var(--accent-red);
+  color: var(--accent-red) !important;
 }
 
 .check-icon {
@@ -723,29 +810,41 @@ body {
 }
 
 /* ==========================================
-   CTA SECTION (light)
-   Sits on the shared .tech-light-section surface (off-white +
-   subtle grid, same as Key Challenges / Why Choose). This block
-   only adds the one-corner crimson glow, content width control,
-   and light-theme text colors specific to the CTA.
+   CTA SECTION (dark)
+   Sits on .tech-dark-section (see above) — same dark-bg ->
+   dark-surface gradient + accent-red glow as Approach/Difference
+   used to have, so the page closes into the dark Footer instead of
+   jumping from a light section straight into a dark one. This block
+   only adds content width control and CTA-specific text/button
+   styling.
 
-   Rules below are scoped under .technology-page so this page's light
+   Rules below are scoped under .technology-page so this page's
    CTA styling always wins over any other page's same-named
    .cta-section rules, regardless of stylesheet load order.
+
+   The section's style.backgroundImage (cta-background.webp, set
+   inline in JS) paints on the element itself. We size/position it
+   here and dim it with a dark gradient overlay on ::before so the
+   CTA copy and buttons stay fully legible on top, matching the
+   dark-bg/red-glow recipe used on the BFSI and Government pages.
 ========================================== */
-.technology-page .cta-section {
-  background: linear-gradient(180deg, #fafaf8 0%, #f7f7f5 55%, #f3f3f1 100%);
+.cta-section.tech-dark-section {
+  background-color: var(--dark-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.cta-section::after {
+.cta-section.tech-dark-section::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: radial-gradient(circle at 18% 25%, rgba(var(--sec-red-rgb), 0.07), transparent 55%);
+  background:
+    radial-gradient(ellipse 900px 500px at 50% 45%, rgba(11, 11, 11, 0.82) 0%, rgba(11, 11, 11, 0.55) 45%, rgba(11, 11, 11, 0.15) 75%, rgba(11, 11, 11, 0) 100%),
+    linear-gradient(180deg, rgba(11, 11, 11, 0.45) 0%, rgba(17, 17, 17, 0.55) 100%);
   pointer-events: none;
 }
-
 .cta-content {
   max-width: 720px !important;
   width: 100% !important;
@@ -759,14 +858,22 @@ body {
 .technology-page .cta-title {
   font-size: 2.8rem;
   font-weight: 800;
-  color: var(--text-dark);
   margin-bottom: var(--spacing-md);
   line-height: 1.2;
   white-space: normal !important;
   overflow-wrap: anywhere !important;
   width: 100% !important;
   display: block !important;
-  text-shadow: none;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  /* Gradient heading (white -> pink -> red), same treatment as the
+     hero title's .text-gradient, kept light at the top end so the
+     text stays fully readable on the dark CTA background. */
+  background: linear-gradient(135deg, #ffffff 0%, #ffd9d9 20%, #ff8080 45%, #ff3b3b 70%, #C1121F 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 7s ease infinite;
 }
 
 .technology-page .cta-description {
@@ -775,7 +882,7 @@ body {
   margin: 0 auto var(--spacing-xl);
   font-size: 1.15rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--text-on-dark-muted);
   line-height: 1.8;
   box-sizing: border-box;
   white-space: normal !important;

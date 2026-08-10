@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import heroBgImage from '../../images/industries/bfsi/hero-image.webp';
+import ctaBgImage from '../../images/cta/cta-background.webp';
 import { 
   Shield,
   Lock,
@@ -110,8 +111,13 @@ const Healthcare = () => {
   return (
     <div className="healthcare-page">
       {/* Hero Section */}
-      <section className="hero-section" style={{ backgroundImage: `url(${heroBgImage})` }}>
-        <div className="hero-background"></div>
+      <section className="hero-section">
+        <div
+          className="hero-bg-layer"
+          style={{ backgroundImage: `url(${heroBgImage})` }}
+        ></div>
+        <div className="hero-overlay"></div>
+        <div className="hero-glow"></div>
         <div className="container">
           <div className="hero-content">
             <ScrollReveal animation="fade-down" delay={0}>
@@ -120,7 +126,7 @@ const Healthcare = () => {
             
             <ScrollReveal animation="fade-up" delay={100}>
               <h1 className="hero-title">
-                Protect Patient Data and <span className="text-gradient">Secure Critical Care Systems</span>
+                <span className="text-gradient">Protect Patient Data and Secure Critical Care Systems</span>
               </h1>
             </ScrollReveal>
             
@@ -146,6 +152,7 @@ const Healthcare = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">The Threat Landscape</p>
               <h2 className="section-title">Key Cybersecurity Challenges Facing Healthcare Organizations</h2>
               <p className="section-description">
                 Understanding the critical security threats that impact patient care and data protection
@@ -174,6 +181,7 @@ const Healthcare = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">Our Approach</p>
               <h2 className="section-title">With Cyberaries, Build a Secure Healthcare Ecosystem</h2>
               <p className="section-description">
                 Comprehensive security solutions tailored for healthcare providers and medical institutions
@@ -203,6 +211,7 @@ const Healthcare = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">Trusted Partner</p>
               <h2 className="section-title">Why Choose Cyberaries?</h2>
               <p className="section-description">
                 Trusted by healthcare organizations across India
@@ -319,8 +328,11 @@ const Healthcare = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
+      {/* CTA Section — Dark + bg image, matches BFSI / Government / Technology / Education */}
+      <section
+        className="cta-section"
+        style={{ backgroundImage: `url(${ctaBgImage})` }}
+      >
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">

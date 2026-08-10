@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import heroBgImage from '../../images/industries/bfsi/hero-image.webp';
+import ctaBgImage from '../../images/cta/cta-background.webp';
 import { 
   Shield,
   Lock,
@@ -110,26 +111,31 @@ const Education = () => {
   return (
     <div className="education-page">
       {/* Hero Section */}
-      <section className="hero-section" style={{ backgroundImage: `url(${heroBgImage})` }}>
-        <div className="hero-background"></div>
+      <section className="hero-section">
+        <div
+          className="hero-bg-layer"
+          style={{ backgroundImage: `url(${heroBgImage})` }}
+        ></div>
+        <div className="hero-overlay"></div>
+        <div className="hero-glow"></div>
         <div className="container">
           <div className="hero-content">
             <ScrollReveal animation="fade-down" delay={0}>
               <p className="hero-subtitle">Cybersecurity For Education Sector</p>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={100}>
               <h1 className="hero-title">
                 <span className="text-gradient">Secure Learning Environments and Protect Student Data</span>
               </h1>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={200}>
               <p className="hero-description">
                 Educational institutions face unique cybersecurity challenges, from protecting sensitive student records to securing online learning platforms. As schools and universities embrace digital transformation, they must safeguard student privacy, ensure compliance with regulations like FERPA and COPPA, and defend against evolving cyber threats while maintaining accessible learning environments.
               </p>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={300}>
               <div className="hero-actions">
                 <button className="btn btn-primary" onClick={handleGetStarted}>
@@ -146,6 +152,7 @@ const Education = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">The Threat Landscape</p>
               <h2 className="section-title">Key Cybersecurity Challenges Facing Educational Institutions</h2>
               <p className="section-description">
                 Understanding the unique security threats that schools and universities face in the digital age
@@ -174,6 +181,7 @@ const Education = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">Our Approach</p>
               <h2 className="section-title">With Cyberaries, Build a Secure Educational Ecosystem</h2>
               <p className="section-description">
                 Comprehensive security solutions designed for the unique needs of educational institutions
@@ -203,6 +211,7 @@ const Education = () => {
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
+              <p className="section-subtitle">Trusted Partner</p>
               <h2 className="section-title">Why Choose Cyberaries?</h2>
               <p className="section-description">
                 Trusted by educational institutions across India
@@ -319,8 +328,11 @@ const Education = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
+      {/* CTA Section — Dark + bg image, closes the rhythm into the dark Footer (matches BFSI / Government / Technology) */}
+      <section
+        className="cta-section"
+        style={{ backgroundImage: `url(${ctaBgImage})` }}
+      >
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">

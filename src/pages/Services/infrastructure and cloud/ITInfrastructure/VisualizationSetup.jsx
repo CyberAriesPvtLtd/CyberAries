@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
-import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
-import overviewImage from '../../../../images/services/vapt/code-image.jpg';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
+import overviewImage from '../../../../images/services/vapt/code-image.webp';
 
 import {
   Cpu,
