@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
-import heroBgImage from '../../../../images/industries/bfsi/hero-image.jpg';
+import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
 import { Shield, FileText, Search, AlertTriangle, CheckCircle, Settings, Users, Award, RefreshCw, FileCheck, Eye, Database, Globe, Target } from 'lucide-react';
 import './SOC2.css';
 
