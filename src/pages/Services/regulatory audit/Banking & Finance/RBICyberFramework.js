@@ -37,7 +37,7 @@ const RBICyberFramework = () => {
     { title: "Cyber Crisis Management Plan", description: "Developing and testing comprehensive incident response and crisis management frameworks for cyber incidents.", icon: <AlertTriangle size={28} /> },
     { title: "Third-Party Risk Management", description: "Managing cyber security risks from vendors, service providers, and third-party integrations.", icon: <Network size={28} /> },
     { title: "Advanced Threat Detection", description: "Implementing real-time monitoring, threat intelligence, and anomaly detection systems.", icon: <Eye size={28} /> },
-    { title: "Baseline Cyber Security Controls", description: "Implementing and maintaining 24 baseline controls covering identity management, data protection, and network security." }
+    { title: "Baseline Cyber Security Controls", description: "Implementing and maintaining 24 baseline controls covering identity management, data protection, and network security.",icon: <Lock size={28} /> }
   ];
 
   const approachSteps = [
@@ -538,12 +538,13 @@ const RBICyberFramework = () => {
               </div>
             </ScrollReveal>
 
-            {/* 02 — Technical Controls */}
+          {/* 02 — Technical Controls */}
             <ScrollReveal direction="up" delay={200} triggerOnce={false}>
               <div className="rbi-pillar-card">
                 <span className="rbi-pillar-bg-num" aria-hidden="true">02</span>
                 <div className="rbi-pillar-top">
                   <div className="rbi-pillar-icon-wrap">
+                    <Settings size={28} />
                   </div>
                   <div>
                     <span className="rbi-pillar-num">02</span>
