@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.jpg';
+import heroBgImage from '../../images/industries/bfsi/hero-image.webp';
+import ctaBgImage from '../../images/cta/cta-background.webp';
 import {
   Shield,
   Lock,
@@ -23,10 +24,12 @@ import './BFSI.css';
 /**
  * BFSI Industry Page
  * Banking, Financial Services, and Insurance Security Solutions
- * Dark Hero -> one continuous off-white content canvas -> Dark Footer.
- * All sections between Hero and Footer share the same off-white
- * surface + grid pattern (.bfsi-content-section); hierarchy comes
- * from spacing, typography, and cards rather than background color.
+ * Dark Hero -> Off-white (Key Challenges) -> White+grid (Approach)
+ * -> Off-white (Why Choose) -> White+grid (Difference) -> Dark CTA
+ * -> Dark Footer. Same alternating rhythm as the Contact/About
+ * pages, reusing this page's own --dark-bg/--dark-surface/--sec-red
+ * tokens (already identical to Contact's dark palette) so the CTA
+ * reads as one continuous design system, not a new color.
  * Fully Responsive for PC, Tablet, and Mobile
  */
 
@@ -210,8 +213,8 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* CyberAries Approach + Solution Cards — part of the continuous off-white canvas */}
-      <section className="cyberaries-approach bfsi-content-section">
+      {/* CyberAries Approach + Solution Cards — white + grid, alternating with the off-white sections around it */}
+      <section className="cyberaries-approach bfsi-content-section bfsi-content-section--white">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
@@ -268,8 +271,8 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* Cyberaries Difference Section — part of the continuous off-white canvas */}
-      <section className="cyberaries-difference bfsi-content-section">
+      {/* Cyberaries Difference Section — white + grid, alternating with Why Choose above it */}
+      <section className="cyberaries-difference bfsi-content-section bfsi-content-section--white">
         <div className="container">
           <ScrollReveal animation="fade-up">
             <h2 className="difference-title">
@@ -361,8 +364,11 @@ const BFSI = () => {
         </div>
       </section>
 
-      {/* CTA Section — final part of the continuous off-white canvas, before the dark Footer */}
-      <section className="cta-section bfsi-content-section">
+      {/* CTA Section — dark, matching the Contact/About CTA + Footer, closing the page where alternation started */}
+      <section
+        className="cta-section bfsi-content-section-dark"
+        style={{ backgroundImage: `url(${ctaBgImage})` }}
+      >
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">

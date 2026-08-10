@@ -1,8 +1,10 @@
 /* ==========================================
    BFSI INDUSTRY PAGE
    Ported design language: same brand tokens, shared
-   light-section grid surface, shared card/icon system,
-   and shared dark-section pattern used on the Home page.
+   light-section grid surface, shared card/icon system, and the
+   same dark-surface recipe used on the Contact/About pages.
+   Rhythm: Dark Hero -> Off-white -> White+grid -> Off-white ->
+   White+grid -> Dark CTA -> Dark Footer.
    Mobile First, Tablet & Desktop Optimized
 ========================================== */
 
@@ -20,7 +22,7 @@
   /* Surfaces */
   --dark-bg: #0B0B0B;
   --dark-surface: #111111;
-  --light-bg: #F8F8F8;
+  --light-bg: #fafaf7;
 
   /* Text */
   --text-dark: #181818;
@@ -70,14 +72,13 @@ body {
 
 /* ==========================================
    SHARED CONTENT-SECTION SURFACE
-   One continuous off-white canvas used by every section between
-   the (dark) Hero and the (dark) Footer: Key Challenges, CyberAries
-   Approach, Why Choose, CyberAries Difference, and CTA. Flat
-   #F8F8F8 background (no per-section gradient) so consecutive
-   sections read as a single seamless surface, with the same subtle
-   square grid + soft red glow continuing across all of them.
-   Sections are told apart by spacing, typography, and cards —
-   never by background color.
+   Off-white canvas used by Key Challenges and Why Choose — flat
+   #F8F8F8 background with the same subtle square grid + soft red
+   glow as before. CyberAries Approach and CyberAries Difference
+   use the --white modifier below instead, so the page alternates
+   off-white / white+grid rather than reading as one flat surface.
+   Sections are told apart by background AND by spacing/typography/
+   cards, matching the Contact/About rhythm.
 ========================================== */
 .bfsi-content-section {
   position: relative;
@@ -88,18 +89,10 @@ body {
 }
 
 .bfsi-content-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image:
-    radial-gradient(circle at 12% 15%, rgba(var(--sec-red-rgb), 0.035), transparent 40%),
-    radial-gradient(circle at 88% 85%, rgba(var(--sec-red-rgb), 0.025), transparent 40%),
-    linear-gradient(rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 46px 46px, 46px 46px;
-  animation: bfsiGridGlowPulse 10s ease-in-out infinite;
-  pointer-events: none;
+  /* No grid/glow for off-white sections */
+  content: none !important;
+  display: none !important;
+  background-image: none !important;
 }
 
 @keyframes bfsiGridGlowPulse {
@@ -112,6 +105,77 @@ body {
   z-index: 1;
 }
 
+/* WHITE + GRID variant — CyberAries Approach and CyberAries
+   Difference. Pure white ground with a much quieter grid (no
+   colored glow blobs, low-opacity lines only) so it reads as
+   "engineered" rather than empty, per the same treatment used on
+   About's white sections. Overrides the base ::before above by
+   appearing later in the stylesheet at equal specificity. */
+.bfsi-content-section--white {
+  background: #ffffff !important;
+}
+
+.bfsi-content-section--white::before {
+  content: '' !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 12% 15%, rgba(var(--sec-red-rgb), 0.035), transparent 40%),
+    radial-gradient(circle at 88% 85%, rgba(var(--sec-red-rgb), 0.025), transparent 40%),
+    linear-gradient(rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 100%, 46px 46px, 46px 46px;
+  animation: bfsiGridGlowPulse 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* DARK CTA SURFACE
+   Same dark-bg -> dark-surface gradient + red glow recipe as the
+   Contact page's closing band, reusing BFSI's own --dark-bg /
+   --dark-surface / --sec-red-rgb tokens (already the same values
+   as Contact's) so this reads as one shared design system rather
+   than a new color introduced just for this page.
+========================================== */
+.bfsi-content-section-dark {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 700px 400px at 50% 0%, rgba(var(--sec-red-rgb), 0.22), transparent 65%),
+    linear-gradient(180deg, var(--dark-bg) 0%, var(--dark-surface) 100%);
+  padding: var(--spacing-3xl) 0;
+}
+
+/* CTA-specific: the section's `style.backgroundImage` (cta-background.webp,
+   set inline in JS) paints on the element itself. We size/position it here
+   and dim it with a dark gradient overlay on ::before so the CTA copy and
+   buttons stay fully legible on top, matching the dark-bg/red-glow recipe
+   used everywhere else on the page. */
+.cta-section.bfsi-content-section-dark {
+  background-color: var(--dark-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cta-section.bfsi-content-section-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 900px 500px at 50% 45%, rgba(11, 11, 11, 0.82) 0%, rgba(11, 11, 11, 0.55) 45%, rgba(11, 11, 11, 0.15) 75%, rgba(11, 11, 11, 0) 100%),
+    linear-gradient(180deg, rgba(11, 11, 11, 0.45) 0%, rgba(17, 17, 17, 0.55) 100%);
+  pointer-events: none;
+}
+
+.bfsi-content-section-dark .container {
+  position: relative;
+  z-index: 1;
+}
+
 /* ==========================================
    SECTION HEADERS (shared typography)
 ========================================== */
@@ -120,13 +184,13 @@ body {
   margin-bottom: var(--spacing-2xl);
 }
 
-.section-subtitle {
+.bfsi-page .section-subtitle {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: var(--spacing-sm);
-  color: var(--sec-red);
+  margin-bottom: 24px !important;
+  color: var(--sec-red) !important;
 }
 
 .section-title {
@@ -134,7 +198,7 @@ body {
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: var(--spacing-md);
-  color: var(--text-dark);
+  color: var(--text-dark) !important;
 }
 
 .section-description {
@@ -344,7 +408,7 @@ body {
 .bfsi-card {
   background: #ffffff;
   border-radius: var(--radius-card);
-  border: 1px solid var(--border-soft);
+  border: 1px solid rgba(0, 0, 0, 0.09);
   box-shadow: var(--shadow-card);
   padding: var(--spacing-xl);
   text-align: center;
@@ -553,11 +617,31 @@ body {
 /* ==========================================
    CYBERARIES DIFFERENCE SECTION (part of the off-white canvas)
 ========================================== */
+.bfsi-page .cyberaries-difference {
+  background: #ffffff !important;
+}
+
+.bfsi-page .cyberaries-difference::before {
+  content: '' !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 12% 15%, rgba(var(--sec-red-rgb), 0.035), transparent 40%),
+    radial-gradient(circle at 88% 85%, rgba(var(--sec-red-rgb), 0.025), transparent 40%),
+    linear-gradient(rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--sec-red-rgb), 0.06) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 100%, 46px 46px, 46px 46px;
+  animation: bfsiGridGlowPulse 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
 .difference-title {
   font-size: 2.8rem;
   font-weight: 800;
   text-align: center;
-  color: var(--text-dark);
+  color: #181818 !important;
   margin-bottom: var(--spacing-2xl);
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -661,20 +745,13 @@ body {
   flex-shrink: 0;
 }
 
-.cta-section::before {
-  background-image:
-    linear-gradient(rgba(var(--sec-red-rgb), 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--sec-red-rgb), 0.05) 1px, transparent 1px);
-  background-size: 46px 46px, 46px 46px;
-}
-
 /* ==========================================
    CTA SECTION
-   Sits on the shared .bfsi-content-section surface — the exact
-   same flat #F8F8F8 background and grid pattern as every other
-   section on the page, so it reads as the final stretch of one
-   continuous canvas right up to the dark Footer. This block only
-   adds content width control and CTA-specific text/button styling.
+   Sits on .bfsi-content-section-dark (see above) — the same dark
+   ground + red glow as the Contact page's closing band, so it
+   reads as the transition into the dark Footer rather than a
+   continuation of the light canvas above it. This block only adds
+   content width control and CTA-specific text/button styling.
 
    Rules below are scoped under .bfsi-page so this page's CTA
    styling always wins over any other page's same-named
@@ -693,14 +770,14 @@ body {
 .bfsi-page .cta-title {
   font-size: 2.8rem;
   font-weight: 800;
-  color: var(--text-dark);
+  color: #ffffff;
   margin-bottom: var(--spacing-md);
   line-height: 1.2;
   white-space: normal !important;
   overflow-wrap: anywhere !important;
   width: 100% !important;
   display: block !important;
-  text-shadow: none;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .bfsi-page .cta-description {
@@ -709,7 +786,7 @@ body {
   margin: 0 auto var(--spacing-xl);
   font-size: 1.15rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--text-on-dark-muted);
   line-height: 1.8;
   box-sizing: border-box;
   white-space: normal !important;

@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/goverment/hero-image.jpg';
+import heroBgImage from '../../images/industries/goverment/hero-image.webp';
+import ctaBgImage from '../../images/cta/cta-background.webp';
 import {
   Shield,
   Lock,
@@ -228,7 +229,7 @@ const Government = () => {
       </section>
 
       {/* CyberAries Approach + Solution Cards — one continuous Dark section */}
-      <section className="cyberaries-approach gov-dark-section">
+      <section className="cyberaries-approach gov-section-white">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
@@ -243,7 +244,7 @@ const Government = () => {
           <div className="solutions-grid">
             {solutionsData.map((solution, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="gov-card gov-card--dark">
+                <div className="gov-card">
                   <div className="gov-icon">
                     {solution.icon}
                   </div>
@@ -256,8 +257,10 @@ const Government = () => {
         </div>
       </section>
 
-      {/* Why Choose Section — Light + Grid, matching Key Challenges */}
-      <section className="why-choose gov-light-section">
+      {/* Why Choose Section — Light + grid — alternates with the
+          plain-white Approach section above, and the gridded Key
+          Challenges section before that: grid, plain, grid. */}
+      <section className="why-choose gov-section-grey-grid">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
@@ -285,8 +288,8 @@ const Government = () => {
         </div>
       </section>
 
-      {/* Cyberaries Difference Section — Dark, matches Our Approach section */}
-      <section className="cyberaries-difference gov-dark-section">
+      {/* Cyberaries Difference Section — Light + grid, matches BFSI Difference section */}
+      <section className="cyberaries-difference gov-light-section">
         <div className="container">
           <ScrollReveal animation="fade-up">
             <h2 className="difference-title">
@@ -297,7 +300,7 @@ const Government = () => {
           <div className="comparison-grid">
             {/* Traditional Security Consulting */}
             <ScrollReveal animation="fade-right" delay={100}>
-              <div className="comparison-column traditional gov-card gov-card--dark">
+              <div className="comparison-column traditional gov-card">
                 <h3 className="comparison-heading">Traditional Security Consulting</h3>
                 <ul className="comparison-list">
                   <li className="comparison-item">
@@ -378,8 +381,11 @@ const Government = () => {
         </div>
       </section>
 
-      {/* CTA Section — Light, matches Key Challenges / Why Choose sections */}
-      <section className="cta-section gov-light-section">
+      {/* CTA Section — Dark + bg image, closes the rhythm into the dark Footer (matches BFSI/About/Contact) */}
+      <section
+        className="cta-section gov-dark-section"
+        style={{ backgroundImage: `url(${ctaBgImage})` }}
+      >
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">
