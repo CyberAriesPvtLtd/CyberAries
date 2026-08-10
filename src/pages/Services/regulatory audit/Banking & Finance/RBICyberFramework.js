@@ -5,7 +5,7 @@ import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/services/bank-finance.webp';
 import ctaBgImage from '../../../../images/cta/cta-background.webp';
 import {
-  Lock, FileText, AlertTriangle, CheckCircle, BarChart3, Users, Globe, Database, Bell,
+  Shield, Settings, Target, Lock, FileText, AlertTriangle, CheckCircle, BarChart3, Users, Globe, Database, Bell,
   Eye, Award, Handshake, RefreshCw, FileCheck,
   UserCheck, Network, ArrowRight,
   Landmark
@@ -43,9 +43,21 @@ const RBICyberFramework = () => {
   const approachSteps = [
     { title: "Governance Assessment", description: "Evaluate existing cyber security governance structure, board oversight, and policy framework against RBI requirements.", icon: <FileCheck size={28} /> },
     { title: "Gap Analysis", description: "Conduct comprehensive gap assessment across all 24 baseline controls and governance requirements.", icon: <BarChart3 size={28} /> },
-    { title: "Risk Profiling", description: "Develop cyber risk profile based on bank's size, operations, digital presence, and customer base."},
-    { title: "Policy Development", description: "Draft board-approved cyber security policy, strategy, and supporting procedures aligned with RBI framework.",  },
-    { title: "Technical Controls Implementation", description: "Deploy baseline security controls including identity management, encryption, network security, and monitoring." },
+    {
+    title: "Risk Profiling",
+    description: "Develop cyber risk profile based on bank's size, operations, digital presence, and customer base.",
+    icon: <Target size={28} />
+},
+   {
+    title: "Policy Development",
+    description: "Draft board-approved cyber security policy, strategy, and supporting procedures aligned with RBI framework.",
+    icon: <FileText size={28} />
+},
+{
+  title: "Technical Controls Implementation",
+  description: "Deploy baseline security controls including identity management, encryption, network security, and monitoring.",
+  icon: <Settings size={28} />
+},
     { title: "Cyber Crisis Management Framework", description: "Establish incident response plan, business continuity procedures, and crisis communication protocols.", icon: <Bell size={28} /> },
     { title: "Third-Party Risk Management", description: "Implement vendor assessment framework, contractual controls, and ongoing monitoring mechanisms.", icon: <UserCheck size={28} /> },
     { title: "Security Operations Center (SOC)", description: "Set up or enhance SOC capabilities for 24/7 monitoring, threat detection, and incident response.", icon: <Eye size={28} /> },
@@ -56,7 +68,11 @@ const RBICyberFramework = () => {
   ];
 
   const frameworkComponents = [
-    { title: "Governance Framework", description: "Board oversight, cyber security strategy, risk management framework, and accountability structure." },
+    {
+  title: "Governance Framework",
+  description: "Board oversight, cyber security strategy, risk management framework, and accountability structure.",
+  icon: <Shield size={28} />
+},
     { title: "Baseline Security Controls", description: "24 mandatory controls covering identity, data protection, network security, and resilience.", icon: <Lock size={28} /> },
     { title: "Cyber Crisis Management", description: "Incident response, business continuity, crisis communication, and recovery procedures.", icon: <AlertTriangle size={28} /> },
     { title: "Third-Party Risk Management", description: "Vendor assessment, contractual safeguards, and continuous monitoring of outsourced services.", icon: <Network size={28} /> },
