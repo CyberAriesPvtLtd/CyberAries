@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../../components/ScrollReveal';
-import heroBgImage from '../../images/industries/bfsi/hero-image.webp';
+import heroBgImage from '../../images/industries/manufacturing/hero-image.webp';
 import ctaBgImage from '../../images/cta/cta-background.webp';
 import { 
   Shield,
