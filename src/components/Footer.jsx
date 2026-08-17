@@ -147,7 +147,7 @@ const Footer = () => {
               <div className="contact-text">
                 <div className="contact-label">Head Office</div>
                 <div className="contact-value">
-                  Hiranandani Business Park, Powai, Mumbai - 400071
+                  WeWork Lightbridge, Hiranandani Business Park, Powai, Mumbai - 400072
                 </div>
               </div>
             </div>
@@ -186,6 +186,7 @@ const Footer = () => {
             <div className="footer-links-bottom">
               <Link to="/terms-conditions">Terms & Conditions</Link>
               <Link to="/privacy-policy">Privacy Policy</Link>
+              <Link to="/cookie-policy">Cookie Policy</Link>
             </div>
           </div>
         </div>

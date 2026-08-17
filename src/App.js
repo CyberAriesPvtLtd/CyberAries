@@ -10,6 +10,8 @@ import Contact from './components/contact';
 import Appointment from './components/appointment';
 import TermsConditions from './components/TermsConditions';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import CookiePolicy from './components/CookiePolicy';
+import { CanonicalSync } from './components/Seo';
 
 import ComingSoon from './pages/comingsoon.js';
 import AprilFool from "./pages/AprilFool.jsx"
@@ -143,6 +145,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <CanonicalSync />
       <div className="App">
         <Header />  
         <Routes>
@@ -154,6 +157,7 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
 
           {/* Redirect: cyberaries.com/slidedeck -> Home */}
           <Route path="/slidedeck" element={<Navigate to="/" replace />} />

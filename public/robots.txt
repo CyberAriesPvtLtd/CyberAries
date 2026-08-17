@@ -4,27 +4,40 @@ Allow: /
 
 # Block temporary / utility pages
 Disallow: /comingsoon
-Disallow: /resources/survey/
-Disallow: /company/*
-Disallow: /services/*
+Disallow: /resources/
+Disallow: /company/
+Disallow: /slidedeck
+Disallow: /sentinelAI
 
-# Allow important main sections explicitly
+# Under /services/ only the pages below exist; everything else renders a
+# "coming soon" placeholder. Longest-match Allow rules win over the Disallow.
+Disallow: /services/
+
+# Service category landing pages + solution domains
+Allow: /services/regulatory
+Allow: /services/offensive-security
+Allow: /services/infrastructure
+Allow: /services/compliance
+Allow: /services/data-privacy
+Allow: /services/strategic-consulting
+
+# Offensive security services
 Allow: /services/web-app-security
 Allow: /services/mobile-app-security
+Allow: /services/thick-client-security
 Allow: /services/api-security
 Allow: /services/sast-dast
 Allow: /services/source-code-review
 Allow: /services/red-teaming
 Allow: /services/vulnerability-assessment
+
+# Cloud, network & consulting services
+Allow: /services/cloud/
 Allow: /services/network-security
 Allow: /services/wireless-security
-Allow: /services/compliance/
+Allow: /services/firewall-rule-review
 Allow: /services/privacy/
-Allow: /services/regulatory/
+Allow: /services/consulting/
+Allow: /services/soc-compliance/
 
-Allow: /industries/
-Allow: /about
-Allow: /contact
-Allow: /
-
-Sitemap:https://cyberaries.com/sitemap.xml
+Sitemap: https://cyberaries.com/sitemap.xml

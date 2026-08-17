@@ -1,25 +1,26 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CyberAries",
+  "name": "CyberAries | Cybersecurity, VAPT & Compliance Services",
+  "description": "Indian cybersecurity company providing VAPT, regulatory audits, ISO 27001 and DPDP Act compliance, cloud security, and GRC consulting.",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "32x30",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "logo-list.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "268x247"
     },
     {
-      "src": "logo512.png",
+      "src": "cyberaries-logo.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "868x287"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#000814",
+  "background_color": "#000814"
 }
