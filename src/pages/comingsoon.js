@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Home, Mail, ArrowLeft, Clock } from 'lucide-react';
+import Seo from '../components/Seo';
 import './ComingSoon.css';
 
 const ComingSoon = ({
@@ -39,6 +40,11 @@ const ComingSoon = ({
 
   return (
     <div className="coming-soon-wrapper">
+      <Seo
+        title="Coming Soon | CyberAries"
+        description="This page is under construction. Explore CyberAries' cybersecurity services, VAPT, and compliance solutions from our homepage."
+        noindex
+      />
       {/* Animated Background */}
       <div className="cs-background">
         <div className="cs-grid"></div>
