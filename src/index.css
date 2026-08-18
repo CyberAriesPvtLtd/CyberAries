@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ==========================================================================
+   GLOBAL SERVICE PAGE HERO BADGE STYLES
+   ========================================================================== */
+[class*="-hero-badge"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 6px 14px !important;
+  background: rgba(11, 11, 11, 0.75) !important;
+  border: 1px solid rgba(193, 18, 31, 0.45) !important;
+  border-radius: 6px !important;
+  backdrop-filter: blur(8px) !important;
+  box-shadow: 0 0 12px rgba(193, 18, 31, 0.12) !important;
+  margin-bottom: 24px !important;
+  transition: opacity 0.5s ease, box-shadow 0.3s ease !important;
+}
+
+[class*="-badge-icon"] {
+  color: #C1121F !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+[class*="-badge-text"] {
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  letter-spacing: 1.8px !important;
+  text-transform: uppercase !important;
+  font-family: 'Lexend', sans-serif !important;
+}
+
+[class*="-badge-divider"] {
+  color: rgba(193, 18, 31, 0.6) !important;
+  margin: 0 6px !important;
+}
+
