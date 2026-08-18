@@ -33,9 +33,9 @@ const RBICyberFramework = () => {
   // ── Data ──
   const challengesData = [
     { title: "Complex Regulatory Requirements", description: "The RBI Cyber Security Framework mandates comprehensive controls across governance, operations, and technology, requiring detailed documentation and implementation.", icon: <FileText size={28} /> },
-    { title: "Board-Level Cyber Security Policy", description: "Banks must establish a board-approved cyber security policy aligned with business strategy and risk appetite.", icon: <Users size={28} /> },
+    { title: "Board Level Cyber Security Policy", description: "Banks must establish a board approved cyber security policy aligned with business strategy and risk appetite.", icon: <Users size={28} /> },
     { title: "Cyber Crisis Management Plan", description: "Developing and testing comprehensive incident response and crisis management frameworks for cyber incidents.", icon: <AlertTriangle size={28} /> },
-    { title: "Third-Party Risk Management", description: "Managing cyber security risks from vendors, service providers, and third-party integrations.", icon: <Network size={28} /> },
+    { title: "Third-Party Risk Management", description: "Managing cyber security risks from vendors, service providers, and third party integrations.", icon: <Network size={28} /> },
     { title: "Advanced Threat Detection", description: "Implementing real-time monitoring, threat intelligence, and anomaly detection systems.", icon: <Eye size={28} /> },
     { title: "Baseline Cyber Security Controls", description: "Implementing and maintaining 24 baseline controls covering identity management, data protection, and network security.",icon: <Lock size={28} /> }
   ];
@@ -50,7 +50,7 @@ const RBICyberFramework = () => {
 },
    {
     title: "Policy Development",
-    description: "Draft board-approved cyber security policy, strategy, and supporting procedures aligned with RBI framework.",
+    description: "Draft board approved cyber security policy, strategy, and supporting procedures aligned with RBI framework.",
     icon: <FileText size={28} />
 },
 {
@@ -61,7 +61,7 @@ const RBICyberFramework = () => {
     { title: "Cyber Crisis Management Framework", description: "Establish incident response plan, business continuity procedures, and crisis communication protocols.", icon: <Bell size={28} /> },
     { title: "Third-Party Risk Management", description: "Implement vendor assessment framework, contractual controls, and ongoing monitoring mechanisms.", icon: <UserCheck size={28} /> },
     { title: "Security Operations Center (SOC)", description: "Set up or enhance SOC capabilities for 24/7 monitoring, threat detection, and incident response.", icon: <Eye size={28} /> },
-    { title: "Training & Awareness", description: "Conduct board-level briefings and organization-wide cyber security awareness programs.", icon: <Users size={28} /> },
+    { title: "Training & Awareness", description: "Conduct board level briefings and organization wide cyber security awareness programs.", icon: <Users size={28} /> },
     { title: "Testing & Validation", description: "Perform vulnerability assessments, penetration testing, and crisis simulation exercises.", icon: <CheckCircle size={28} /> },
     { title: "Compliance Documentation", description: "Prepare comprehensive evidence repository for RBI inspections and regulatory reporting.", icon: <Database size={28} /> },
     { title: "Continuous Monitoring", description: "Establish ongoing compliance monitoring, control effectiveness testing, and improvement programs.", icon: <RefreshCw size={28} /> }
@@ -76,7 +76,7 @@ const RBICyberFramework = () => {
     { title: "Baseline Security Controls", description: "24 mandatory controls covering identity, data protection, network security, and resilience.", icon: <Lock size={28} /> },
     { title: "Cyber Crisis Management", description: "Incident response, business continuity, crisis communication, and recovery procedures.", icon: <AlertTriangle size={28} /> },
     { title: "Third-Party Risk Management", description: "Vendor assessment, contractual safeguards, and continuous monitoring of outsourced services.", icon: <Network size={28} /> },
-    { title: "Threat Intelligence & Monitoring", description: "Real-time threat detection, security information sharing, and proactive defense measures.", icon: <Eye size={28} /> },
+    { title: "Threat Intelligence & Monitoring", description: "Real time threat detection, security information sharing, and proactive defense measures.", icon: <Eye size={28} /> },
     { title: "Security Operations Center", description: "24/7 monitoring, incident detection and response, and security event management.", icon: <Bell size={28} /> }
   ];
 
@@ -120,10 +120,10 @@ const RBICyberFramework = () => {
 
             <div className="rbi-hero-content">
               <ScrollReveal animation="fade-down" delay={0}>
-                <div className="rbi-hero-badge">
-                  <Landmark size={14} className="rbi-badge-icon" />
-                  <span className="rbi-badge-text">
-                    BANKING SECTOR <span className="rbi-badge-divider">/</span> COMPLIANCE
+                <div className="rbi-cyber-framework-hero-badge">
+                  <Landmark size={14} className="rbi-cyber-framework-badge-icon" />
+                  <span className="rbi-cyber-framework-badge-text">
+                    BANKING SECTOR <span className="rbi-cyber-framework-badge-divider">/</span> COMPLIANCE
                   </span>
                 </div>
               </ScrollReveal>
@@ -136,7 +136,7 @@ const RBICyberFramework = () => {
 
               <ScrollReveal animation="fade-up" delay={200}>
                 <p className="rbi-hero-description">
-                  The Reserve Bank of India (RBI) Cyber Security Framework mandates comprehensive security measures for all Scheduled Commercial Banks and Urban Cooperative Banks. <strong>Our specialized services ensure complete compliance</strong> with RBI directives covering governance, baseline controls, crisis management, and third-party risk. Navigate complex regulatory requirements with expert guidance for sustainable cyber resilience.
+                  The Reserve Bank of India (RBI) Cyber Security Framework mandates comprehensive security measures for all Scheduled Commercial Banks and Urban Cooperative Banks. <strong>Our specialized services ensure complete compliance</strong> with RBI directives covering governance, baseline controls, crisis management, and third party risk. Navigate complex regulatory requirements with expert guidance for sustainable cyber resilience.
                 </p>
               </ScrollReveal>
 
@@ -272,10 +272,10 @@ const RBICyberFramework = () => {
                   </div>
                   <ul className="rbi-ctrl-list">
                     <li>Identity &amp; Access Management with privileged access controls</li>
-                    <li>Strong authentication mechanisms including multi-factor authentication</li>
+                    <li>Strong authentication mechanisms including multi factor authentication</li>
                     <li>Data security and encryption at rest and in transit</li>
                     <li>Network security with segmentation and perimeter defense</li>
-                    <li>Role-based access control and least privilege enforcement</li>
+                    <li>Role based access control and least privilege enforcement</li>
                     <li>Session management and secure remote access protocols</li>
                   </ul>
                 </div>
@@ -291,7 +291,7 @@ const RBICyberFramework = () => {
                   <ul className="rbi-ctrl-list">
                     <li>Change management with security validation</li>
                     <li>Configuration and asset management</li>
-                    <li>Backup and recovery with off-site storage</li>
+                    <li>Backup and recovery with off site storage</li>
                     <li>Business continuity and disaster recovery</li>
                     <li>User awareness and training programs</li>
                     <li>Security audit and compliance monitoring</li>
@@ -330,20 +330,20 @@ const RBICyberFramework = () => {
                     {/* ── Labels — at quadrant centroids, well clear of white hole ── */}
                     {/* Each centroid is ~112px from center at 45° into the quadrant */}
                     {/* Q1 top-left: centroid (121,121) → label just below icon */}
-                    <text x="121" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">IDENTITY</text>
-                    <text x="121" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">&amp; ACCESS</text>
+                    <text x="121" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">IDENTITY</text>
+                    <text x="121" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">&amp; ACCESS</text>
 
                     {/* Q2 top-right: centroid (279,121) */}
-                    <text x="279" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">PROTECT</text>
-                    <text x="279" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">&amp; DETECT</text>
+                    <text x="279" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">PROTECT</text>
+                    <text x="279" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">&amp; DETECT</text>
 
                     {/* Q3 bottom-left: centroid (121,279) */}
-                    <text x="121" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">MANAGE</text>
-                    <text x="121" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">&amp; GOVERN</text>
+                    <text x="121" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">MANAGE</text>
+                    <text x="121" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">&amp; GOVERN</text>
 
                     {/* Q4 bottom-right: centroid (279,279) */}
-                    <text x="279" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">RESILIENCE</text>
-                    <text x="279" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">&amp; CONTINUITY</text>
+                    <text x="279" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">RESILIENCE</text>
+                    <text x="279" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">&amp; CONTINUITY</text>
 
                     {/* ── Dashed connecting lines ── */}
                     <line x1="28"  y1="28"  x2="0"   y2="0"   stroke="rgba(208,5,13,0.55)" strokeWidth="1.5" strokeDasharray="5 4"/>
@@ -398,7 +398,7 @@ const RBICyberFramework = () => {
                     <span className="rbi-ctrl-card-label">Resilience &amp; Continuity</span>
                   </div>
                   <ul className="rbi-ctrl-list">
-                    <li>Vendor and third-party risk management</li>
+                    <li>Vendor and third party risk management</li>
                     <li>Cyber insurance coverage</li>
                     <li>Incident response and cyber crisis management</li>
                     <li>Data classification and information lifecycle management</li>
@@ -459,7 +459,7 @@ const RBICyberFramework = () => {
                     "Generic frameworks not tailored to banking operations",
                     "Limited understanding of RBI's regulatory expectations",
                     "Delivers reports without implementation support",
-                    "One-time assessment without ongoing monitoring",
+                    "One time assessment without ongoing monitoring",
                     "Leaves banks unprepared for RBI inspections"
                   ].map((item, i) => (
                     <li key={i} className="rbi-diff-item">
@@ -508,7 +508,7 @@ const RBICyberFramework = () => {
               <p className="rbi-eyebrow">Deliverables</p>
               <h2 className="rbi-section-title">Comprehensive Deliverables</h2>
               <p className="rbi-section-description">
-                End-to-end documentation, controls, and reporting to ensure RBI compliance and strengthen your security posture.
+                End to end documentation, controls, and reporting to ensure RBI compliance and strengthen your security posture.
               </p>
             </div>
           </ScrollReveal>
@@ -530,7 +530,7 @@ const RBICyberFramework = () => {
                 </div>
                 <div className="rbi-pillar-divider" />
                 <ul className="rbi-pillar-list">
-                  <li>Board-approved Cyber Security Policy</li>
+                  <li>Board approved Cyber Security Policy</li>
                   <li>Cyber Security Strategy Document</li>
                   <li>Risk Management Framework</li>
                   <li>Roles and Responsibilities Matrix</li>
@@ -622,7 +622,7 @@ const RBICyberFramework = () => {
                 <span className="rbi-text-gradient">Ready to Achieve RBI Cyber Security Compliance?</span>
               </h2>
               <p className="rbi-cta-description">
-                Let's build a robust RBI compliance framework tailored to your bank. Our team works closely with you to close compliance gaps, implement working controls, and prepare you for RBI inspections — not just the next audit cycle.
+                Let's build a robust RBI compliance framework tailored to your bank. Our team works closely with you to close compliance gaps, implement working controls, and prepare you for RBI inspections not just the next audit cycle.
               </p>
               <div className="rbi-cta-buttons">
                 <Link to="/contact" className="rbi-btn rbi-btn-primary rbi-btn-large rbi-cta-btn">

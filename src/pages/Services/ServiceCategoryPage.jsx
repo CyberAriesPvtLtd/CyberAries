@@ -12,7 +12,7 @@ import './ServiceArchitecture.css';
 //
 // Renders a dark enterprise hero (heading + intro pulled from the
 // category's data entry) followed by a "Solution Domains" grid that
-// reuses the site's existing global ".services" / ".service-card"
+// reuses the site's existing global ".services" / ".service card"
 // design language. Each domain card links to its own
 // /services/:categorySlug/:domainSlug page.
 //

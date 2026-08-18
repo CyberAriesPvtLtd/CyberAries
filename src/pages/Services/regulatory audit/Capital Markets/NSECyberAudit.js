@@ -4,9 +4,7 @@ import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
 import ctaBgImage from '../../../../images/cta/cta-background.webp';
 /* eslint-disable no-unused-vars */
-import {
-  Shield, Lock, FileText, CheckCircle, Settings, BarChart3, Users, Globe, Database, Bell, Eye, Award, Handshake, RefreshCw, FileCheck, UserCheck, Network, Server, TrendingUp, Activity, Clipboard, Search, Target, Zap, Clock, ChevronDown, ChevronRight, Star, Phone, Mail, Calendar, DollarSign, Check, X, ArrowRight
-} from 'lucide-react';
+import { Shield, Lock, FileText, CheckCircle, Settings, BarChart3, Users, Globe, Database, Bell, Eye, Award, Handshake, RefreshCw, FileCheck, UserCheck, Network, Server, TrendingUp, Activity, Clipboard, Search, Target, Zap, Clock, ChevronDown, ChevronRight, Star, Phone, Mail, Calendar, DollarSign, Check, X, ArrowRight, Landmark } from 'lucide-react';
 /* eslint-enable no-unused-vars */
 import './NSECyberAudit.css';
 
@@ -65,7 +63,7 @@ const NSECyberAudit = () => {
     {
       icon: <Users size={32} />,
       text: "Expert Security Auditors",
-      desc: "Our team comprises seasoned professionals with deep SEBI and NSE domain knowledge. Each auditor brings hands-on capital market security experience."
+      desc: "Our team comprises seasoned professionals with deep SEBI and NSE domain knowledge. Each auditor brings hands on capital market security experience."
     },
     {
       icon: <Clock size={32} />,
@@ -77,17 +75,17 @@ const NSECyberAudit = () => {
   const challenges = [
     { icon: <FileText size={28} />, num: "01", title: "Regulatory Compliance", desc: "Meeting SEBI & NSE cyber security circulars is mandatory for all trading members. Non-compliance exposes firms to regulatory penalties and trading suspension." },
     { icon: <TrendingUp size={28} />, num: "02", title: "Trading Platform Security", desc: "High-frequency trading environments demand real-time threat detection and resilience. Any breach in trading infrastructure can trigger significant financial and reputational damage." },
-    { icon: <Lock size={28} />, num: "03", title: "Data Protection", desc: "Investor records, trade data, and KYC information must be encrypted and access-controlled. Unauthorised exposure violates DPDP Act obligations and erodes client trust." },
+    { icon: <Lock size={28} />, num: "03", title: "Data Protection", desc: "Investor records, trade data, and KYC information must be encrypted and access controlled. Unauthorised exposure violates DPDP Act obligations and erodes client trust." },
     { icon: <Eye size={28} />, num: "04", title: "Market Surveillance", desc: "Continuous monitoring is essential to detect price manipulation, insider activity, and anomalous patterns. Gaps in surveillance can result in regulatory investigations and sanctions." },
-    { icon: <Shield size={28} />, num: "05", title: "DDoS Protection", desc: "Capital market platforms are prime targets for volumetric denial-of-service attacks. Robust mitigation controls ensure trading continuity and prevent market disruption." },
-    { icon: <Network size={28} />, num: "06", title: "Third-Party Risks", desc: "Brokers rely on multiple vendors for trading, clearing, and risk management systems. Each integration point introduces potential vulnerabilities that must be assessed and controlled." }
+    { icon: <Shield size={28} />, num: "05", title: "DDoS Protection", desc: "Capital market platforms are prime targets for volumetric denial of service attacks. Robust mitigation controls ensure trading continuity and prevent market disruption." },
+    { icon: <Network size={28} />, num: "06", title: "Third Party Risks", desc: "Brokers rely on multiple vendors for trading, clearing, and risk management systems. Each integration point introduces potential vulnerabilities that must be assessed and controlled." }
   ];
 
   const tabsData = {
     framework: [
       { icon: <Users size={24} />, title: "Security Governance", desc: "Establishes board-level oversight, security policies, and risk management frameworks. Ensures accountability and strategic alignment across the organisation." },
       { icon: <Network size={24} />, title: "Network Security", desc: "Covers firewall configurations, intrusion detection and prevention systems, and network segmentation. Protects critical trading infrastructure from lateral movement attacks." },
-      { icon: <Activity size={24} />, title: "Platform Security", desc: "Validates authentication controls, transaction integrity, and application-layer protections. Ensures trading platforms are hardened against exploitation and tampering." },
+      { icon: <Activity size={24} />, title: "Platform Security", desc: "Validates authentication controls, transaction integrity, and application layer protections. Ensures trading platforms are hardened against exploitation and tampering." },
       { icon: <Database size={24} />, title: "Data Protection", desc: "Assesses encryption standards, data loss prevention controls, and secure disposal practices. Ensures sensitive investor and trade data is protected at rest and in transit." },
       { icon: <UserCheck size={24} />, title: "Access Control", desc: "Reviews multi-factor authentication, role-based access controls, and identity governance processes. Prevents unauthorised access to critical systems and trading functions." },
       { icon: <Bell size={24} />, title: "Incident Response", desc: "Evaluates the 24/7 SOC capability, continuous monitoring tools, and forensic readiness. Ensures rapid detection, containment, and recovery from security incidents." }
@@ -100,12 +98,12 @@ const NSECyberAudit = () => {
     ],
     testing: [
       { icon: <Search size={24} />, title: "Vulnerability Scanning", desc: "Runs automated assessments across all in-scope systems to identify known security weaknesses. Produces a prioritised vulnerability register for remediation action." },
-      { icon: <Target size={24} />, title: "Penetration Testing", desc: "Simulates real-world attack scenarios against trading platforms and supporting infrastructure. Uncovers exploitable gaps that automated scanning alone cannot detect." },
+      { icon: <Target size={24} />, title: "Penetration Testing", desc: "Simulates real world attack scenarios against trading platforms and supporting infrastructure. Uncovers exploitable gaps that automated scanning alone cannot detect." },
       { icon: <Activity size={24} />, title: "Network Testing", desc: "Validates the security posture of network perimeters, internal segments, and inter-system communications. Identifies misconfigurations that expose critical assets to attack." },
       { icon: <Settings size={24} />, title: "Configuration Review", desc: "Inspects system hardening settings against security baselines and vendor best practices. Eliminates unnecessary services, weak defaults, and insecure configurations." }
     ],
     reports: [
-      { icon: <FileText size={24} />, title: "Executive Summary", desc: "Provides board and senior leadership with a clear, non-technical overview of compliance status. Highlights key risks, overall posture, and strategic recommendations." },
+      { icon: <FileText size={24} />, title: "Executive Summary", desc: "Provides board and senior leadership with a clear, non technical overview of compliance status. Highlights key risks, overall posture, and strategic recommendations." },
       { icon: <BarChart3 size={24} />, title: "Technical Report", desc: "Delivers detailed findings with evidence, risk ratings, and technical context for each identified issue. Supports your IT and security teams in planning targeted remediation." },
       { icon: <CheckCircle size={24} />, title: "Gap Analysis", desc: "Maps current controls against NSE and SEBI requirements to identify every compliance shortfall. Presented as a structured matrix with a clear remediation roadmap." },
       { icon: <RefreshCw size={24} />, title: "Action Plan", desc: "Provides prioritised remediation steps with suggested timelines and ownership assignments. Enables your team to close gaps systematically before regulatory deadlines." }
@@ -156,7 +154,12 @@ const NSECyberAudit = () => {
         <div className="container nse-hero-inner">
           <div className="nse-hero-content">
             <ScrollReveal direction="up" triggerOnce={false}>
-              <span className="nse-eyebrow">Capital Markets Regulatory Audit</span>
+              <div className="nse-hero-badge">
+                  <Landmark size={14} className="nse-badge-icon" />
+                  <span className="nse-badge-text">
+                    CAPITAL MARKETS <span className="nse-badge-divider">/</span> REGULATORY AUDIT
+                  </span>
+                </div>
               <h1 className="nse-hero-title">
                 <span className="nse-text-gradient">NSE Cyber Security<br />Audit Services</span>
               </h1>
@@ -178,7 +181,7 @@ const NSECyberAudit = () => {
           <div className="container">
             <div className="nse-stats-panel-header">
               <span className="nse-stats-panel-title">Our Track Record</span>
-              <span className="nse-stats-panel-sub">Proven results across NSE-regulated capital market firms</span>
+              <span className="nse-stats-panel-sub">Proven results across NSE regulated capital market firms</span>
             </div>
             <div className="nse-stats-grid">
               {stats.map((stat, i) => (
@@ -425,7 +428,7 @@ const NSECyberAudit = () => {
                 <h3 className="nse-diff-heading nse-diff-heading--red">CyberAries NSE Security</h3>
                 <ul className="nse-diff-list">
                   {[
-                    "NSE-specific framework aligned with SEBI circulars",
+                    "NSE specific framework aligned with SEBI circulars",
                     "Comprehensive VAPT across all critical systems",
                     "Hands-on remediation support and knowledge transfer",
                     "Continuous compliance monitoring and improvement",

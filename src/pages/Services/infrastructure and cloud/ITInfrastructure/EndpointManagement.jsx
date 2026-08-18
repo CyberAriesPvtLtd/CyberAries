@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
-import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
+import heroBgImage from '../../../../images/services/vapt/network-architecture-hero.webp';
 import overviewImage from '../../../../images/services/vapt/wireless-image.webp';
+import ctaBgImage from '../../../../images/cta/cta-background.webp';
 
-import {
-  Monitor,
+import { Monitor,
   Shield,
   Radio,
   FileText,
@@ -16,8 +16,7 @@ import {
   Settings,
   Lock,
   RefreshCw,
-  Cpu,
-} from 'lucide-react';
+  Cpu, Landmark } from 'lucide-react';
 import './EndpointManagement.css';
 
 const approachSteps = [
@@ -42,7 +41,7 @@ const approachSteps = [
   {
     title: 'Device Lifecycle Management',
     description:
-      'End-to-end provisioning, configuration, monitoring, and decommissioning of all endpoint devices across your enterprise environment.',
+      'End to end provisioning, configuration, monitoring, and decommissioning of all endpoint devices across your enterprise environment.',
     icon: <Cpu size={40} />,
   },
   {
@@ -91,9 +90,9 @@ const whyChooseItems = [
     icon: <Monitor size={48} strokeWidth={1.5} />,
   },
   {
-    title: 'Partnered with CERT-In Empanelled',
+    title: 'Partnered with CERT In Empanelled',
     description:
-      'Government-recognized security firm with proven endpoint security deployments across BFSI, government, and enterprise sectors.',
+      'Government recognized security firm with proven endpoint security deployments across BFSI, government, and enterprise sectors.',
     icon: <Award size={48} strokeWidth={1.5} />,
   },
   {
@@ -108,9 +107,9 @@ const difference = {
   traditional: [
     'Reactive patch management leaving devices vulnerable for weeks or months.',
     'No visibility into BYOD, remote worker, or IoT endpoint devices.',
-    'Endpoint security treated as an add-on, not built into the device lifecycle.',
-    'Manual compliance checks that are infrequent, inconsistent, and error-prone.',
-    'No behavioral analysis or EDR, relying solely on signature-based antivirus.',
+    'Endpoint security treated as an add on, not built into the device lifecycle.',
+    'Manual compliance checks that are infrequent, inconsistent, and error prone.',
+    'No behavioral analysis or EDR, relying solely on signature based antivirus.',
     'Zero centralized visibility, making incident response slow and disorganized.',
   ],
   cyberaries: [
@@ -119,7 +118,7 @@ const difference = {
     'Security hardening integrated into the device provisioning and lifecycle process.',
     'Continuous automated compliance monitoring aligned with RBI, SEBI, and ISO 27001.',
     'Advanced EDR with behavioral analysis, threat hunting, and auto-remediation.',
-    'Single-pane-of-glass dashboard for all devices, alerts, and compliance status.',
+    'Single pane of glass dashboard for all devices, alerts, and compliance status.',
   ],
 };
 
@@ -129,22 +128,37 @@ const EndpointManagement = () => {
   return (
     <div className="epm-page">
       {/* Hero */}
-      <section
-        className="epm-hero-section"
-        style={{ backgroundImage: `url(${heroBgImage})` }}
-      >
-        <div className="epm-hero-background" />
+      <section className="epm-hero-section">
+        <div
+          className="epm-hero-bg-layer"
+          style={{ backgroundImage: `url(${heroBgImage})` }}
+        />
+        <div className="epm-hero-overlay" />
+        <div className="epm-hero-grid-pattern" />
+        {/* Floating particles */}
+        <div className="epm-hero-particles" aria-hidden="true">
+          {Array.from({ length: 7 }).map((_, i) => (
+            <span key={i} className="epm-hero-particle" style={{ '--i': i }} />
+          ))}
+        </div>
         <div className="epm-container">
           <div className="epm-hero-content">
-            <p className="epm-hero-subtitle">IT Infrastructure Services</p>
+            <div className="epm-hero-badge">
+                  <Landmark size={14} className="epm-badge-icon" />
+                  <span className="epm-badge-text">
+                    INFRASTRUCTURE & CLOUD <span className="epm-badge-divider">/</span> IT INFRASTRUCTURE
+                  </span>
+                </div>
             <h1 className="epm-hero-title">
-              ENDPOINT MANAGEMENT{' '}
-              <span className="epm-text-gradient">&amp; SECURITY</span>
+              <span className="epm-text-gradient">
+                ENDPOINT MANAGEMENT <br />
+                &amp; SECURITY
+              </span>
             </h1>
             <p className="epm-hero-description">
               <strong>Endpoint Management</strong> delivers comprehensive lifecycle management,
               hardening, and real-time monitoring of every device in your enterprise —{' '}
-              <strong>from desktops to IoT endpoints</strong> — ensuring zero blind spots, full
+              <strong>from desktops to IoT endpoints</strong> ensuring zero blind spots, full
               compliance, and rapid incident response.
             </p>
             <p className="epm-hero-description">
@@ -161,9 +175,6 @@ const EndpointManagement = () => {
               >
                 Get a Free Assessment
               </button>
-              <button className="epm-btn epm-btn-secondary" type="button">
-                Learn More
-              </button>
             </div>
           </div>
         </div>
@@ -178,14 +189,14 @@ const EndpointManagement = () => {
                 <p className="epm-overview-text">
                   At <strong>CyberAries</strong>, we recognize that endpoints are the{' '}
                   <strong>most targeted entry points for cyberattacks</strong>. Unmanaged or
-                  misconfigured devices — including remote work laptops, BYOD mobiles, and legacy
-                  systems — create critical gaps in your security posture that adversaries
+                  misconfigured devices including remote work laptops, BYOD mobiles, and legacy
+                  systems create critical gaps in your security posture that adversaries
                   actively exploit.
                 </p>
                 <p className="epm-overview-text">
                   We deliver a holistic UEM framework that combines{' '}
                   <strong>device management, security hardening, patch automation, and
-                    compliance monitoring</strong> into a single streamlined operation — helping
+                    compliance monitoring</strong> into a single streamlined operation helping
                   organizations in BFSI, government, and enterprise sectors achieve complete
                   endpoint visibility and control while meeting stringent regulatory mandates.
                 </p>
@@ -206,33 +217,60 @@ const EndpointManagement = () => {
 
       {/* Approach */}
       <section className="epm-approach-section">
+        <div className="epm-grid-pattern" />
         <div className="epm-container">
           <ScrollReveal direction="up" delay={0}>
             <div className="epm-section-header epm-text-center">
-              <h2 className="epm-section-title">Our Approach</h2>
-              <p className="epm-section-subtitle">
+              <p className="epm-approach-eyebrow">Our Approach</p>
+              <h2 className="epm-approach-title">A Secure Unified Endpoint Methodology</h2>
+              <p className="epm-approach-subtitle">
                 A comprehensive endpoint lifecycle methodology covering discovery, hardening,
-                patching, EDR, and continuous compliance monitoring
+                patching, EDR, and continuous compliance monitoring.
               </p>
             </div>
           </ScrollReveal>
-          <div className="epm-approach-grid">
-            {approachSteps.map((step, index) => (
-              <ScrollReveal key={index} direction="up" delay={index * 80}>
-                <div className="epm-approach-card">
-                  <div className="epm-card-number">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <div className="epm-card-icon-wrapper">
-                    <div className="epm-card-icon">{step.icon}</div>
-                  </div>
-                  <h3 className="epm-card-title">{step.title}</h3>
-                  <p className="epm-card-description">{step.description}</p>
-                  <div className="epm-card-decoration" />
+
+          {/* Row 1: Steps 1–5 */}
+          <ScrollReveal direction="up" delay={100}>
+            <div className="epm-method-row">
+              {approachSteps.slice(0, 5).map((step, index) => (
+                <div className="epm-method-card" key={index}>
+                  <div className="epm-method-badge">{String(index + 1).padStart(2, '0')}</div>
+                  {index < 4 && <span className="epm-method-connector" />}
+                  <div className="epm-method-icon">{step.icon}</div>
+                  <h3 className="epm-method-title">{step.title}</h3>
+                  <p className="epm-method-description">{step.description}</p>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Row 2: Steps 6–10 */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="epm-method-row">
+              {approachSteps.slice(5, 10).map((step, index) => (
+                <div className="epm-method-card" key={index + 5}>
+                  <div className="epm-method-badge">{String(index + 6).padStart(2, '0')}</div>
+                  {index < 4 && <span className="epm-method-connector" />}
+                  <div className="epm-method-icon">{step.icon}</div>
+                  <h3 className="epm-method-title">{step.title}</h3>
+                  <p className="epm-method-description">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Footer banner */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="epm-method-footer">
+              <div className="epm-method-footer-icon">
+                <Shield size={22} />
+              </div>
+              <p className="epm-method-footer-text">
+                Every endpoint we configure is secured with automated compliance enforcement, zero trust hardening, and active threat defense.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -241,15 +279,18 @@ const EndpointManagement = () => {
         <div className="epm-container">
           <ScrollReveal direction="up" delay={0}>
             <div className="epm-section-header epm-text-center">
-              <h2 className="epm-section-title">Why Choose CyberAries?</h2>
+              <p className="epm-why-eyebrow">Why CyberAries</p>
+              <h2 className="epm-section-title">Why Choose CyberAries for Endpoint Management?</h2>
             </div>
           </ScrollReveal>
           <div className="epm-why-choose-grid">
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150}>
                 <div className="epm-why-choose-card">
-                  <div className="epm-why-choose-icon">{item.icon}</div>
-                  <h3 className="epm-why-choose-title">{item.title}</h3>
+                  <div className="epm-why-choose-card-header">
+                    <div className="epm-why-choose-icon-box">{item.icon}</div>
+                    <h3 className="epm-why-choose-title">{item.title}</h3>
+                  </div>
                   <p className="epm-why-choose-description">{item.description}</p>
                 </div>
               </ScrollReveal>
@@ -273,8 +314,8 @@ const EndpointManagement = () => {
                 <ul className="epm-comparison-list">
                   {difference.traditional.map((item, idx) => (
                     <li className="epm-comparison-item" key={idx}>
-                      <span className="epm-bullet">•</span>
-                      {item}
+                      <span className="epm-bullet epm-bullet-cross">•</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -288,8 +329,10 @@ const EndpointManagement = () => {
                 <ul className="epm-comparison-list">
                   {difference.cyberaries.map((item, idx) => (
                     <li className="epm-comparison-item" key={idx}>
-                      <span className="epm-bullet">•</span>
-                      {item}
+                      <span className="epm-bullet epm-bullet-check">
+                        <CheckCircle size={18} className="epm-check-icon" />
+                      </span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -300,12 +343,16 @@ const EndpointManagement = () => {
       </section>
 
       {/* CTA */}
-      <section className="epm-cta-section">
+      <section
+        className="epm-cta-section"
+        style={{ backgroundImage: `url(${ctaBgImage})` }}
+      >
+        <div className="epm-cta-grid-pattern" />
         <div className="epm-container">
           <ScrollReveal direction="up" delay={0}>
             <div className="epm-cta-content">
               <h2 className="epm-cta-title">
-                Ready to Secure Every Endpoint in Your Organization?
+                <span className="epm-cta-text-gradient">Ready to Secure Every Endpoint in Your Organization?</span>
               </h2>
               <p className="epm-cta-description">
                 Our team of certified security engineers will assess your current endpoint

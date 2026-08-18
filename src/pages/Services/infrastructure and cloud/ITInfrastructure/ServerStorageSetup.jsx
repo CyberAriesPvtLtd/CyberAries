@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
-import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
+import heroBgImage from '../../../../images/services/vapt/network-architecture-hero.webp';
 import overviewImage from '../../../../images/services/vapt/vapt-image.webp';
+import ctaBgImage from '../../../../images/cta/cta-background.webp';
 
-import {
-  Server,
+import { Server,
   HardDrive,
   Database,
   RefreshCw,
@@ -16,8 +16,7 @@ import {
   Settings,
   Search,
   ShieldCheck,
-  Cpu,
-} from 'lucide-react';
+  Cpu, Landmark } from 'lucide-react';
 import './ServerStorageSetup.css';
 
 const approachSteps = [
@@ -30,13 +29,13 @@ const approachSteps = [
   {
     title: 'Physical Server Provisioning',
     description:
-      'Rack, stack, cable, and configure bare-metal servers with hardened OS installations and BIOS/UEFI security baselines.',
+      'Rack, stack, cable, and configure bare metal servers with hardened OS installations and BIOS/UEFI security baselines.',
     icon: <Server size={40} />,
   },
   {
     title: 'Hypervisor & Virtualization Setup',
     description:
-      'Deploy and configure VMware vSphere, Microsoft Hyper-V, or KVM environments with HA clustering and resource optimization.',
+      'Deploy and configure VMware vSphere, Microsoft Hyper V, or KVM environments with HA clustering and resource optimization.',
     icon: <Cpu size={40} />,
   },
   {
@@ -48,7 +47,7 @@ const approachSteps = [
   {
     title: 'Database & Application Storage',
     description:
-      'Configure tiered storage — NVMe for hot data, SAS/SSD hybrid for warm workloads, and object/tape for cold archive — to balance cost and performance.',
+      'Configure tiered storage NVMe for hot data, SAS/SSD hybrid for warm workloads, and object/tape for cold archive to balance cost and performance.',
     icon: <Database size={40} />,
   },
   {
@@ -60,7 +59,7 @@ const approachSteps = [
   {
     title: 'Backup & Disaster Recovery Design',
     description:
-      'Configure enterprise backup with defined RPO/RTO, off-site replication, and automated recovery testing procedures.',
+      'Configure enterprise backup with defined RPO/RTO, off site replication, and automated recovery testing procedures.',
     icon: <RefreshCw size={40} />,
   },
   {
@@ -85,19 +84,19 @@ const approachSteps = [
 
 const whyChooseItems = [
   {
-    title: 'Multi-Platform Expertise',
+    title: 'Multi Platform Expertise',
     description:
-      'Deep hands-on experience across Dell EMC, HPE, NetApp, VMware, and major cloud-native storage platforms.',
+      'Deep hands on experience across Dell EMC, HPE, NetApp, VMware, and major cloud native storage platforms.',
     icon: <Server size={48} strokeWidth={1.5} />,
   },
   {
-    title: 'Partnered with CERT-In Empanelled',
+    title: 'Partnered with CERT In Empanelled',
     description:
-      'Government-recognized security firm delivering compliant infrastructure for BFSI, government, and enterprise clients.',
+      'Government recognized security firm delivering compliant infrastructure for BFSI, government, and enterprise clients.',
     icon: <Award size={48} strokeWidth={1.5} />,
   },
   {
-    title: 'End-to-End Delivery',
+    title: 'End to End Delivery',
     description:
       'From architecture design and procurement guidance through deployment, hardening, and post-deployment support.',
     icon: <CheckCircle size={48} strokeWidth={1.5} />,
@@ -106,7 +105,7 @@ const whyChooseItems = [
 
 const difference = {
   traditional: [
-    'Generic server configurations without workload-specific performance tuning.',
+    'Generic server configurations without workload specific performance tuning.',
     'Flat storage architectures with no tiering, leading to cost overruns.',
     'No at-rest encryption or access control enforcement on storage systems.',
     'Backup configurations untested for recovery or DR scenarios.',
@@ -114,10 +113,10 @@ const difference = {
     'No capacity planning, causing reactive, disruptive infrastructure expansion.',
   ],
   cyberaries: [
-    'Workload-profiled configurations with performance and compliance tuning built in.',
+    'Workload profiled configurations with performance and compliance tuning built in.',
     'Intelligent tiered storage design balancing NVMe, SAS, and archive layers.',
     'Full at-rest encryption, ACLs, and audit logging on every storage system.',
-    'Backup configurations with validated RPO/RTO and automated DR run-books.',
+    'Backup configurations with validated RPO/RTO and automated DR run books.',
     'CIS benchmark hardening applied across all servers and operating systems.',
     'Proactive capacity planning with alerting and scaling policies from day one.',
   ],
@@ -129,17 +128,32 @@ const ServerStorageSetup = () => {
   return (
     <div className="sss-page">
       {/* Hero */}
-      <section
-        className="sss-hero-section"
-        style={{ backgroundImage: `url(${heroBgImage})` }}
-      >
-        <div className="sss-hero-background" />
+      <section className="sss-hero-section">
+        <div
+          className="sss-hero-bg-layer"
+          style={{ backgroundImage: `url(${heroBgImage})` }}
+        />
+        <div className="sss-hero-overlay" />
+        <div className="sss-hero-grid-pattern" />
+        {/* Floating particles */}
+        <div className="sss-hero-particles" aria-hidden="true">
+          {Array.from({ length: 7 }).map((_, i) => (
+            <span key={i} className="sss-hero-particle" style={{ '--i': i }} />
+          ))}
+        </div>
         <div className="sss-container">
           <div className="sss-hero-content">
-            <p className="sss-hero-subtitle">IT Infrastructure Services</p>
+            <div className="sss-hero-badge">
+                  <Landmark size={14} className="sss-badge-icon" />
+                  <span className="sss-badge-text">
+                    INFRASTRUCTURE & CLOUD <span className="sss-badge-divider">/</span> IT INFRASTRUCTURE
+                  </span>
+                </div>
             <h1 className="sss-hero-title">
-              SERVER &amp; STORAGE{' '}
-              <span className="sss-text-gradient">SETUP AND OPTIMIZATION</span>
+              <span className="sss-text-gradient">
+                SERVER &amp; STORAGE <br />
+                SETUP &amp; OPTIMIZATION
+              </span>
             </h1>
             <p className="sss-hero-description">
               <strong>Server &amp; Storage Setup</strong> provides enterprise-grade provisioning,
@@ -149,7 +163,7 @@ const ServerStorageSetup = () => {
             </p>
             <p className="sss-hero-description">
               Our engineers deliver comprehensive coverage from{' '}
-              <strong>bare-metal provisioning and hypervisor configuration</strong> through to
+              <strong>bare metal provisioning and hypervisor configuration</strong> through to
               tiered storage design, backup automation, encryption enforcement, and ongoing
               capacity management.
             </p>
@@ -160,9 +174,6 @@ const ServerStorageSetup = () => {
                 onClick={() => navigate('/contact')}
               >
                 Plan Your Infrastructure
-              </button>
-              <button className="sss-btn sss-btn-secondary" type="button">
-                Learn More
               </button>
             </div>
           </div>
@@ -184,8 +195,8 @@ const ServerStorageSetup = () => {
                 </p>
                 <p className="sss-overview-text">
                   We deliver end-to-end infrastructure services — from{' '}
-                  <strong>bare-metal provisioning and hypervisor configuration</strong> to tiered
-                  storage design, backup automation, and encryption enforcement — ensuring your
+                  <strong>bare metal provisioning and hypervisor configuration</strong> to tiered
+                  storage design, backup automation, and encryption enforcement ensuring your
                   infrastructure handles peak loads, recovers within defined RPO/RTO windows,
                   and meets the regulatory data protection standards required by RBI, DPDPA, and
                   ISO 27001.
@@ -207,33 +218,60 @@ const ServerStorageSetup = () => {
 
       {/* Approach */}
       <section className="sss-approach-section">
+        <div className="sss-grid-pattern" />
         <div className="sss-container">
           <ScrollReveal direction="up" delay={0}>
             <div className="sss-section-header sss-text-center">
-              <h2 className="sss-section-title">Our Approach</h2>
-              <p className="sss-section-subtitle">
-                A structured infrastructure delivery methodology built for performance, security,
-                and compliance
+              <p className="sss-approach-eyebrow">Our Approach</p>
+              <h2 className="sss-approach-title">A Security First Infrastructure Delivery Methodology</h2>
+              <p className="sss-approach-subtitle">
+                A structured, workload profiled approach to designing and deploying secure,
+                resilient server and storage environments.
               </p>
             </div>
           </ScrollReveal>
-          <div className="sss-approach-grid">
-            {approachSteps.map((step, index) => (
-              <ScrollReveal key={index} direction="up" delay={index * 80}>
-                <div className="sss-approach-card">
-                  <div className="sss-card-number">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <div className="sss-card-icon-wrapper">
-                    <div className="sss-card-icon">{step.icon}</div>
-                  </div>
-                  <h3 className="sss-card-title">{step.title}</h3>
-                  <p className="sss-card-description">{step.description}</p>
-                  <div className="sss-card-decoration" />
+
+          {/* Row 1: Steps 1–5 */}
+          <ScrollReveal direction="up" delay={100}>
+            <div className="sss-method-row">
+              {approachSteps.slice(0, 5).map((step, index) => (
+                <div className="sss-method-card" key={index}>
+                  <div className="sss-method-badge">{String(index + 1).padStart(2, '0')}</div>
+                  {index < 4 && <span className="sss-method-connector" />}
+                  <div className="sss-method-icon">{step.icon}</div>
+                  <h3 className="sss-method-title">{step.title}</h3>
+                  <p className="sss-method-description">{step.description}</p>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Row 2: Steps 6–10 */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="sss-method-row">
+              {approachSteps.slice(5, 10).map((step, index) => (
+                <div className="sss-method-card" key={index + 5}>
+                  <div className="sss-method-badge">{String(index + 6).padStart(2, '0')}</div>
+                  {index < 4 && <span className="sss-method-connector" />}
+                  <div className="sss-method-icon">{step.icon}</div>
+                  <h3 className="sss-method-title">{step.title}</h3>
+                  <p className="sss-method-description">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Footer banner */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="sss-method-footer">
+              <div className="sss-method-footer-icon">
+                <ShieldCheck size={22} />
+              </div>
+              <p className="sss-method-footer-text">
+                Every server and storage configuration we deploy is secure by design, optimized for workloads, and fully compliant with data protection standards.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -242,15 +280,18 @@ const ServerStorageSetup = () => {
         <div className="sss-container">
           <ScrollReveal direction="up" delay={0}>
             <div className="sss-section-header sss-text-center">
-              <h2 className="sss-section-title">Why Choose CyberAries?</h2>
+              <p className="sss-why-eyebrow">Why CyberAries</p>
+              <h2 className="sss-section-title">Why Choose CyberAries for Server &amp; Storage Setup?</h2>
             </div>
           </ScrollReveal>
           <div className="sss-why-choose-grid">
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150}>
                 <div className="sss-why-choose-card">
-                  <div className="sss-why-choose-icon">{item.icon}</div>
-                  <h3 className="sss-why-choose-title">{item.title}</h3>
+                  <div className="sss-why-choose-card-header">
+                    <div className="sss-why-choose-icon-box">{item.icon}</div>
+                    <h3 className="sss-why-choose-title">{item.title}</h3>
+                  </div>
                   <p className="sss-why-choose-description">{item.description}</p>
                 </div>
               </ScrollReveal>
@@ -274,8 +315,8 @@ const ServerStorageSetup = () => {
                 <ul className="sss-comparison-list">
                   {difference.traditional.map((item, idx) => (
                     <li className="sss-comparison-item" key={idx}>
-                      <span className="sss-bullet">•</span>
-                      {item}
+                      <span className="sss-bullet sss-bullet-cross">•</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -289,8 +330,10 @@ const ServerStorageSetup = () => {
                 <ul className="sss-comparison-list">
                   {difference.cyberaries.map((item, idx) => (
                     <li className="sss-comparison-item" key={idx}>
-                      <span className="sss-bullet">•</span>
-                      {item}
+                      <span className="sss-bullet sss-bullet-check">
+                        <CheckCircle size={18} className="sss-check-icon" />
+                      </span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -301,15 +344,19 @@ const ServerStorageSetup = () => {
       </section>
 
       {/* CTA */}
-      <section className="sss-cta-section">
+      <section
+        className="sss-cta-section"
+        style={{ backgroundImage: `url(${ctaBgImage})` }}
+      >
+        <div className="sss-cta-grid-pattern" />
         <div className="sss-container">
           <ScrollReveal direction="up" delay={0}>
             <div className="sss-cta-content">
               <h2 className="sss-cta-title">
-                Ready to Build Resilient, Secure Server Infrastructure?
+                <span className="sss-cta-text-gradient">Ready to Build Resilient, Secure Server Infrastructure?</span>
               </h2>
               <p className="sss-cta-description">
-                Our infrastructure engineers will design and deploy a high-availability server
+                Our infrastructure engineers will design and deploy a high availability server
                 and storage environment tailored to your workloads and compliance requirements.
               </p>
               <button

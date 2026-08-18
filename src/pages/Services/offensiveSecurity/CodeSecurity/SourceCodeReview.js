@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
-import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
+import heroBgImage from '../../../../images/services/vapt/code-security-hero.webp';
 import overviewImage from '../../../../images/services/vapt/code-image.webp';
+import ctaBgImage from '../../../../images/cta/cta-background.webp';
 
-
-import {
-  FileSearch,
+import { FileSearch,
   Database,
   Settings,
   Code,
@@ -17,8 +16,8 @@ import {
   CheckCircle,
   Award,
   Users,
-  Headphones
-} from 'lucide-react';
+  Headphones,
+  ArrowRight, Landmark } from 'lucide-react';
 import './SourceCodeReview.css';
 
 /**
@@ -28,91 +27,86 @@ import './SourceCodeReview.css';
 
 const SourceCodeReview = () => {
   const navigate = useNavigate();
-  // Approach / methodology data (same content as original Source Code page)
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Approach Methodology Data
   const approachSteps = [
     {
       title: 'Scope Definition',
-      description:
-        'Determine the application modules, technologies, and programming languages in scope.',
-      icon: <FileSearch size={40} />
+      description: 'Determine the application modules, technologies, and programming languages in scope.',
+      icon: <FileSearch size={30} />
     },
     {
       title: 'Codebase Collection',
-      description:
-        'Obtain the latest source code version and necessary build dependencies for review.',
-      icon: <Database size={40} />
+      description: 'Obtain the latest source code version and necessary build dependencies for review.',
+      icon: <Database size={30} />
     },
     {
       title: 'Static Analysis Setup',
-      description:
-        'Use automated tools to perform an initial scan for security flaws and coding issues.',
-      icon: <Settings size={40} />
+      description: 'Use automated tools to perform an initial scan for security flaws and coding issues.',
+      icon: <Settings size={30} />
     },
     {
       title: 'Manual Code Review',
-      description:
-        'Conduct in-depth line-by-line analysis to identify complex logical and architectural vulnerabilities.',
-      icon: <Code size={40} />
+      description: 'Conduct in depth line by line analysis to identify complex logical and architectural vulnerabilities.',
+      icon: <Code size={30} />
     },
     {
       title: 'Security Control Validation',
-      description:
-        'Verify implementation of authentication, authorization, and input validation mechanisms.',
-      icon: <Shield size={40} />
+      description: 'Verify implementation of authentication, authorization, and input validation mechanisms.',
+      icon: <Shield size={30} />
     },
     {
       title: 'Cryptography & Data Handling Review',
-      description:
-        'Assess the proper use of encryption, hashing, and sensitive data storage methods.',
-      icon: <AlertTriangle size={40} />
+      description: 'Assess the proper use of encryption, hashing, and sensitive data storage methods.',
+      icon: <AlertTriangle size={30} />
     },
     {
       title: 'Error & Exception Management',
-      description:
-        'Evaluate logging, error handling, and debugging functions for potential data leakage.',
-      icon: <FileText size={40} />
+      description: 'Evaluate logging, error handling, and debugging functions for potential data leakage.',
+      icon: <FileText size={30} />
     },
     {
       title: 'Reporting & Remediation',
-      description:
-        'Deliver a detailed report highlighting vulnerabilities, their impact, and mitigation methods.',
-      icon: <RefreshCw size={40} />
+      description: 'Deliver a detailed report highlighting vulnerabilities, their impact, and mitigation methods.',
+      icon: <RefreshCw size={30} />
     },
     {
-      title: 'Re-Testing & Continuous Integration',
-      description:
-        'Validate fixes and integrate secure coding checks into CI/CD pipelines for ongoing assurance.',
-      icon: <CheckCircle size={40} />
+      title: 'Re Testing & CI Integration',
+      description: 'Validate fixes and integrate secure coding checks into CI/CD pipelines for ongoing assurance.',
+      icon: <CheckCircle size={30} />
     }
   ];
 
-  // Why Choose data (same as original Source Code Review)
+  // Why Choose Data
   const whyChooseItems = [
     {
-      title: 'Partnered with CERT-In Empanelled Experts',
-      description: 'Recognized by the Government of India for security audits.',
-      icon: <Award size={48} strokeWidth={1.5} />
+      title: 'CERT In Empanelled Experts',
+      description: 'Audit services delivered in partnership with government-recognized security empanelled firms.',
+      icon: <Award size={30} strokeWidth={1.75} />
     },
     {
-      title: 'Proven Expertise',
-      description:
-        '350+ clients across banking, IT, insurance, healthcare, and manufacturing.',
-      icon: <Users size={48} strokeWidth={1.5} />
+      title: 'Proven Enterprise Expertise',
+      description: 'Over 350+ clients successfully audited across banking, fintech, healthcare, and IT sectors.',
+      icon: <Users size={30} strokeWidth={1.75} />
     },
     {
-      title: 'End-to-End Support',
-      description: 'From scoping to remediation and final certification.',
-      icon: <Headphones size={48} strokeWidth={1.5} />
+      title: 'Comprehensive Guidance',
+      description: 'End to end support that guides your developers from vulnerability discovery to code patch validation.',
+      icon: <Headphones size={30} strokeWidth={1.75} />
     }
   ];
 
   // Difference section content
   const difference = {
     traditional: [
-      'Focuses mainly on surface-level testing and functional defects.',
+      'Focuses mainly on surface level testing and functional defects.',
       'Relies heavily on automated tools without deep contextual analysis.',
       'Findings are often delivered as static reports with limited guidance.',
-      'Security is treated as a one-time activity after development.',
+      'Security is treated as a one time activity after development.',
       'Limited collaboration with developers on secure coding practices.',
       'Minimal emphasis on integrating checks into CI/CD pipelines.'
     ],
@@ -127,135 +121,166 @@ const SourceCodeReview = () => {
   };
 
   return (
-    <div className="source-code-review-page sast-style-page">
-      {/* Hero Section – same layout style as SAST */}
-      <section
-        className="hero-section"
-        style={{ backgroundImage: `url(${heroBgImage})` }}
-      >
-        <div className="hero-background"></div>
-        <div className="container">
-          <div className="hero-content">
-            <p className="hero-subtitle">Application Security Testing</p>
-            <h1 className="hero-title">
-              SOURCE CODE REVIEW
+    <div className="scr-page">
+      {/* Hero Section */}
+      <section className="scr-hero-section">
+        <div
+          className="scr-hero-bg-layer"
+          style={{ backgroundImage: `url(${heroBgImage})` }}
+        />
+        <div className="scr-hero-overlay" />
+        <div className="scr-hero-grid-pattern" />
+        {/* Floating particles */}
+        <div className="scr-hero-particles" aria-hidden="true">
+          {Array.from({ length: 7 }).map((_, i) => (
+            <span key={i} className="scr-hero-particle" style={{ '--i': i }} />
+          ))}
+        </div>
+        <div className="scr-container">
+          <div className="scr-hero-content">
+            <div className="scr-hero-badge">
+                  <Landmark size={14} className="scr-badge-icon" />
+                  <span className="scr-badge-text">
+                    OFFENSIVE SECURITY <span className="scr-badge-divider">/</span> CODE SECURITY
+                  </span>
+                </div>
+            <h1 className="scr-hero-title">
+              <span className="scr-text-gradient">
+                SECURE APPLICATION CODE <br />
+                &amp; SOURCE CODE REVIEW
+              </span>
             </h1>
-            <p className="hero-subheading">SECURING APPLICATIONS AT THE CODE LEVEL</p>
-            <p className="hero-description">
-              <strong>Source Code Review</strong> is a systematic examination of
-              an application's codebase to identify vulnerabilities, logic
-              flaws, and insecure coding practices. Unlike automated or
-              signature-based scans that focus on surface-level checks, a manual
-              code review delves deep into how code is written, revealing subtle
-              security and reliability issues.
+            <p className="scr-hero-description">
+              <strong>Source Code Review</strong> is a systematic, security first examination of your codebase.
+              We identify logic flaws, security vulnerabilities, and compliance gaps at the code level before they reach production.
             </p>
-            <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
-              <button className="btn btn-secondary">Learn More</button>
+            <p className="scr-hero-description">
+              Our analysis covers <strong>authentication, access control, input validation, encryption standards,
+              and error handling</strong>, delivering developer friendly guidance to resolve security issues permanently.
+            </p>
+            <div className="scr-hero-actions">
+              <button
+                className="scr-btn scr-btn-primary"
+                type="button"
+                onClick={() => navigate('/contact')}
+              >
+                Request a Code Audit
+                <ArrowRight size={16} className="scr-btn-arrow" />
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Service Overview / description block */}
-      <section className="service-overview">
-        <div className="container">
-          <ScrollReveal direction="up" delay={0}>
-
-          </ScrollReveal>
-
-          <div className="overview-grid">
+      {/* Service Overview Section */}
+      <section className="scr-service-overview">
+        <div className="scr-container">
+          <div className="scr-overview-grid">
             <ScrollReveal direction="left" delay={100}>
-              <div className="overview-content">
-                <p className="overview-text">
-                  At <strong>Cyberaries</strong>, we conduct{' '}
-                  <strong>
-                    comprehensive manual and automated source code analysis
-                  </strong>{' '}
-                  using advanced analysis tools and expert evaluation. Our
-                  process identifies risks such as{' '}
-                  <strong>
-                    injection flaws, insecure APIs, improper input validation,
-                    and weak cryptographic implementations
-                  </strong>{' '}
-                  across multiple programming languages and frameworks.
+              <div className="scr-overview-content">
+                <p className="scr-overview-text">
+                  At <strong>CyberAries</strong>, we conduct thorough <strong>source code security assessments</strong>{' '}
+                  to identify vulnerabilities, insecure API usages, logical flaws, and cryptographic weaknesses. Our approach
+                  combines industry-leading static analysis tools (SAST) with extensive manual expert code review.
                 </p>
-                <p className="overview-text">
-                  We help development teams integrate{' '}
-                  <strong>secure coding practices</strong> into the SDLC,
-                  enabling early vulnerability detection, reduced remediation
-                  costs, and compliance with global standards such as OWASP,
-                  ISO, and NIST. <strong>Cyberaries</strong> ensures your
-                  applications are <strong>secure by design</strong>,
-                  reinforcing security posture while maintaining performance,
-                  functionality, and scalability.
+                <p className="scr-overview-text">
+                  We work closely with your development team to embed <strong>secure coding standards</strong> into your
+                  software development lifecycle (SDLC), ensuring your products are secure by design while maintaining velocity, performance, and scalability.
                 </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal direction="right" delay={200}>
-              <div className="overview-visual">
+              <div className="scr-overview-visual">
                 <img
                   src={overviewImage}
                   alt="Source Code Review"
-                  className="overview-image"
+                  className="scr-overview-image"
                 />
               </div>
             </ScrollReveal>
-
           </div>
         </div>
       </section>
 
-      {/* Our Approach – same pattern as SAST "Our Approach" */}
-      <section className="solutions-section our-approach">
-        <div className="container">
+      {/* Our Approach Section - Modern Horizontal Timeline */}
+      <section className="scr-approach-section">
+        <div className="scr-grid-pattern" />
+        <div className="scr-container">
           <ScrollReveal direction="up" delay={0}>
-            <div className="section-header text-center">
-              <h2 className="section-title">
-                Our Approach
-              </h2>
-              <p className="section-subtitle">
-                Our audit methodology is built around verification, transparency,
-                and delivering measurable security outcomes.
+            <div className="scr-section-header scr-text-center">
+              <p className="scr-eyebrow">Our Approach</p>
+              <h2 className="scr-approach-title">A Secure by Design Review Methodology</h2>
+              <p className="scr-approach-subtitle">
+                A structured, security first process to analyze code logic, validate access controls,
+                and eliminate vulnerabilities before deployment.
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="solutions-grid">
-            {approachSteps.map((step, index) => (
-              <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="solution-card">
-                  <div className="solution-step-number">{index + 1}</div>
-                  <div className="solution-icon">{step.icon}</div>
-                  <h3 className="solution-title">{step.title}</h3>
-                  <p className="solution-description">{step.description}</p>
-                  <div className="solution-indicator"></div>
+          {/* Row 1: Steps 1–5 */}
+          <ScrollReveal direction="up" delay={100}>
+            <div className="scr-method-row">
+              {approachSteps.slice(0, 5).map((step, index) => (
+                <div className="scr-method-card" key={index}>
+                  <div className="scr-method-badge">{String(index + 1).padStart(2, '0')}</div>
+                  {index < 4 && <span className="scr-method-connector" />}
+                  <div className="scr-method-icon">{step.icon}</div>
+                  <h3 className="scr-method-title">{step.title}</h3>
+                  <p className="scr-method-description">{step.description}</p>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Row 2: Steps 6–9 */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="scr-method-row">
+              {approachSteps.slice(5, 9).map((step, index) => (
+                <div className="scr-method-card" key={index + 5}>
+                  <div className="scr-method-badge">{String(index + 6).padStart(2, '0')}</div>
+                  {index < 3 && <span className="scr-method-connector" />}
+                  <div className="scr-method-icon">{step.icon}</div>
+                  <h3 className="scr-method-title">{step.title}</h3>
+                  <p className="scr-method-description">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Footer banner */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="scr-method-footer">
+              <div className="scr-method-footer-icon">
+                <Shield size={22} />
+              </div>
+              <p className="scr-method-footer-text">
+                Our code audit methodology aligns with industry secure coding benchmarks including OWASP Top 10, CERT Secure Coding Standards, SANS/CWE Top 25, and regulatory compliance standards.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Why Choose Section */}
-      <section className="why-choose">
-        <div className="container">
+      <section className="scr-why-choose">
+        <div className="scr-container">
           <ScrollReveal direction="up" delay={0}>
-            <div className="section-header text-center">
-              <h2 className="section-title">Why Choose Cyberaries?</h2>
+            <div className="scr-section-header scr-text-center">
+              <p className="scr-why-eyebrow">Why CyberAries</p>
+              <h2 className="scr-section-title">Why Choose Cyberaries?</h2>
             </div>
           </ScrollReveal>
 
-          <div className="why-choose-grid">
+          <div className="scr-why-choose-grid">
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150}>
-                <div className="why-choose-card">
-                  <div className="why-choose-icon">{item.icon}</div>
-                  <h3 className="why-choose-title">{item.title}</h3>
-                  <p className="why-choose-description">
-                    {item.description}
-                  </p>
+                <div className="scr-why-choose-card">
+                  <div className="scr-why-choose-card-header">
+                    <div className="scr-why-choose-icon-box">{item.icon}</div>
+                    <h3 className="scr-why-choose-title">{item.title}</h3>
+                  </div>
+                  <p className="scr-why-choose-description">{item.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -263,26 +288,25 @@ const SourceCodeReview = () => {
         </div>
       </section>
 
-
       {/* Difference Section */}
-      <section className="cyberaries-difference source-difference">
-        <div className="container">
+      <section className="scr-cyberaries-difference">
+        <div className="scr-container">
           <ScrollReveal animation="fade-up">
-            <h2 className="difference-title">
-              THE <span className="highlight-red">CYBERARIES</span>{' '}
+            <h2 className="scr-difference-title">
+              THE <span className="scr-highlight-red">CYBERARIES</span>{' '}
               DIFFERENCE
             </h2>
           </ScrollReveal>
 
-          <div className="comparison-grid">
+          <div className="scr-comparison-grid">
             <ScrollReveal animation="fade-right" delay={100}>
-              <div className="comparison-column traditional">
-                <h3 className="comparison-heading">Traditional Code Review</h3>
-                <ul className="comparison-list">
+              <div className="scr-comparison-column scr-traditional">
+                <h3 className="scr-comparison-heading">Traditional Code Reviews</h3>
+                <ul className="scr-comparison-list">
                   {difference.traditional.map((item, idx) => (
-                    <li className="comparison-item" key={idx}>
-                      <span className="bullet">•</span>
-                      {item}
+                    <li className="scr-comparison-item" key={idx}>
+                      <span className="scr-bullet scr-bullet-cross">•</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -290,15 +314,17 @@ const SourceCodeReview = () => {
             </ScrollReveal>
 
             <ScrollReveal animation="fade-left" delay={200}>
-              <div className="comparison-column cyberaries">
-                <h3 className="comparison-heading cyberaries-heading">
+              <div className="scr-comparison-column scr-cyberaries-col">
+                <h3 className="scr-comparison-heading scr-cyberaries-heading">
                   Cyberaries Source Code Review
                 </h3>
-                <ul className="comparison-list">
+                <ul className="scr-comparison-list">
                   {difference.cyberaries.map((item, idx) => (
-                    <li className="comparison-item" key={idx}>
-                      <span className="bullet">•</span>
-                      {item}
+                    <li className="scr-comparison-item" key={idx}>
+                      <span className="scr-bullet scr-bullet-check">
+                        <CheckCircle size={18} className="scr-check-icon" />
+                      </span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -309,26 +335,31 @@ const SourceCodeReview = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="cta-section">
-        <div className="container">
+      <section className="scr-cta-section" style={{ backgroundImage: `url(${ctaBgImage})` }}>
+        <div className="scr-cta-grid-pattern" />
+        <div className="scr-container">
           <ScrollReveal direction="up" delay={0}>
-            <div className="cta-content">
-              <h2 className="cta-title">
-                Ready to Strengthen Your Source Code Security?
-              </h2>
-              <p className="cta-description">
-                Let&apos;s review your applications at the code level and build
-                a secure-by-design software foundation.
-              </p>
-              <button className="btn btn-primary btn-large" onClick={() => navigate('/contact')}>
-                Contact With Us
-              </button>
+            <div className="scr-cta-grid">
+              <div className="scr-cta-content">
+                <h2 className="scr-cta-title">
+                  <span className="scr-cta-text-gradient">Ready to Strengthen Your Source Code Security?</span>
+                </h2>
+                <p className="scr-cta-description">
+                  Identify logic flaws, fix insecure patterns, and secure your software products.
+                </p>
+                <button
+                  className="scr-btn scr-btn-primary scr-btn-large"
+                  type="button"
+                  onClick={() => navigate('/contact')}
+                >
+                  Contact Us Today
+                  <ArrowRight size={18} className="scr-btn-arrow" />
+                </button>
+              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
-
-      
     </div>
   );
 };

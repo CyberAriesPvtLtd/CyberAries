@@ -4,9 +4,7 @@ import ScrollReveal from '../../../../components/ScrollReveal';
 import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
 import ctaBgImage from '../../../../images/cta/cta-background.webp';
 /* eslint-disable no-unused-vars */
-import {
-  Shield, Lock, FileText, CheckCircle, Settings, BarChart3, Users, Globe, Database, Bell, Eye, Award, Handshake, RefreshCw, FileCheck, UserCheck, Network, Server, TrendingUp, Activity, Clipboard, Search, Target, Zap, Clock, ChevronDown, ChevronRight, Star, Phone, Mail, Calendar, DollarSign, Check, X, ArrowRight
-} from 'lucide-react';
+import { Shield, Lock, FileText, CheckCircle, Settings, BarChart3, Users, Globe, Database, Bell, Eye, Award, Handshake, RefreshCw, FileCheck, UserCheck, Network, Server, TrendingUp, Activity, Clipboard, Search, Target, Zap, Clock, ChevronDown, ChevronRight, Star, Phone, Mail, Calendar, DollarSign, Check, X, ArrowRight, Landmark } from 'lucide-react';
 /* eslint-enable no-unused-vars */
 import './SEBICyberAudit.css';
 
@@ -65,7 +63,7 @@ const SEBICyberAudit = () => {
     {
       icon: <Users size={32} />,
       text: "Expert Security Auditors",
-      desc: "Our team comprises seasoned professionals with deep SEBI regulatory domain knowledge. Each auditor brings hands-on capital market security experience."
+      desc: "Our team comprises seasoned professionals with deep SEBI regulatory domain knowledge. Each auditor brings hands on capital market security experience."
     },
     {
       icon: <Clock size={32} />,
@@ -75,19 +73,19 @@ const SEBICyberAudit = () => {
   ];
 
   const challenges = [
-    { icon: <FileText size={28} />, num: "01", title: "Regulatory Compliance", desc: "Meeting SEBI cyber security and resilience framework mandates is obligatory for all regulated entities. Non-compliance exposes firms to regulatory penalties, suspension, and reputational harm." },
+    { icon: <FileText size={28} />, num: "01", title: "Regulatory Compliance", desc: "Meeting SEBI cyber security and resilience framework mandates is obligatory for all regulated entities. Non compliance exposes firms to regulatory penalties, suspension, and reputational harm." },
     { icon: <TrendingUp size={28} />, num: "02", title: "Trading Platform Security", desc: "High-frequency trading systems demand real-time threat detection and resilience. A breach in trading infrastructure can trigger severe financial and reputational damage." },
-    { icon: <Lock size={28} />, num: "03", title: "Data Protection", desc: "Investor records, trade data, and KYC details must be encrypted and strictly access-controlled. Unauthorised exposure violates DPDP Act obligations and deeply erodes client trust." },
+    { icon: <Lock size={28} />, num: "03", title: "Data Protection", desc: "Investor records, trade data, and KYC details must be encrypted and strictly access controlled. Unauthorised exposure violates DPDP Act obligations and deeply erodes client trust." },
     { icon: <Eye size={28} />, num: "04", title: "Market Surveillance", desc: "Continuous monitoring is required to detect manipulation, insider activity, and anomalous patterns. Gaps in surveillance can lead to regulatory investigations and market sanctions." },
-    { icon: <Shield size={28} />, num: "05", title: "DDoS Protection", desc: "Capital market platforms are prime targets for volumetric denial-of-service attacks. Robust mitigation controls ensure trading continuity and prevent costly market disruption." },
-    { icon: <Network size={28} />, num: "06", title: "Third-Party Risks", desc: "Brokers rely on multiple vendors for trading, clearing, and risk management systems. Each integration point introduces vulnerabilities that must be assessed and tightly controlled." }
+    { icon: <Shield size={28} />, num: "05", title: "DDoS Protection", desc: "Capital market platforms are prime targets for volumetric denial of service attacks. Robust mitigation controls ensure trading continuity and prevent costly market disruption." },
+    { icon: <Network size={28} />, num: "06", title: "Third Party Risks", desc: "Brokers rely on multiple vendors for trading, clearing, and risk management systems. Each integration point introduces vulnerabilities that must be assessed and tightly controlled." }
   ];
 
   const tabsData = {
     framework: [
       { icon: <Users size={24} />, title: "Security Governance", desc: "Establishes board-level oversight, security policies, and risk management frameworks. Ensures accountability and clear strategic alignment across the organisation." },
       { icon: <Network size={24} />, title: "Network Security", desc: "Covers firewall configurations, intrusion detection and prevention, and network segmentation. Protects critical trading infrastructure from lateral movement and external attacks." },
-      { icon: <Activity size={24} />, title: "Platform Security", desc: "Validates authentication controls, transaction integrity, and application-layer protections. Ensures all trading platforms are hardened against exploitation and tampering." },
+      { icon: <Activity size={24} />, title: "Platform Security", desc: "Validates authentication controls, transaction integrity, and application layer protections. Ensures all trading platforms are hardened against exploitation and tampering." },
       { icon: <Database size={24} />, title: "Data Protection", desc: "Assesses encryption standards, data loss prevention controls, and secure disposal practices. Ensures sensitive investor and trade data is protected at rest and in transit." },
       { icon: <UserCheck size={24} />, title: "Access Control", desc: "Reviews multi-factor authentication, role-based access, and identity governance processes. Prevents unauthorised access to critical systems and sensitive trading functions." },
       { icon: <Bell size={24} />, title: "Incident Response", desc: "Evaluates the 24/7 SOC capability, continuous monitoring tools, and forensic readiness. Ensures rapid detection, containment, and recovery from any security incidents." }
@@ -100,12 +98,12 @@ const SEBICyberAudit = () => {
     ],
     testing: [
       { icon: <Search size={24} />, title: "Vulnerability Scanning", desc: "Runs automated assessments across all in-scope systems to identify known security weaknesses. Produces a prioritised vulnerability register for structured remediation action." },
-      { icon: <Target size={24} />, title: "Penetration Testing", desc: "Simulates real-world attack scenarios against trading platforms and supporting infrastructure. Uncovers exploitable gaps that automated scanning alone is unable to detect." },
+      { icon: <Target size={24} />, title: "Penetration Testing", desc: "Simulates real world attack scenarios against trading platforms and supporting infrastructure. Uncovers exploitable gaps that automated scanning alone is unable to detect." },
       { icon: <Activity size={24} />, title: "Network Testing", desc: "Validates the security posture of network perimeters, internal segments, and system communications. Identifies misconfigurations that could expose critical assets to attack." },
       { icon: <Settings size={24} />, title: "Configuration Review", desc: "Inspects system hardening settings against security baselines and vendor best practices. Eliminates unnecessary services, insecure defaults, and weak configuration choices." }
     ],
     reports: [
-      { icon: <FileText size={24} />, title: "Executive Summary", desc: "Provides board and senior leadership with a clear, non-technical overview of compliance status. Highlights key risks, overall posture, and prioritised strategic recommendations." },
+      { icon: <FileText size={24} />, title: "Executive Summary", desc: "Provides board and senior leadership with a clear, non technical overview of compliance status. Highlights key risks, overall posture, and prioritised strategic recommendations." },
       { icon: <BarChart3 size={24} />, title: "Technical Report", desc: "Delivers detailed findings with evidence, risk ratings, and technical context for each issue. Supports your IT and security teams in planning accurate and targeted remediation." },
       { icon: <CheckCircle size={24} />, title: "Gap Analysis", desc: "Maps current controls against SEBI framework requirements to identify every compliance shortfall. Presented as a structured matrix with a clear and actionable remediation roadmap." },
       { icon: <RefreshCw size={24} />, title: "Action Plan", desc: "Provides prioritised remediation steps with suggested timelines and ownership assignments. Enables your team to close all identified gaps systematically before regulatory deadlines." }
@@ -156,12 +154,17 @@ const SEBICyberAudit = () => {
         <div className="container sebi-hero-inner">
           <div className="sebi-hero-content">
             <ScrollReveal direction="up" triggerOnce={false}>
-              <span className="sebi-eyebrow">Capital Markets Regulatory Audit</span>
+              <div className="sebi-hero-badge">
+                  <Landmark size={14} className="sebi-badge-icon" />
+                  <span className="sebi-badge-text">
+                    CAPITAL MARKETS <span className="sebi-badge-divider">/</span> REGULATORY AUDIT
+                  </span>
+                </div>
               <h1 className="sebi-hero-title">
                 <span className="sebi-text-gradient">SEBI Cyber Security<br />Audit Services</span>
               </h1>
               <p className="sebi-hero-desc">
-                Comprehensive compliance assessment for SEBI-registered entities ensuring
+                Comprehensive compliance assessment for SEBI registered entities ensuring
                 adherence to SEBI cyber security and resilience framework requirements.
               </p>
               <div className="sebi-hero-actions">
@@ -178,7 +181,7 @@ const SEBICyberAudit = () => {
           <div className="container">
             <div className="sebi-stats-panel-header">
               <span className="sebi-stats-panel-title">Our Track Record</span>
-              <span className="sebi-stats-panel-sub">Proven results across SEBI-regulated capital market entities</span>
+              <span className="sebi-stats-panel-sub">Proven results across SEBI regulated capital market entities</span>
             </div>
             <div className="sebi-stats-grid">
               {stats.map((stat, i) => (
@@ -425,7 +428,7 @@ const SEBICyberAudit = () => {
                 <h3 className="sebi-diff-heading sebi-diff-heading--red">CyberAries SEBI Security</h3>
                 <ul className="sebi-diff-list">
                   {[
-                    "SEBI-specific framework aligned with latest SEBI circulars",
+                    "SEBI specific framework aligned with latest SEBI circulars",
                     "Comprehensive VAPT across all critical systems",
                     "Hands-on remediation support and knowledge transfer",
                     "Continuous compliance monitoring and improvement",

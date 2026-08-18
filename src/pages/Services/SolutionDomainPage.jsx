@@ -11,7 +11,7 @@ import './ServiceArchitecture.css';
 // Data:   src/data/solutionDomains.js
 //
 // Renders a dark enterprise hero followed by a service cards grid
-// (reusing the site's existing global ".services" / ".service-card"
+// (reusing the site's existing global ".services" / ".service card"
 // design language). Each service card's "Know More" button links
 // straight to the already-existing, already-built detailed service
 // page — no service detail pages are created or duplicated here.

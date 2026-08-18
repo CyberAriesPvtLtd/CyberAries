@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
-import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
+import heroBgImage from '../../../../images/services/vapt/network-architecture-hero.webp';
 import overviewImage from '../../../../images/services/vapt/code-image.webp';
+import ctaBgImage from '../../../../images/cta/cta-background.webp';
 
-import {
-  Cpu,
+import { Cpu,
   Layers,
   Container,
   Lock,
@@ -16,8 +16,7 @@ import {
   Settings,
   Search,
   Activity,
-  Shield,
-} from 'lucide-react';
+  Shield, Landmark } from 'lucide-react';
 import './VisualizationSetup.css';
 
 const approachSteps = [
@@ -30,7 +29,7 @@ const approachSteps = [
   {
     title: 'Platform Selection & Architecture',
     description:
-      'Recommend and design the optimal hypervisor or container platform — VMware, Hyper-V, KVM, or Kubernetes — based on your environment and budget.',
+      'Recommend and design the optimal hypervisor or container platform VMware, Hyper V, KVM, or Kubernetes based on your environment and budget.',
     icon: <Layers size={40} />,
   },
   {
@@ -40,15 +39,15 @@ const approachSteps = [
     icon: <Cpu size={40} />,
   },
   {
-    title: 'Microsoft Hyper-V & Azure Stack HCI',
+    title: 'Microsoft Hyper V & Azure Stack HCI',
     description:
       'Implement Hyper-V clusters with failover clustering, Storage Spaces Direct (S2D), and seamless integration with Azure hybrid services.',
     icon: <Monitor size={40} />,
   },
   {
-    title: 'KVM / Proxmox Open-Source Virtualization',
+    title: 'KVM / Proxmox Open Source Virtualization',
     description:
-      'Set up KVM or Proxmox VE environments for cost-effective virtualization with live migration and CEPH storage integration.',
+      'Set up KVM or Proxmox VE environments for cost effective virtualization with live migration and CEPH storage integration.',
     icon: <Activity size={40} />,
   },
   {
@@ -60,7 +59,7 @@ const approachSteps = [
   {
     title: 'VM Security Hardening & Isolation',
     description:
-      'Enforce hypervisor-level isolation, disable unnecessary VM features, and apply CIS benchmarks across all virtual machine configurations.',
+      'Enforce hypervisor level isolation, disable unnecessary VM features, and apply CIS benchmarks across all virtual machine configurations.',
     icon: <Lock size={40} />,
   },
   {
@@ -85,19 +84,19 @@ const approachSteps = [
 
 const whyChooseItems = [
   {
-    title: 'Multi-Hypervisor Expertise',
+    title: 'Multi Hypervisor Expertise',
     description:
-      'Certified engineers across VMware, Microsoft Hyper-V, KVM, Proxmox, Docker, and Kubernetes platforms.',
+      'Certified engineers across VMware, Microsoft Hyper V, KVM, Proxmox, Docker, and Kubernetes platforms.',
     icon: <Cpu size={48} strokeWidth={1.5} />,
   },
   {
-    title: 'Partnered with CERT-In Empanelled',
+    title: 'Partnered with CERT In Empanelled',
     description:
-      'Government-recognized security firm with proven virtualization deployments across BFSI, government, and enterprise clients.',
+      'Government recognized security firm with proven virtualization deployments across BFSI, government, and enterprise clients.',
     icon: <Award size={48} strokeWidth={1.5} />,
   },
   {
-    title: 'Security-First Deployment',
+    title: 'Security First Deployment',
     description:
       'CIS benchmark hardening, hypervisor isolation, and RBAC applied to every virtual layer from day one.',
     icon: <CheckCircle size={48} strokeWidth={1.5} />,
@@ -115,8 +114,8 @@ const difference = {
   ],
   cyberaries: [
     'CIS benchmark hardening applied to every hypervisor and guest OS on deployment.',
-    'VM network segmentation with security zones, micro-segmentation, and RBAC.',
-    'HA clustering and live migration configured and tested before go-live.',
+    'VM network segmentation with security zones, micro segmentation, and RBAC.',
+    'HA clustering and live migration configured and tested before go live.',
     'Governed VM provisioning with templates, resource pools, and capacity policies.',
     'Centralized dashboards and alerting for CPU, memory, storage, and network health.',
     'Data residency and compliance controls baked into VM placement and storage policies.',
@@ -129,28 +128,41 @@ const VisualizationSetup = () => {
   return (
     <div className="virt-page">
       {/* Hero */}
-      <section
-        className="virt-hero-section"
-        style={{ backgroundImage: `url(${heroBgImage})` }}
-      >
-        <div className="virt-hero-background" />
+      <section className="virt-hero-section">
+        <div
+          className="virt-hero-bg-layer"
+          style={{ backgroundImage: `url(${heroBgImage})` }}
+        />
+        <div className="virt-hero-overlay" />
+        <div className="virt-hero-grid-pattern" />
+        {/* Floating particles */}
+        <div className="virt-hero-particles" aria-hidden="true">
+          {Array.from({ length: 7 }).map((_, i) => (
+            <span key={i} className="virt-hero-particle" style={{ '--i': i }} />
+          ))}
+        </div>
         <div className="virt-container">
           <div className="virt-hero-content">
-            <p className="virt-hero-subtitle">IT Infrastructure Services</p>
+            <div className="virt-hero-badge">
+                  <Landmark size={14} className="virt-badge-icon" />
+                  <span className="virt-badge-text">
+                    INFRASTRUCTURE & CLOUD <span className="virt-badge-divider">/</span> IT INFRASTRUCTURE
+                  </span>
+                </div>
             <h1 className="virt-hero-title">
-              VIRTUALIZATION &amp;{' '}
-              <span className="virt-text-gradient">PLATFORM SETUP</span>
+              <span className="virt-text-gradient">
+                VIRTUALIZATION &amp; <br />
+                PLATFORM SETUP
+              </span>
             </h1>
             <p className="virt-hero-description">
-              <strong>Virtualization &amp; Platform Setup</strong> delivers enterprise-grade
-              hypervisor and container deployments across VMware, Hyper-V, KVM, and Kubernetes —
-              enabling <strong>workload consolidation, rapid provisioning, and security-hardened
+              <strong>Virtualization &amp; Platform Setup</strong> delivers enterprise grade
+              hypervisor and container deployments across VMware, Hyper V, KVM, and Kubernetes enabling <strong>workload consolidation, rapid provisioning, and security hardened
                 isolation</strong> for modern IT environments.
             </p>
             <p className="virt-hero-description">
               Our certified engineers deploy every platform with{' '}
-              <strong>CIS hardening, HA clustering, and compliance controls</strong> built in —
-              meeting RBI, DPDPA, and ISO 27001 data residency and security requirements.
+              <strong>CIS hardening, HA clustering, and compliance controls</strong> built in meeting RBI, DPDPA, and ISO 27001 data residency and security requirements.
             </p>
             <div className="virt-hero-actions">
               <button
@@ -159,9 +171,6 @@ const VisualizationSetup = () => {
                 onClick={() => navigate('/contact')}
               >
                 Plan Your Virtual Environment
-              </button>
-              <button className="virt-btn virt-btn-secondary" type="button">
-                Learn More
               </button>
             </div>
           </div>
@@ -182,10 +191,10 @@ const VisualizationSetup = () => {
                   workloads.
                 </p>
                 <p className="virt-overview-text">
-                  We specialize in enterprise virtualization — from single-site VMware clusters
-                  to <strong>multi-cloud Kubernetes orchestration</strong> — built around
+                  We specialize in enterprise virtualization from single site VMware clusters
+                  to <strong>multi cloud Kubernetes orchestration</strong> built around
                   performance, security, and compliance. Our team holds certifications across
-                  VMware, Microsoft, and cloud-native platforms, ensuring every deployment meets
+                  VMware, Microsoft, and cloud native platforms, ensuring every deployment meets
                   CIS hardening benchmarks and regulatory data residency requirements.
                 </p>
               </div>
@@ -205,33 +214,60 @@ const VisualizationSetup = () => {
 
       {/* Approach */}
       <section className="virt-approach-section">
+        <div className="virt-grid-pattern" />
         <div className="virt-container">
           <ScrollReveal direction="up" delay={0}>
             <div className="virt-section-header virt-text-center">
-              <h2 className="virt-section-title">Our Approach</h2>
-              <p className="virt-section-subtitle">
+              <p className="virt-approach-eyebrow">Our Approach</p>
+              <h2 className="virt-approach-title">A Security First Virtualization Methodology</h2>
+              <p className="virt-approach-subtitle">
                 A structured virtualization methodology covering all major hypervisors and
-                container platforms with security hardening at every layer
+                container platforms with security hardening at every layer.
               </p>
             </div>
           </ScrollReveal>
-          <div className="virt-approach-grid">
-            {approachSteps.map((step, index) => (
-              <ScrollReveal key={index} direction="up" delay={index * 80}>
-                <div className="virt-approach-card">
-                  <div className="virt-card-number">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <div className="virt-card-icon-wrapper">
-                    <div className="virt-card-icon">{step.icon}</div>
-                  </div>
-                  <h3 className="virt-card-title">{step.title}</h3>
-                  <p className="virt-card-description">{step.description}</p>
-                  <div className="virt-card-decoration" />
+
+          {/* Row 1: Steps 1–5 */}
+          <ScrollReveal direction="up" delay={100}>
+            <div className="virt-method-row">
+              {approachSteps.slice(0, 5).map((step, index) => (
+                <div className="virt-method-card" key={index}>
+                  <div className="virt-method-badge">{String(index + 1).padStart(2, '0')}</div>
+                  {index < 4 && <span className="virt-method-connector" />}
+                  <div className="virt-method-icon">{step.icon}</div>
+                  <h3 className="virt-method-title">{step.title}</h3>
+                  <p className="virt-method-description">{step.description}</p>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Row 2: Steps 6–10 */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="virt-method-row">
+              {approachSteps.slice(5, 10).map((step, index) => (
+                <div className="virt-method-card" key={index + 5}>
+                  <div className="virt-method-badge">{String(index + 6).padStart(2, '0')}</div>
+                  {index < 4 && <span className="virt-method-connector" />}
+                  <div className="virt-method-icon">{step.icon}</div>
+                  <h3 className="virt-method-title">{step.title}</h3>
+                  <p className="virt-method-description">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Footer banner */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="virt-method-footer">
+              <div className="virt-method-footer-icon">
+                <Shield size={22} />
+              </div>
+              <p className="virt-method-footer-text">
+                Every virtualization and container environment we design is secure by design, optimized for resource efficiency, and fully compliant with data protection controls.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -240,15 +276,18 @@ const VisualizationSetup = () => {
         <div className="virt-container">
           <ScrollReveal direction="up" delay={0}>
             <div className="virt-section-header virt-text-center">
-              <h2 className="virt-section-title">Why Choose CyberAries?</h2>
+              <p className="virt-why-eyebrow">Why CyberAries</p>
+              <h2 className="virt-section-title">Why Choose CyberAries for Virtualization?</h2>
             </div>
           </ScrollReveal>
           <div className="virt-why-choose-grid">
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150}>
                 <div className="virt-why-choose-card">
-                  <div className="virt-why-choose-icon">{item.icon}</div>
-                  <h3 className="virt-why-choose-title">{item.title}</h3>
+                  <div className="virt-why-choose-card-header">
+                    <div className="virt-why-choose-icon-box">{item.icon}</div>
+                    <h3 className="virt-why-choose-title">{item.title}</h3>
+                  </div>
                   <p className="virt-why-choose-description">{item.description}</p>
                 </div>
               </ScrollReveal>
@@ -272,8 +311,8 @@ const VisualizationSetup = () => {
                 <ul className="virt-comparison-list">
                   {difference.traditional.map((item, idx) => (
                     <li className="virt-comparison-item" key={idx}>
-                      <span className="virt-bullet">•</span>
-                      {item}
+                      <span className="virt-bullet virt-bullet-cross">•</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -287,8 +326,10 @@ const VisualizationSetup = () => {
                 <ul className="virt-comparison-list">
                   {difference.cyberaries.map((item, idx) => (
                     <li className="virt-comparison-item" key={idx}>
-                      <span className="virt-bullet">•</span>
-                      {item}
+                      <span className="virt-bullet virt-bullet-check">
+                        <CheckCircle size={18} className="virt-check-icon" />
+                      </span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -299,16 +340,20 @@ const VisualizationSetup = () => {
       </section>
 
       {/* CTA */}
-      <section className="virt-cta-section">
+      <section
+        className="virt-cta-section"
+        style={{ backgroundImage: `url(${ctaBgImage})` }}
+      >
+        <div className="virt-cta-grid-pattern" />
         <div className="virt-container">
           <ScrollReveal direction="up" delay={0}>
             <div className="virt-cta-content">
               <h2 className="virt-cta-title">
-                Ready to Modernize Your Infrastructure with Virtualization?
+                <span className="virt-cta-text-gradient">Ready to Modernize Your Infrastructure with Virtualization?</span>
               </h2>
               <p className="virt-cta-description">
                 Our certified virtualization engineers will design and deploy a secure,
-                high-performance virtual environment tailored to your workloads and compliance
+                high performance virtual environment tailored to your workloads and compliance
                 requirements.
               </p>
               <button

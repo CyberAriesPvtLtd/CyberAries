@@ -33,7 +33,7 @@ const UIDAICompliance = () => {
     { title: 'Aadhaar Data Security and Protection', description: 'All Aadhaar and biometric data handled by AUAs/KUAs must be protected under UIDAI\'s data security standards, with strict controls on storage, access, and transmission.', icon: <Lock size={28} /> },
     { title: 'API Integration Security', description: 'Secure integration with UIDAI\'s authentication APIs requires rigorous security controls, certificate management, and conformance with UIDAI\'s technical specifications.', icon: <Key size={28} /> },
     { title: 'Audit Log and Traceability Obligations', description: 'UIDAI mandates comprehensive audit logging of all authentication transactions and access to Aadhaar data with immutable records for regulatory inspections.', icon: <Eye size={28} /> },
-    { title: 'Data Residency and Localization', description: 'All Aadhaar-related data must be stored within India\'s geographic boundaries under UIDAI regulations and the Aadhaar Act, with no cross-border data transfer permitted.', icon: <Globe size={28} /> },
+    { title: 'Data Residency and Localization', description: 'All Aadhaar related data must be stored within India\'s geographic boundaries under UIDAI regulations and the Aadhaar Act, with no cross border data transfer permitted.', icon: <Globe size={28} /> },
     { title: 'Periodic Compliance and Recertification', description: 'AUAs/KUAs must undergo periodic security audits and recertification cycles, requiring ongoing compliance management rather than one-time assessment.', icon: <RefreshCw size={28} /> },
   ];
 
@@ -43,7 +43,7 @@ const UIDAICompliance = () => {
     { title: 'Authentication API Security Review', description: 'Security review of UIDAI authentication API integration, certificate management, request signing, and response handling for conformance and security gap coverage.', icon: <Key size={28} /> },
     { title: 'Audit Logging and Traceability', description: 'Design and implementation of immutable audit logging for all Aadhaar authentication transactions and sensitive data access events meeting UIDAI traceability requirements.', icon: <Database size={28} /> },
     { title: 'Access Control and Privileged Access', description: 'Implementation of role-based access controls, privileged access management, and MFA for all personnel and systems handling Aadhaar authentication data.', icon: <UserCheck size={28} /> },
-    { title: 'Certification and Recertification Support', description: 'End-to-end support for UIDAI AUA/KUA certification and periodic recertification cycles, including evidence compilation and compliance reporting.', icon: <FileCheck size={28} /> },
+    { title: 'Certification and Recertification Support', description: 'End to end support for UIDAI AUA/KUA certification and periodic recertification cycles, including evidence compilation and compliance reporting.', icon: <FileCheck size={28} /> },
   ];
 
   const approachSteps = [
@@ -61,7 +61,7 @@ const UIDAICompliance = () => {
 
   const whyChooseItems = [
     { title: 'UIDAI Compliance Expertise', description: 'Hands-on experience with UIDAI AUA/KUA certification requirements, technical specifications, and security standards across BFSI, government, and enterprise AUAs.', icon: <Award size={28} /> },
-    { title: 'CERT-In Empanelled', description: 'Government-recognized cybersecurity firm with proven regulatory audit credentials, a mandatory requirement for UIDAI AUA/KUA security audits.', icon: <Shield size={28} /> },
+    { title: 'CERT In Empanelled', description: 'Government-recognized cybersecurity firm with proven regulatory audit credentials, a mandatory requirement for UIDAI AUA/KUA security audits.', icon: <Shield size={28} /> },
     { title: 'Technical and Regulatory Alignment', description: 'We align technical implementation covering API security, encryption, and audit logging precisely with UIDAI\'s regulatory evidence requirements for certification.', icon: <CheckCircle size={28} /> },
   ];
 
@@ -74,7 +74,7 @@ const UIDAICompliance = () => {
     'Role-based access control and privileged access management implementation',
     'Multi-factor authentication for personnel accessing Aadhaar systems',
     'Immutable audit logging for all authentication transactions',
-    'Data residency compliance with confirmed India-only Aadhaar data storage',
+    'Data residency compliance with confirmed India only Aadhaar data storage',
     'Vulnerability assessment and penetration testing of AUA/KUA platform',
     'Incident response plan and breach reporting procedure development',
     'Certification evidence repository and UIDAI submission package preparation',
@@ -124,7 +124,7 @@ const UIDAICompliance = () => {
       icon: <FileText size={28} />,
       title: 'Governance and Policy',
       items: [
-        'UIDAI-Aligned Security Policy Suite',
+        'UIDAI Aligned Security Policy Suite',
         'Aadhaar Data Handling Procedures',
         'Incident Response and Breach Reporting Plan',
         'Employee Authorization and Training Documentation',
@@ -166,7 +166,7 @@ const UIDAICompliance = () => {
                 <div className="uak-hero-badge">
                   <Landmark size={14} className="uak-badge-icon" />
                   <span className="uak-badge-text">
-                    GOVERNMENT &amp; DIGITAL <span className="uak-badge-divider">/</span> COMPLIANCE
+                    GOVERNMENT & DIGITAL <span className="uak-badge-divider">/</span> COMPLIANCE
                   </span>
                 </div>
               </ScrollReveal>
@@ -179,10 +179,10 @@ const UIDAICompliance = () => {
 
               <ScrollReveal animation="fade-up" delay={200}>
                 <p className="uak-hero-description">
-                  Organizations using <strong>Aadhaar-based authentication</strong> as Authentication User Agencies
+                  Organizations using <strong>Aadhaar based authentication</strong> as Authentication User Agencies
                   (AUA) or KYC User Agencies (KUA) must meet <strong>UIDAI's strict security certification
                   requirements</strong> covering platform architecture, Aadhaar data protection, API security, audit
-                  logging, and data residency. Our service provides end-to-end coverage from certification
+                  logging, and data residency. Our service provides end to end coverage from certification
                   requirement analysis through technical implementation and ongoing recertification support.
                 </p>
               </ScrollReveal>
@@ -384,7 +384,7 @@ const UIDAICompliance = () => {
               <p className="uak-eyebrow">Deliverables</p>
               <h2 className="uak-section-title">Comprehensive Deliverables</h2>
               <p className="uak-section-description">
-                End-to-end documentation, controls, and certification-ready evidence to achieve
+                End to end documentation, controls, and certification ready evidence to achieve
                 and maintain UIDAI AUA/KUA compliance.
               </p>
             </div>

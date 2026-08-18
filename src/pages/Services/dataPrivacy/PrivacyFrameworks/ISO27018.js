@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
-import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
-import overviewImage from '../../../../images/services/vapt/mobile-image.webp';
+import heroBgImage from '../../../../images/services/vapt/privacy-frameworks-hero.webp';
+import overviewImage from '../../../../images/services/vapt/mobileSecurity-overview.webp';
+import ctaBgImage from '../../../../images/cta/cta-background.webp';
 
-import {
-  FileSearch,
+import { FileSearch,
   Shield,
   Database,
   Lock,
@@ -15,8 +15,8 @@ import {
   CheckCircle,
   Award,
   Users,
-  Headphones
-} from 'lucide-react';
+  Headphones,
+  ShieldCheck, Landmark } from 'lucide-react';
 import './ISO27018.css';
 
 /**
@@ -53,8 +53,8 @@ const ISO27018 = () => {
       icon: <Lock size={40} />
     },
     {
-      title: "Vendor and Third-Party Assessment",
-      description: "Evaluating CSPs and third-party partners to ensure adherence to ISO 27018 contractual, operational and legal obligations.",
+      title: "Vendor and Third Party Assessment",
+      description: "Evaluating CSPs and third party partners to ensure adherence to ISO 27018 contractual, operational and legal obligations.",
       icon: <Cloud size={40} />
     },
     {
@@ -76,7 +76,7 @@ const ISO27018 = () => {
 
   const whyChooseItems = [
     {
-      title: "Partnered with CERT-In Empanelled",
+      title: "Partnered with CERT In Empanelled",
       description: "Recognized by the Government of India for security audits, compliance, and risk management services.",
       icon: <Award size={48} strokeWidth={1.5} />
     },
@@ -86,7 +86,7 @@ const ISO27018 = () => {
       icon: <Users size={48} strokeWidth={1.5} />
     },
     {
-      title: "End-to-End Support",
+      title: "End to End Support",
       description: "From scoping to remediation and final certification, we provide full support throughout your compliance journey.",
       icon: <Headphones size={48} strokeWidth={1.5} />
     }
@@ -96,7 +96,7 @@ const ISO27018 = () => {
     traditional: [
       'Generic cloud audits without specific PII protection controls or focus areas.',
       'Limited alignment with ISO 27018 privacy-specific requirements and principles.',
-      'Overlooks cross-border data transfer risks and cloud vendor accountability.',
+      'Overlooks cross border data transfer risks and cloud vendor accountability.',
       'Superficial review of data subject rights, consent, and retention policies.',
       'No formal DPIA or privacy risk assessment integrated into the audit process.',
       'Lack of contractual review between cloud customers and service providers.'
@@ -104,60 +104,80 @@ const ISO27018 = () => {
     cyberaries: [
       'Comprehensive ISO 27018-aligned PII assessments across all cloud environments.',
       'Full mapping of data flows, PII classification, and sensitivity levels in the cloud.',
-      'In-depth DPIA and privacy risk assessments tailored to your cloud operations.',
+      'In depth DPIA and privacy risk assessments tailored to your cloud operations.',
       'Thorough vendor and CSP contract reviews for regulatory and legal compliance.',
       'Detailed, actionable remediation plans with cloud-specific privacy controls.',
-      'End-to-end support from gap analysis through certification and continuous monitoring.'
+      'End to end support from gap analysis through certification and continuous monitoring.'
     ]
   };
 
   return (
     <div className="iso-27018-page">
-      {/* Hero Section */}
-      <section
-        className="hero-section"
-        style={{ backgroundImage: `url(${heroBgImage})` }}
-      >
-        <div className="hero-background"></div>
-        <div className="container">
-          <div className="hero-content">
-            <p className="hero-subtitle">ISO 27018:2019 Compliance</p>
-            <h1 className="hero-title">
-              SECURE PII ON PUBLIC CLOUDS
+      {/* Hero */}
+      <section className="iso18-hero-section">
+        <div
+          className="iso18-hero-bg-layer"
+          style={{ backgroundImage: `url(${heroBgImage})` }}
+        />
+        <div className="iso18-hero-overlay" />
+        <div className="iso18-hero-grid-pattern" />
+        {/* Floating particles */}
+        <div className="iso18-hero-particles" aria-hidden="true">
+          {Array.from({ length: 7 }).map((_, i) => (
+            <span key={i} className="iso18-hero-particle" style={{ '--i': i }} />
+          ))}
+        </div>
+        <div className="iso18-container">
+          <div className="iso18-hero-content">
+            <div className="iso-27018-hero-badge">
+                  <Landmark size={14} className="iso-27018-badge-icon" />
+                  <span className="iso-27018-badge-text">
+                    DATA PRIVACY <span className="iso-27018-badge-divider">/</span> PRIVACY FRAMEWORKS
+                  </span>
+                </div>
+            <h1 className="iso18-hero-title">
+              <span className="iso18-text-gradient">
+                SECURE PII ON <br />
+                PUBLIC CLOUDS
+              </span>
             </h1>
-            <p className="hero-subheading">WITH EXPERTS IN ISO 27018 COMPLIANCE</p>
-            <p className="hero-description">
+            <p className="iso18-hero-description">
               The <strong>ISO 27018:2019 standard</strong> provides guidelines for protecting personally identifiable
               information (PII) in public cloud environments. It extends ISO 27001 and ISO 27002 by focusing on
-              privacy-specific controls, ensuring cloud service providers and customers meet their contractual
+              privacy specific controls, ensuring cloud service providers and customers meet their contractual
               responsibilities in handling sensitive personal data in compliance with global data protection laws.
             </p>
-            <p className="hero-description">
+            <p className="iso18-hero-description">
               Our compliance framework covers <strong>data inventory and classification, privacy risk assessments,
               access and encryption controls, vendor assessments, and continuous monitoring</strong>—ensuring your
               cloud operations align with regulations including GDPR and DPDPA.
             </p>
-            <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
-              <button className="btn btn-secondary">Learn More</button>
+            <div className="iso18-hero-actions">
+              <button
+                className="iso18-btn iso18-btn-primary"
+                type="button"
+                onClick={() => navigate('/contact')}
+              >
+                Start Now &rarr;
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Service Overview */}
-      <section className="service-overview">
-        <div className="container">
-          <div className="overview-grid">
+      {/* Overview */}
+      <section className="iso18-service-overview">
+        <div className="iso18-container">
+          <div className="iso18-overview-grid">
             <ScrollReveal direction="left" delay={100}>
-              <div className="overview-content">
-                <p className="overview-text">
+              <div className="iso18-overview-content">
+                <p className="iso18-overview-text">
                   At <strong>Cyberaries</strong>, we assist organizations in implementing privacy and security measures
                   that meet <strong>ISO 27018 requirements</strong>, safeguarding sensitive customer information stored,
                   processed, or transferred through cloud services. Our approach strengthens privacy governance,
                   contractual transparency, and accountability across cloud operations.
                 </p>
-                <p className="overview-text">
+                <p className="iso18-overview-text">
                   Our team of <strong>certified ISO 27018 and cloud security auditors</strong> helps clients identify
                   privacy risk exposures through cloud vendor contracts, and implement necessary technical and
                   organizational controls. Adopting ISO 27018 demonstrates your organization's commitment to
@@ -166,13 +186,12 @@ const ISO27018 = () => {
                 </p>
               </div>
             </ScrollReveal>
-
             <ScrollReveal direction="right" delay={200}>
-              <div className="overview-visual">
+              <div className="iso18-overview-visual">
                 <img
                   src={overviewImage}
                   alt="ISO 27018 PII Cloud Compliance"
-                  className="overview-image"
+                  className="iso18-overview-image"
                 />
               </div>
             </ScrollReveal>
@@ -180,50 +199,82 @@ const ISO27018 = () => {
         </div>
       </section>
 
-      {/* Our Approach */}
-      <section className="solutions-section">
-        <div className="container">
+      {/* Approach */}
+      <section className="iso18-approach-section">
+        <div className="iso18-grid-pattern" />
+        <div className="iso18-container">
           <ScrollReveal direction="up" delay={0}>
-            <div className="section-header text-center">
-              <h2 className="section-title">Our Approach</h2>
-              <p className="section-subtitle">
-                Our ISO 27018 methodology is built around privacy governance, cloud accountability, and continual improvement
+            <div className="iso18-section-header iso18-text-center">
+              <p className="iso18-approach-eyebrow">Our Approach</p>
+              <h2 className="iso18-approach-title">A Structured Privacy Governance Methodology</h2>
+              <p className="iso18-approach-subtitle">
+                Our ISO 27018 methodology is built around privacy governance, cloud accountability, and continual improvement.
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="solutions-grid">
-            {approachSteps.map((step, index) => (
-              <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="solution-card">
-                  <div className="solution-step-number">{index + 1}</div>
-                  <div className="solution-icon">{step.icon}</div>
-                  <h3 className="solution-title">{step.title}</h3>
-                  <p className="solution-description">{step.description}</p>
-                  <div className="solution-indicator"></div>
+          {/* Row 1: Steps 1–5 */}
+          <ScrollReveal direction="up" delay={100}>
+            <div className="iso18-method-row">
+              {approachSteps.slice(0, 5).map((step, index) => (
+                <div className="iso18-method-card" key={index}>
+                  <div className="iso18-method-badge">{String(index + 1).padStart(2, '0')}</div>
+                  {index < 4 && <span className="iso18-method-connector" />}
+                  <div className="iso18-method-icon">{step.icon}</div>
+                  <h3 className="iso18-method-title">{step.title}</h3>
+                  <p className="iso18-method-description">{step.description}</p>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Row 2: Steps 6–9 */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="iso18-method-row">
+              {approachSteps.slice(5, 9).map((step, index) => (
+                <div className="iso18-method-card" key={index + 5}>
+                  <div className="iso18-method-badge">{String(index + 6).padStart(2, '0')}</div>
+                  {index < 3 && <span className="iso18-method-connector" />}
+                  <div className="iso18-method-icon">{step.icon}</div>
+                  <h3 className="iso18-method-title">{step.title}</h3>
+                  <p className="iso18-method-description">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Footer banner */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="iso18-method-footer">
+              <div className="iso18-method-footer-icon">
+                <ShieldCheck size={22} />
+              </div>
+              <p className="iso18-method-footer-text">
+                Every public cloud control we implement and audit is fully aligned with ISO 27018 privacy standards to safeguard customer PII.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Why Choose */}
-      <section className="why-choose">
-        <div className="container">
+      <section className="iso18-why-choose">
+        <div className="iso18-container">
           <ScrollReveal direction="up" delay={0}>
-            <div className="section-header text-center">
-              <h2 className="section-title">Why Choose Cyberaries?</h2>
+            <div className="iso18-section-header iso18-text-center">
+              <p className="iso18-why-eyebrow">Why CyberAries</p>
+              <h2 className="iso18-section-title">Why Choose Cyberaries?</h2>
             </div>
           </ScrollReveal>
-
-          <div className="why-choose-grid">
+          <div className="iso18-why-choose-grid">
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150}>
-                <div className="why-choose-card">
-                  <div className="why-choose-icon">{item.icon}</div>
-                  <h3 className="why-choose-title">{item.title}</h3>
-                  <p className="why-choose-description">{item.description}</p>
+                <div className="iso18-why-choose-card">
+                  <div className="iso18-why-choose-card-header">
+                    <div className="iso18-why-choose-icon-box">{item.icon}</div>
+                    <h3 className="iso18-why-choose-title">{item.title}</h3>
+                  </div>
+                  <p className="iso18-why-choose-description">{item.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -231,40 +282,40 @@ const ISO27018 = () => {
         </div>
       </section>
 
-      {/* Difference Section */}
-      <section className="cyberaries-difference">
-        <div className="container">
+      {/* Difference */}
+      <section className="iso18-cyberaries-difference">
+        <div className="iso18-container">
           <ScrollReveal animation="fade-up">
-            <h2 className="difference-title">
-              THE <span className="highlight-red">CYBERARIES</span> DIFFERENCE
+            <h2 className="iso18-difference-title">
+              THE <span className="iso18-highlight-red">CYBERARIES</span> DIFFERENCE
             </h2>
           </ScrollReveal>
-
-          <div className="comparison-grid">
+          <div className="iso18-comparison-grid">
             <ScrollReveal animation="fade-right" delay={100}>
-              <div className="comparison-column traditional">
-                <h3 className="comparison-heading">Traditional ISO 27018 Audits</h3>
-                <ul className="comparison-list">
+              <div className="iso18-comparison-column iso18-traditional">
+                <h3 className="iso18-comparison-heading">Traditional ISO 27018 Audits</h3>
+                <ul className="iso18-comparison-list">
                   {difference.traditional.map((item, idx) => (
-                    <li className="comparison-item" key={idx}>
-                      <span className="bullet">•</span>
-                      {item}
+                    <li className="iso18-comparison-item" key={idx}>
+                      <span className="iso18-bullet iso18-bullet-cross">•</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </ScrollReveal>
-
             <ScrollReveal animation="fade-left" delay={200}>
-              <div className="comparison-column cyberaries">
-                <h3 className="comparison-heading cyberaries-heading">
+              <div className="iso18-comparison-column iso18-cyberaries-col">
+                <h3 className="iso18-comparison-heading iso18-cyberaries-heading">
                   Cyberaries ISO 27018 Compliance
                 </h3>
-                <ul className="comparison-list">
+                <ul className="iso18-comparison-list">
                   {difference.cyberaries.map((item, idx) => (
-                    <li className="comparison-item" key={idx}>
-                      <span className="bullet">•</span>
-                      {item}
+                    <li className="iso18-comparison-item" key={idx}>
+                      <span className="iso18-bullet iso18-bullet-check">
+                        <CheckCircle size={18} className="iso18-check-icon" />
+                      </span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -274,18 +325,26 @@ const ISO27018 = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
-        <div className="container">
+      {/* CTA */}
+      <section
+        className="iso18-cta-section"
+        style={{ backgroundImage: `url(${ctaBgImage})` }}
+      >
+        <div className="iso18-cta-grid-pattern" />
+        <div className="iso18-container">
           <ScrollReveal direction="up" delay={0}>
-            <div className="cta-content">
-              <h2 className="cta-title">
-                Ready to Protect PII in Your Cloud Environment?
+            <div className="iso18-cta-content">
+              <h2 className="iso18-cta-title">
+                <span className="iso18-cta-text-gradient">Ready to Protect PII in Your Cloud Environment?</span>
               </h2>
-              <p className="cta-description">
-                Enhance protection, reduce risk, and support your growth objectives.
+              <p className="iso18-cta-description">
+                Enhance protection, reduce risk, and support your growth objectives with our expert guidance.
               </p>
-              <button className="btn btn-primary btn-large" onClick={() => navigate('/contact')}>
+              <button
+                className="iso18-btn iso18-btn-primary iso18-btn-large"
+                type="button"
+                onClick={() => navigate('/contact')}
+              >
                 Contact With Us
               </button>
             </div>

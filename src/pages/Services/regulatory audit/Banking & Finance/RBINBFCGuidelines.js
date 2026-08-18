@@ -53,7 +53,7 @@ const RBINBFCGuidelines = () => {
       icon: <Database size={28} />
     },
     {
-      title: "Third-Party Integration Risks",
+      title: "Third Party Integration Risks",
       description: "Managing cyber risks from fintech partnerships, payment gateways, and technology service providers.",
       icon: <Network size={28} />
     },
@@ -76,7 +76,7 @@ const RBINBFCGuidelines = () => {
       icon: <Building size={28} />
     },
     {
-      title: "Risk-Based Gap Analysis",
+      title: "Risk Based Gap Analysis",
       description: "Conduct proportionate gap assessment aligned with NBFC's scale and digital presence against RBI guidelines.",
       icon: <BarChart3 size={28} />
     },
@@ -97,7 +97,7 @@ const RBINBFCGuidelines = () => {
     },
     {
       title: "Vendor Risk Management",
-      description: "Establish third-party risk assessment framework for fintech partners and technology service providers.",
+      description: "Establish third party risk assessment framework for fintech partners and technology service providers.",
       icon: <UserCheck size={28} />
     },
     {
@@ -135,7 +135,7 @@ const RBINBFCGuidelines = () => {
   const nbfcRequirements = [
     {
       title: "Board Oversight",
-      description: "Board-approved cyber security policy with regular updates on cyber risk and incidents.",
+      description: "Board approved cyber security policy with regular updates on cyber risk and incidents.",
       icon: <Users size={28} />
     },
     {
@@ -172,13 +172,13 @@ const RBINBFCGuidelines = () => {
       icon: <Award size={28} />
     },
     {
-      title: "Cost-Effective Solutions",
+      title: "Cost Effective Solutions",
       description: "Pragmatic, scalable security implementations designed for NBFC budgets and resource constraints.",
       icon: <DollarSign size={28} />
     },
     {
       title: "Complete Implementation",
-      description: "End-to-end support from policy development to technical controls and ongoing compliance.",
+      description: "End to end support from policy development to technical controls and ongoing compliance.",
       icon: <Handshake size={28} />
     }
   ];
@@ -213,10 +213,10 @@ const RBINBFCGuidelines = () => {
           <div className="nbfc-hero-inner">
             <div className="nbfc-hero-content">
               <ScrollReveal animation="fade-down" delay={0}>
-                <div className="nbfc-hero-badge">
-                  <Landmark size={14} className="nbfc-badge-icon" />
-                  <span className="nbfc-badge-text">
-                    NBFC Regulatory Compliance
+                <div className="rbi-nbfc-hero-badge">
+                  <Landmark size={14} className="rbi-nbfc-badge-icon" />
+                  <span className="rbi-nbfc-badge-text">
+                    BANKING SECTOR <span className="rbi-nbfc-badge-divider">/</span> COMPLIANCE
                   </span>
                 </div>
               </ScrollReveal>
@@ -229,7 +229,7 @@ const RBINBFCGuidelines = () => {
 
               <ScrollReveal animation="fade-up" delay={200}>
                 <p className="nbfc-hero-description">
-                  The Reserve Bank of India has issued comprehensive <strong>Cyber Security Guidelines for NBFCs</strong> to ensure robust security across digital lending, payment systems, and customer data protection. <strong>Our specialized services help NBFCs achieve proportionate compliance</strong> aligned with their scale, operations, and digital footprint — while managing costs effectively.
+                  The Reserve Bank of India has issued comprehensive <strong>Cyber Security Guidelines for NBFCs</strong> to ensure robust security across digital lending, payment systems, and customer data protection. <strong>Our specialized services help NBFCs achieve proportionate compliance</strong> aligned with their scale, operations, and digital footprint while managing costs effectively.
                 </p>
               </ScrollReveal>
 
@@ -366,8 +366,8 @@ const RBINBFCGuidelines = () => {
                     <li>Customer data encryption and protection mechanisms</li>
                     <li>Secure mobile application development and deployment</li>
                     <li>API security for digital lending integrations</li>
-                    <li>Role-based access control and least privilege enforcement</li>
-                    <li>Multi-factor authentication for critical systems</li>
+                    <li>Role based access control and least privilege enforcement</li>
+                    <li>Multi factor authentication for critical systems</li>
                   </ul>
                 </div>
               </ScrollReveal>
@@ -381,11 +381,11 @@ const RBINBFCGuidelines = () => {
                   </div>
                   <ul className="nbfc-ctrl-list">
                     <li>Business continuity and disaster recovery</li>
-                    <li>Third-party and vendor risk management</li>
+                    <li>Third party and vendor risk management</li>
                     <li>Security awareness and training programs</li>
                     <li>Cyber insurance coverage requirements</li>
                     <li>Regulatory reporting and compliance documentation</li>
-                    <li>Board-level governance and oversight mechanisms</li>
+                    <li>Board level governance and oversight mechanisms</li>
                   </ul>
                 </div>
               </ScrollReveal>
@@ -417,17 +417,17 @@ const RBINBFCGuidelines = () => {
                     <circle cx="200" cy="200" r="72" fill="none" stroke="rgba(193,18,31,0.2)" strokeWidth="1.5" />
 
                     {/* Quadrant labels */}
-                    <text x="121" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">IDENTITY</text>
-                    <text x="121" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">&amp; ACCESS</text>
+                    <text x="121" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">IDENTITY</text>
+                    <text x="121" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">&amp; ACCESS</text>
 
-                    <text x="279" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">PROTECT</text>
-                    <text x="279" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">&amp; DETECT</text>
+                    <text x="279" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">PROTECT</text>
+                    <text x="279" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">&amp; DETECT</text>
 
-                    <text x="121" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">MANAGE</text>
-                    <text x="121" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">&amp; GOVERN</text>
+                    <text x="121" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">MANAGE</text>
+                    <text x="121" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">&amp; GOVERN</text>
 
-                    <text x="279" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">RESILIENCE</text>
-                    <text x="279" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">&amp; CONTINUITY</text>
+                    <text x="279" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">RESILIENCE</text>
+                    <text x="279" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">&amp; CONTINUITY</text>
 
                     {/* Dashed connecting lines */}
                     <line x1="28" y1="28" x2="0" y2="0" stroke="rgba(193,18,31,0.55)" strokeWidth="1.5" strokeDasharray="5 4" />
@@ -484,7 +484,7 @@ const RBINBFCGuidelines = () => {
                     <li>Incident response and cyber crisis management</li>
                     <li>Data classification and information lifecycle</li>
                     <li>Fintech partnership security controls</li>
-                    <li>Backup and recovery with off-site storage</li>
+                    <li>Backup and recovery with off site storage</li>
                     <li>Physical and environmental security controls</li>
                     <li>Continuous compliance monitoring</li>
                   </ul>
@@ -540,8 +540,8 @@ const RBINBFCGuidelines = () => {
                 <h3 className="nbfc-diff-heading">Traditional NBFC Consulting</h3>
                 <ul className="nbfc-diff-list">
                   {[
-                    "One-size-fits-all solutions not suited for NBFCs",
-                    "Expensive enterprise-grade tools beyond NBFC budgets",
+                    "One size fits all solutions not suited for NBFCs",
+                    "Expensive enterprise grade tools beyond NBFC budgets",
                     "Limited understanding of digital lending operations",
                     "Generic documentation not aligned with RBI guidelines",
                     "Ignores resource and skill constraints of smaller entities",
@@ -565,7 +565,7 @@ const RBINBFCGuidelines = () => {
                 <ul className="nbfc-diff-list">
                   {[
                     "Proportionate controls matched to NBFC scale and operations",
-                    "Cost-effective solutions within realistic NBFC budgets",
+                    "Cost effective solutions within realistic NBFC budgets",
                     "Deep digital lending and fintech ecosystem expertise",
                     "RBI-specific documentation and evidence management",
                     "Practical hands-on implementation with knowledge transfer",
@@ -594,7 +594,7 @@ const RBINBFCGuidelines = () => {
               <p className="nbfc-eyebrow">Deliverables</p>
               <h2 className="nbfc-section-title">NBFC Compliance Deliverables</h2>
               <p className="nbfc-section-description">
-                End-to-end documentation, controls, and reporting to ensure RBI NBFC compliance and strengthen your security posture.
+                End to end documentation, controls, and reporting to ensure RBI NBFC compliance and strengthen your security posture.
               </p>
             </div>
           </ScrollReveal>
@@ -616,7 +616,7 @@ const RBINBFCGuidelines = () => {
                 </div>
                 <div className="nbfc-pillar-divider" />
                 <ul className="nbfc-pillar-list">
-                  <li>Board-approved Cyber Security Policy</li>
+                  <li>Board approved Cyber Security Policy</li>
                   <li>Risk Management Framework</li>
                   <li>Incident Response Plan</li>
                   <li>Business Continuity Procedures</li>
@@ -657,7 +657,7 @@ const RBINBFCGuidelines = () => {
                   </div>
                   <div>
                     <span className="nbfc-pillar-num">03</span>
-                    <h4 className="nbfc-pillar-title">Third-Party Risk</h4>
+                    <h4 className="nbfc-pillar-title">Third Party Risk</h4>
                   </div>
                 </div>
                 <div className="nbfc-pillar-divider" />
@@ -709,7 +709,7 @@ const RBINBFCGuidelines = () => {
                 <span className="nbfc-text-gradient">Achieve NBFC Cyber Security Compliance</span>
               </h2>
               <p className="nbfc-cta-description">
-                Partner with NBFC security specialists for cost-effective, proportionate RBI compliance. Our team works closely with you to close gaps, implement working controls, and prepare you for RBI inspections.
+                Partner with NBFC security specialists for cost effective, proportionate RBI compliance. Our team works closely with you to close gaps, implement working controls, and prepare you for RBI inspections.
               </p>
               <div className="nbfc-cta-buttons">
                 <Link to="/contact" className="nbfc-btn nbfc-btn-primary nbfc-btn-large nbfc-cta-btn">

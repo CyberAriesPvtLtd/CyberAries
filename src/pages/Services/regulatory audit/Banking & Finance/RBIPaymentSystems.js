@@ -43,7 +43,7 @@ const RBIPaymentSystems = () => {
       icon: <Network size={28} />
     },
     {
-      title: "Real-Time Transaction Security",
+      title: "Real Time Transaction Security",
       description: "Ensuring security without impacting transaction speed and customer experience in instant payment systems.",
       icon: <Zap size={28} />
     },
@@ -54,7 +54,7 @@ const RBIPaymentSystems = () => {
     },
     {
       title: "API Security",
-      description: "Securing payment APIs, webhooks, and third-party integrations while maintaining interoperability.",
+      description: "Securing payment APIs, webhooks, and third party integrations while maintaining interoperability.",
       icon: <GitBranch size={28} />
     },
     {
@@ -101,7 +101,7 @@ const RBIPaymentSystems = () => {
       icon: <Eye size={28} />
     },
     {
-      title: "PCI-DSS Compliance",
+      title: "PCI DSS Compliance",
       description: "Verify compliance with Payment Card Industry Data Security Standard v4.0 requirements.",
       icon: <ShieldCheck size={28} />
     },
@@ -111,7 +111,7 @@ const RBIPaymentSystems = () => {
       icon: <Target size={28} />
     },
     {
-      title: "Third-Party Integration Security",
+      title: "Third Party Integration Security",
       description: "Assess security of payment aggregators, gateways, and service provider connections.",
       icon: <UserCheck size={28} />
     },
@@ -155,12 +155,12 @@ const RBIPaymentSystems = () => {
     },
     {
       title: "Mobile Banking",
-      description: "Mobile apps, SMS banking, USSD services, and m-commerce platforms.",
+      description: "Mobile apps, SMS banking, USSD services, and m commerce platforms.",
       icon: <Smartphone size={28} />
     },
     {
       title: "API & Integration Layer",
-      description: "Payment APIs, webhooks, third-party integrations, and open banking interfaces.",
+      description: "Payment APIs, webhooks, third party integrations, and open banking interfaces.",
       icon: <GitBranch size={28} />
     }
   ];
@@ -178,7 +178,7 @@ const RBIPaymentSystems = () => {
     },
     {
       title: "Comprehensive Testing",
-      description: "Combined compliance audits with penetration testing for thorough end-to-end security validation.",
+      description: "Combined compliance audits with penetration testing for thorough end to end security validation.",
       icon: <Handshake size={28} />
     }
   ];
@@ -190,8 +190,8 @@ const RBIPaymentSystems = () => {
     icon: <Shield size={28} />
   },
   {
-    title: "PCI-DSS v4.0",
-    description: "Payment Card Industry Data Security Standard — latest version compliance for card data environments.",
+    title: "PCI DSS v4.0",
+    description: "Payment Card Industry Data Security Standard latest version compliance for card data environments.",
     icon: <CreditCard size={28} />
   },
   {
@@ -201,7 +201,7 @@ const RBIPaymentSystems = () => {
   },
   {
     title: "ISO 20022",
-    description: "International payment messaging and security standards for cross-border and domestic transactions.",
+    description: "International payment messaging and security standards for cross border and domestic transactions.",
     icon: <Key size={28} />
   }
 ];
@@ -235,10 +235,10 @@ const RBIPaymentSystems = () => {
             <div className="pay-hero-content">
 
               <ScrollReveal animation="fade-down" delay={0}>
-                <div className="pay-hero-badge">
-                  <Landmark size={14} className="pay-badge-icon" />
-                  <span className="pay-badge-text">
-                    Payment Systems Security
+                <div className="rbi-payment-hero-badge">
+                  <Landmark size={14} className="rbi-payment-badge-icon" />
+                  <span className="rbi-payment-badge-text">
+                    BANKING SECTOR <span className="rbi-payment-badge-divider">/</span> COMPLIANCE
                   </span>
                 </div>
               </ScrollReveal>
@@ -251,7 +251,7 @@ const RBIPaymentSystems = () => {
 
               <ScrollReveal animation="fade-up" delay={200}>
                 <p className="pay-hero-description">
-                  Payment systems are the backbone of financial services, handling billions of transactions daily across cards, UPI, NEFT, RTGS, and digital wallets. <strong>RBI mandates rigorous security audits</strong> to protect customer data, prevent fraud, and ensure business continuity. <strong>Our comprehensive payment system audits</strong> cover security architecture, fraud controls, PCI-DSS compliance, and penetration testing to safeguard your payment infrastructure.
+                  Payment systems are the backbone of financial services, handling billions of transactions daily across cards, UPI, NEFT, RTGS, and digital wallets. <strong>RBI mandates rigorous security audits</strong> to protect customer data, prevent fraud, and ensure business continuity. <strong>Our comprehensive payment system audits</strong> cover security architecture, fraud controls, PCI DSS compliance, and penetration testing to safeguard your payment infrastructure.
                 </p>
               </ScrollReveal>
 
@@ -385,7 +385,7 @@ const RBIPaymentSystems = () => {
                   </div>
                   <ul className="pay-ctrl-list">
                     <li>Payment channel security (UPI, cards, wallets, NEFT, RTGS)</li>
-                    <li>Card data security and PCI-DSS compliance</li>
+                    <li>Card data security and PCI DSS compliance</li>
                     <li>Tokenization and encryption implementation</li>
                     <li>Authentication and authorization controls</li>
                     <li>API security and integration testing</li>
@@ -433,17 +433,17 @@ const RBIPaymentSystems = () => {
                     <circle cx="200" cy="200" r="72" fill="white"/>
                     <circle cx="200" cy="200" r="72" fill="none" stroke="rgba(193,18,31,0.2)" strokeWidth="1.5"/>
 
-                    <text x="121" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">SECURITY</text>
-                    <text x="121" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">CONTROLS</text>
+                    <text x="121" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">SECURITY</text>
+                    <text x="121" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">CONTROLS</text>
 
-                    <text x="279" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">DETECT</text>
-                    <text x="279" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">&amp; PREVENT</text>
+                    <text x="279" y="113" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">DETECT</text>
+                    <text x="279" y="127" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">&amp; PREVENT</text>
 
-                    <text x="121" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">GOVERN</text>
-                    <text x="121" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">&amp; COMPLY</text>
+                    <text x="121" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">GOVERN</text>
+                    <text x="121" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">&amp; COMPLY</text>
 
-                    <text x="279" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">TEST</text>
-                    <text x="279" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans-serif" letterSpacing="0.5">&amp; VALIDATE</text>
+                    <text x="279" y="273" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">TEST</text>
+                    <text x="279" y="287" textAnchor="middle" fill="white" fontSize="11" fontWeight="800" fontFamily="Lexend,sans serif" letterSpacing="0.5">&amp; VALIDATE</text>
 
                     <line x1="28" y1="28" x2="0" y2="0" stroke="rgba(193,18,31,0.55)" strokeWidth="1.5" strokeDasharray="5 4"/>
                     <line x1="28" y1="372" x2="0" y2="400" stroke="rgba(193,18,31,0.55)" strokeWidth="1.5" strokeDasharray="5 4"/>
@@ -477,8 +477,8 @@ const RBIPaymentSystems = () => {
                   <ul className="pay-ctrl-list">
                     <li>Transaction monitoring and fraud detection</li>
                     <li>Payment gateway configuration and hardening</li>
-                    <li>Third-party service provider security</li>
-                    <li>Real-time anomaly detection capabilities</li>
+                    <li>Third party service provider security</li>
+                    <li>Real time anomaly detection capabilities</li>
                     <li>Penetration testing of payment systems</li>
                     <li>Business logic flaw identification</li>
                   </ul>
@@ -494,10 +494,10 @@ const RBIPaymentSystems = () => {
                   <ul className="pay-ctrl-list">
                     <li>Payment application penetration testing</li>
                     <li>API and integration layer security testing</li>
-                    <li>PCI-DSS gap assessment and remediation</li>
+                    <li>PCI DSS gap assessment and remediation</li>
                     <li>NPCI compliance validation</li>
                     <li>Fraud scenario and exploit simulation</li>
-                    <li>Post-remediation re-validation testing</li>
+                    <li>Post remediation re validation testing</li>
                   </ul>
                 </div>
               </ScrollReveal>
@@ -550,7 +550,7 @@ const RBIPaymentSystems = () => {
                 <h3 className="pay-diff-heading">Traditional Payment Audits</h3>
                 <ul className="pay-diff-list">
                   {[
-                    "Compliance-focused with checkbox assessments only",
+                    "Compliance focused with checkbox assessments only",
                     "Limited technical testing of actual payment flows",
                     "Generic findings not specific to payment logic",
                     "Misses business logic flaws in payment processing",
@@ -575,7 +575,7 @@ const RBIPaymentSystems = () => {
                   {[
                     "Deep technical assessment with full security testing",
                     "Comprehensive penetration testing of all payment flows",
-                    "Payment-specific vulnerabilities and attack scenarios",
+                    "Payment specific vulnerabilities and attack scenarios",
                     "Business logic testing and fraud scenario validation",
                     "Real-world exploit attempts in controlled environment",
                     "Hands-on remediation support and re-validation testing"
@@ -625,7 +625,7 @@ const RBIPaymentSystems = () => {
                   <li>Overall risk assessment and compliance status</li>
                   <li>Critical findings and recommendations</li>
                   <li>Compliance gaps and remediation priorities</li>
-                  <li>Board-ready executive presentation</li>
+                  <li>Board ready executive presentation</li>
                 </ul>
               </div>
             </ScrollReveal>
@@ -663,7 +663,7 @@ const RBIPaymentSystems = () => {
                 <div className="pay-pillar-divider" />
                 <ul className="pay-pillar-list">
                   <li>RBI payment guidelines compliance matrix</li>
-                  <li>PCI-DSS compliance status report</li>
+                  <li>PCI DSS compliance status report</li>
                   <li>NPCI security requirements assessment</li>
                   <li>Evidence repository for regulators</li>
                 </ul>
@@ -684,8 +684,8 @@ const RBIPaymentSystems = () => {
                 <ul className="pay-pillar-list">
                   <li>Prioritized remediation plan with timelines</li>
                   <li>Quick wins vs strategic improvements</li>
-                  <li>Cost-benefit analysis of controls</li>
-                  <li>Re-audit and validation testing plan</li>
+                  <li>Cost benefit analysis of controls</li>
+                  <li>Re audit and validation testing plan</li>
                 </ul>
               </div>
             </ScrollReveal>
@@ -736,7 +736,7 @@ const RBIPaymentSystems = () => {
                 <span className="pay-text-gradient">Secure Your Payment Infrastructure</span>
               </h2>
               <p className="pay-cta-description">
-                Partner with payment security experts for comprehensive RBI-compliant audits. Our team combines compliance assessment with deep technical testing to protect your payment infrastructure end-to-end.
+                Partner with payment security experts for comprehensive RBI compliant audits. Our team combines compliance assessment with deep technical testing to protect your payment infrastructure end to end.
               </p>
               <div className="pay-cta-buttons">
                 <Link to="/contact" className="pay-btn pay-btn-primary pay-btn-large pay-cta-btn">

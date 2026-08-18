@@ -54,22 +54,22 @@ const DataLocalizationAudit = () => {
       icon: <MapPin size={28} />,
     },
     {
-      title: 'Cloud & Multi-Cloud Compliance',
+      title: 'Cloud & Multi Cloud Compliance',
       description: 'Ensuring cloud-based data stores, backups, and processing pipelines remain compliant when organizational infrastructure spans AWS, Azure, GCP, and on-premise environments.',
       icon: <Globe size={28} />,
     },
     {
-      title: 'Third-Party & Vendor Data Flows',
+      title: 'Third Party & Vendor Data Flows',
       description: 'Mapping and restricting data flows to overseas vendors, analytics providers, and SaaS platforms that inadvertently receive or store regulated Indian data.',
       icon: <Network size={28} />,
     },
     {
-      title: 'Cross-Border Data Transfer Controls',
+      title: 'Cross Border Data Transfer Controls',
       description: 'Implementing lawful transfer mechanisms, sufficiency determinations, and contractual safeguards for data that must legitimately cross borders for secondary copies.',
       icon: <Lock size={28} />,
     },
     {
-      title: 'Real-Time Monitoring & Evidence',
+      title: 'Real Time Monitoring & Evidence',
       description: 'Maintaining continuous, auditable evidence of data residency compliance for regulatory inspections without disrupting operational systems.',
       icon: <Eye size={28} />,
     },
@@ -92,7 +92,7 @@ const DataLocalizationAudit = () => {
       icon: <FileText size={28} />,
     },
     {
-      title: 'Cross-Border Transfer Framework',
+      title: 'Cross Border Transfer Framework',
       description: 'Design and implementation of lawful transfer mechanisms, SCCs, and contractual controls for data that legitimately requires cross-border transmission.',
       icon: <Globe size={28} />,
     },
@@ -102,8 +102,8 @@ const DataLocalizationAudit = () => {
       icon: <Shield size={28} />,
     },
     {
-      title: 'Vendor & Third-Party Assessment',
-      description: 'Comprehensive review of all data processors and sub-processors, ensuring contracts and technical controls enforce localization obligations.',
+      title: 'Vendor & Third Party Assessment',
+      description: 'Comprehensive review of all data processors and sub processors, ensuring contracts and technical controls enforce localization obligations.',
       icon: <Users size={28} />,
     },
     {
@@ -126,7 +126,7 @@ const DataLocalizationAudit = () => {
     },
     {
       title: 'Data Flow Mapping & Analysis',
-      description: 'End-to-end mapping of all data flows (internal, cloud, and external) to identify where regulated data is created, processed, stored, and transmitted.',
+      description: 'End to end mapping of all data flows (internal, cloud, and external) to identify where regulated data is created, processed, stored, and transmitted.',
       icon: <Network size={28} />,
     },
     {
@@ -145,13 +145,13 @@ const DataLocalizationAudit = () => {
       icon: <FileCheck size={28} />,
     },
     {
-      title: 'Cross-Border Transfer Controls',
+      title: 'Cross Border Transfer Controls',
       description: 'Implement and document lawful transfer mechanisms for data that legitimately crosses borders, including standard contractual clauses and adequacy assessments.',
       icon: <Lock size={28} />,
     },
     {
       title: 'Technical Control Implementation',
-      description: 'Deploy database geo-isolation, cloud region restrictions, API data masking, and encryption controls to technically enforce residency boundaries.',
+      description: 'Deploy database geo isolation, cloud region restrictions, API data masking, and encryption controls to technically enforce residency boundaries.',
       icon: <Database size={28} />,
     },
     {
@@ -168,13 +168,13 @@ const DataLocalizationAudit = () => {
 
   const whyChooseItems = [
     {
-      title: 'Multi-Regulator Expertise',
+      title: 'Multi Regulator Expertise',
       description: 'Deep experience navigating overlapping data localization mandates from RBI, SEBI, DPDPA, IRDA, and MeitY for BFSI, government, and enterprise organizations.',
       icon: <Award size={28} />,
     },
     {
-      title: 'CERT-In Empanelled',
-      description: 'Government-recognized cybersecurity firm with proven regulatory audit credentials across Indian financial sector and government clients.',
+      title: 'CERT In Empanelled',
+      description: 'Government recognized cybersecurity firm with proven regulatory audit credentials across Indian financial sector and government clients.',
       icon: <Shield size={28} />,
     },
     {
@@ -186,26 +186,26 @@ const DataLocalizationAudit = () => {
 
   const complianceChecklist = [
     'RBI circular on payment data storage and mirroring requirements',
-    'DPDPA restrictions on cross-border transfer of personal data',
+    'DPDPA restrictions on cross border transfer of personal data',
     'MeitY guidelines on critical information infrastructure data residency',
     'SEBI regulations for securities market data localization',
     'IRDAI data storage requirements for insurance data',
-    'Cloud storage geo-restrictions for regulated data categories',
-    'Third-party and SaaS vendor data residency contractual controls',
+    'Cloud storage geo restrictions for regulated data categories',
+    'Third party and SaaS vendor data residency contractual controls',
     'Backup and disaster recovery systems data residency compliance',
-    'API and data exchange layer cross-border data masking controls',
-    'Data processor and sub-processor oversight framework',
-    'Cross-border transfer mechanism documentation and SCCs',
+    'API and data exchange layer cross border data masking controls',
+    'Data processor and sub processor oversight framework',
+    'Cross border transfer mechanism documentation and SCCs',
     'Periodic data residency compliance audit and monitoring program',
   ];
 
   const difference = {
     traditional: [
       'Surface-level mapping that misses embedded data in SaaS and cloud platforms.',
-      'Generic frameworks not calibrated to India\'s sector-specific mandates.',
+      'Generic frameworks not calibrated to India\'s sector specific mandates.',
       'Vendor controls left entirely to legal contracts with no technical enforcement.',
-      'One-time assessment with no ongoing monitoring of residency compliance.',
-      'Cloud configurations reviewed only at account level, missing service-level residency gaps.',
+      'One time assessment with no ongoing monitoring of residency compliance.',
+      'Cloud configurations reviewed only at account level, missing service level residency gaps.',
       'No structured evidence repository for regulatory inspection readiness.',
     ],
     cyberaries: [
@@ -224,7 +224,7 @@ const DataLocalizationAudit = () => {
       title: 'Data Residency Assessment',
       items: [
         'Comprehensive Data Discovery & Classification Report',
-        'End-to-End Data Flow Maps with Residency Obligations',
+        'End to End Data Flow Maps with Residency Obligations',
         'Gap Analysis Against All Applicable Mandates',
         'Risk-Scored Remediation Roadmap',
       ],
@@ -235,7 +235,7 @@ const DataLocalizationAudit = () => {
       items: [
         'Cloud Region Configuration & Geo-isolation Implementation',
         'Database Residency Enforcement Architecture',
-        'API Data Masking & Cross-Border Transfer Controls',
+        'API Data Masking & Cross Border Transfer Controls',
         'Backup & DR Data Residency Remediation',
       ],
     },
@@ -244,9 +244,9 @@ const DataLocalizationAudit = () => {
       title: 'Legal & Contractual Deliverables',
       items: [
         'Updated Data Processing Agreement Templates',
-        'Standard Contractual Clauses for Cross-Border Transfers',
+        'Standard Contractual Clauses for Cross Border Transfers',
         'Vendor Data Residency Assessment Reports',
-        'Cross-Border Transfer Mechanism Documentation',
+        'Cross Border Transfer Mechanism Documentation',
       ],
     },
     {
@@ -296,7 +296,7 @@ const DataLocalizationAudit = () => {
                 <div className="dla-hero-badge">
                   <Landmark size={14} className="dla-badge-icon" />
                   <span className="dla-badge-text">
-                    GOVERNMENT &amp; DIGITAL <span className="dla-badge-divider">/</span> COMPLIANCE
+                    GOVERNMENT & DIGITAL <span className="dla-badge-divider">/</span> COMPLIANCE
                   </span>
                 </div>
               </ScrollReveal>
@@ -313,7 +313,7 @@ const DataLocalizationAudit = () => {
                   <strong>Digital Personal Data Protection Act (DPDPA)</strong> impose strict mandates on
                   where critical and personal data can be stored. Our <strong>Data Localization Audit</strong> covers
                   every dimension: regulatory mapping, technical discovery, vendor remediation, and
-                  inspection-ready compliance evidence.
+                  inspection ready compliance evidence.
                 </p>
               </ScrollReveal>
 
@@ -528,7 +528,7 @@ const DataLocalizationAudit = () => {
               <p className="dla-eyebrow">Deliverables</p>
               <h2 className="dla-section-title">Comprehensive Deliverables</h2>
               <p className="dla-section-description">
-                End-to-end documentation, controls, and reporting to ensure data localization compliance
+                End to end documentation, controls, and reporting to ensure data localization compliance
                 and strengthen your data governance posture.
               </p>
             </div>
@@ -577,7 +577,7 @@ const DataLocalizationAudit = () => {
               <p className="dla-cta-description">
                 Our regulatory experts will assess your current data residency posture and deliver
                 a tailored remediation and compliance roadmap covering RBI payment data, DPDPA
-                cross-border transfer controls, and all applicable sector regulations.
+                cross border transfer controls, and all applicable sector regulations.
               </p>
               <div className="dla-cta-buttons">
                 <Link to="/contact" className="dla-btn dla-btn-primary dla-btn-large dla-cta-btn">

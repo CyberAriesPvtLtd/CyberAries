@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
-import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
-import overviewImage from '../../../../images/services/vapt/wast-image.webp';
+import heroBgImage from '../../../../images/services/vapt/application-security-hero.webp';
+import ctaBgImage from '../../../../images/cta/cta-background.webp';
 
-import {
-  FileText,
+
+import { FileText,
   Search,
   Target,
   Shield,
@@ -16,8 +16,13 @@ import {
   CheckCircle,
   Award,
   Users,
-  Headphones
-} from 'lucide-react';
+  Headphones,
+  KeyRound,
+  Lock,
+  Terminal,
+  Settings,
+  GitBranch,
+  Database, Landmark } from 'lucide-react';
 import './WebAppSecurity.css';
 
 /**
@@ -28,71 +33,112 @@ import './WebAppSecurity.css';
 const WebAppSecurity = () => {
   const navigate = useNavigate();
 
+  const scrollToApproach = () => {
+    const el = document.getElementById('our-approach');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // What We Test Data
+  const whatWeTestItems = [
+    {
+      title: "Authentication & Session Security",
+      description: "Login flows, token handling, and session management tested for weaknesses attackers rely on.",
+      icon: <KeyRound size={32} strokeWidth={1.75} />
+    },
+    {
+      title: "Access Control",
+      description: "Role and privilege boundaries verified to prevent unauthorized access to data and functions.",
+      icon: <Lock size={32} strokeWidth={1.75} />
+    },
+    {
+      title: "Injection Vulnerabilities",
+      description: "SQL, command, and code injection points identified across every user facing input.",
+      icon: <Terminal size={32} strokeWidth={1.75} />
+    },
+    {
+      title: "Security Misconfiguration",
+      description: "Server, framework, and application settings reviewed against secure by default standards.",
+      icon: <Settings size={32} strokeWidth={1.75} />
+    },
+    {
+      title: "Business Logic",
+      description: "Application workflows examined for logic flaws that let attackers bypass intended controls.",
+      icon: <GitBranch size={32} strokeWidth={1.75} />
+    },
+    {
+      title: "Sensitive Data Exposure",
+      description: "Data storage, transmission, and error handling checked for unintended information leakage.",
+      icon: <Database size={32} strokeWidth={1.75} />
+    }
+  ];
+
   // Approach Methodology Data
   const approachSteps = [
     {
       title: "Scope Definition",
       description: "Define testing objectives, modules, and user roles to ensure complete and clear coverage.",
-      icon: <FileText size={40} />
+      icon: <FileText size={36} />
     },
     {
       title: "Information Gathering",
       description: "Collect backend insights on application architecture, inputs, and technologies used.",
-      icon: <Search size={40} />
+      icon: <Search size={36} />
     },
     {
       title: "Threat Modeling",
-      description: "Identify potential attack paths and prioritize critical areas for in-depth testing.",
-      icon: <Target size={40} />
+      description: "Identify potential attack paths and prioritize critical areas for in depth testing.",
+      icon: <Target size={36} />
     },
     {
       title: "Vulnerability Detection",
       description: "Detect flaws such as SQL Injection, XSS, CSRF, and authentication bypass vulnerabilities.",
-      icon: <Shield size={40} />
+      icon: <Shield size={36} />
     },
     {
       title: "Business Logic Testing",
-      description: "Examine workflows and controls to uncover logic flaws that privilege escalation risks.",
-      icon: <Code size={40} />
+      description: "Examine workflows and controls to uncover logic flaws that create privilege escalation risks.",
+      icon: <Code size={36} />
     },
     {
       title: "Exploitation",
-      description: "Perform controlled testing to validate high-severity vulnerabilities and assess real-world impact.",
-      icon: <AlertTriangle size={40} />
+      description: "Perform controlled testing to validate high severity vulnerabilities and assess real world impact.",
+      icon: <AlertTriangle size={36} />
     },
     {
       title: "Risk Evaluation",
       description: "Prioritize identified issues by severity and provide clear remediation guidance.",
-      icon: <FileCheck size={40} />
+      icon: <FileCheck size={36} />
     },
     {
       title: "Reporting & Recommendations",
       description: "Deliver comprehensive reports with actionable fixes and best practices.",
-      icon: <RefreshCw size={40} />
+      icon: <RefreshCw size={36} />
     },
     {
-      title: "Re-Testing & Verification",
-      description: "Validate fixes through follow-up testing to ensure complete resolution.",
-      icon: <CheckCircle size={40} />
+      title: "Re Testing & Verification",
+      description: "Validate fixes through follow up testing to ensure complete resolution.",
+      icon: <CheckCircle size={36} />
     }
   ];
 
   // Why Choose Data
   const whyChooseItems = [
     {
-      title: "Partnered with CERT-In Empanelled Experts",
-      description: "Recognized by the Government of India for security audits.",
-      icon: <Award size={48} strokeWidth={1.5} />
+      title: "Certified Expertise",
+      description: "Government recognized and experienced cybersecurity professionals.",
+      icon: <Award size={44} strokeWidth={1.5} />
     },
     {
-      title: "Proven Expertise",
-      description: "350+ clients across banking, IT, insurance, healthcare, and manufacturing.",
-      icon: <Users size={48} strokeWidth={1.5} />
+      title: "Manual + Automated Testing",
+      description: "Technology assisted testing combined with human led security analysis.",
+      icon: <Users size={44} strokeWidth={1.5} />
     },
     {
-      title: "End-to-End Support",
-      description: "From scoping to remediation and final certification.",
-      icon: <Headphones size={48} strokeWidth={1.5} />
+      title: "Remediation to Re-Test",
+      description: "We don't stop at reporting vulnerabilities. We help validate the fix.",
+      icon: <Headphones size={44} strokeWidth={1.5} />
     }
   ];
 
@@ -119,105 +165,282 @@ const WebAppSecurity = () => {
   return (
     <div className="web-app-security-page sast-style-page">
       {/* Hero Section */}
-      <section
-        className="hero-section"
-        style={{ backgroundImage: `url(${heroBgImage})` }}
-      >
-        <div className="hero-background"></div>
+      <section className="hero-section">
+        <div
+          className="hero-bg-layer"
+          style={{ backgroundImage: `url(${heroBgImage})` }}
+        />
+        <div className="hero-overlay" />
+        <div className="hero-glow" />
+
+        {/* Floating particles */}
+        <div className="hero-particles" aria-hidden="true">
+          {Array.from({ length: 7 }).map((_, i) => (
+            <span key={i} className="hero-particle" style={{ '--i': i }} />
+          ))}
+        </div>
+
         <div className="container">
           <div className="hero-content">
-            <p className="hero-subtitle">Application Security Testing</p>
+            <div className="webappsecurity-hero-badge">
+                  <Landmark size={14} className="webappsecurity-badge-icon" />
+                  <span className="webappsecurity-badge-text">
+                    OFFENSIVE SECURITY <span className="webappsecurity-badge-divider">/</span> APPLICATION SECURITY
+                  </span>
+                </div>
             <h1 className="hero-title">
-              WEB APPLICATION SECURITY TESTING
+              <span className="text-gradient">WEB APPLICATION SECURITY TESTING</span>
             </h1>
-            <p className="hero-subheading">PROTECTING YOUR DIGITAL PLATFORMS</p>
             <p className="hero-description">
-              <strong>Web Application Security Testing (WAST)</strong> is a proactive process that identifies vulnerabilities,
-              misconfigurations, and security loopholes in web applications before attackers can exploit them. It
-              ensures your digital platforms remain <strong>secure, resilient, and compliant</strong> with global standards.
-            </p>
-            <p className="hero-description">
-              At <strong>Cyberaries</strong>, we specialize in conducting comprehensive <strong>manual and automated web
-                application assessments</strong> to detect OWASP Top 10 and business logic vulnerabilities. Our team of
-              certified experts blends advanced tools with real-world attack simulations to uncover weaknesses that
-              traditional scanners often miss.
+              Identify exploitable weaknesses across your web applications before attackers do. Our manual and
+              automated testing combines OWASP aligned assessment, business logic testing, and controlled
+              exploitation to uncover vulnerabilities scanners miss.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
-              <button className="btn btn-secondary">Learn More</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>
+                Start Security Assessment &rarr;
+              </button>
+              <button className="btn btn-secondary" onClick={scrollToApproach}>
+                View Methodology
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Service Overview Section */}
-      <section className="service-overview">
+      {/* What We Test Section */}
+      <section className="what-we-test section-offwhite-nogrid">
         <div className="container">
-          <div className="overview-grid">
-            <ScrollReveal direction="left" delay={100}>
-              <div className="overview-content">
-                <p className="overview-text">
-                  We help organizations strengthen <strong>application security posture</strong>, prevent data breaches, and maintain
-                  <strong> confidentiality, integrity, and availability</strong> across all web assets. <strong>Cyberaries</strong> delivers detailed risk
-                  analyses, actionable remediation guidance, and continued security improvement—empowering
-                  businesses to operate safely in an evolving digital landscape.
-                </p>
-                <p className="overview-text">
-                  Our comprehensive testing methodology covers <strong>injection flaws, broken authentication, sensitive data exposure,
-                    XML external entities (XXE), broken access control, security misconfigurations, cross-site scripting (XSS),
-                    insecure deserialization, and components with known vulnerabilities</strong>—ensuring complete protection across
-                  your entire web application infrastructure.
-                </p>
-              </div>
-            </ScrollReveal>
+          <ScrollReveal direction="up" delay={0}>
+            <div className="section-header text-center">
+              <p className="section-eyebrow">WHAT WE TEST</p>
+              <h2 className="section-title">Six security surfaces. One complete application assessment.</h2>
+            </div>
+          </ScrollReveal>
 
-            <ScrollReveal direction="right" delay={200}>
-              <div className="overview-visual">
-                <img
-                  src={overviewImage}
-                  alt="Web Application Security Testing"
-                  className="overview-image"
-                />
+          <div className="security-diagram-container">
+            {/* Central Node */}
+            <div className="diagram-central-node-wrapper">
+              <ScrollReveal direction="up" delay={100}>
+                <div className="diagram-central-node">
+                  <div className="central-node-icon">
+                    <Shield size={36} strokeWidth={1.5} />
+                  </div>
+                  <div className="central-node-text">
+                    <span className="node-text-sub">APPLICATION</span>
+                    <span className="node-text-main">SECURITY TESTING</span>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Connection Lines */}
+            <div className="diagram-connectors">
+              <div className="connector-vertical-main"></div>
+              <div className="connector-horizontal-branch"></div>
+              <div className="connector-branches">
+                <div className="connector-branch-left"></div>
+                <div className="connector-branch-center"></div>
+                <div className="connector-branch-right"></div>
               </div>
-            </ScrollReveal>
+            </div>
+
+            {/* Category Columns */}
+            <div className="diagram-categories">
+              {/* CATEGORY 01: IDENTITY */}
+              <ScrollReveal direction="up" delay={150} className="category-reveal-wrapper">
+                <div className="diagram-category-column">
+                  <div className="category-header">
+                    <div className="category-meta">
+                      <span className="category-number">01</span>
+                      <span className="category-label">IDENTITY</span>
+                    </div>
+                    <div className="category-icon">
+                      <Lock size={18} />
+                    </div>
+                  </div>
+                  
+                  <div className="category-surface-list">
+                    {[whatWeTestItems[0], whatWeTestItems[1]].map((item, idx) => (
+                      <div className="surface-pill-node" key={idx}>
+                        <div className="surface-pill-header">
+                          <span className="surface-pill-icon">{item.icon}</span>
+                          <h4 className="surface-pill-title">{item.title}</h4>
+                        </div>
+                        <p className="surface-pill-description">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* CATEGORY 02: APPLICATION */}
+              <ScrollReveal direction="up" delay={200} className="category-reveal-wrapper">
+                <div className="diagram-category-column">
+                  <div className="category-header">
+                    <div className="category-meta">
+                      <span className="category-number">02</span>
+                      <span className="category-label">APPLICATION</span>
+                    </div>
+                    <div className="category-icon">
+                      <Code size={18} />
+                    </div>
+                  </div>
+                  
+                  <div className="category-surface-list">
+                    {[whatWeTestItems[2], whatWeTestItems[3], whatWeTestItems[4]].map((item, idx) => (
+                      <div className="surface-pill-node" key={idx}>
+                        <div className="surface-pill-header">
+                          <span className="surface-pill-icon">{item.icon}</span>
+                          <h4 className="surface-pill-title">{item.title}</h4>
+                        </div>
+                        <p className="surface-pill-description">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* CATEGORY 03: DATA */}
+              <ScrollReveal direction="up" delay={250} className="category-reveal-wrapper">
+                <div className="diagram-category-column">
+                  <div className="category-header">
+                    <div className="category-meta">
+                      <span className="category-number">03</span>
+                      <span className="category-label">DATA</span>
+                    </div>
+                    <div className="category-icon">
+                      <Database size={18} />
+                    </div>
+                  </div>
+                  
+                  <div className="category-surface-list">
+                    {[whatWeTestItems[5]].map((item, idx) => (
+                      <div className="surface-pill-node" key={idx}>
+                        <div className="surface-pill-header">
+                          <span className="surface-pill-icon">{item.icon}</span>
+                          <h4 className="surface-pill-title">{item.title}</h4>
+                        </div>
+                        <p className="surface-pill-description">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
+
+          <ScrollReveal direction="up" delay={300}>
+            <div className="diagram-overview-text">
+              <p className="overview-text">
+                We help organizations strengthen <strong>application security posture</strong>, prevent data breaches,
+                and maintain <strong>confidentiality, integrity, and availability</strong> across all web assets.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Our Approach Section */}
-      <section className="solutions-section our-approach">
+      <section className="solutions-section our-approach section-white-grid" id="our-approach">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
-              <h2 className="section-title">Our Approach</h2>
-              <p className="section-subtitle">
-                Our audit methodology is built around expertise, innovation, and enhancing threat visibility
-              </p>
+              <p className="section-eyebrow">Our Approach</p>
+              <h2 className="section-title">Our Audit Methodology Is Built Around Expertise, Innovation, and Enhancing Threat Visibility</h2>
             </div>
           </ScrollReveal>
 
-          <div className="solutions-grid">
-            {approachSteps.map((step, index) => (
-              <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="solution-card">
-                  <div className="solution-step-number">{index + 1}</div>
-                  <div className="solution-icon">{step.icon}</div>
-                  <h3 className="solution-title">{step.title}</h3>
-                  <p className="solution-description">{step.description}</p>
-                  <div className="solution-indicator"></div>
+          <div className="methodology-journey">
+            {[
+              {
+                id: "01",
+                name: "DISCOVER",
+                flow: "Understanding → Gathering → Modeling",
+                steps: [approachSteps[0], approachSteps[1], approachSteps[2]]
+              },
+              {
+                id: "02",
+                name: "TEST",
+                flow: "Detecting → Testing → Exploiting",
+                steps: [approachSteps[3], approachSteps[4], approachSteps[5]]
+              },
+              {
+                id: "03",
+                name: "VALIDATE",
+                flow: "Evaluating → Reporting → Verifying",
+                steps: [approachSteps[6], approachSteps[7], approachSteps[8]]
+              }
+            ].map((phase, phaseIndex) => (
+              <div className="methodology-phase" key={phaseIndex}>
+                <div className="phase-label-column">
+                  <div className="phase-label-sticky">
+                    <span className="phase-number">{phase.id}</span>
+                    <h4 className="phase-name">{phase.name}</h4>
+                    <p className="phase-subtitle-flow">{phase.flow}</p>
+                  </div>
                 </div>
-              </ScrollReveal>
+                
+                <div className="phase-nodes-row">
+                  {phase.steps.map((step, stepIdx) => {
+                    const absoluteIndex = phaseIndex * 3 + stepIdx;
+                    const stepNumber = String(absoluteIndex + 1).padStart(2, '0');
+                    return (
+                      <React.Fragment key={stepIdx}>
+                        <ScrollReveal direction="up" delay={absoluteIndex * 50} className="node-reveal-wrapper">
+                          <div className="methodology-node">
+                            <div className="node-header">
+                              <span className="node-marker">{stepNumber}</span>
+                              <div className="node-icon-wrapper">{step.icon}</div>
+                            </div>
+                            <h5 className="node-title">{step.title}</h5>
+                            <p className="node-description">{step.description}</p>
+                          </div>
+                        </ScrollReveal>
+                        
+                        {/* Horizontal Connector between nodes */}
+                        {stepIdx < 2 && (
+                          <div className="node-connector-horizontal">
+                            <svg viewBox="0 0 40 10" preserveAspectRatio="none" className="connector-svg">
+                              <line x1="0" y1="5" x2="32" y2="5" stroke="var(--accent corporate red)" strokeWidth="1.5" />
+                              <polygon points="32,2 40,5 32,8" fill="var(--accent corporate red)" />
+                            </svg>
+                          </div>
+                        )}
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
+
+                {/* Transition connector line to next phase (visual continuity) */}
+                {phaseIndex < 2 && (
+                  <div className="phase-transition-connector-line"></div>
+                )}
+              </div>
             ))}
           </div>
+
+          {/* Bottom Callout */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="methodology-callout">
+              <div className="callout-icon">
+                <Shield size={20} />
+              </div>
+              <p className="callout-text">
+                Our approach ensures complete visibility into your web application security posture and helps you build resilient, secure, and compliant digital platforms.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Why Choose Section - MOVED BEFORE DIFFERENCE */}
-      <section className="why-choose">
+      {/* Why Choose Section */}
+      <section className="why-choose section-offwhite-nogrid">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
-              <h2 className="section-title">Why Choose Cyberaries?</h2>
+              <p className="section-eyebrow">Why CyberAries</p>
+              <h2 className="section-title">Why Security Teams Choose CyberAries</h2>
             </div>
           </ScrollReveal>
 
@@ -225,11 +448,14 @@ const WebAppSecurity = () => {
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150}>
                 <div className="why-choose-card">
+                  <div className="why-choose-index">{String(index + 1).padStart(2, '0')}</div>
                   <div className="why-choose-icon">{item.icon}</div>
-                  <h3 className="why-choose-title">{item.title}</h3>
-                  <p className="why-choose-description">
-                    {item.description}
-                  </p>
+                  <div className="why-choose-body">
+                    <h3 className="why-choose-title">{item.title}</h3>
+                    <p className="why-choose-description">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
@@ -237,8 +463,8 @@ const WebAppSecurity = () => {
         </div>
       </section>
 
-      {/* Difference Section - MOVED AFTER WHY CHOOSE */}
-      <section className="cyberaries-difference">
+      {/* Difference Section */}
+      <section className="cyberaries-difference grid-bg">
         <div className="container">
           <ScrollReveal animation="fade-up">
             <h2 className="difference-title">
@@ -254,8 +480,8 @@ const WebAppSecurity = () => {
                 <ul className="comparison-list">
                   {difference.traditional.map((item, idx) => (
                     <li className="comparison-item" key={idx}>
-                      <span className="bullet">•</span>
-                      {item}
+                      <span className="bullet">&bull;</span>
+                      <span className="item-text">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -265,13 +491,15 @@ const WebAppSecurity = () => {
             <ScrollReveal animation="fade-left" delay={200}>
               <div className="comparison-column cyberaries">
                 <h3 className="comparison-heading cyberaries-heading">
-                  Cyberaries Web Application Security
+                  CyberAries Web Application Security
                 </h3>
                 <ul className="comparison-list">
                   {difference.cyberaries.map((item, idx) => (
                     <li className="comparison-item" key={idx}>
-                      <span className="bullet">•</span>
-                      {item}
+                      <span className="check-icon-wrapper">
+                        <CheckCircle size={18} strokeWidth={2.5} />
+                      </span>
+                      <span className="item-text">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -282,24 +510,24 @@ const WebAppSecurity = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="cta-section">
+      <section className="cta-section" style={{ backgroundImage: `url(${ctaBgImage})` }}>
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">
               <h2 className="cta-title">
-                Ready to Secure Your Web Applications?
+                <span className="text-gradient">Find Out What Attackers Could Find</span>
               </h2>
               <p className="cta-description">
-                Enhance protection, reduce risk, and support your growth objectives.
+                Get a structured assessment of your web application's security posture, vulnerabilities, and remediation priorities.
               </p>
               <button className="btn btn-primary btn-large" onClick={() => navigate('/contact')}>
-                Contact With Us
+                Request a Security Assessment &rarr;
               </button>
             </div>
           </ScrollReveal>
         </div>
       </section>
-      
+
     </div>
   );
 };

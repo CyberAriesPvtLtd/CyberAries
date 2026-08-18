@@ -30,9 +30,9 @@ const IRDAIISNPAudit = () => {
 
   const challengesData = [
     { title: 'ISNP Technology and Security Standards', description: 'ISNPs must comply with IRDAI\'s strict technology and cybersecurity standards governing platform architecture, data protection, and operational resilience.', icon: <Settings size={28} /> },
-    { title: 'Third-Party Aggregator Control', description: 'ISNPs rely on multiple insurance aggregators, brokers, and technology service providers whose security posture directly affects the ISNP\'s regulatory compliance standing.', icon: <Users size={28} /> },
+    { title: 'Third Party Aggregator Control', description: 'ISNPs rely on multiple insurance aggregators, brokers, and technology service providers whose security posture directly affects the ISNP\'s regulatory compliance standing.', icon: <Users size={28} /> },
     { title: 'Customer Data Protection', description: 'Policyholders\' sensitive financial and health data flowing through ISNP platforms requires robust encryption, access control, and data minimization controls under IRDAI guidelines.', icon: <Lock size={28} /> },
-    { title: 'Incident Reporting and Response', description: 'IRDAI mandates timely cyber incident reporting with defined response timelines. Organizations without mature incident response capabilities face regulatory non-compliance risk.', icon: <AlertTriangle size={28} /> },
+    { title: 'Incident Reporting and Response', description: 'IRDAI mandates timely cyber incident reporting with defined response timelines. Organizations without mature incident response capabilities face regulatory non compliance risk.', icon: <AlertTriangle size={28} /> },
     { title: 'Continuity and Recovery Obligations', description: 'ISNPs must maintain defined RTO/RPO targets to ensure policyholders can access insurance services without disruption, requiring robust DR and BCP frameworks.', icon: <RefreshCw size={28} /> },
     { title: 'Periodic Audit and Reporting', description: 'Maintaining the continuous evidence and audit trails required for IRDAI periodic security audits and on-site inspections is operationally demanding without structured processes.', icon: <BarChart3 size={28} /> },
   ];
@@ -41,28 +41,28 @@ const IRDAIISNPAudit = () => {
     { title: 'ISNP Security Architecture Review', description: 'Comprehensive assessment of ISNP platform architecture against IRDAI technical security standards, including API security, encryption, and network design.', icon: <Shield size={28} /> },
     { title: 'Data Protection and Classification', description: 'Classification of all policyholder and operational data by sensitivity, with controls assessment against IRDAI data protection and privacy requirements.', icon: <Database size={28} /> },
     { title: 'Access Control and Identity Management', description: 'Evaluation and implementation of IAM, MFA, privileged access management, and role-based access controls across ISNP platform components.', icon: <UserCheck size={28} /> },
-    { title: 'Third-Party and Aggregator Risk', description: 'Systematic risk assessment of all insurance aggregators, brokers, and technology vendors connected to the ISNP, with security attestation requirements.', icon: <Globe size={28} /> },
+    { title: 'Third Party and Aggregator Risk', description: 'Systematic risk assessment of all insurance aggregators, brokers, and technology vendors connected to the ISNP, with security attestation requirements.', icon: <Globe size={28} /> },
     { title: 'Incident Response Framework', description: 'Design and testing of incident response procedures, cyber incident reporting workflows, and crisis communication protocols aligned with IRDAI timelines.', icon: <Bell size={28} /> },
     { title: 'Business Continuity and DR', description: 'Assessment and implementation of BCP/DR frameworks meeting IRDAI-mandated RTO/RPO requirements with documented testing and annual review cycles.', icon: <RefreshCw size={28} /> },
   ];
 
   const approachSteps = [
     { title: 'Regulatory Requirement Mapping', description: 'Detailed mapping of all IRDAI ISNP cybersecurity circulars, guidelines, and inspection checklists to your platform\'s architecture and operations.', icon: <FileText size={28} /> },
-    { title: 'ISNP Platform Architecture Assessment', description: 'In-depth technical review of the ISNP platform covering API layers, web applications, databases, and integration points against IRDAI security standards.', icon: <Search size={28} /> },
+    { title: 'ISNP Platform Architecture Assessment', description: 'In depth technical review of the ISNP platform covering API layers, web applications, databases, and integration points against IRDAI security standards.', icon: <Search size={28} /> },
     { title: 'Data Flow and Classification Mapping', description: 'Discovery and mapping of all policyholder data flows within and external to the ISNP, identifying data protection gaps and compliance risks.', icon: <Database size={28} /> },
     { title: 'Access Control and IAM Review', description: 'Assessment of identity and access management controls, privileged access policies, and authentication mechanisms across all ISNP components.', icon: <UserCheck size={28} /> },
-    { title: 'Third-Party Risk Assessment', description: 'Security evaluation of all aggregators, brokers, and technology vendors with security questionnaires, contract reviews, and attestation management.', icon: <Globe size={28} /> },
+    { title: 'Third Party Risk Assessment', description: 'Security evaluation of all aggregators, brokers, and technology vendors with security questionnaires, contract reviews, and attestation management.', icon: <Globe size={28} /> },
     { title: 'Vulnerability Assessment and VAPT', description: 'Comprehensive VAPT of ISNP web applications, APIs, mobile apps, and infrastructure components to identify and remediate exploitable vulnerabilities.', icon: <Eye size={28} /> },
-    { title: 'Incident Response Plan Development', description: 'Design, document, and test an IRDAI-compliant incident response plan including defined roles, escalation paths, and regulatory notification timelines.', icon: <Bell size={28} /> },
+    { title: 'Incident Response Plan Development', description: 'Design, document, and test an IRDAI compliant incident response plan including defined roles, escalation paths, and regulatory notification timelines.', icon: <Bell size={28} /> },
     { title: 'BCP and DR Framework Implementation', description: 'Develop and test BCP/DR procedures with defined RTO/RPO targets, failover testing, and annual review cycles meeting IRDAI continuity requirements.', icon: <RefreshCw size={28} /> },
-    { title: 'Policy and Governance Documentation', description: 'Develop IRDAI-aligned cybersecurity policies, vendor security standards, and governance frameworks with board-level oversight structures.', icon: <FileCheck size={28} /> },
-    { title: 'Compliance Evidence and Inspection Readiness', description: 'Compile structured evidence repository, compliance dashboards, and inspection-ready documentation for IRDAI security audits and on-site inspections.', icon: <BarChart3 size={28} /> },
+    { title: 'Policy and Governance Documentation', description: 'Develop IRDAI aligned cybersecurity policies, vendor security standards, and governance frameworks with board level oversight structures.', icon: <FileCheck size={28} /> },
+    { title: 'Compliance Evidence and Inspection Readiness', description: 'Compile structured evidence repository, compliance dashboards, and inspection ready documentation for IRDAI security audits and on site inspections.', icon: <BarChart3 size={28} /> },
   ];
 
   const whyChooseItems = [
     { title: 'IRDAI Regulatory Expertise', description: 'Deep knowledge of IRDAI ISNP cybersecurity circulars, inspection frameworks, and compliance expectations across insurance platform categories.', icon: <Award size={28} /> },
-    { title: 'CERT-In Empanelled', description: 'Government-recognized cybersecurity firm with proven audit credentials across Indian financial sector, insurance, and government organizations.', icon: <Shield size={28} /> },
-    { title: 'End-to-End Implementation', description: 'From platform architecture assessment through policy development, VAPT, incident response planning, and inspection-ready evidence compilation.', icon: <CheckCircle size={28} /> },
+    { title: 'CERT In Empanelled', description: 'Government recognized cybersecurity firm with proven audit credentials across Indian financial sector, insurance, and government organizations.', icon: <Shield size={28} /> },
+    { title: 'End-to-End Implementation', description: 'From platform architecture assessment through policy development, VAPT, incident response planning, and inspection ready evidence compilation.', icon: <CheckCircle size={28} /> },
   ];
 
   const complianceChecklist = [
@@ -71,7 +71,7 @@ const IRDAIISNPAudit = () => {
     'Policyholder data protection and encryption controls evaluation',
     'Identity and access management and MFA implementation review',
     'API security and integration point vulnerability assessment',
-    'Third-party aggregator and broker security assessment',
+    'Third party aggregator and broker security assessment',
     'Vendor security attestation and contract review',
     'Incident response plan development and tabletop testing',
     'Cyber incident reporting procedure and IRDAI notification workflow',
@@ -84,15 +84,15 @@ const IRDAIISNPAudit = () => {
     traditional: [
       'Generic IT audit frameworks not calibrated to IRDAI ISNP-specific requirements.',
       'Compliance reviews limited to documentation without technical platform assessment.',
-      'Third-party risk ignored or treated as entirely a contractual and legal matter.',
+      'Third party risk ignored or treated as entirely a contractual and legal matter.',
       'Incident response plans developed on paper but never tested or validated.',
       'BCP/DR frameworks documented but never tested against IRDAI RTO/RPO requirements.',
       'No structured evidence repository, leaving organizations unprepared for inspections.',
     ],
     cyberaries: [
-      'IRDAI ISNP-specific assessment framework calibrated to the exact inspection checklist.',
+      'IRDAI ISNP specific assessment framework calibrated to the exact inspection checklist.',
       'Combined documentation and deep technical platform and API security assessment.',
-      'Third-party risk assessed both contractually and through technical security questionnaires.',
+      'Third party risk assessed both contractually and through technical security questionnaires.',
       'Incident response plans tested through tabletop exercises and simulation scenarios.',
       'BCP/DR frameworks tested with documented results and remediation evidence.',
       'Structured compliance evidence repository delivered as part of every engagement.',
@@ -107,7 +107,7 @@ const IRDAIISNPAudit = () => {
         'ISNP Platform Architecture Security Assessment',
         'VAPT Report (Web, API, Mobile, Infrastructure)',
         'Data Protection and Classification Assessment',
-        'Third-Party Risk Assessment Report',
+        'Third Party Risk Assessment Report',
       ],
     },
     {
@@ -124,7 +124,7 @@ const IRDAIISNPAudit = () => {
       icon: <FileText size={28} />,
       title: 'Governance and Policy',
       items: [
-        'IRDAI-Aligned Cybersecurity Policy Suite',
+        'IRDAI Aligned Cybersecurity Policy Suite',
         'Incident Response Plan and Playbooks',
         'BCP/DR Framework Documentation',
         'Vendor Security Standards and Attestation Templates',
@@ -136,7 +136,7 @@ const IRDAIISNPAudit = () => {
       items: [
         'Gap Analysis Against IRDAI ISNP Requirements',
         'Compliance Status Dashboard',
-        'Inspection-Ready Evidence Repository',
+        'Inspection Ready Evidence Repository',
         'Annual Compliance Review Plan',
       ],
     },
@@ -166,7 +166,7 @@ const IRDAIISNPAudit = () => {
                 <div className="ini-hero-badge">
                   <Landmark size={14} className="ini-badge-icon" />
                   <span className="ini-badge-text">
-                    GOVERNMENT &amp; DIGITAL <span className="ini-badge-divider">/</span> COMPLIANCE
+                    GOVERNMENT & DIGITAL <span className="ini-badge-divider">/</span> COMPLIANCE
                   </span>
                 </div>
               </ScrollReveal>
@@ -180,10 +180,10 @@ const IRDAIISNPAudit = () => {
               <ScrollReveal animation="fade-up" delay={200}>
                 <p className="ini-hero-description">
                   The <strong>Insurance Regulatory and Development Authority of India (IRDAI)</strong> mandates
-                  rigorous cybersecurity standards for <strong>Insurance Self-Network Platforms (ISNPs)</strong> covering
+                  rigorous cybersecurity standards for <strong>Insurance Self Network Platforms (ISNPs)</strong> covering
                   platform architecture, data protection, incident response, and business continuity. Our audit
-                  delivers complete coverage from regulatory mapping through VAPT, third-party risk assessment,
-                  and full inspection-ready evidence compilation.
+                  delivers complete coverage from regulatory mapping through VAPT, third party risk assessment,
+                  and full inspection ready evidence compilation.
                 </p>
               </ScrollReveal>
 
@@ -208,7 +208,7 @@ const IRDAIISNPAudit = () => {
               <p className="ini-eyebrow">Key Challenges</p>
               <h2 className="ini-section-title">IRDAI ISNP Compliance Challenges</h2>
               <p className="ini-section-description">
-                Insurance self-network platforms face complex, multi-dimensional cybersecurity compliance
+                Insurance self network platforms face complex, multi dimensional cybersecurity compliance
                 requirements under IRDAI's evolving regulatory framework.
               </p>
             </div>
@@ -383,7 +383,7 @@ const IRDAIISNPAudit = () => {
               <p className="ini-eyebrow">Deliverables</p>
               <h2 className="ini-section-title">Comprehensive Deliverables</h2>
               <p className="ini-section-description">
-                End-to-end documentation, controls, and reporting to ensure IRDAI ISNP compliance
+                End to end documentation, controls, and reporting to ensure IRDAI ISNP compliance
                 and strengthen your insurance platform security posture.
               </p>
             </div>
@@ -421,7 +421,7 @@ const IRDAIISNPAudit = () => {
               </h2>
               <p className="ini-cta-description">
                 Partner with our insurance cybersecurity experts to achieve and maintain full IRDAI
-                ISNP compliance with confidence and inspection-ready evidence.
+                ISNP compliance with confidence and inspection ready evidence.
               </p>
               <div className="ini-cta-buttons">
                 <Link to="/contact" className="ini-btn ini-btn-primary ini-btn-large ini-cta-btn">

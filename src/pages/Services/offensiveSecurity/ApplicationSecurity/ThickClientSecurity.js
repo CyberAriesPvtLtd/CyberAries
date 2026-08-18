@@ -1,16 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '../../../../components/ScrollReveal';
-import heroBgImage from '../../../../images/industries/bfsi/hero-image.webp';
-import overviewImage from '../../../../images/services/vapt/wast-image.webp';
+import heroBgImage from '../../../../images/services/vapt/application-security-hero.webp';
+import overviewImage from '../../../../images/services/vapt/thinkClient-overview.webp';
+import ctaBgImage from '../../../../images/cta/cta-background.webp';
 
-import {
-  FileText,
+import { FileText,
   Search,
   Code,
   AlertTriangle,
-  FileCheck,
-  RefreshCw,
   CheckCircle,
   Award,
   Users,
@@ -20,107 +18,147 @@ import {
   Eye,
   Cpu,
   Database,
-  Network
-} from 'lucide-react';
+  Network,
+  Shield, Landmark } from 'lucide-react';
 import './ThickClientSecurity.css';
 
 /**
  * Thick Client Security Testing Service Page
- * Comprehensive Security Assessment for Desktop & Rich Client Applications
+ * Securing Desktop & Rich Client Applications
+ *
+ * Mirrors the Web App Security master template:
+ * Hero -> What We Test (diagram) -> Our Approach (methodology journey)
+ * -> Why Choose -> CyberAries Difference -> CTA
  */
 
 const ThickClientSecurity = () => {
   const navigate = useNavigate();
 
+  const scrollToApproach = () => {
+    const el = document.getElementById('our-approach');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  // What We Test Data (thick client attack surfaces)
+  const whatWeTestItems = [
+    {
+      title: "Client Side Logic",
+      description: "Business logic, input validation, and error handling examined for exploitable flaws.",
+      icon: <Monitor size={32} strokeWidth={1.75} />
+    },
+    {
+      title: "Local Data Storage",
+      description: "Registry keys, config files, and local databases checked for exposed secrets and artifacts.",
+      icon: <Database size={32} strokeWidth={1.75} />
+    },
+    {
+      title: "Authentication & Sessions",
+      description: "Credential storage, session tokens, and privilege boundaries tested for bypass and escalation.",
+      icon: <Lock size={32} strokeWidth={1.75} />
+    },
+    {
+      title: "Binary & Memory",
+      description: "Application binaries reverse engineered and runtime memory inspected for hardcoded secrets.",
+      icon: <Cpu size={32} strokeWidth={1.75} />
+    },
+    {
+      title: "Third Party Components",
+      description: "Bundled libraries, dependencies, and update mechanisms assessed for supply chain risk.",
+      icon: <Eye size={32} strokeWidth={1.75} />
+    },
+    {
+      title: "Network Communication",
+      description: "Client to server traffic and proprietary protocols analysed for insecure transmission.",
+      icon: <Network size={32} strokeWidth={1.75} />
+    }
+  ];
+
   // Approach Methodology Data
   const approachSteps = [
     {
       title: "Scope & Architecture Review",
-      description: "Define the testing scope covering client-side logic, server communication protocols, and local data storage mechanisms.",
-      icon: <FileText size={40} />
+      description: "Map client side logic, server communication, and local data storage to define coverage.",
+      icon: <FileText size={36} />
     },
     {
-      title: "Environment Setup & Reconnaissance",
-      description: "Configure proxy tools, interceptors, and debugging environments to analyze application traffic and behaviour.",
-      icon: <Search size={40} />
+      title: "Environment Setup & Recon",
+      description: "Configure proxies, interceptors, and debuggers to analyse application traffic and behaviour.",
+      icon: <Search size={36} />
     },
     {
       title: "Traffic Analysis & Interception",
-      description: "Intercept and analyze communication between the thick client and backend servers to identify insecure data transmission.",
-      icon: <Network size={40} />
+      description: "Intercept client to server communication to identify insecure or unencrypted data transmission.",
+      icon: <Network size={36} />
     },
     {
       title: "Binary & Memory Analysis",
-      description: "Reverse engineer application binaries and analyze runtime memory for hardcoded credentials, keys, and sensitive data.",
-      icon: <Cpu size={40} />
+      description: "Reverse engineer binaries and inspect runtime memory for credentials, keys, and secrets.",
+      icon: <Cpu size={36} />
     },
     {
-      title: "Authentication & Authorization Testing",
-      description: "Test login mechanisms, session management, privilege escalation, and improper access control vulnerabilities.",
-      icon: <Lock size={40} />
+      title: "Authentication & Authorization",
+      description: "Test login, session management, privilege escalation, and improper access controls.",
+      icon: <Lock size={36} />
     },
     {
       title: "Business Logic Testing",
-      description: "Identify flaws in application workflows, data validation, and process logic that can be exploited by attackers.",
-      icon: <Code size={40} />
+      description: "Identify flaws in workflows, validation, and process logic attackers can abuse.",
+      icon: <Code size={36} />
     },
     {
-      title: "Local Storage & Registry Testing",
-      description: "Examine sensitive data stored locally in files, databases, registry keys, and application caches.",
-      icon: <Database size={40} />
+      title: "Local Storage & Registry",
+      description: "Examine sensitive data stored in files, databases, registry keys, and caches.",
+      icon: <Database size={36} />
     },
     {
-      title: "Exploitation & Impact Assessment",
-      description: "Validate discovered vulnerabilities through controlled exploitation to demonstrate real-world risk and business impact.",
-      icon: <AlertTriangle size={40} />
+      title: "Exploitation & Impact",
+      description: "Validate findings through controlled exploitation to demonstrate real-world business impact.",
+      icon: <AlertTriangle size={36} />
     },
     {
-      title: "Reporting & Remediation Guidance",
-      description: "Deliver comprehensive reports with prioritized findings, risk ratings, and actionable remediation steps.",
-      icon: <FileCheck size={40} />
-    },
-    {
-      title: "Re-Testing & Verification",
-      description: "Validate all fixes through follow-up testing to confirm complete resolution and eliminate residual risks.",
-      icon: <RefreshCw size={40} />
+      title: "Reporting & Re Testing",
+      description: "Deliver prioritized findings and validate fixes through follow up verification testing.",
+      icon: <CheckCircle size={36} />
     }
   ];
 
   // Why Choose Data
   const whyChooseItems = [
     {
-      title: "CERT-In Empanelled Experts",
-      description: "Recognized by the Government of India for conducting certified security assessments.",
-      icon: <Award size={48} strokeWidth={1.5} />
+      title: "Certified Expertise",
+      description: "Government recognized and experienced thick client security professionals.",
+      icon: <Award size={44} strokeWidth={1.5} />
     },
     {
-      title: "Proven Expertise",
-      description: "350+ clients across banking, IT, insurance, healthcare, and manufacturing sectors.",
-      icon: <Users size={48} strokeWidth={1.5} />
+      title: "Manual + Automated Testing",
+      description: "Binary reverse engineering and memory analysis combined with tool-assisted testing.",
+      icon: <Users size={44} strokeWidth={1.5} />
     },
     {
-      title: "End-to-End Support",
-      description: "From initial scoping to final remediation guidance and re-testing verification.",
-      icon: <Headphones size={48} strokeWidth={1.5} />
+      title: "Remediation to Re-Test",
+      description: "We don't stop at reporting vulnerabilities. We help validate the fix.",
+      icon: <Headphones size={44} strokeWidth={1.5} />
     }
   ];
 
   // Difference section content
   const difference = {
     traditional: [
-      'Limited to web-based scanning tools not suited for thick client assessment.',
+      'Limited to web based scanning tools not suited for thick client assessment.',
       'Misses client-side logic flaws, memory leaks, and hardcoded credentials.',
       'No binary analysis or runtime memory inspection capabilities.',
       'Lacks expertise in proprietary protocols used by desktop applications.',
-      'Generic reports missing context-specific thick client vulnerabilities.',
+      'Generic reports missing context specific thick client vulnerabilities.',
       'One-time assessments without post-remediation validation support.'
     ],
     cyberaries: [
       'Specialized thick client testing with advanced binary reverse engineering.',
       'Deep analysis of client-side logic, local storage, and memory artifacts.',
       'Full traffic interception and proprietary protocol analysis.',
-      'Expert coverage of desktop, Java-based, and Electron applications.',
-      'Detailed reports with thick client-specific exploitation evidence.',
+      'Expert coverage of desktop, Java based, .NET, and Electron applications.',
+      'Detailed reports with thick client specific exploitation evidence.',
       'Continuous support with re-testing and security enhancement recommendations.'
     ]
   };
@@ -128,55 +166,65 @@ const ThickClientSecurity = () => {
   return (
     <div className="thick-client-security-page sast-style-page">
       {/* Hero Section */}
-      <section
-        className="hero-section"
-        style={{ backgroundImage: `url(${heroBgImage})` }}
-      >
-        <div className="hero-background"></div>
+      <section className="hero-section">
+        <div
+          className="hero-bg-layer"
+          style={{ backgroundImage: `url(${heroBgImage})` }}
+        />
+        <div className="hero-overlay" />
+        <div className="hero-glow" />
+
+        {/* Floating particles */}
+        <div className="hero-particles" aria-hidden="true">
+          {Array.from({ length: 7 }).map((_, i) => (
+            <span key={i} className="hero-particle" style={{ '--i': i }} />
+          ))}
+        </div>
+
         <div className="container">
           <div className="hero-content">
-            <p className="hero-subtitle">Application Security Testing</p>
+            <div className="thickclientsecurity-hero-badge">
+                  <Landmark size={14} className="thickclientsecurity-badge-icon" />
+                  <span className="thickclientsecurity-badge-text">
+                    OFFENSIVE SECURITY <span className="thickclientsecurity-badge-divider">/</span> APPLICATION SECURITY
+                  </span>
+                </div>
             <h1 className="hero-title">
-              THICK CLIENT SECURITY TESTING
+              <span className="text-gradient">THICK CLIENT<br />SECURITY TESTING</span>
             </h1>
-            <p className="hero-subheading">SECURING DESKTOP & RICH CLIENT APPLICATIONS</p>
             <p className="hero-description">
-              <strong>Thick Client Security Testing</strong> is a specialized assessment that identifies vulnerabilities
-              in desktop applications, rich clients, and enterprise software that communicate with backend servers.
-              Unlike web applications, thick clients operate with client-side logic, local data storage, and proprietary
-              protocols that require <strong>unique testing techniques and toolsets</strong>.
-            </p>
-            <p className="hero-description">
-              At <strong>Cyberaries</strong>, we conduct comprehensive <strong>manual and automated thick client
-                security assessments</strong> covering ERP systems, trading platforms, banking software, and enterprise
-              desktop applications. Our certified experts identify vulnerabilities that traditional web scanners simply
-              cannot detect.
+              Secure the desktop and rich client applications that web scanners can't reach. Our manual and
+              automated testing combines binary reverse engineering, traffic interception, and controlled
+              exploitation to uncover vulnerabilities across ERP, trading, and enterprise software.
             </p>
             <div className="hero-actions">
-              <button className="btn btn-primary" onClick={() => navigate('/contact')}>Start Now &rarr;</button>
-              <button className="btn btn-secondary">Learn More</button>
+              <button className="btn btn-primary" onClick={() => navigate('/contact')}>
+                Start Security Assessment &rarr;
+              </button>
+              <button className="btn btn-secondary" onClick={scrollToApproach}>
+                View Methodology
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Service Overview Section */}
+      {/* Service Overview Section (text left, image right) */}
       <section className="service-overview">
         <div className="container">
           <div className="overview-grid">
             <ScrollReveal direction="left" delay={100}>
               <div className="overview-content">
+                <p className="section-eyebrow">Thick Client Security</p>
+                <h2 className="section-title">Specialized testing for desktop applications</h2>
                 <p className="overview-text">
-                  Thick clients present a <strong>unique attack surface</strong> that includes client-side business logic,
-                  local file and registry storage, memory artifacts, and direct communication with application servers.
-                  <strong> Cyberaries</strong> delivers thorough risk assessments covering all vectors—from binary
-                  reverse engineering to network traffic analysis.
+                  Thick clients expose a <strong>unique attack surface</strong> client side logic,
+                  local storage, memory artifacts, and proprietary protocols that web scanners
+                  simply can't assess.
                 </p>
                 <p className="overview-text">
-                  Our testing methodology addresses <strong>authentication bypass, privilege escalation, insecure
-                    local storage, hardcoded credentials, improper session handling, and business logic flaws</strong>—
-                  ensuring complete protection across your entire thick client application ecosystem including
-                  Java, .NET, Electron, and proprietary frameworks.
+                  We combine <strong>binary reverse engineering and traffic interception</strong> across
+                  Java, .NET, and Electron apps to find and prove real, exploitable weaknesses.
                 </p>
               </div>
             </ScrollReveal>
@@ -195,103 +243,238 @@ const ThickClientSecurity = () => {
       </section>
 
       {/* What We Test Section */}
-      <section className="what-we-test">
+      <section className="what-we-test section-offwhite-nogrid">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
-              <h2 className="section-title">What We Test</h2>
-              <p className="section-subtitle">
-                Comprehensive coverage across all thick client vulnerability categories
-              </p>
+              <p className="section-eyebrow">WHAT WE TEST</p>
+              <h2 className="section-title">Six thick client surfaces. One complete application assessment.</h2>
             </div>
           </ScrollReveal>
 
-          <div className="test-categories-grid">
-            {[
-              {
-                icon: <Monitor size={36} />,
-                title: "Client-Side Logic",
-                items: ["Business logic flaws", "Input validation bypass", "Improper error handling", "Data manipulation"]
-              },
-              {
-                icon: <Lock size={36} />,
-                title: "Authentication & Sessions",
-                items: ["Credential storage in plaintext", "Session token weaknesses", "Privilege escalation", "Broken auth mechanisms"]
-              },
-              {
-                icon: <Database size={36} />,
-                title: "Local Data Storage",
-                items: ["Registry key exposure", "SQLite / local DB analysis", "Config file secrets", "Temp file artifacts"]
-              },
-              {
-                icon: <Network size={36} />,
-                title: "Network Communication",
-                items: ["Unencrypted traffic", "Proprietary protocol flaws", "Man-in-the-middle exposure", "API endpoint misuse"]
-              },
-              {
-                icon: <Cpu size={36} />,
-                title: "Binary & Memory",
-                items: ["Hardcoded credentials", "Reverse engineering", "Runtime memory dumps", "DLL injection risks"]
-              },
-              {
-                icon: <Eye size={36} />,
-                title: "Third-Party Components",
-                items: ["Vulnerable libraries", "Outdated dependencies", "Insecure update mechanisms", "Supply chain risks"]
-              }
-            ].map((cat, index) => (
-              <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="test-category-card">
-                  <div className="test-category-icon">{cat.icon}</div>
-                  <h3 className="test-category-title">{cat.title}</h3>
-                  <ul className="test-category-list">
-                    {cat.items.map((item, i) => (
-                      <li key={i} className="test-category-item">
-                        <CheckCircle size={14} className="check-mini" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+          <div className="security-diagram-container">
+            {/* Central Node */}
+            <div className="diagram-central-node-wrapper">
+              <ScrollReveal direction="up" delay={100}>
+                <div className="diagram-central-node">
+                  <div className="central-node-icon">
+                    <Monitor size={36} strokeWidth={1.5} />
+                  </div>
+                  <div className="central-node-text">
+                    <span className="node-text-sub">THICK CLIENT</span>
+                    <span className="node-text-main">SECURITY TESTING</span>
+                  </div>
                 </div>
               </ScrollReveal>
-            ))}
+            </div>
+
+            {/* Connection Lines */}
+            <div className="diagram-connectors">
+              <div className="connector-vertical-main"></div>
+              <div className="connector-horizontal-branch"></div>
+              <div className="connector-branches">
+                <div className="connector-branch-left"></div>
+                <div className="connector-branch-center"></div>
+                <div className="connector-branch-right"></div>
+              </div>
+            </div>
+
+            {/* Category Columns */}
+            <div className="diagram-categories">
+              {/* CATEGORY 01: CLIENT */}
+              <ScrollReveal direction="up" delay={150} className="category-reveal-wrapper">
+                <div className="diagram-category-column">
+                  <div className="category-header">
+                    <div className="category-meta">
+                      <span className="category-number">01</span>
+                      <span className="category-label">CLIENT</span>
+                    </div>
+                    <div className="category-icon">
+                      <Monitor size={18} />
+                    </div>
+                  </div>
+
+                  <div className="category-surface-list">
+                    {[whatWeTestItems[0], whatWeTestItems[1]].map((item, idx) => (
+                      <div className="surface-pill-node" key={idx}>
+                        <div className="surface-pill-header">
+                          <span className="surface-pill-icon">{item.icon}</span>
+                          <h4 className="surface-pill-title">{item.title}</h4>
+                        </div>
+                        <p className="surface-pill-description">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* CATEGORY 02: RUNTIME */}
+              <ScrollReveal direction="up" delay={200} className="category-reveal-wrapper">
+                <div className="diagram-category-column">
+                  <div className="category-header">
+                    <div className="category-meta">
+                      <span className="category-number">02</span>
+                      <span className="category-label">RUNTIME</span>
+                    </div>
+                    <div className="category-icon">
+                      <Cpu size={18} />
+                    </div>
+                  </div>
+
+                  <div className="category-surface-list">
+                    {[whatWeTestItems[2], whatWeTestItems[3], whatWeTestItems[4]].map((item, idx) => (
+                      <div className="surface-pill-node" key={idx}>
+                        <div className="surface-pill-header">
+                          <span className="surface-pill-icon">{item.icon}</span>
+                          <h4 className="surface-pill-title">{item.title}</h4>
+                        </div>
+                        <p className="surface-pill-description">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* CATEGORY 03: NETWORK */}
+              <ScrollReveal direction="up" delay={250} className="category-reveal-wrapper">
+                <div className="diagram-category-column">
+                  <div className="category-header">
+                    <div className="category-meta">
+                      <span className="category-number">03</span>
+                      <span className="category-label">NETWORK</span>
+                    </div>
+                    <div className="category-icon">
+                      <Network size={18} />
+                    </div>
+                  </div>
+
+                  <div className="category-surface-list">
+                    {[whatWeTestItems[5]].map((item, idx) => (
+                      <div className="surface-pill-node" key={idx}>
+                        <div className="surface-pill-header">
+                          <span className="surface-pill-icon">{item.icon}</span>
+                          <h4 className="surface-pill-title">{item.title}</h4>
+                        </div>
+                        <p className="surface-pill-description">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
+
+          <ScrollReveal direction="up" delay={300}>
+            <div className="diagram-overview-text">
+              <p className="overview-text">
+                We help organizations strengthen <strong>thick client security posture</strong>, prevent data compromise,
+                and maintain <strong>confidentiality, integrity, and availability</strong> across desktop and enterprise software.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Our Approach Section */}
-      <section className="solutions-section our-approach">
+      <section className="solutions-section our-approach section-white-grid" id="our-approach">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
-              <h2 className="section-title">Our Approach</h2>
-              <p className="section-subtitle">
-                Our methodology is built on deep technical expertise and a structured, proven testing framework
-              </p>
+              <p className="section-eyebrow">Our Approach</p>
+              <h2 className="section-title">Our Thick Client Methodology Is Built on Deep Technical Expertise and a Structured, Proven Testing Framework</h2>
             </div>
           </ScrollReveal>
 
-          <div className="solutions-grid">
-            {approachSteps.map((step, index) => (
-              <ScrollReveal key={index} direction="up" delay={index * 100}>
-                <div className="solution-card">
-                  <div className="solution-step-number">{index + 1}</div>
-                  <div className="solution-icon">{step.icon}</div>
-                  <h3 className="solution-title">{step.title}</h3>
-                  <p className="solution-description">{step.description}</p>
-                  <div className="solution-indicator"></div>
+          <div className="methodology-journey">
+            {[
+              {
+                id: "01",
+                name: "DISCOVER",
+                flow: "Scoping → Recon → Intercept",
+                steps: [approachSteps[0], approachSteps[1], approachSteps[2]]
+              },
+              {
+                id: "02",
+                name: "TEST",
+                flow: "Binary → Access → Logic",
+                steps: [approachSteps[3], approachSteps[4], approachSteps[5]]
+              },
+              {
+                id: "03",
+                name: "VALIDATE",
+                flow: "Storage → Exploit → Reporting",
+                steps: [approachSteps[6], approachSteps[7], approachSteps[8]]
+              }
+            ].map((phase, phaseIndex) => (
+              <div className="methodology-phase" key={phaseIndex}>
+                <div className="phase-label-column">
+                  <div className="phase-label-sticky">
+                    <span className="phase-number">{phase.id}</span>
+                    <h4 className="phase-name">{phase.name}</h4>
+                    <p className="phase-subtitle-flow">{phase.flow}</p>
+                  </div>
                 </div>
-              </ScrollReveal>
+
+                <div className="phase-nodes-row">
+                  {phase.steps.map((step, stepIdx) => {
+                    const absoluteIndex = phaseIndex * 3 + stepIdx;
+                    const stepNumber = String(absoluteIndex + 1).padStart(2, '0');
+                    return (
+                      <React.Fragment key={stepIdx}>
+                        <ScrollReveal direction="up" delay={absoluteIndex * 50} className="node-reveal-wrapper">
+                          <div className="methodology-node">
+                            <div className="node-header">
+                              <span className="node-marker">{stepNumber}</span>
+                              <div className="node-icon-wrapper">{step.icon}</div>
+                            </div>
+                            <h5 className="node-title">{step.title}</h5>
+                            <p className="node-description">{step.description}</p>
+                          </div>
+                        </ScrollReveal>
+
+                        {/* Horizontal Connector between nodes */}
+                        {stepIdx < 2 && (
+                          <div className="node-connector-horizontal">
+                            <svg viewBox="0 0 40 10" preserveAspectRatio="none" className="connector-svg">
+                              <line x1="0" y1="5" x2="32" y2="5" stroke="var(--accent corporate red)" strokeWidth="1.5" />
+                              <polygon points="32,2 40,5 32,8" fill="var(--accent corporate red)" />
+                            </svg>
+                          </div>
+                        )}
+                      </React.Fragment>
+                    );
+                  })}
+                </div>
+
+                {/* Transition connector line to next phase (visual continuity) */}
+                {phaseIndex < 2 && (
+                  <div className="phase-transition-connector-line"></div>
+                )}
+              </div>
             ))}
           </div>
+
+          {/* Bottom Callout */}
+          <ScrollReveal direction="up" delay={200}>
+            <div className="methodology-callout">
+              <div className="callout-icon">
+                <Shield size={20} />
+              </div>
+              <p className="callout-text">
+                Our approach ensures complete visibility into your thick client security posture and helps you build resilient, secure, and compliant desktop platforms.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Why Choose Section */}
-      <section className="why-choose">
+      <section className="why-choose section-offwhite-nogrid">
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="section-header text-center">
-              <h2 className="section-title">Why Choose Cyberaries?</h2>
+              <p className="section-eyebrow">Why CyberAries</p>
+              <h2 className="section-title">Why Security Teams Choose CyberAries</h2>
             </div>
           </ScrollReveal>
 
@@ -299,11 +482,14 @@ const ThickClientSecurity = () => {
             {whyChooseItems.map((item, index) => (
               <ScrollReveal key={index} direction="up" delay={index * 150}>
                 <div className="why-choose-card">
+                  <div className="why-choose-index">{String(index + 1).padStart(2, '0')}</div>
                   <div className="why-choose-icon">{item.icon}</div>
-                  <h3 className="why-choose-title">{item.title}</h3>
-                  <p className="why-choose-description">
-                    {item.description}
-                  </p>
+                  <div className="why-choose-body">
+                    <h3 className="why-choose-title">{item.title}</h3>
+                    <p className="why-choose-description">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
@@ -312,7 +498,7 @@ const ThickClientSecurity = () => {
       </section>
 
       {/* Difference Section */}
-      <section className="cyberaries-difference">
+      <section className="cyberaries-difference grid-bg">
         <div className="container">
           <ScrollReveal animation="fade-up">
             <h2 className="difference-title">
@@ -328,8 +514,8 @@ const ThickClientSecurity = () => {
                 <ul className="comparison-list">
                   {difference.traditional.map((item, idx) => (
                     <li className="comparison-item" key={idx}>
-                      <span className="bullet">•</span>
-                      {item}
+                      <span className="bullet">&bull;</span>
+                      <span className="item-text">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -339,13 +525,15 @@ const ThickClientSecurity = () => {
             <ScrollReveal animation="fade-left" delay={200}>
               <div className="comparison-column cyberaries">
                 <h3 className="comparison-heading cyberaries-heading">
-                  Cyberaries Thick Client Security
+                  CyberAries Thick Client Security
                 </h3>
                 <ul className="comparison-list">
                   {difference.cyberaries.map((item, idx) => (
                     <li className="comparison-item" key={idx}>
-                      <span className="bullet">•</span>
-                      {item}
+                      <span className="check-icon-wrapper">
+                        <CheckCircle size={18} strokeWidth={2.5} />
+                      </span>
+                      <span className="item-text">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -356,18 +544,18 @@ const ThickClientSecurity = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="cta-section">
+      <section className="cta-section" style={{ backgroundImage: `url(${ctaBgImage})` }}>
         <div className="container">
           <ScrollReveal direction="up" delay={0}>
             <div className="cta-content">
               <h2 className="cta-title">
-                Ready to Secure Your Thick Client Applications?
+                <span className="text-gradient">Find Out What Attackers Could Find</span>
               </h2>
               <p className="cta-description">
-                Protect your desktop applications from sophisticated attacks with expert thick client security testing.
+                Get a structured assessment of your thick client application's security posture, vulnerabilities, and remediation priorities.
               </p>
               <button className="btn btn-primary btn-large" onClick={() => navigate('/contact')}>
-                Start Now &rarr;
+                Request a Security Assessment &rarr;
               </button>
             </div>
           </ScrollReveal>
