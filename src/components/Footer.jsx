@@ -184,7 +184,7 @@ const Footer = () => {
               © 2026 CyberAries Pvt Ltd. All Rights Reserved.
             </div>
             <div className="footer-links-bottom">
-              <Link to="/terms-conditions">Terms & Conditions</Link>
+              <Link to="/terms-conditions">Terms of Service</Link>
               <Link to="/privacy-policy">Privacy Policy</Link>
             </div>
           </div>

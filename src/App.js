@@ -13,6 +13,10 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 
 import ComingSoon from './pages/comingsoon.js';
 import AprilFool from "./pages/AprilFool.jsx"
+import NewsAndInsights from './pages/NewsAndInsights';
+import NewsArticleDetail from './pages/NewsArticleDetail';
+import CaseStudies from './pages/CaseStudies';
+import CaseStudyDetail from './pages/CaseStudyDetail';
 
 import GRC from './components/GRC';
 import DPDPA from './components/DPDPA';
@@ -286,9 +290,11 @@ function App() {
           <Route path="/resources/survey/tprm" element={<TPRM />} />
 
           {/* Resources */}
-          <Route path="/resources/case-studies" element={<ComingSoon />} />
+          <Route path="/resources/case-studies" element={<CaseStudies />} />
+          <Route path="/resources/case-studies/:id" element={<CaseStudyDetail />} />
           <Route path="/resources/blogs" element={<ComingSoon />} />
-          <Route path="/resources/news" element={<ComingSoon />} />
+          <Route path="/resources/news" element={<NewsAndInsights />} />
+          <Route path="/resources/news/:id" element={<NewsArticleDetail />} />
           <Route path="/resources/download" element={<ComingSoon />} />
 
           {/* Coming Soon catch-all routes */}

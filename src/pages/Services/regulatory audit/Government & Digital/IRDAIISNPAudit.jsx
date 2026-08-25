@@ -192,7 +192,6 @@ const IRDAIISNPAudit = () => {
                   <Link to="/contact" className="ini-btn ini-btn-primary ini-btn-large">
                     Schedule an IRDAI Compliance Assessment
                   </Link>
-                  <button className="ini-btn ini-btn-ghost ini-btn-large">Learn More</button>
                 </div>
               </ScrollReveal>
             </div>

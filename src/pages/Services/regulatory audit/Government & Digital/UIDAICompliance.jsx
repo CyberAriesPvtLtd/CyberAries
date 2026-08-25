@@ -192,7 +192,6 @@ const UIDAICompliance = () => {
                   <Link to="/contact" className="uak-btn uak-btn-primary uak-btn-large">
                     Schedule an AUA/KUA Compliance Assessment
                   </Link>
-                  <button className="uak-btn uak-btn-ghost uak-btn-large">Learn More</button>
                 </div>
               </ScrollReveal>
             </div>

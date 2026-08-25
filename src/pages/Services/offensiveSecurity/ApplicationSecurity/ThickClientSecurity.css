@@ -402,13 +402,31 @@ body {
   padding: 1.75rem;
   position: relative;
   transition: var(--transition-normal);
-  overflow: hidden;
+  overflow: visible;
+  transform: translateY(0) translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
+.solution-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: bottom 0.3s ease;
+}
+
+.solution-card:hover::after {
+  bottom: -15px;
+  pointer-events: auto;
+}
+
+.scroll-reveal:hover .solution-card,
 .solution-card:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: var(--accent-corporate-red);
-  transform: translateY(-4px);
+  transform: translateY(-4px) translate3d(0, 0, 0);
 }
 
 .solution-step-number {
@@ -492,13 +510,30 @@ body {
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.04);
   padding: 3rem 2rem 2.5rem;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   height: 100%;
+  transform: translateY(0) translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.why-choose-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: bottom 0.3s ease;
+}
+
+.why-choose-card:hover::after {
+  bottom: -15px;
+  pointer-events: auto;
 }
 
 .why-choose-card::before {
@@ -512,8 +547,9 @@ body {
   pointer-events: none;
 }
 
+.scroll-reveal:hover .why-choose-card,
 .why-choose-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) translate3d(0, 0, 0);
   border-color: rgba(193, 18, 31, 0.45);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
@@ -652,6 +688,7 @@ body {
   color: var(--accent-corporate-red);
 }
 
+.comparison-grid > * { height: 100%; }
 .comparison-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -765,7 +802,8 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .comparison-grid {
+  .comparison-grid > * { height: 100%; }
+.comparison-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -1053,10 +1091,13 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   transition: all 0.2s ease;
+  transform: translateY(0) translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .surface-pill-node:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) translate3d(0, 0, 0);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
@@ -1208,10 +1249,13 @@ body {
   gap: 0.75rem;
   transition: all 0.2s ease;
   min-height: 200px;
+  transform: translateY(0) translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .methodology-node:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) translate3d(0, 0, 0);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
 }
 

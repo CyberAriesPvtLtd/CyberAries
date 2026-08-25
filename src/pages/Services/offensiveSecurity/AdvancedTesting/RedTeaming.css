@@ -407,10 +407,29 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   transition: var(--rt-transition);
+  overflow: visible;
+  transform: translateY(0) translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
+.rt-page .rt-method-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: bottom 0.3s ease;
+}
+
+.rt-page .rt-method-card:hover::after {
+  bottom: -15px;
+  pointer-events: auto;
+}
+
+.rt-page .scroll-reveal:hover .rt-method-card,
 .rt-page .rt-method-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) translate3d(0, 0, 0);
   border-color: rgba(193, 18, 31, 0.3);
   box-shadow: 0 10px 24px rgba(193, 18, 31, 0.1);
 }
@@ -594,10 +613,29 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   height: 100%;
   box-sizing: border-box;
+  overflow: visible;
+  transform: translateY(0) translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
+.rt-page .rt-why-choose-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: bottom 0.3s ease;
+}
+
+.rt-page .rt-why-choose-card:hover::after {
+  bottom: -15px;
+  pointer-events: auto;
+}
+
+.rt-page .scroll-reveal:hover .rt-why-choose-card,
 .rt-page .rt-why-choose-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) translate3d(0, 0, 0);
   box-shadow: 0 12px 26px rgba(193, 18, 31, 0.1);
   border-color: rgba(193, 18, 31, 0.3);
 }
@@ -709,8 +747,27 @@
   padding: var(--rt-spacing-2xl);
   transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
+  transform: translateY(0) translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.rt-page .rt-comparison-column::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: bottom 0.3s ease;
+  z-index: -1;
+}
+
+.rt-page .rt-comparison-column:hover::after,
+.rt-page .rt-comparison-grid > *:hover .rt-comparison-column::after {
+  bottom: -15px;
+  pointer-events: auto;
 }
 
 /* Red top shimmer on hover */
@@ -727,7 +784,7 @@
   pointer-events: none;
 }
 
-.rt-page .rt-comparison-column:hover::before {
+.rt-page .rt-comparison-grid > *:hover .rt-comparison-column::before {
   opacity: 1;
 }
 
@@ -738,8 +795,9 @@
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
 }
 
-.rt-page .rt-traditional:hover {
-  transform: translateY(-8px);
+.rt-page .scroll-reveal:hover .rt-traditional,
+.rt-page .rt-comparison-grid > *:hover .rt-traditional {
+  transform: translateY(-8px) translate3d(0, 0, 0);
   border-color: rgba(0, 0, 0, 0.45);
   box-shadow: 0 25px 55px rgba(0, 0, 0, 0.10), 0 10px 25px rgba(0, 0, 0, 0.08);
 }
@@ -752,7 +810,7 @@
 }
 
 /* Inner glow overlay */
-.rt-page .rt-cyberaries-col::after {
+.rt-page .rt-cyberaries-col-glow {
   content: '';
   position: absolute;
   inset: 0;
@@ -766,8 +824,9 @@
   z-index: 1;
 }
 
-.rt-page .rt-cyberaries-col:hover {
-  transform: translateY(-8px);
+.rt-page .scroll-reveal:hover .rt-cyberaries-col,
+.rt-page .rt-comparison-grid > *:hover .rt-cyberaries-col {
+  transform: translateY(-8px) translate3d(0, 0, 0);
   border-color: #D0050D;
   box-shadow: 0 30px 65px rgba(0, 0, 0, 0.45), 0 0 55px rgba(208, 5, 13, 0.2);
 }
@@ -783,7 +842,7 @@
   transition: color 0.3s ease;
 }
 
-.rt-page .rt-traditional:hover .rt-comparison-heading {
+.rt-page .rt-comparison-grid > *:hover .rt-traditional .rt-comparison-heading {
   color: #D92344 !important;
 }
 
@@ -814,7 +873,7 @@
   transition: color 0.3s ease;
 }
 
-.rt-page .rt-traditional:hover .rt-comparison-item {
+.rt-page .rt-comparison-grid > *:hover .rt-traditional .rt-comparison-item {
   color: #333333 !important;
 }
 
@@ -822,7 +881,7 @@
   color: #f0f0f0 !important;
 }
 
-.rt-page .rt-cyberaries-col:hover .rt-comparison-item {
+.rt-page .rt-comparison-grid > *:hover .rt-cyberaries-col .rt-comparison-item {
   color: #ffffff !important;
 }
 

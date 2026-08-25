@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown, ChevronRight } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import './Header.css';
 import logoImage from '../images/logos/cyberaries-logo.png';
 
@@ -43,7 +43,7 @@ const Header = () => {
   const location = useLocation();
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [closingDropdown, setClosingDropdown] = useState(null);
-  const [showNestedSurvey, setShowNestedSurvey] = useState(false);
+
   const [timeoutId, setTimeoutId] = useState(null);
   const [closeTimeoutId, setCloseTimeoutId] = useState(null);
 
@@ -96,7 +96,7 @@ const Header = () => {
           }
           return null;
         });
-        setShowNestedSurvey(false);
+
       }, 150);
       setTimeoutId(id);
     }
@@ -762,37 +762,8 @@ const Header = () => {
                   Blogs
                 </a>
                 <Link to="/resources/news" className="dropdown-item">
-                  News
+                  News & Insights
                 </Link>
-                <Link to="/resources/download" className="dropdown-item">
-                  Download
-                </Link>
-
-                {/* Nested Survey Dropdown */}
-                <div
-                  className={`dropdown-item nested-dropdown ${showNestedSurvey ? "nested-open" : ""}`}
-                  onMouseEnter={() => setShowNestedSurvey(true)}
-                  onMouseLeave={() => setShowNestedSurvey(false)}
-                >
-                  Survey
-                  <ChevronRight size={12} className="nested-arrow" />
-                  {showNestedSurvey && (
-                    <div className="nested-menu">
-                      <Link to="/resources/survey/grc" className="nested-item">
-                        GRC Survey
-                      </Link>
-                      <Link
-                        to="/resources/survey/dpdpa"
-                        className="nested-item"
-                      >
-                        Data Privacy Check
-                      </Link>
-                      <Link to="/resources/survey/tprm" className="nested-item">
-                        TPRM Maturity Level
-                      </Link>
-                    </div>
-                  )}
-                </div>
               </div>
             )}
           </div>
@@ -1458,41 +1429,8 @@ const Header = () => {
                       className="mobile-dropdown-item"
                       onClick={closeMobileMenu}
                     >
-                      News
+                      News & Insights
                     </Link>
-                    <Link
-                      to="/resources/download"
-                      className="mobile-dropdown-item"
-                      onClick={closeMobileMenu}
-                    >
-                      Download
-                    </Link>
-                    <div className="mobile-dropdown-nested">
-                      <div className="mobile-dropdown-item mobile-nested-label">
-                        Survey
-                      </div>
-                      <Link
-                        to="/resources/survey/grc"
-                        className="mobile-dropdown-item nested"
-                        onClick={closeMobileMenu}
-                      >
-                        GRC Survey
-                      </Link>
-                      <Link
-                        to="/resources/survey/dpdpa"
-                        className="mobile-dropdown-item nested"
-                        onClick={closeMobileMenu}
-                      >
-                        Data Privacy Check
-                      </Link>
-                      <Link
-                        to="/resources/survey/tprm"
-                        className="mobile-dropdown-item nested"
-                        onClick={closeMobileMenu}
-                      >
-                        TPRM Maturity Level
-                      </Link>
-                    </div>
                   </div>
                 )}
               </div>

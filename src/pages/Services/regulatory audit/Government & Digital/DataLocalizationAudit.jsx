@@ -322,7 +322,6 @@ const DataLocalizationAudit = () => {
                   <Link to="/contact" className="dla-btn dla-btn-primary dla-btn-large">
                     Schedule a Compliance Assessment
                   </Link>
-                  <button className="dla-btn dla-btn-ghost dla-btn-large">Learn More</button>
                 </div>
               </ScrollReveal>
 

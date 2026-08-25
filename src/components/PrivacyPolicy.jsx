@@ -1,539 +1,288 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './PrivacyPolicy.css';
+import './TermsConditions.css'; // Inherit same design system styles from Terms page
 
 const PrivacyPolicy = () => {
   useEffect(() => {
+    document.title = "Privacy Policy | CyberAries";
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <div className="pp-wrapper">
-      {/* Hero Section */}
-      <div className="pp-hero">
-        <div className="pp-hero-particles"></div>
-        <div className="pp-hero-content">
-          <div className="pp-breadcrumb">
-            <Link to="/">Home</Link>
-            <span className="pp-breadcrumb-sep">/</span>
-            <span>Privacy Policy</span>
+    <div className="terms-page">
+      {/* 1. White Header Section with Grid Background */}
+      <header className="terms-header-section bg-white">
+        <div className="container terms-layout-container">
+          <div className="breadcrumb-nav-terms">
+            <Link to="/" className="breadcrumb-link-terms">Home</Link>
+            <span className="breadcrumb-separator-terms">/</span>
+            <span className="breadcrumb-active-terms">Privacy Policy</span>
           </div>
-          <h1 className="pp-hero-title">
-            Privacy <span className="pp-highlight">Policy</span>
-          </h1>
-          <p className="pp-hero-date">Last Updated: December 2025</p>
-          <div className="pp-hero-badge">
-            <i className="fas fa-shield-alt"></i>
-            <span>DPDP Act 2023 Compliant</span>
-          </div>
+          <span className="terms-eyebrow-red">LEGAL</span>
+          <h1 className="terms-page-title">Privacy Policy</h1>
+          <p className="terms-page-subtitle">
+            This policy explains how CyberAries Pvt Ltd collects, uses, stores and shares personal data through our website and in the course of providing our services. It also sets out how long we keep information, who we share it with, and the rights you can exercise over your own data.
+          </p>
+          <p className="terms-last-updated">Last Updated: August 25, 2026</p>
         </div>
-      </div>
+      </header>
 
-      {/* Main Content */}
-      <div className="pp-container">
-        <div className="pp-sidebar">
-          <div className="pp-sidebar-sticky">
-            <h3 className="pp-sidebar-title">Table of Contents</h3>
-            <nav className="pp-sidebar-nav">
-              <a href="#introduction">Introduction</a>
-              <a href="#applicability">Applicability</a>
-              <a href="#data-collection">Data Collection</a>
-              <a href="#purpose">Purpose of Data</a>
-              <a href="#lawful-basis">Lawful Basis</a>
-              <a href="#cookies">Cookie Policy</a>
-              <a href="#data-sharing">Data Sharing</a>
-              <a href="#security">Security Measures</a>
-              <a href="#retention">Data Retention</a>
-              <a href="#rights">Your Rights</a>
-              <a href="#children">Children's Data</a>
-              <a href="#international">International Transfer</a>
-              <a href="#contact-dpo">Contact DPO</a>
-              <a href="#policy-changes">Policy Changes</a>
-            </nav>
-          </div>
-        </div>
-
-        <div className="pp-content">
-          {/* Notice Banner */}
-          <div className="pp-notice">
-            <div className="pp-notice-icon">
-              <i className="fas fa-lock"></i>
-            </div>
-            <div className="pp-notice-text">
-              <strong>Your Privacy Matters:</strong> This Privacy Policy is a comprehensive and legally 
-              binding instrument drafted specifically for CyberAries Security Solutions, operating in 
-              India under the Digital Personal Data Protection Act (DPDP Act, 2023). It governs the 
-              collection, use, processing, storage, transfer, and deletion of personal data across 
-              all digital and non-digital touchpoints associated with CyberAries.
-            </div>
-          </div>
-
-          {/* Section 1 */}
-          <section id="introduction" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">01</span>
-              <h2 className="pp-section-title">Introduction</h2>
-            </div>
-            <p className="pp-section-content">
-              CyberAries Security Solutions ("Company", "we", "our", "us", "Data Fiduciary", or 
-              "Controller") is a cybersecurity service entity constituted and operating under the 
-              laws of India, engaged in the provision of Vulnerability Assessment and Penetration 
-              Testing (VAPT), Incident Response, Cloud Security assessment, Security Operations 
-              Centre (SOC) monitoring, Governance Risk and Compliance (GRC) advisory, and related 
-              digital security services.
-            </p>
-            <p className="pp-section-content">
-              This Privacy Policy ("Policy") constitutes a legally enforceable instrument governing 
-              all aspects of personal data collection, processing, storage, disclosure, and deletion 
-              conducted by CyberAries in its capacity as a Data Fiduciary, as defined under the 
-              <strong> Digital Personal Data Protection Act (DPDP Act), 2023</strong>, and any 
-              supplementary rules, regulations, or guidelines issued thereunder by the competent 
-              Indian authority from time to time. Your continued engagement with CyberAries' 
-              platforms or services constitutes unconditional acceptance of this Policy.
-            </p>
-          </section>
-
-          {/* Section 2 */}
-          <section id="applicability" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">02</span>
-              <h2 className="pp-section-title">Applicability</h2>
-            </div>
-            <p className="pp-section-content">
-              This Policy applies broadly to all individuals, legal entities, or other parties 
-              who interact with CyberAries in any capacity, including but not limited to:
-            </p>
-            <div className="pp-applicability-grid">
-              <div className="pp-applicability-card">
-                <i className="fas fa-globe"></i>
-                <h4>Website Visitors</h4>
-                <p>All visitors of www.cyberaries.com and associated subdomains</p>
-              </div>
-              <div className="pp-applicability-card">
-                <i className="fas fa-handshake"></i>
-                <h4>Clients</h4>
-                <p>Entities engaging CyberAries for any contracted cybersecurity services</p>
-              </div>
-              <div className="pp-applicability-card">
-                <i className="fas fa-envelope-open-text"></i>
-                <h4>Contacts</h4>
-                <p>Individuals communicating via web forms, email, telephone, or support portals</p>
-              </div>
-              <div className="pp-applicability-card">
-                <i className="fas fa-users"></i>
-                <h4>Stakeholders</h4>
-                <p>Employees, vendors, trainees, contractors, and authorized service partners</p>
-              </div>
-            </div>
-          </section>
-
-          {/* Section 3 */}
-          <section id="data-collection" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">03</span>
-              <h2 className="pp-section-title">What Personal Data We Collect</h2>
-            </div>
-
-            <div className="pp-data-category">
-              <h3>
-                <i className="fas fa-user-edit"></i>
-                3.1 Data You Provide to Us
-              </h3>
-              <ul className="pp-list">
-                <li><i className="fas fa-check"></i><span>Full name, corporate email address, and contact number</span></li>
-                <li><i className="fas fa-check"></i><span>Organization name and professional designation or role</span></li>
-                <li><i className="fas fa-check"></i><span>Inquiry messages, service requirements, and scoping details</span></li>
-                <li><i className="fas fa-check"></i><span>Billing and invoicing information where services are commercially engaged</span></li>
-                <li><i className="fas fa-check"></i><span>Documentation and assets voluntarily submitted for the purpose of security assessments</span></li>
-              </ul>
-            </div>
-
-            <div className="pp-data-category">
-              <h3>
-                <i className="fas fa-robot"></i>
-                3.2 Data Collected Automatically
-              </h3>
-              <ul className="pp-list">
-                <li><i className="fas fa-check"></i><span>Internet Protocol (IP) address and geolocation metadata</span></li>
-                <li><i className="fas fa-check"></i><span>Browser type, operating system, and device identifiers</span></li>
-                <li><i className="fas fa-check"></i><span>Website interaction analytics and navigational user journey data</span></li>
-                <li><i className="fas fa-check"></i><span>Functional and analytics cookies (as further described in Section 6)</span></li>
-              </ul>
-            </div>
-
-            <div className="pp-data-category pp-sensitive">
-              <h3>
-                <i className="fas fa-exclamation-triangle"></i>
-                3.3 Sensitive Personal Data
-              </h3>
-              <p className="pp-section-content">
-                CyberAries does not, as a matter of standard practice, solicit, collect, or process 
-                sensitive personal data (as defined under applicable Indian law), except to the 
-                limited extent mandated by legal, regulatory, or contractual requirements. Any 
-                processing of sensitive data, where applicable, is subject to heightened safeguards 
-                and documented consent mechanisms in accordance with the DPDP Act.
+      {/* 2. Off-White Content Section */}
+      <main className="terms-content-section bg-off-white">
+        <div className="container terms-layout-container">
+          {/* Legal Document Content */}
+          <div className="terms-document-body">
+            
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">1. Who We Are and How to Contact Us</h2>
+              <p className="terms-paragraph">
+                CyberAries Pvt Ltd is an IT and information security firm registered in India. We provide security audits, governance and advisory work, security operations, and IT services to organisations in India and in international markets.
               </p>
-            </div>
-          </section>
+              <p className="terms-paragraph">
+                For anything relating to this policy, or to the personal data we hold about you, write to <a href="mailto:privacy@cyberaries.com" className="terms-mail-link">privacy@cyberaries.com</a> or call +91 88284 95202. Our office hours are Monday to Friday, 09:00 to 18:00 IST, and messages that arrive outside those hours are picked up on the next working day.
+              </p>
+              <p className="terms-paragraph">
+                Under India's Digital Personal Data Protection Act 2023 we act as a Data Fiduciary for the personal data described in this policy, and under the EU General Data Protection Regulation we act as a controller for the same data. Where we handle personal data on behalf of a client, we act instead as a Data Processor, and the terms of that client's contract govern what we may do with it.
+              </p>
+            </section>
 
-          {/* Section 4 */}
-          <section id="purpose" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">04</span>
-              <h2 className="pp-section-title">Purpose of Collecting Personal Data</h2>
-            </div>
-            <p className="pp-section-content">
-              Personal data collected by CyberAries is processed for one or more of the following 
-              specified, explicit, and legitimate purposes. Processing beyond these declared purposes 
-              shall not occur without appropriate legal basis or prior notice:
-            </p>
-            <div className="pp-purpose-grid">
-              <div className="pp-purpose-card">
-                <i className="fas fa-shield-virus"></i>
-                <h4>Service Delivery</h4>
-                <p>VAPT, Penetration Testing, SOC monitoring, and Cloud security engagements</p>
-              </div>
-              <div className="pp-purpose-card">
-                <i className="fas fa-comments"></i>
-                <h4>Support &amp; Inquiries</h4>
-                <p>Responding to client inquiries, grievances, and service requests</p>
-              </div>
-              <div className="pp-purpose-card">
-                <i className="fas fa-chart-line"></i>
-                <h4>Platform Performance</h4>
-                <p>Optimizing website functionality, performance, and user experience</p>
-              </div>
-              <div className="pp-purpose-card">
-                <i className="fas fa-balance-scale"></i>
-                <h4>Regulatory Compliance</h4>
-                <p>CERT-In notifications, ISO 27001 audit obligations, and statutory filings</p>
-              </div>
-              <div className="pp-purpose-card">
-                <i className="fas fa-file-invoice-dollar"></i>
-                <h4>Business Operations</h4>
-                <p>Client onboarding, project coordination, invoicing, and collections</p>
-              </div>
-              <div className="pp-purpose-card">
-                <i className="fas fa-user-graduate"></i>
-                <h4>Security Education</h4>
-                <p>Security awareness training communications and programme delivery</p>
-              </div>
-            </div>
-          </section>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">2. What This Policy Covers</h2>
+              <p className="terms-paragraph">
+                This policy applies to the CyberAries website, to the enquiries and applications you send us through it, and to the personal data we handle for our own purposes as a business. It covers visitors to the site, prospective and current clients, people who request our published resources, newsletter subscribers, and candidates who apply for a role with us.
+              </p>
+              <p className="terms-paragraph">
+                It does not cover personal data that sits inside a client's own systems and that we access only to deliver a service under contract. That data stays under the client's control, and the client's own privacy notice governs it. A separate section below explains how we treat such data.
+              </p>
+              <p className="terms-paragraph">
+                Our website sometimes links to material published by other organisations. We do not control how those organisations handle personal data, so read their own privacy notices before you share anything with them.
+              </p>
+            </section>
 
-          {/* Section 5 */}
-          <section id="lawful-basis" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">05</span>
-              <h2 className="pp-section-title">Lawful Basis Under DPDP Act (India)</h2>
-            </div>
-            <p className="pp-section-content">
-              All data processing activities conducted by CyberAries are grounded in one or 
-              more of the following lawful bases as recognized under the DPDP Act, 2023:
-            </p>
-            <div className="pp-lawful-grid">
-              <div className="pp-lawful-card">
-                <div className="pp-lawful-icon"><i className="fas fa-clipboard-check"></i></div>
-                <h4>Consent</h4>
-                <p>Informed and documented consent obtained via engagement forms, service contracts, or email correspondence</p>
-              </div>
-              <div className="pp-lawful-card">
-                <div className="pp-lawful-icon"><i className="fas fa-briefcase"></i></div>
-                <h4>Legitimate Uses</h4>
-                <p>Processing necessary for the delivery of cybersecurity services expressly requested by the Data Principal</p>
-              </div>
-              <div className="pp-lawful-card">
-                <div className="pp-lawful-icon"><i className="fas fa-gavel"></i></div>
-                <h4>Legal Compliance</h4>
-                <p>Statutory obligations including CERT-In incident reporting, regulatory audits, and financial record-keeping</p>
-              </div>
-            </div>
-          </section>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">3. Personal Data We Collect</h2>
+              <p className="terms-paragraph">
+                We collect only what a defined purpose needs. Most of the personal data we hold comes directly from you, because you completed a form or wrote to us. A smaller amount is generated automatically when your browser requests a page from our servers.
+              </p>
+              <p className="terms-paragraph">
+                The categories below describe everything we routinely collect through this website and through ordinary business contact.
+              </p>
+              <ul className="terms-bullet-list">
+                <li>Enquiry form submissions: your name, work email address, phone number, organisation name, and whatever you choose to write in the message field.</li>
+                <li>Resource requests: the name, email address and organisation you give us when you ask for a whitepaper, checklist or similar document.</li>
+                <li>Careers applications: your CV, contact details, work history, qualifications, and any covering note or portfolio link you send.</li>
+                <li>Newsletter sign-ups: your email address, which is the only field the sign-up form has.</li>
+                <li>Correspondence: the content of emails, call notes and meeting notes created when you contact us directly.</li>
+                <li>Server logs: your IP address, browser type and version, operating system, referring page, the pages you viewed, and the date and time of each request.</li>
+                <li>Cookies and similar storage: the record of the cookie choice you made, and, where analytics is running and you have agreed to it, aggregated information about how the site is used.</li>
+              </ul>
+            </section>
 
-          {/* Section 6 */}
-          <section id="cookies" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">06</span>
-              <h2 className="pp-section-title">How We Use Cookies</h2>
-            </div>
-            <p className="pp-section-content">
-              CyberAries employs a limited set of cookies necessary for the functional operation 
-              and analytical measurement of its digital platforms. By continuing to use this 
-              website, you consent to the placement of the following cookie categories:
-            </p>
-            <div className="pp-cookies-container">
-              <div className="pp-cookie-item">
-                <div className="pp-cookie-header">
-                  <i className="fas fa-cookie-bite"></i>
-                  <h4>Essential Cookies</h4>
-                </div>
-                <p>Strictly necessary for site functionality, session management, and authenticated access</p>
-              </div>
-              <div className="pp-cookie-item">
-                <div className="pp-cookie-header">
-                  <i className="fas fa-chart-bar"></i>
-                  <h4>Analytics Cookies</h4>
-                </div>
-                <p>Deployed to measure aggregate website usage patterns; no personally identifiable data is associated</p>
-              </div>
-              <div className="pp-cookie-item pp-no-use">
-                <div className="pp-cookie-header">
-                  <i className="fas fa-ban"></i>
-                  <h4>No Marketing Cookies</h4>
-                </div>
-                <p>CyberAries does not deploy advertising, retargeting, or marketing cookies of any nature</p>
-              </div>
-            </div>
-          </section>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">4. Why We Use Personal Data and Our Lawful Basis</h2>
+              <p className="terms-paragraph">
+                Every use we make of personal data has a stated purpose and a lawful basis behind it. Under the DPDP Act 2023 we rely on your consent, and on the certain legitimate uses the Act recognises, such as responding to a request you have voluntarily made to us. Under the GDPR we rely on consent, on the performance of a contract, on our legitimate interests in running and marketing a business, and on compliance with legal obligations.
+              </p>
+              <p className="terms-paragraph">
+                We do not sell personal data. We do not use it to build advertising profiles, and we do not make decisions about you by automated means that would produce a legal or similarly significant effect on you.
+              </p>
+              <p className="terms-paragraph">
+                These are the purposes for which we process personal data.
+              </p>
+              <ul className="terms-bullet-list">
+                <li>Responding to enquiries and preparing proposals, so that we can answer your question and scope the work you asked about.</li>
+                <li>Delivering the resources you requested, and following up once to check whether the material was useful.</li>
+                <li>Assessing job applications, arranging interviews, and keeping a record of our hiring decisions.</li>
+                <li>Sending the newsletter and other marketing you have opted in to, until you tell us to stop.</li>
+                <li>Keeping the website available and secure, which includes detecting abuse, debugging faults and blocking automated attacks.</li>
+                <li>Understanding which pages people actually read, so that we can improve what we publish.</li>
+                <li>Meeting our legal, accounting, tax and contractual obligations.</li>
+              </ul>
+            </section>
 
-          {/* Section 7 */}
-          <section id="data-sharing" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">07</span>
-              <h2 className="pp-section-title">Sharing of Personal Data</h2>
-            </div>
-            <p className="pp-section-content">
-              CyberAries does not sell, trade, or rent personal data. Data may be disclosed 
-              to the following categories of recipients strictly on a need-to-know basis and 
-              subject to appropriate data processing agreements:
-            </p>
-            <ul className="pp-list">
-              <li><i className="fas fa-users-cog"></i><span>Internal CyberAries security and delivery teams engaged in executing the contracted service scope</span></li>
-              <li><i className="fas fa-server"></i><span>Trusted third-party service providers including cloud infrastructure, email delivery, and anonymized analytics platforms</span></li>
-              <li><i className="fas fa-landmark"></i><span>Regulatory and government authorities including CERT-In, MeitY, or law enforcement when mandated by applicable Indian law</span></li>
-              <li><i className="fas fa-file-signature"></i><span>Authorized audit partners and sub-processors operating under executed Non-Disclosure Agreements</span></li>
-            </ul>
-            <div className="pp-important-note">
-              <i className="fas fa-info-circle"></i>
-              <strong>We do NOT sell, lease, or commercially exploit personal data under any circumstance.</strong>
-            </div>
-          </section>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">5. Cookies, Analytics and Server Logs</h2>
+              <p className="terms-paragraph">
+                Our website uses a small amount of browser storage, in two categories. The strictly necessary category keeps the site working, holds the record of the cookie choice you made, and supports the protection sitting in front of the site and its forms. The analytics category is optional, and anything in it is set only where you have agreed through our consent control, or where the law that applies to you permits measurement without consent. Our cookie policy describes both categories in detail.
+              </p>
+              <p className="terms-paragraph">
+                We do not currently run an analytics provider on this site. If we add one, it will sit behind the consent control, we will configure it to gather as little as the purpose needs, and we will not attempt to identify you from it or match it against your enquiry records.
+              </p>
+              <p className="terms-paragraph">
+                You can clear or block cookies and other browser storage through your browser settings at any time. Clearing this site's stored data also clears the answer you gave to our consent control, so you will be asked again on your next visit. Blocking strictly necessary storage may stop parts of the site from working. Server logs are separate: they are generated automatically for security and diagnostics, and they are kept apart from marketing data.
+              </p>
+            </section>
 
-          {/* Section 8 */}
-          <section id="security" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">08</span>
-              <h2 className="pp-section-title">Data Security Measures</h2>
-            </div>
-            <p className="pp-section-content">
-              CyberAries implements a comprehensive, multi-layered security framework to protect 
-              personal data against unauthorized access, disclosure, alteration, or destruction. 
-              These measures include, without limitation:
-            </p>
-            <div className="pp-security-grid">
-              <div className="pp-security-card">
-                <i className="fas fa-lock"></i>
-                <h4>Encryption</h4>
-                <p>AES-256 encryption at rest and TLS 1.3 for data in transit</p>
-              </div>
-              <div className="pp-security-card">
-                <i className="fas fa-user-lock"></i>
-                <h4>Access Control</h4>
-                <p>Role-based access control (RBAC) with least-privilege enforcement</p>
-              </div>
-              <div className="pp-security-card">
-                <i className="fas fa-fire"></i>
-                <h4>Firewalls</h4>
-                <p>Multi-layer perimeter and application-layer firewall protection</p>
-              </div>
-              <div className="pp-security-card">
-                <i className="fas fa-code-branch"></i>
-                <h4>Secure DevOps</h4>
-                <p>Security-integrated development lifecycle and code review practices</p>
-              </div>
-              <div className="pp-security-card">
-                <i className="fas fa-eye"></i>
-                <h4>Monitoring</h4>
-                <p>Continuous 24×7 SOC-based security monitoring and alerting</p>
-              </div>
-              <div className="pp-security-card">
-                <i className="fas fa-search"></i>
-                <h4>Testing</h4>
-                <p>Periodic internal penetration testing and vulnerability assessments</p>
-              </div>
-            </div>
-          </section>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">6. Data We Process on Behalf of Our Clients</h2>
+              <p className="terms-paragraph">
+                Our services often bring us into contact with personal data belonging to a client's employees, customers or users. Common examples include log data reviewed during a security assessment, user account records examined in an access review, and files recovered during an incident investigation.
+              </p>
+              <p className="terms-paragraph">
+                In those situations the client decides why and how the data is processed, and we act on their documented instructions. Our engagement contracts set out the permitted scope, the confidentiality terms, the security controls we apply, the rules on sub-processing, and what happens to the data when the work ends. We do not use client data for our own purposes, and we do not keep it beyond what the contract allows.
+              </p>
+              <p className="terms-paragraph">
+                If you are an individual whose data was handled during work we carried out for a client, that client is the right first point of contact for a rights request. Write to us in any case if you cannot identify them, and we will help route your request to the right organisation.
+              </p>
+            </section>
 
-          {/* Section 9 */}
-          <section id="retention" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">09</span>
-              <h2 className="pp-section-title">Data Retention</h2>
-            </div>
-            <div className="pp-info-card">
-              <i className="fas fa-calendar-alt"></i>
-              <div>
-                <p className="pp-section-content">
-                  Personal data is retained by CyberAries only for the duration necessary to fulfill 
-                  the stated processing purposes, comply with applicable Indian legal and regulatory 
-                  requirements, resolve disputes, and enforce contractual obligations. Upon expiry 
-                  of the applicable retention period, data is securely deleted or anonymized in 
-                  accordance with industry-standard data destruction practices. CyberAries conducts 
-                  periodic data inventory reviews to ensure compliance with this retention framework.
-                </p>
-              </div>
-            </div>
-          </section>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">7. How Long We Keep Personal Data</h2>
+              <p className="terms-paragraph">
+                We keep personal data for as long as the purpose it was collected for still applies, and then for any further period the law requires. Because the correct period depends on the type of record and the obligation attached to it, we set retention periods internally by category rather than applying one figure across everything.
+              </p>
+              <p className="terms-paragraph">
+                Under the DPDP Act 2023 we must erase personal data once you withdraw consent, or once the purpose it was collected for has ended, unless a law requires us to keep it. We apply that rule as a matter of routine and not only when someone asks.
+              </p>
+              <p className="terms-paragraph">
+                The general pattern we follow is set out below.
+              </p>
+              <ul className="terms-bullet-list">
+                <li>Enquiry and proposal records stay with us while a commercial conversation is live, and for a limited period afterwards so that we can pick the discussion back up.</li>
+                <li>Contract, invoicing and tax records are held for the minimum period Indian law requires for books of account and related documents.</li>
+                <li>Unsuccessful job applications are kept for a short window in case a suitable role opens, then deleted unless you have asked us to hold them longer.</li>
+                <li>Newsletter records last until you unsubscribe, together with the record of when and how you subscribed.</li>
+                <li>Server logs are rotated and deleted on a routine cycle, apart from entries preserved for an open security investigation.</li>
+                <li>Client engagement data is returned or destroyed at the end of the engagement, in line with the contract that governs it.</li>
+              </ul>
+            </section>
 
-          {/* Section 10 */}
-          <section id="rights" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">10</span>
-              <h2 className="pp-section-title">Your Rights Under DPDP Act</h2>
-            </div>
-            <p className="pp-section-content">
-              As a Data Principal under the DPDP Act, 2023, you are vested with the following 
-              rights with respect to your personal data processed by CyberAries. Requests must 
-              be submitted in writing to our designated Grievance Officer and will be addressed 
-              within the timelines prescribed under applicable law:
-            </p>
-            <div className="pp-rights-grid">
-              <div className="pp-rights-card">
-                <i className="fas fa-eye"></i>
-                <h4>Access</h4>
-                <p>Request a summary of personal data processed and the processing activities conducted</p>
-              </div>
-              <div className="pp-rights-card">
-                <i className="fas fa-edit"></i>
-                <h4>Correction</h4>
-                <p>Request correction or completion of inaccurate, incomplete, or misleading personal data</p>
-              </div>
-              <div className="pp-rights-card">
-                <i className="fas fa-trash-alt"></i>
-                <h4>Deletion</h4>
-                <p>Request erasure of personal data no longer required for the specified processing purpose</p>
-              </div>
-              <div className="pp-rights-card">
-                <i className="fas fa-hand-paper"></i>
-                <h4>Withdrawal</h4>
-                <p>Withdraw consent at any time without affecting the lawfulness of prior processing</p>
-              </div>
-              <div className="pp-rights-card">
-                <i className="fas fa-exclamation-circle"></i>
-                <h4>Grievance</h4>
-                <p>File a formal grievance or complaint with the Grievance Officer or competent authority</p>
-              </div>
-            </div>
-          </section>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">8. Who We Share Personal Data With</h2>
+              <p className="terms-paragraph">
+                We do not sell or rent personal data, and we do not share it for anyone else's marketing. A limited set of service providers processes data on our behalf so that the website and the business can function. They are described here by category, because the specific suppliers change over time and a named list would quickly become inaccurate.
+              </p>
+              <p className="terms-paragraph">
+                Every processor we use is bound by a written agreement that limits them to our instructions, imposes confidentiality, and requires security measures appropriate to the data. If the ownership of our business ever changes, personal data may transfer to the acquiring entity, and we will tell you if that happens and what it means for you. The categories of recipient are these:
+              </p>
+              <ul className="terms-bullet-list">
+                <li>Hosting and infrastructure providers, who run the servers and content delivery network behind this website.</li>
+                <li>Email delivery and communication providers, who transmit our replies, resource downloads and newsletter.</li>
+                <li>Analytics providers, where analytics is running, who process website usage data on our instructions and nothing more.</li>
+                <li>Recruitment and applicant tracking tools, where those are used to manage job applications.</li>
+                <li>Professional advisers such as accountants, auditors and lawyers, where they need the data in order to advise us.</li>
+                <li>Government bodies, regulators, courts and law enforcement agencies, where a legal obligation requires disclosure.</li>
+              </ul>
+            </section>
 
-          {/* Section 11 */}
-          <section id="children" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">11</span>
-              <h2 className="pp-section-title">Children's Data</h2>
-            </div>
-            <div className="pp-info-card">
-              <i className="fas fa-child"></i>
-              <div>
-                <p className="pp-section-content">
-                  CyberAries does not knowingly solicit, collect, or process personal data from 
-                  individuals below the age of eighteen (18) years. Our services are directed exclusively 
-                  at corporate and professional audiences. If CyberAries becomes aware that personal 
-                  data of a minor has been inadvertently collected without verifiable parental consent, 
-                  we will take immediate steps to delete such information from our systems. 
-                  Guardians may contact our Data Protection Officer to request deletion.
-                </p>
-              </div>
-            </div>
-          </section>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">9. International Transfers</h2>
+              <p className="terms-paragraph">
+                Some of the providers described above operate infrastructure outside India, so your personal data may be stored or processed in another country. We prefer providers that can host data in India, or in a jurisdiction with a recognised data protection framework, and we check where data will sit before we adopt a service.
+              </p>
+              <p className="terms-paragraph">
+                The DPDP Act 2023 permits transfer of personal data outside India except to territories that the Central Government restricts by notification. We track those notifications and adjust our arrangements if a restriction affects a provider we use.
+              </p>
+              <p className="terms-paragraph">
+                For personal data protected by the GDPR, transfers outside the European Economic Area are made under an adequacy decision where one exists, and otherwise under Standard Contractual Clauses together with any additional safeguards the particular transfer requires. Ask us and we will tell you which mechanism applies to a given transfer.
+              </p>
+            </section>
 
-          {/* Section 12 */}
-          <section id="international" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">12</span>
-              <h2 className="pp-section-title">International Transfer of Data</h2>
-            </div>
-            <div className="pp-info-card">
-              <i className="fas fa-globe-asia"></i>
-              <div>
-                <p className="pp-section-content">
-                  In certain circumstances necessitated by operational or service delivery requirements, 
-                  personal data may be transferred to, stored in, or processed in jurisdictions 
-                  outside the Republic of India. Any such cross-border transfer shall be conducted 
-                  in compliance with applicable provisions of the DPDP Act, 2023, and subject to 
-                  adequate safeguards including, without limitation, data processing agreements, 
-                  standard contractual clauses, or recipient country assessments as may be 
-                  prescribed by the Data Protection Board of India.
-                </p>
-              </div>
-            </div>
-          </section>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">10. How We Protect Personal Data</h2>
+              <p className="terms-paragraph">
+                Security is the work we do for our clients, and we hold our own environment to the same standard. We align our own controls with recognised practice, including the control set in ISO/IEC 27001:2022 and CIS Benchmarks for system hardening, and we review them as our systems and our risks change.
+              </p>
+              <p className="terms-paragraph">
+                No control set removes risk entirely. If a personal data breach occurs that is likely to affect you, we will notify the relevant authority and the affected individuals within the timeframes the applicable law sets, and we will tell you what happened, what data was involved, and what we are doing about it.
+              </p>
+              <p className="terms-paragraph">
+                The measures below apply to the personal data covered by this policy.
+              </p>
+              <ul className="terms-bullet-list">
+                <li>Encryption in transit using TLS across the website and our mail systems, with encryption at rest for stored data wherever the platform supports it.</li>
+                <li>Access restricted to the people whose work requires it, using unique accounts, role-based permissions and multi-factor authentication on administrative access.</li>
+                <li>Logging and monitoring of administrative activity, with alerting on unusual behaviour.</li>
+                <li>Patching and hardening of servers, endpoints and applications on a defined cycle.</li>
+                <li>Backups taken regularly and tested by restoration, so that data survives failure or attack.</li>
+                <li>Vetting of suppliers before we adopt them, and periodic review of the ones we continue to use.</li>
+                <li>Training for our team on handling personal data, recognising phishing, and secure working practices.</li>
+              </ul>
+            </section>
 
-          {/* Section 13 */}
-          <section id="contact-dpo" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">13</span>
-              <h2 className="pp-section-title">Contact for Data Requests</h2>
-            </div>
-            <p className="pp-section-content">
-              All data-related requests, grievances, and formal privacy inquiries may be directed 
-              to CyberAries' designated Data Protection and Grievance Officer:
-            </p>
-            <div className="pp-dpo-container">
-              <div className="pp-dpo-header">
-                <i className="fas fa-user-shield"></i>
-                <h3>Data Protection Officer / Grievance Officer</h3>
-              </div>
-              <div className="pp-dpo-details">
-                <div className="pp-dpo-item">
-                  <i className="fas fa-building"></i>
-                  <div>
-                    <strong>Organization</strong>
-                    <p>CyberAries Security Solutions</p>
-                  </div>
-                </div>
-                <div className="pp-dpo-item">
-                  <i className="fas fa-envelope"></i>
-                  <div>
-                    <strong>Email</strong>
-                    <p><a href="mailto:privacy@cyberaries.com">privacy@cyberaries.com</a></p>
-                  </div>
-                </div>
-                <div className="pp-dpo-item">
-                  <i className="fas fa-map-marker-alt"></i>
-                  <div>
-                    <strong>Location</strong>
-                    <p>Hiranandani Business Park, Powai, Mumbai - 400071, India</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">11. Your Rights Under India's DPDP Act 2023</h2>
+              <p className="terms-paragraph">
+                If you are a Data Principal under the DPDP Act 2023, the Act gives you a set of rights over personal data we process on the basis of your consent or of a legitimate use.
+              </p>
+              <p className="terms-paragraph">
+                The Act also asks Data Principals to provide authentic information and to avoid raising false or frivolous complaints. Where we cannot satisfy ourselves about your identity, we may ask for further information before we act on a request. The rights are these:
+              </p>
+              <ul className="terms-bullet-list">
+                <li>Access: a summary of the personal data we process about you, the processing activities involved, and the identities of other Data Fiduciaries with whom we have shared it.</li>
+                <li>Correction, completion and updating: inaccurate or misleading data corrected, incomplete data completed, and out-of-date data brought current.</li>
+                <li>Erasure: deletion of personal data once the purpose has been served, unless retention is required by law.</li>
+                <li>Grievance redressal: the ability to raise a complaint with us and receive a response within the period the Act prescribes.</li>
+                <li>Nomination: the ability to nominate another individual to exercise your rights on your behalf if you die or become incapable of doing so yourself.</li>
+                <li>Withdrawal of consent: consent can be withdrawn at any time, as easily as it was given, and we will stop the processing that depended on it.</li>
+              </ul>
+            </section>
 
-          {/* Section 14 */}
-          <section id="policy-changes" className="pp-section">
-            <div className="pp-section-header">
-              <span className="pp-section-num">14</span>
-              <h2 className="pp-section-title">Changes to this Privacy Policy</h2>
-            </div>
-            <p className="pp-section-content">
-              CyberAries reserves the right to amend, update, or replace this Privacy Policy 
-              at any time, with or without individual notice, to reflect changes in applicable 
-              law, regulatory guidance, operational practices, or service offerings. The revised 
-              Policy, together with its effective date, shall be posted on this page. Your 
-              continued use of CyberAries' website or services following publication of any 
-              revised Policy shall constitute your acceptance of the amended terms. We encourage 
-              all stakeholders to review this Policy periodically to remain informed of how 
-              their personal data is being processed.
-            </p>
-          </section>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">12. Rights Available Under the EU GDPR</h2>
+              <p className="terms-paragraph">
+                If you are in the European Economic Area or the United Kingdom and the GDPR or UK GDPR applies to our processing of your data, you have a further set of rights.
+              </p>
+              <p className="terms-paragraph">
+                Where these overlap with rights under the DPDP Act 2023, we apply whichever gives you the stronger protection. None of these rights is absolute. If we have to decline a request in whole or in part, we will say so in writing and explain the reasoning behind the decision. The rights are these:
+              </p>
+              <ul className="terms-bullet-list">
+                <li>Access to a copy of your personal data, along with information about how and why it is used.</li>
+                <li>Rectification of personal data that is inaccurate or incomplete.</li>
+                <li>Erasure of personal data where no continuing lawful reason to hold it exists.</li>
+                <li>Restriction of processing while a dispute about accuracy or lawful basis is being resolved.</li>
+                <li>Portability of the data you gave us, in a structured, commonly used and machine-readable format.</li>
+                <li>Objection to processing based on legitimate interests, and an unqualified right to object to direct marketing.</li>
+                <li>Withdrawal of consent at any time, without affecting the lawfulness of processing carried out before the withdrawal.</li>
+                <li>Complaint to a supervisory authority in the country where you live, where you work, or where the issue arose.</li>
+              </ul>
+            </section>
 
-          {/* Bottom CTA */}
-          <div className="pp-cta">
-            <div className="pp-cta-icon">
-              <i className="fas fa-question-circle"></i>
-            </div>
-            <div className="pp-cta-content">
-              <h3>Have Questions About Your Privacy?</h3>
-              <p>Our Data Protection Officer is available to address all privacy concerns and data requests.</p>
-              <Link to="/contact" className="pp-cta-btn">
-                Contact Privacy Team
-                <i className="fas fa-arrow-right"></i>
-              </Link>
-            </div>
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">13. How to Exercise Your Rights and Raise a Grievance</h2>
+              <p className="terms-paragraph">
+                Send your request to <a href="mailto:privacy@cyberaries.com" className="terms-mail-link">privacy@cyberaries.com</a> with enough detail for us to find your records. Tell us what you would like done and, where it matters, which website form or engagement your data came from. You can also call +91 88284 95202 during office hours, and we will confirm the request in writing so that both sides have a record of it.
+              </p>
+              <p className="terms-paragraph">
+                We acknowledge requests, verify identity by proportionate means, and respond within the period the applicable law allows. There is no charge for a reasonable request. Where a request is manifestly unfounded or excessive we may charge a reasonable fee or decline to act, and we will explain that decision to you.
+              </p>
+              <p className="terms-paragraph">
+                Grievances about the way we have handled your personal data go to our Grievance Officer, contactable at <a href="mailto:privacy@cyberaries.com" className="terms-mail-link">privacy@cyberaries.com</a> or on +91 88284 95202. Put the words Grievance Officer in the subject line, or state them at the start of the call, so that the message is routed correctly. Direct resolution is our preferred route, and we would rather fix a problem than have you escalate it.
+              </p>
+              <p className="terms-paragraph">
+                If our response does not satisfy you, you can complain to the Data Protection Board of India under the DPDP Act 2023, or, where the GDPR applies to you, to the supervisory authority in your country. Coming to us first does not affect your right to approach a regulator at any stage.
+              </p>
+            </section>
+
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">14. Children's and Minors' Data</h2>
+              <p className="terms-paragraph">
+                Our website and our services are intended for organisations and working professionals. We do not knowingly collect personal data from children, and none of our forms are directed at them.
+              </p>
+              <p className="terms-paragraph">
+                The DPDP Act 2023 treats anyone under the age of eighteen as a child and requires verifiable consent from a parent or lawful guardian before such data is processed. It also prohibits tracking, behavioural monitoring and targeted advertising directed at children. None of those activities take place on our website.
+              </p>
+              <p className="terms-paragraph">
+                Should you believe that a child has given us personal data, write to <a href="mailto:privacy@cyberaries.com" className="terms-mail-link">privacy@cyberaries.com</a> and we will delete it promptly.
+              </p>
+            </section>
+
+            <section className="terms-doc-section">
+              <h2 className="terms-section-heading">15. Changes to This Policy</h2>
+              <p className="terms-paragraph">
+                We review this policy periodically, and we update it when our processing changes, when we adopt a new category of service provider, or when the law moves. The version published on this page is always the current one.
+              </p>
+              <p className="terms-paragraph">
+                Minor edits, such as clarified wording, take effect as soon as they appear here. Where a change materially affects how we use your personal data or the rights you can exercise, we will give notice on the website and, where we hold your contact details and the change warrants it, by email. Where a change requires fresh consent, we will ask for it before we rely on the new processing.
+              </p>
+              <p className="terms-paragraph">
+                If anything in this policy is unclear, or you think something here does not match what we actually do, tell us at <a href="mailto:privacy@cyberaries.com" className="terms-mail-link">privacy@cyberaries.com</a>. We would rather correct it than leave it wrong.
+              </p>
+            </section>
+
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };
