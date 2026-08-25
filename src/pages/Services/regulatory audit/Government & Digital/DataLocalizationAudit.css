@@ -1227,10 +1227,10 @@
 
   .dla-hero-content   { max-width: 100%; }
   .dla-hero-section   { min-height: auto; padding: var(--dla-sp-2xl) 0; }
-  .dla-hero-title     { font-size: 2.2rem; }
+  .dla-hero-title     { font-size: 1.8rem; word-break: break-word; }
   .dla-hero-description { font-size: 1rem; }
   .dla-hero-actions   { flex-direction: column; width: 100%; }
-  .dla-hero-actions .dla-btn { width: 100%; justify-content: center; }
+  .dla-hero-actions .dla-btn { width: 100%; justify-content: center; white-space: normal; padding: 1rem 1.5rem; text-align: center; }
   .dla-hero-particle  { display: none; }
 
   .dla-section-title  { font-size: 2rem; }

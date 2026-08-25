@@ -284,8 +284,13 @@ main {
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 80vh;
-    padding: 70px 0 30px;
+    min-height: auto;
+    height: auto;
+    padding: 120px 0 60px 0;
+  }
+
+  .hero-container {
+    height: auto;
   }
 
   .hero::before {

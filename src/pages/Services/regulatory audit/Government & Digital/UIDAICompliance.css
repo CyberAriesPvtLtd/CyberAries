@@ -1229,10 +1229,10 @@
 
   .uak-hero-content   { max-width: 100%; }
   .uak-hero-section   { min-height: auto; padding: var(--uak-sp-2xl) 0; }
-  .uak-hero-title     { font-size: 2.2rem; }
+  .uak-hero-title     { font-size: 1.8rem; word-break: break-word; }
   .uak-hero-description { font-size: 1rem; }
   .uak-hero-actions   { flex-direction: row; flex-wrap: wrap; }
-  .uak-hero-actions .uak-btn { flex: 1; min-width: 140px; justify-content: center; text-align: center; }
+  .uak-hero-actions .uak-btn { flex: 1; min-width: 140px; justify-content: center; text-align: center; white-space: normal; padding: 1rem 1.5rem; }
   .uak-hero-particle  { display: none; }
 
   .uak-section-title  { font-size: 2rem; }
