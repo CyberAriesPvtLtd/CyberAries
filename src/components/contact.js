@@ -261,6 +261,19 @@ function Contact() {
           start, not whether to scroll.
       ============================================================ */}
       <section className="contact-hero">
+        {/* Tech Grid Background */}
+        <div className="contact-hero-grid" aria-hidden="true" />
+
+        {/* Glowing Cyber Scanner Radar */}
+        <div className="cyber-scanner" aria-hidden="true" />
+
+        {/* Floating particles */}
+        <div className="contact-hero-particles" aria-hidden="true">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <span key={i} className="contact-hero-particle" style={{ '--i': i }} />
+          ))}
+        </div>
+
         <div className="contact-hero-inner">
           <p className="hero-eyebrow">Contact CyberAries</p>
 

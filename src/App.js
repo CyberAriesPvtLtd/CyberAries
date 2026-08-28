@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import HROnboarding from "./pages/HROnboarding";
 import Header from './components/Header';
 import Home from './components/Home';
 import Careers from './components/Careers';
@@ -119,36 +120,36 @@ import './App.css';
 function App() {
   useEffect(() => {
     // Only disable in production
-     if (process.env.NODE_ENV === "production") {
-  const handleContextMenu = (e) => {
-    e.preventDefault();
-  };
+    if (process.env.NODE_ENV === "production") {
+      const handleContextMenu = (e) => {
+        e.preventDefault();
+      };
 
-  const handleKeyDown = (e) => {
-    if (
-      e.key === "F12" ||
-      (e.ctrlKey && e.shiftKey && e.key === "I") ||
-      (e.ctrlKey && e.ctrlKey && e.key === "J") ||
-      (e.ctrlKey && e.key === "u")
-    ) {
-      e.preventDefault();
+      const handleKeyDown = (e) => {
+        if (
+          e.key === "F12" ||
+          (e.ctrlKey && e.shiftKey && e.key === "I") ||
+          (e.ctrlKey && e.ctrlKey && e.key === "J") ||
+          (e.ctrlKey && e.key === "u")
+        ) {
+          e.preventDefault();
+        }
+      };
+
+      document.addEventListener("contextmenu", handleContextMenu);
+      document.addEventListener("keydown", handleKeyDown);
+
+      return () => {
+        document.removeEventListener("contextmenu", handleContextMenu);
+        document.removeEventListener("keydown", handleKeyDown);
+      };
     }
-  };
-
-  document.addEventListener("contextmenu", handleContextMenu);
-  document.addEventListener("keydown", handleKeyDown);
-
-  return () => {
-    document.removeEventListener("contextmenu", handleContextMenu);
-    document.removeEventListener("keydown", handleKeyDown);
-  };
-}
-}, []);
+  }, []);
   return (
     <Router>
       <ScrollToTop />
       <div className="App">
-        <Header />  
+        <Header />
         <Routes>
           {/* Main Pages */}
           <Route path="/" element={<Home />} />
@@ -307,8 +308,9 @@ function App() {
 
           {/* Fallback for undefined routes - MUST BE LAST */}
           <Route path="*" element={<ComingSoon />} />
-         
+
           <Route path="/sentinelAI" element={<AprilFool />} />
+          <Route path="/internal-hr-onboarding-7x9k2" element={<HROnboarding />} />
         </Routes>
         <Footer />
       </div>

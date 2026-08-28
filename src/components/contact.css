@@ -102,16 +102,20 @@
 .contact-hero::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 0;
+  bottom: 0;
+  left: 0;
   right: 0;
-  width: 48%;
+  width: 100%;
   height: 100%;
-  transform: translateY(-50%);
-  background: url('../images/contactus/contactUs_sectionBg.png') no-repeat right center;
-  background-size: contain;
-  opacity: 0.9;
+  background: url('../images/contactus/contactus.webp') no-repeat right center;
+  background-size: cover;
+  opacity: 1;
+  filter: brightness(1.3) contrast(1.1);
+  transform: scale(0.6);
+  transform-origin: right center;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
 .contact-hero::after {
@@ -120,14 +124,112 @@
   inset: 0;
   background: linear-gradient(180deg, rgba(11, 11, 11, 0.55) 0%, rgba(11, 11, 11, 0.85) 100%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .contact-hero-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 780px;
   margin: 0 auto;
   text-align: center;
+}
+
+.contact-hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.contact-hero-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(208, 5, 13, 0.04)" stroke-width="0.75"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cyber-scanner {
+  position: absolute;
+  top: 22%;
+  left: 4%;
+  width: clamp(250px, 20vw, 360px);
+  height: clamp(250px, 20vw, 360px);
+  border-radius: 50%;
+  border: 1.5px double rgba(208, 5, 13, 0.12);
+  background: radial-gradient(circle, rgba(208, 5, 13, 0.02) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  animation: cyberRadar 12s linear infinite;
+}
+
+.cyber-scanner::before {
+  content: "";
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  border: 1px dashed rgba(208, 5, 13, 0.08);
+}
+
+.cyber-scanner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 50%;
+  background: linear-gradient(to top, rgba(208, 5, 13, 0.25), transparent);
+  transform-origin: bottom center;
+  animation: radarSweeper 4s linear infinite;
+}
+
+@keyframes radarSweeper {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes cyberRadar {
+  0%, 100% { transform: scale(1); opacity: 0.45; }
+  50% { transform: scale(1.05); opacity: 0.75; }
+}
+
+
+.contact-hero-particle {
+  position: absolute;
+  bottom: -20px;
+  left: calc(5% + (var(--i) * 12%));
+  width: clamp(3px, 0.8vw, 6px);
+  height: clamp(3px, 0.8vw, 6px);
+  border-radius: 50%;
+  background: rgba(208, 5, 13, 0.45);
+  box-shadow: 0 0 10px rgba(208, 5, 13, 0.7);
+  animation: contactParticle 10s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -1.4s);
+}
+
+@keyframes contactParticle {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-250px) translateX(20px) scale(1.4);
+    opacity: 0.5;
+  }
+  85% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-500px) translateX(-20px) scale(0.6);
+    opacity: 0;
+  }
 }
 
 .hero-eyebrow {
