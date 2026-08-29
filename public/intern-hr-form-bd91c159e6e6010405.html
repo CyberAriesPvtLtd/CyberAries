@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Intern HR Information Form | CyberAries</title>
+
+<!-- This page is intentionally NOT linked from site navigation, the sitemap,
+     or robots.txt, and carries no route inside the React app bundle. It is
+     reachable only by sharing this exact URL directly with an intern.
+     Do not add a link to this page from any public page, the sitemap,
+     or robots.txt (a robots.txt Disallow entry would itself disclose the
+     path). Keep the token in the filename intact when copying links. -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+<meta name="referrer" content="no-referrer" />
+
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --accent:#dc2626;
+    --accent-dark:#b91c1c;
+    --display-red:#D0050D;
+    --ink:#0f172a;
+    --ink-soft:#64748b;
+    --bg:#fafaf7;
+    --panel:#ffffff;
+    --border:#e6e6e2;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Lexend',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.5;
+  }
+  a{color:var(--accent);}
+  header.top{
+    background:#0B0B0B;
+    padding:22px 24px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  header.top img{ height:34px; }
+  header.top span{
+    color:#fff;
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:0.02em;
+  }
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:40px 20px 100px;
+  }
+  .intro{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:28px 30px;
+    margin-bottom:28px;
+  }
+  .intro h1{
+    font-size:1.7rem;
+    font-weight:800;
+    margin:0 0 10px;
+    letter-spacing:-0.01em;
+  }
+  .intro p{
+    color:var(--ink-soft);
+    margin:8px 0;
+    font-size:0.95rem;
+  }
+  .confidential-note{
+    display:flex;
+    gap:10px;
+    background:#fff4f4;
+    border:1px solid #f3c9c9;
+    color:#8a1414;
+    border-radius:10px;
+    padding:12px 14px;
+    font-size:0.85rem;
+    margin-top:16px;
+  }
+  fieldset{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:24px 26px 8px;
+    margin-bottom:22px;
+  }
+  legend{
+    font-weight:700;
+    font-size:1.05rem;
+    padding:0 8px;
+    color:var(--ink);
+  }
+  .section-hint{
+    color:var(--ink-soft);
+    font-size:0.85rem;
+    margin:-4px 0 16px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px 18px;
+  }
+  .field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    margin-bottom:16px;
+  }
+  .field.full{ grid-column:1 / -1; }
+  label{
+    font-size:0.82rem;
+    font-weight:600;
+    color:var(--ink);
+  }
+  label .opt{
+    font-weight:400;
+    color:var(--ink-soft);
+    text-transform:none;
+    letter-spacing:0;
+  }
+  input[type=text], input[type=email], input[type=tel], input[type=date],
+  input[type=url], input[type=number], select, textarea{
+    font-family:inherit;
+    font-size:0.92rem;
+    padding:10px 12px;
+    border:1.5px solid var(--border);
+    border-radius:10px;
+    background:#fff;
+    color:var(--ink);
+    width:100%;
+  }
+  textarea{ min-height:80px; resize:vertical; }
+  input:focus, select:focus, textarea:focus{
+    outline:none;
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(220,38,38,0.12);
+  }
+  .radio-row, .checkbox-row{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .radio-row label, .checkbox-row label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:400;
+    font-size:0.9rem;
+  }
+  .checkbox-line{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:0.88rem;
+    color:var(--ink);
+    margin:14px 0;
+  }
+  .checkbox-line input{ margin-top:3px; }
+  .honeypot{
+    position:absolute;
+    left:-9999px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+  }
+  .submit-bar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+    margin-top:8px;
+  }
+  button{
+    font-family:inherit;
+    font-weight:700;
+    font-size:0.92rem;
+    border-radius:50px;
+    padding:13px 28px;
+    cursor:pointer;
+    border:none;
+    transition:transform 0.2s ease, opacity 0.2s ease;
+  }
+  #submitBtn{
+    background:var(--display-red);
+    color:#fff;
+  }
+  #submitBtn:hover{ transform:translateY(-2px); }
+  #submitBtn:disabled{ opacity:0.6; cursor:not-allowed; transform:none; }
+  #copyBtn, #downloadBtn{
+    background:#fff;
+    color:var(--ink);
+    border:1.5px solid var(--border);
+  }
+  #copyBtn:hover, #downloadBtn:hover{ border-color:var(--accent); color:var(--accent); }
+  .form-footnote{
+    font-size:0.8rem;
+    color:var(--ink-soft);
+    margin-top:10px;
+  }
+  #statusBox{
+    display:none;
+    margin-top:18px;
+    padding:16px 18px;
+    border-radius:10px;
+    font-size:0.88rem;
+    line-height:1.55;
+  }
+  #statusBox.show{ display:block; }
+  #statusBox.ok{ background:#f0fdf4; border:1px solid #bbf7d0; color:#166534; }
+  #statusBox.err{ background:#fef2f2; border:1px solid #fecaca; color:#991b1b; }
+  #summaryPreview{
+    width:100%;
+    margin-top:12px;
+    min-height:160px;
+    font-family:ui-monospace,Menlo,Consolas,monospace;
+    font-size:0.78rem;
+  }
+  @media (max-width:640px){
+    .grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <img src="/cyberaries-logo.png" alt="CyberAries" onerror="this.style.display='none'" />
+  <span>CyberAries &mdash; Human Resources</span>
+</header>
+
+<div class="wrap">
+
+  <div class="intro">
+    <h1>Intern Information Form</h1>
+    <p>
+      This form collects the details CyberAries HR needs to process your internship
+      onboarding — personal and educational information, contact and emergency
+      details, and internship preferences.
+    </p>
+    <p>
+      Please complete every section marked <strong>required</strong> as accurately as possible.
+      Fields marked <span class="opt">(optional)</span> may be left blank.
+    </p>
+    <div class="confidential-note">
+      <span>🔒</span>
+      <span>
+        This link is shared with you individually by CyberAries HR and is not
+        listed anywhere on the public website. Please do not share, publish,
+        or forward this link. Your information is used only for internship
+        onboarding and HR administration, in accordance with our
+        <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        and the Digital Personal Data Protection (DPDP) Act, 2023.
+      </span>
+    </div>
+  </div>
+
+  <form id="hrForm" novalidate>
+
+    <!-- Honeypot -->
+    <div class="honeypot" aria-hidden="true">
+      <label for="website">Website</label>
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <fieldset>
+      <legend>1. Personal Information</legend>
+      <div class="grid">
+        <div class="field">
+          <label for="fullName">Full legal name *</label>
+          <input type="text" id="fullName" name="Full Name" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="dob">Date of birth *</label>
+          <input type="date" id="dob" name="Date of Birth" required />
+        </div>
+        <div class="field">
+          <label for="gender">Gender</label>
+          <select id="gender" name="Gender">
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+            <option>Prefer not to say</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="bloodGroup">Blood group <span class="opt">(optional)</span></label>
+          <select id="bloodGroup" name="Blood Group">
+            <option value="">Select</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>AB+</option><option>AB-</option>
+            <option>O+</option><option>O-</option>
+            <option>Unknown</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="nationality">Nationality *</label>
+          <input type="text" id="nationality" name="Nationality" required />
+        </div>
+        <div class="field">
+          <label for="maritalStatus">Marital status <span class="opt">(optional)</span></label>
+          <select id="maritalStatus" name="Marital Status">
+            <option value="">Select</option>
+            <option>Single</option>
+            <option>Married</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="email">Personal email *</label>
+          <input type="email" id="email" name="Email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="phone">Mobile number *</label>
+          <input type="tel" id="phone" name="Mobile Number" autocomplete="tel" required />
+        </div>
+        <div class="field">
+          <label for="altPhone">Alternate contact number <span class="opt">(optional)</span></label>
+          <input type="tel" id="altPhone" name="Alternate Number" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. Address</legend>
+      <div class="field full">
+        <label for="currentAddress">Current residential address *</label>
+        <textarea id="currentAddress" name="Current Address" required></textarea>
+      </div>
+      <div class="checkbox-line">
+        <input type="checkbox" id="sameAddress" />
+        <label for="sameAddress" style="font-weight:400;">Permanent address is the same as above</label>
+      </div>
+      <div class="field full">
+        <label for="permanentAddress">Permanent address *</label>
+        <textarea id="permanentAddress" name="Permanent Address" required></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3. Identification</legend>
+      <p class="section-hint">
+        Used only for statutory HR verification and record-keeping. Provide what you
+        have available — you are not required to fill in every ID type.
+      </p>
+      <div class="grid">
+        <div class="field">
+          <label for="aadhaar">Aadhaar number <span class="opt">(optional)</span></label>
+          <input type="text" id="aadhaar" name="Aadhaar Number" inputmode="numeric" pattern="[0-9]{12}" title="12 digit Aadhaar number" />
+        </div>
+        <div class="field">
+          <label for="pan">PAN number <span class="opt">(optional)</span></label>
+          <input type="text" id="pan" name="PAN Number" style="text-transform:uppercase;" pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}" title="10 character PAN" />
+        </div>
+        <div class="field">
+          <label for="idProof">Other government ID type <span class="opt">(optional)</span></label>
+          <select id="idProof" name="Other ID Type">
+            <option value="">None</option>
+            <option>Passport</option>
+            <option>Voter ID</option>
+            <option>Driving Licence</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="idProofNumber">Other ID number <span class="opt">(optional)</span></label>
+          <input type="text" id="idProofNumber" name="Other ID Number" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4. Emergency Contact</legend>
+      <div class="grid">
+        <div class="field">
+          <label for="ecName">Contact name *</label>
+          <input type="text" id="ecName" name="Emergency Contact Name" required />
+        </div>
+        <div class="field">
+          <label for="ecRelation">Relationship *</label>
+          <input type="text" id="ecRelation" name="Emergency Contact Relationship" required />
+        </div>
+        <div class="field">
+          <label for="ecPhone">Contact number *</label>
+          <input type="tel" id="ecPhone" name="Emergency Contact Number" required />
+        </div>
+        <div class="field">
+          <label for="ecAddress">Address <span class="opt">(optional)</span></label>
+          <input type="text" id="ecAddress" name="Emergency Contact Address" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>5. Educational Background</legend>
+      <div class="grid">
+        <div class="field">
+          <label for="institution">Current institution / university *</label>
+          <input type="text" id="institution" name="Institution" required />
+        </div>
+        <div class="field">
+          <label for="degree">Degree / course *</label>
+          <input type="text" id="degree" name="Degree" required />
+        </div>
+        <div class="field">
+          <label for="specialization">Specialization / major <span class="opt">(optional)</span></label>
+          <input type="text" id="specialization" name="Specialization" />
+        </div>
+        <div class="field">
+          <label for="yearOfStudy">Current year / semester *</label>
+          <input type="text" id="yearOfStudy" name="Current Year of Study" required />
+        </div>
+        <div class="field">
+          <label for="gradDate">Expected graduation date *</label>
+          <input type="date" id="gradDate" name="Expected Graduation Date" required />
+        </div>
+        <div class="field">
+          <label for="cgpa">CGPA / percentage <span class="opt">(optional)</span></label>
+          <input type="text" id="cgpa" name="CGPA or Percentage" />
+        </div>
+        <div class="field">
+          <label for="school12">12th grade / diploma school <span class="opt">(optional)</span></label>
+          <input type="text" id="school12" name="12th School" />
+        </div>
+        <div class="field">
+          <label for="board12">Board and year of passing <span class="opt">(optional)</span></label>
+          <input type="text" id="board12" name="12th Board and Year" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>6. Internship Details</legend>
+      <div class="grid">
+        <div class="field">
+          <label for="department">Department / team applying for *</label>
+          <input type="text" id="department" name="Department" required placeholder="e.g. Red Team, GRC, Marketing" />
+        </div>
+        <div class="field">
+          <label for="role">Role / position title *</label>
+          <input type="text" id="role" name="Role Title" required />
+        </div>
+        <div class="field">
+          <label for="startDate">Preferred start date *</label>
+          <input type="date" id="startDate" name="Preferred Start Date" required />
+        </div>
+        <div class="field">
+          <label for="duration">Internship duration (months) *</label>
+          <input type="number" id="duration" name="Duration (Months)" min="1" max="12" required />
+        </div>
+        <div class="field">
+          <label for="mode">Mode of internship *</label>
+          <select id="mode" name="Mode" required>
+            <option value="">Select</option>
+            <option>Remote</option>
+            <option>Onsite</option>
+            <option>Hybrid</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="source">How did you hear about us? <span class="opt">(optional)</span></label>
+          <select id="source" name="Source">
+            <option value="">Select</option>
+            <option>LinkedIn</option>
+            <option>College / Placement Cell</option>
+            <option>Referral</option>
+            <option>Job Portal</option>
+            <option>CyberAries Website</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="referral">Referral name, if any <span class="opt">(optional)</span></label>
+          <input type="text" id="referral" name="Referral Name" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>7. Skills &amp; Experience</legend>
+      <div class="field full">
+        <label for="skills">Technical skills *</label>
+        <textarea id="skills" name="Technical Skills" required placeholder="Languages, tools, frameworks, security tooling, etc."></textarea>
+      </div>
+      <div class="field full">
+        <label for="certifications">Certifications <span class="opt">(optional)</span></label>
+        <textarea id="certifications" name="Certifications"></textarea>
+      </div>
+      <div class="field full">
+        <label for="priorExperience">Previous internship / work experience <span class="opt">(optional)</span></label>
+        <textarea id="priorExperience" name="Prior Experience"></textarea>
+      </div>
+      <div class="grid">
+        <div class="field">
+          <label for="linkedin">LinkedIn profile URL <span class="opt">(optional)</span></label>
+          <input type="url" id="linkedin" name="LinkedIn" placeholder="https://linkedin.com/in/..." />
+        </div>
+        <div class="field">
+          <label for="github">GitHub / portfolio URL <span class="opt">(optional)</span></label>
+          <input type="url" id="github" name="GitHub or Portfolio" placeholder="https://github.com/..." />
+        </div>
+        <div class="field full">
+          <label for="languages">Languages known <span class="opt">(optional)</span></label>
+          <input type="text" id="languages" name="Languages Known" />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>8. Health &amp; Accessibility <span class="opt">(voluntary)</span></legend>
+      <p class="section-hint">
+        These questions are entirely voluntary and are only used to make reasonable
+        workplace accommodations. Leave blank if not applicable.
+      </p>
+      <div class="field full">
+        <label for="medical">Medical conditions HR should be aware of <span class="opt">(optional)</span></label>
+        <textarea id="medical" name="Medical Conditions"></textarea>
+      </div>
+      <div class="field full">
+        <label for="accommodations">Accessibility accommodations needed <span class="opt">(optional)</span></label>
+        <textarea id="accommodations" name="Accessibility Needs"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>9. Declaration &amp; Consent</legend>
+      <div class="checkbox-line">
+        <input type="checkbox" id="declareTrue" required />
+        <label for="declareTrue">
+          I declare that the information provided in this form is true and accurate
+          to the best of my knowledge. *
+        </label>
+      </div>
+      <div class="checkbox-line">
+        <input type="checkbox" id="declareConsent" required />
+        <label for="declareConsent">
+          I consent to CyberAries collecting and processing this information for
+          internship onboarding and HR administration purposes only, in line with
+          the <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+          and applicable data protection law. *
+        </label>
+      </div>
+
+      <div class="submit-bar">
+        <button type="submit" id="submitBtn">Submit to HR</button>
+        <button type="button" id="copyBtn">Copy details to clipboard</button>
+        <button type="button" id="downloadBtn">Download as text file</button>
+      </div>
+      <p class="form-footnote">
+        "Submit to HR" opens your email app with your responses pre-filled to
+        <strong>hr@cyberaries.com</strong> for you to review and send. If your device
+        has no email app configured, use "Copy details" or "Download as text file"
+        and email it to us manually.
+      </p>
+
+      <div id="statusBox"></div>
+      <textarea id="summaryPreview" readonly style="display:none;"></textarea>
+    </fieldset>
+
+  </form>
+</div>
+
+<script>
+(function(){
+  var HR_EMAIL = "hr@cyberaries.com";
+  var form = document.getElementById('hrForm');
+  var sameAddress = document.getElementById('sameAddress');
+  var currentAddress = document.getElementById('currentAddress');
+  var permanentAddress = document.getElementById('permanentAddress');
+  var statusBox = document.getElementById('statusBox');
+  var summaryPreview = document.getElementById('summaryPreview');
+
+  sameAddress.addEventListener('change', function(){
+    if (sameAddress.checked) {
+      permanentAddress.value = currentAddress.value;
+      permanentAddress.setAttribute('readonly', 'readonly');
+    } else {
+      permanentAddress.removeAttribute('readonly');
+    }
+  });
+  currentAddress.addEventListener('input', function(){
+    if (sameAddress.checked) permanentAddress.value = currentAddress.value;
+  });
+
+  function buildSummary(){
+    var lines = ['CyberAries Intern HR Information Form', '======================================', ''];
+    var fields = form.querySelectorAll('input[name], select[name], textarea[name]');
+    fields.forEach(function(el){
+      var value = (el.value || '').trim();
+      if (!value) return;
+      lines.push(el.name + ': ' + value);
+    });
+    lines.push('');
+    lines.push('Submitted: ' + new Date().toString());
+    return lines.join('\n');
+  }
+
+  function showStatus(kind, html){
+    statusBox.className = 'show ' + kind;
+    statusBox.innerHTML = html;
+  }
+
+  function validate(){
+    if (document.getElementById('website').value !== '') return false; // honeypot
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return false;
+    }
+    if (!document.getElementById('declareTrue').checked || !document.getElementById('declareConsent').checked) {
+      showStatus('err', 'Please confirm both declarations before submitting.');
+      return false;
+    }
+    return true;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!validate()) return;
+
+    var summary = buildSummary();
+    var name = document.getElementById('fullName').value.trim();
+    var subject = 'Intern HR Information Form - ' + name;
+    var mailto = 'mailto:' + HR_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(summary);
+
+    // Best-effort clipboard copy so the data survives even if the mail client fails to open.
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(summary).catch(function(){});
+    }
+
+    window.location.href = mailto;
+
+    summaryPreview.value = summary;
+    summaryPreview.style.display = 'block';
+    showStatus('ok',
+      'Your email app should now open with your details pre-filled to <strong>' + HR_EMAIL + '</strong>. ' +
+      'Please review and press send. A copy of your responses has also been placed on your clipboard as a ' +
+      'backup, and is shown below in case you need to send it manually.'
+    );
+  });
+
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var summary = buildSummary();
+    summaryPreview.value = summary;
+    summaryPreview.style.display = 'block';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(summary).then(function(){
+        showStatus('ok', 'Details copied to clipboard.');
+      }).catch(function(){
+        showStatus('err', 'Could not access the clipboard. Copy the text below manually.');
+      });
+    } else {
+      showStatus('err', 'Clipboard is not available in this browser. Copy the text below manually.');
+    }
+  });
+
+  document.getElementById('downloadBtn').addEventListener('click', function(){
+    var summary = buildSummary();
+    var name = (document.getElementById('fullName').value.trim() || 'intern').replace(/[^a-z0-9]+/gi, '-');
+    var blob = new Blob([summary], { type: 'text/plain' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'cyberaries-intern-form-' + name + '.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+})();
+</script>
+
+</body>
+</html>
