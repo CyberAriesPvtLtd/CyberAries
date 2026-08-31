@@ -51,6 +51,7 @@ const initialForm = {
     documentAuthenticity: false,
     policyAcknowledgement: false,
     confirmation: false,
+    codeOfConductAccepted: false,
 };
 
 const documentFields = [
@@ -87,8 +88,25 @@ function HROnboarding() {
     };
 
     useEffect(() => {
+        let meta = document.querySelector('meta[name="robots"]');
+        const originalContent = meta ? meta.getAttribute("content") : null;
+        if (meta) {
+            meta.setAttribute("content", "noindex, nofollow");
+        } else {
+            meta = document.createElement("meta");
+            meta.name = "robots";
+            meta.content = "noindex, nofollow";
+            document.head.appendChild(meta);
+        }
         return () => {
             cleanLocalUrls();
+            if (meta) {
+                if (originalContent) {
+                    meta.setAttribute("content", originalContent);
+                } else {
+                    meta.remove();
+                }
+            }
         };
     }, []);
 
@@ -143,6 +161,12 @@ function HROnboarding() {
 
         setError("");
         setSubmitting(true);
+
+        if (!form.codeOfConductAccepted) {
+            setError("Please read and accept the Code of Conduct before submitting the form.");
+            setSubmitting(false);
+            return;
+        }
 
         try {
             const formData = new FormData();
@@ -730,6 +754,31 @@ function HROnboarding() {
                         />
                     </div>
                 </FormSection>
+
+                <div className="hr-code-of-conduct-section">
+                    <h3 className="hr-subheading">Code of Conduct</h3>
+                    <p className="hr-code-of-conduct-text">
+                        Please read the{" "}
+                        <a
+                            href="https://drive.google.com/file/d/1uqSIDaEVsPHJi3ZSW6H-jmXOJtACSSFD/view?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hr-code-of-conduct-link"
+                        >
+                            Code of Conduct
+                        </a>{" "}
+                        before submitting this form.
+                    </p>
+                    <label className="hr-checkbox">
+                        <input
+                            type="checkbox"
+                            name="codeOfConductAccepted"
+                            checked={form.codeOfConductAccepted}
+                            onChange={handleChange}
+                        />
+                        <span>I have read and understood the CyberAries Code of Conduct and agree to comply with it.</span>
+                    </label>
+                </div>
 
                 {error && <div className="hr-error">{error}</div>}
 

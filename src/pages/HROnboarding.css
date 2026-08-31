@@ -578,3 +578,30 @@
         max-width: 45%;
     }
 }
+
+/* Code of Conduct Section */
+.hr-code-of-conduct-section {
+    background: #fff;
+    border: 1px solid #e1e3df;
+    border-radius: 22px;
+    padding: 32px;
+    margin-bottom: 22px;
+}
+
+.hr-code-of-conduct-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #637078;
+    margin-bottom: 20px;
+}
+
+.hr-code-of-conduct-link {
+    color: #C1121F;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.hr-code-of-conduct-link:hover {
+    color: #a00f19;
+}

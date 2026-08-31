@@ -129,6 +129,18 @@ app.post(
                 });
             }
 
+            // Code of Conduct validation
+            if (
+                data.codeOfConductAccepted !== "true" &&
+                data.codeOfConductAccepted !== true
+            ) {
+                return res.status(400).json({
+                    success: false,
+                    error:
+                        "Please read and accept the Code of Conduct before submitting the form."
+                });
+            }
+
             // Convert uploaded files to a format Apps Script can receive.
             const uploadedFiles = (req.files || []).map((file) => ({
                 fieldName: file.fieldname,
