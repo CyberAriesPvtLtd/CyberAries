@@ -66,6 +66,63 @@ const documentFields = [
     ["otherDocuments", "Other Onboarding Documents", false],
 ];
 
+const compressImageFile = async (file) => {
+    if (!file || !file.type || !file.type.startsWith("image/") || file.size <= 600 * 1024) {
+        return file;
+    }
+    return new Promise((resolve) => {
+        try {
+            const img = new Image();
+            const url = URL.createObjectURL(file);
+            img.onload = () => {
+                try {
+                    URL.revokeObjectURL(url);
+                    const maxDim = 1600;
+                    let { width, height } = img;
+                    if (width > maxDim || height > maxDim) {
+                        if (width > height) {
+                            height = Math.round((height * maxDim) / width);
+                            width = maxDim;
+                        } else {
+                            width = Math.round((width * maxDim) / height);
+                            height = maxDim;
+                        }
+                    }
+                    const canvas = document.createElement("canvas");
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext("2d");
+                    ctx.drawImage(img, 0, 0, width, height);
+                    canvas.toBlob(
+                        (blob) => {
+                            if (blob && blob.size < file.size) {
+                                const compressedFile = new File([blob], file.name, {
+                                    type: "image/jpeg",
+                                    lastModified: Date.now()
+                                });
+                                resolve(compressedFile);
+                            } else {
+                                resolve(file);
+                            }
+                        },
+                        "image/jpeg",
+                        0.85
+                    );
+                } catch {
+                    resolve(file);
+                }
+            };
+            img.onerror = () => {
+                URL.revokeObjectURL(url);
+                resolve(file);
+            };
+            img.src = url;
+        } catch {
+            resolve(file);
+        }
+    });
+};
+
 function HROnboarding() {
     const [form, setForm] = useState(initialForm);
     const [files, setFiles] = useState({});
@@ -181,26 +238,20 @@ function HROnboarding() {
                 );
             });
 
-            // Add uploaded documents
-            Object.entries(files).forEach(
-                ([fieldName, selectedFiles]) => {
-
-                    if (!Array.isArray(selectedFiles)) {
-                        return;
+            // Add uploaded documents (compressing high-res mobile photos if necessary)
+            for (const [fieldName, selectedFiles] of Object.entries(files)) {
+                if (!Array.isArray(selectedFiles)) continue;
+                for (const file of selectedFiles) {
+                    if (file instanceof File) {
+                        const processedFile = await compressImageFile(file);
+                        formData.append(
+                            fieldName,
+                            processedFile,
+                            processedFile.name
+                        );
                     }
-
-                    selectedFiles.forEach((file) => {
-
-                        if (file instanceof File) {
-                            formData.append(
-                                fieldName,
-                                file,
-                                file.name
-                            );
-                        }
-                    });
                 }
-            );
+            }
 
             console.log("Submitting HR form...");
 
@@ -229,6 +280,18 @@ function HROnboarding() {
                 response.status
             );
 
+            if (response.status === 413) {
+                throw new Error(
+                    "Uploaded documents exceed the maximum allowed size (4.5 MB). Please compress your PDF files or upload smaller files."
+                );
+            }
+
+            if (response.status === 504) {
+                throw new Error(
+                    "Upload timed out. Please check your internet connection and try with smaller files."
+                );
+            }
+
             const responseText = await response.text();
 
             console.log(
@@ -248,7 +311,7 @@ function HROnboarding() {
                         );
                     } else {
                         throw new Error(
-                            "Backend API is not yet deployed or reachable. Please ensure the latest code is deployed to Vercel and APPS_SCRIPT_URL & APPS_SCRIPT_SECRET are set in Vercel settings."
+                            "Backend API is not yet reachable. Please ensure the latest code is deployed to Vercel."
                         );
                     }
                 }
@@ -694,14 +757,15 @@ function HROnboarding() {
                                     </strong>
                                 </div>
 
-                                <input
-                                    key={files[name]?.length || 0}
-                                    type="file"
-                                    multiple={name === "otherDocuments"}
-                                    onChange={(e) => handleFileChange(e, name)}
-                                    required={required && (!files[name] || files[name].length === 0)}
-                                    className="hr-file-input"
-                                />
+                                {(!files[name] || files[name].length === 0 || name === "otherDocuments") && (
+                                    <input
+                                        type="file"
+                                        multiple={name === "otherDocuments"}
+                                        onChange={(e) => handleFileChange(e, name)}
+                                        required={required && (!files[name] || files[name].length === 0)}
+                                        className="hr-file-input"
+                                    />
+                                )}
 
                                 {files[name] && files[name].length > 0 && (
                                     <div className="hr-uploaded-files">
