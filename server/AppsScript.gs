@@ -41,7 +41,7 @@ function doPost(e) {
 
     // 1. Security / API Secret Authentication
     var scriptProperties = PropertiesService.getScriptProperties();
-    var API_SECRET = scriptProperties.getProperty("API_SECRET");
+    var API_SECRET = scriptProperties.getProperty("HR_API_SECRET") || scriptProperties.getProperty("API_SECRET");
     
     if (!data.apiSecret || data.apiSecret !== API_SECRET) {
       return makeJsonResponse({ success: false, error: "Unauthorized: Invalid API secret." });
@@ -94,7 +94,8 @@ function doPost(e) {
     // ACTION: register (Metadata & Folder creation)
     // ==========================================
     // Open Spreadsheet and Sheet
-    var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    var targetSpreadsheetId = (data && data.spreadsheetId) || scriptProperties.getProperty("HR_GOOGLE_SHEET_ID") || scriptProperties.getProperty("SPREADSHEET_ID") || SPREADSHEET_ID;
+    var ss = SpreadsheetApp.openById(targetSpreadsheetId);
     var sheet = ss.getSheetByName(SHEET_NAME);
     if (!sheet) {
       return makeJsonResponse({ success: false, error: "Sheet '" + SHEET_NAME + "' not found." });
@@ -190,7 +191,8 @@ function doPost(e) {
     var recordId = searchPrefix + serialPadded;
 
     // 4. Create Main Google Drive Folder and Subfolders
-    var parentFolder = DriveApp.getFolderById(SUBMISSIONS_FOLDER_ID);
+    var targetFolderId = (data && data.submissionsFolderId) || scriptProperties.getProperty("HR_SUBMISSIONS_FOLDER_ID") || scriptProperties.getProperty("SUBMISSIONS_FOLDER_ID") || SUBMISSIONS_FOLDER_ID;
+    var parentFolder = DriveApp.getFolderById(targetFolderId);
     var candidateFolderName = data.fullName + " (" + recordId + ")";
     var candidateFolder = parentFolder.createFolder(candidateFolderName);
     var folderUrl = candidateFolder.getUrl();

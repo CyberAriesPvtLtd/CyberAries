@@ -5,13 +5,23 @@ const multer = require("multer");
 const https = require("https");
 const { URL } = require("url");
 
+// Load local environment files if present
 dotenv.config({ path: "./server/.env" });
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-// Multer stores uploaded files temporarily in memory.
-// They will NOT be permanently stored on this server.
+// Helper to retrieve environment configuration supporting existing HR_* variables
+function getEnvConfig() {
+    return {
+        scriptUrl: process.env.HR_GOOGLE_SCRIPT_URL || process.env.APPS_SCRIPT_URL,
+        apiSecret: process.env.HR_API_SECRET || process.env.APPS_SCRIPT_SECRET,
+        sheetId: process.env.HR_GOOGLE_SHEET_ID || process.env.SPREADSHEET_ID,
+        submissionsFolderId: process.env.HR_SUBMISSIONS_FOLDER_ID || process.env.SUBMISSIONS_FOLDER_ID
+    };
+}
+
+// Multer stores uploaded files temporarily in memory
 const upload = multer({
     storage: multer.memoryStorage(),
     limits: {
@@ -24,7 +34,7 @@ app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 
 // Helper function to send requests to Google Apps Script Web App
-// and follow redirects correctly while avoiding undici body timeouts.
+// and follow redirects correctly while avoiding body timeouts.
 function requestAppsScript(urlStr, postData) {
     return new Promise((resolve, reject) => {
         const executeReq = (targetUrl, method, dataToSend) => {
@@ -94,27 +104,45 @@ function requestAppsScript(urlStr, postData) {
     });
 }
 
+// Router to handle both prefixed (/api/...) and non-prefixed routes
+const router = express.Router();
+
 // --------------------------------------------------
 // HEALTH CHECK
 // --------------------------------------------------
-
-app.get("/api/health", (req, res) => {
+router.get("/health", (req, res) => {
+    const config = getEnvConfig();
     res.json({
         success: true,
-        message: "CyberAries HR backend is running"
+        message: "CyberAries HR backend is running",
+        environment: {
+            hasGoogleScriptUrl: Boolean(config.scriptUrl),
+            hasApiSecret: Boolean(config.apiSecret),
+            hasSheetId: Boolean(config.sheetId),
+            hasSubmissionsFolderId: Boolean(config.submissionsFolderId)
+        }
     });
 });
 
 // --------------------------------------------------
 // HR SUBMISSION
 // --------------------------------------------------
-
-app.post(
-    "/api/hr/submit",
+router.post(
+    "/hr/submit",
     upload.any(),
     async (req, res) => {
         try {
             const data = req.body;
+            const config = getEnvConfig();
+
+            // Environment variable validation
+            if (!config.scriptUrl || !config.apiSecret) {
+                console.error("[Backend Error] HR_GOOGLE_SCRIPT_URL or HR_API_SECRET is missing from environment variables.");
+                return res.status(500).json({
+                    success: false,
+                    error: "Server configuration error: Google Apps Script credentials (HR_GOOGLE_SCRIPT_URL, HR_API_SECRET) not configured in environment variables."
+                });
+            }
 
             // Basic validation
             if (
@@ -156,10 +184,12 @@ app.post(
 
             // Phase 1: Register Candidate & Create Main Folders (instant, returns Record ID and Folder URL)
             console.log(`[Backend] Registering candidate: ${data.fullName}`);
-            const registrationResult = await requestAppsScript(process.env.APPS_SCRIPT_URL, {
+            const registrationResult = await requestAppsScript(config.scriptUrl, {
                 ...data,
                 action: "register",
-                apiSecret: process.env.APPS_SCRIPT_SECRET
+                apiSecret: config.apiSecret,
+                spreadsheetId: config.sheetId,
+                submissionsFolderId: config.submissionsFolderId
             });
 
             if (!registrationResult.success) {
@@ -180,44 +210,49 @@ app.post(
 
             console.log(`[Backend] Candidate registered successfully. Record ID: ${recordId}. Folder ID: ${folderId}`);
 
-            // Return success response to the React frontend immediately so the UI stops showing "Submitting..."
+            // Phase 2: Process file uploads concurrently before finishing the response
+            // (Ensures serverless functions do not terminate before file uploads reach Google Drive)
+            let uploadCount = 0;
+            if (uploadedFiles.length > 0 && folderId) {
+                console.log(`[Backend] Uploading ${uploadedFiles.length} files in parallel for Record ID: ${recordId}...`);
+                const uploadPromises = uploadedFiles.map(async (file, idx) => {
+                    try {
+                        console.log(`[Backend] Uploading file ${idx + 1}/${uploadedFiles.length}: ${file.originalName} (${file.fieldName})`);
+                        const uploadResult = await requestAppsScript(config.scriptUrl, {
+                            action: "uploadFile",
+                            folderId: folderId,
+                            file: {
+                                fieldName: file.fieldName,
+                                originalName: file.originalName,
+                                mimeType: file.mimeType,
+                                base64: file.base64
+                            },
+                            apiSecret: config.apiSecret
+                        });
+                        if (uploadResult.success) {
+                            console.log(`[Backend] Successfully uploaded: ${file.originalName}`);
+                            return true;
+                        } else {
+                            console.error(`[Backend] Failed to upload ${file.originalName}:`, uploadResult.error);
+                            return false;
+                        }
+                    } catch (uploadError) {
+                        console.error(`[Backend] Error uploading file ${file.originalName}:`, uploadError);
+                        return false;
+                    }
+                });
+
+                const uploadResults = await Promise.allSettled(uploadPromises);
+                uploadCount = uploadResults.filter((r) => r.status === "fulfilled" && r.value === true).length;
+                console.log(`[Backend] Uploaded ${uploadCount}/${uploadedFiles.length} files successfully for Record ID: ${recordId}`);
+            }
+
             res.json({
                 success: true,
                 recordId,
-                folderUrl
+                folderUrl,
+                uploadCount
             });
-
-            // Phase 2: Process file uploads asynchronously in the background
-            if (uploadedFiles.length > 0 && folderId) {
-                (async () => {
-                    console.log(`[Background] Starting upload of ${uploadedFiles.length} files for Record ID: ${recordId}`);
-                    for (let i = 0; i < uploadedFiles.length; i++) {
-                        const file = uploadedFiles[i];
-                        try {
-                            console.log(`[Background] Uploading file ${i + 1}/${uploadedFiles.length}: ${file.originalName} (${file.fieldName})`);
-                            const uploadResult = await requestAppsScript(process.env.APPS_SCRIPT_URL, {
-                                action: "uploadFile",
-                                folderId: folderId,
-                                file: {
-                                    fieldName: file.fieldName,
-                                    originalName: file.originalName,
-                                    mimeType: file.mimeType,
-                                    base64: file.base64
-                                },
-                                apiSecret: process.env.APPS_SCRIPT_SECRET
-                            });
-                            if (uploadResult.success) {
-                                console.log(`[Background] Successfully uploaded: ${file.originalName}`);
-                            } else {
-                                console.error(`[Background] Failed to upload ${file.originalName}:`, uploadResult.error);
-                            }
-                        } catch (uploadError) {
-                            console.error(`[Background] Error uploading file ${file.originalName}:`, uploadError);
-                        }
-                    }
-                    console.log(`[Background] Finished background uploads for Record ID: ${recordId}`);
-                })();
-            }
 
         } catch (error) {
             console.error(
@@ -237,9 +272,16 @@ app.post(
 // --------------------------------------------------
 // GOOGLE CONNECTION TEST
 // --------------------------------------------------
-
-app.get("/api/test-google", async (req, res) => {
+router.get("/test-google", async (req, res) => {
     try {
+        const config = getEnvConfig();
+        if (!config.scriptUrl || !config.apiSecret) {
+            return res.status(500).json({
+                success: false,
+                error: "HR_GOOGLE_SCRIPT_URL or HR_API_SECRET is missing from environment variables."
+            });
+        }
+
         const testData = {
             recordType: "Intern",
             fullName: "Node Test Intern",
@@ -248,9 +290,11 @@ app.get("/api/test-google", async (req, res) => {
             confirmation: "Yes"
         };
 
-        const result = await requestAppsScript(process.env.APPS_SCRIPT_URL, {
+        const result = await requestAppsScript(config.scriptUrl, {
             ...testData,
-            apiSecret: process.env.APPS_SCRIPT_SECRET
+            apiSecret: config.apiSecret,
+            spreadsheetId: config.sheetId,
+            submissionsFolderId: config.submissionsFolderId
         });
 
         res.json(result);
@@ -265,12 +309,16 @@ app.get("/api/test-google", async (req, res) => {
     }
 });
 
-// --------------------------------------------------
-// START SERVER
-// --------------------------------------------------
+// Mount router under both /api and root / to support direct and rewritten calls
+app.use("/api", router);
+app.use("/", router);
 
-app.listen(PORT, () => {
-    console.log(
-        `CyberAries HR backend running on port ${PORT}`
-    );
-});
+// Start server when run directly (local development)
+if (require.main === module) {
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => {
+        console.log(`CyberAries HR backend running on port ${PORT}`);
+    });
+}
+
+module.exports = app;

@@ -204,8 +204,20 @@ function HROnboarding() {
 
             console.log("Submitting HR form...");
 
+            const isLocalhost =
+                typeof window !== "undefined" &&
+                (window.location.hostname === "localhost" ||
+                 window.location.hostname === "127.0.0.1");
+
+            const apiBaseUrl =
+                process.env.REACT_APP_API_URL !== undefined
+                    ? process.env.REACT_APP_API_URL
+                    : (isLocalhost && window.location.port === "3000"
+                        ? "http://localhost:5000"
+                        : "");
+
             const response = await fetch(
-                "http://localhost:5000/api/hr/submit",
+                `${apiBaseUrl}/api/hr/submit`,
                 {
                     method: "POST",
                     body: formData
@@ -229,6 +241,17 @@ function HROnboarding() {
             try {
                 result = JSON.parse(responseText);
             } catch {
+                if (responseText && responseText.trim().startsWith("<")) {
+                    if (isLocalhost) {
+                        throw new Error(
+                            "Backend server is not reachable on port 5000. Please start the backend with: npm run server (or node server/server.js) in a separate terminal."
+                        );
+                    } else {
+                        throw new Error(
+                            "Backend API is not yet deployed or reachable. Please ensure the latest code is deployed to Vercel and APPS_SCRIPT_URL & APPS_SCRIPT_SECRET are set in Vercel settings."
+                        );
+                    }
+                }
                 throw new Error(
                     "Backend returned an invalid response."
                 );
