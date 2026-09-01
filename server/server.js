@@ -11,13 +11,48 @@ dotenv.config();
 
 const app = express();
 
-// Helper to retrieve environment configuration supporting existing HR_* variables
+// Helper to retrieve environment configuration supporting all HR_* and fallback variable aliases
 function getEnvConfig() {
+    const findEnv = (...keys) => {
+        for (const key of keys) {
+            const val = process.env[key];
+            if (val && typeof val === "string" && val.trim().length > 0) {
+                return val.trim();
+            }
+        }
+        return undefined;
+    };
+
     return {
-        scriptUrl: process.env.HR_GOOGLE_SCRIPT_URL || process.env.APPS_SCRIPT_URL,
-        apiSecret: process.env.HR_API_SECRET || process.env.APPS_SCRIPT_SECRET,
-        sheetId: process.env.HR_GOOGLE_SHEET_ID || process.env.SPREADSHEET_ID,
-        submissionsFolderId: process.env.HR_SUBMISSIONS_FOLDER_ID || process.env.SUBMISSIONS_FOLDER_ID
+        scriptUrl: findEnv(
+            "HR_GOOGLE_SCRIPT_URL",
+            "HR_APPS_SCRIPT_URL",
+            "HR_SCRIPT_URL",
+            "APPS_SCRIPT_URL",
+            "GOOGLE_SCRIPT_URL",
+            "GOOGLE_APPS_SCRIPT_URL",
+            "SCRIPT_URL"
+        ),
+        apiSecret: findEnv(
+            "HR_API_SECRET",
+            "HR_SECRET",
+            "APPS_SCRIPT_SECRET",
+            "API_SECRET",
+            "SECRET_KEY"
+        ),
+        sheetId: findEnv(
+            "HR_GOOGLE_SHEET_ID",
+            "HR_SHEET_ID",
+            "GOOGLE_SHEET_ID",
+            "SPREADSHEET_ID",
+            "SHEET_ID"
+        ),
+        submissionsFolderId: findEnv(
+            "HR_SUBMISSIONS_FOLDER_ID",
+            "HR_FOLDER_ID",
+            "SUBMISSIONS_FOLDER_ID",
+            "FOLDER_ID"
+        )
     };
 }
 
@@ -112,6 +147,9 @@ const router = express.Router();
 // --------------------------------------------------
 router.get("/health", (req, res) => {
     const config = getEnvConfig();
+    const hrKeysInEnv = Object.keys(process.env).filter(k =>
+        k.startsWith("HR_") || k.includes("SCRIPT") || k.includes("SHEET") || k.includes("SECRET")
+    );
     res.json({
         success: true,
         message: "CyberAries HR backend is running",
@@ -119,7 +157,8 @@ router.get("/health", (req, res) => {
             hasGoogleScriptUrl: Boolean(config.scriptUrl),
             hasApiSecret: Boolean(config.apiSecret),
             hasSheetId: Boolean(config.sheetId),
-            hasSubmissionsFolderId: Boolean(config.submissionsFolderId)
+            hasSubmissionsFolderId: Boolean(config.submissionsFolderId),
+            matchedEnvKeys: hrKeysInEnv
         }
     });
 });
