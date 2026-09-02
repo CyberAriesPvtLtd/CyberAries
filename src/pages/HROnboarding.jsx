@@ -198,9 +198,61 @@ function HROnboarding() {
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
 
+        let processedValue = value;
+
+        // Names: Alphabetic, spaces, dots, hyphens only (no numbers or special characters)
+        if (
+            name === "fullName" ||
+            name === "preferredName" ||
+            name === "emergencyContactName" ||
+            name === "bankAccountHolderName"
+        ) {
+            processedValue = value.replace(/[^a-zA-Z\s.\-']/g, "");
+        }
+
+        // City and State: Letters, spaces, dots, hyphens only
+        if (name === "city" || name === "state") {
+            processedValue = value.replace(/[^a-zA-Z\s.\-']/g, "");
+        }
+
+        // Phone Numbers: Numbers only, max 10 digits
+        if (name === "phoneNumber" || name === "emergencyContactPhone") {
+            processedValue = value.replace(/\D/g, "").slice(0, 10);
+        }
+
+        // PIN Code: Numbers only, max 6 digits
+        if (name === "pinCode") {
+            processedValue = value.replace(/\D/g, "").slice(0, 6);
+        }
+
+        // Graduation Year: Numbers only, max 4 digits
+        if (name === "graduationYear") {
+            processedValue = value.replace(/\D/g, "").slice(0, 4);
+        }
+
+        // Bank Account Number: Numbers only, max 18 digits
+        if (name === "accountNumber") {
+            processedValue = value.replace(/\D/g, "").slice(0, 18);
+        }
+
+        // PAN Card Number: Uppercase alphanumeric, max 10 characters
+        if (name === "pan") {
+            processedValue = value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10);
+        }
+
+        // Bank IFSC Code: Uppercase alphanumeric, max 11 characters
+        if (name === "ifsc") {
+            processedValue = value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 11);
+        }
+
+        // UAN and ESIC: Alphanumeric, max 25 characters
+        if (name === "uanPfDetails" || name === "esicDetails") {
+            processedValue = value.replace(/[^a-zA-Z0-9]/g, "").slice(0, 25);
+        }
+
         setForm((prev) => ({
             ...prev,
-            [name]: type === "checkbox" ? checked : value,
+            [name]: type === "checkbox" ? checked : processedValue,
         }));
     };
 
@@ -218,6 +270,51 @@ function HROnboarding() {
 
         setError("");
         setSubmitting(true);
+
+        // Validation Checks
+        if (form.phoneNumber && form.phoneNumber.length !== 10) {
+            setError("Personal Phone Number must be exactly 10 digits.");
+            setSubmitting(false);
+            return;
+        }
+
+        if (form.emergencyContactPhone && form.emergencyContactPhone.length !== 10) {
+            setError("Emergency Contact Phone must be exactly 10 digits.");
+            setSubmitting(false);
+            return;
+        }
+
+        if (form.pinCode && form.pinCode.length !== 6) {
+            setError("PIN Code must be exactly 6 digits.");
+            setSubmitting(false);
+            return;
+        }
+
+        if (form.graduationYear && (form.graduationYear.length !== 4 || Number(form.graduationYear) < 1970 || Number(form.graduationYear) > 2035)) {
+            setError("Please enter a valid 4-digit Graduation Year (e.g. 2024).");
+            setSubmitting(false);
+            return;
+        }
+
+        const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+        if (form.pan && !panRegex.test(form.pan)) {
+            setError("Invalid PAN Card format. Standard format is 5 letters, 4 digits, 1 letter (e.g. ABCDE1234F).");
+            setSubmitting(false);
+            return;
+        }
+
+        if (form.accountNumber && (form.accountNumber.length < 9 || form.accountNumber.length > 18)) {
+            setError("Bank Account Number must be between 9 and 18 digits.");
+            setSubmitting(false);
+            return;
+        }
+
+        const ifscRegex = /^[A-Z]{4}0[A-Z0-9]{6}$/;
+        if (form.ifsc && !ifscRegex.test(form.ifsc)) {
+            setError("Invalid IFSC Code format. IFSC must be 11 characters starting with 4 letters and '0' (e.g. HDFC0001234).");
+            setSubmitting(false);
+            return;
+        }
 
         if (!form.codeOfConductAccepted) {
             setError("Please read and accept the Code of Conduct before submitting the form.");
@@ -435,6 +532,10 @@ function HROnboarding() {
                             name="fullName"
                             value={form.fullName}
                             onChange={handleChange}
+                            placeholder="e.g. Rahul Sharma"
+                            pattern="^[a-zA-Z\s.\-']{2,}$"
+                            maxLength={100}
+                            title="Full Name must contain only alphabets and spaces (no numbers)"
                             required
                         />
 
@@ -443,6 +544,10 @@ function HROnboarding() {
                             name="preferredName"
                             value={form.preferredName}
                             onChange={handleChange}
+                            placeholder="e.g. Rahul"
+                            pattern="^[a-zA-Z\s.\-']{2,}$"
+                            maxLength={100}
+                            title="Preferred Name must contain only alphabets and spaces (no numbers)"
                             required
                         />
 
@@ -452,6 +557,8 @@ function HROnboarding() {
                             name="personalEmail"
                             value={form.personalEmail}
                             onChange={handleChange}
+                            placeholder="e.g. rahul@example.com"
+                            maxLength={100}
                             required
                         />
 
@@ -460,6 +567,12 @@ function HROnboarding() {
                             name="phoneNumber"
                             value={form.phoneNumber}
                             onChange={handleChange}
+                            placeholder="10-digit mobile number"
+                            pattern="[0-9]{10}"
+                            minLength={10}
+                            maxLength={10}
+                            inputMode="numeric"
+                            title="Phone number must be exactly 10 digits"
                             required
                         />
 
@@ -469,6 +582,8 @@ function HROnboarding() {
                             name="dateOfBirth"
                             value={form.dateOfBirth}
                             onChange={handleChange}
+                            max="2012-12-31"
+                            min="1950-01-01"
                             required
                         />
 
@@ -486,6 +601,10 @@ function HROnboarding() {
                             name="city"
                             value={form.city}
                             onChange={handleChange}
+                            placeholder="e.g. Mumbai"
+                            pattern="^[a-zA-Z\s.\-']{2,}$"
+                            maxLength={50}
+                            title="City must contain only letters and spaces"
                             required
                         />
 
@@ -494,6 +613,10 @@ function HROnboarding() {
                             name="state"
                             value={form.state}
                             onChange={handleChange}
+                            placeholder="e.g. Maharashtra"
+                            pattern="^[a-zA-Z\s.\-']{2,}$"
+                            maxLength={50}
+                            title="State must contain only letters and spaces"
                             required
                         />
 
@@ -502,6 +625,12 @@ function HROnboarding() {
                             name="pinCode"
                             value={form.pinCode}
                             onChange={handleChange}
+                            placeholder="6-digit PIN code"
+                            pattern="[0-9]{6}"
+                            minLength={6}
+                            maxLength={6}
+                            inputMode="numeric"
+                            title="PIN Code must be exactly 6 digits"
                             required
                         />
                     </div>
@@ -511,6 +640,8 @@ function HROnboarding() {
                         name="currentResidentialAddress"
                         value={form.currentResidentialAddress}
                         onChange={handleChange}
+                        placeholder="Enter your current residential address"
+                        maxLength={500}
                         required
                     />
 
@@ -519,6 +650,8 @@ function HROnboarding() {
                         name="permanentAddress"
                         value={form.permanentAddress}
                         onChange={handleChange}
+                        placeholder="Enter your permanent address"
+                        maxLength={500}
                         required
                     />
 
@@ -530,6 +663,10 @@ function HROnboarding() {
                             name="emergencyContactName"
                             value={form.emergencyContactName}
                             onChange={handleChange}
+                            placeholder="e.g. Priya Sharma"
+                            pattern="^[a-zA-Z\s.\-']{2,}$"
+                            maxLength={100}
+                            title="Emergency Contact Name must contain only alphabets and spaces (no numbers)"
                             required
                         />
 
@@ -538,6 +675,8 @@ function HROnboarding() {
                             name="emergencyContactRelationship"
                             value={form.emergencyContactRelationship}
                             onChange={handleChange}
+                            placeholder="e.g. Parent / Spouse / Sibling"
+                            maxLength={50}
                             required
                         />
 
@@ -546,6 +685,12 @@ function HROnboarding() {
                             name="emergencyContactPhone"
                             value={form.emergencyContactPhone}
                             onChange={handleChange}
+                            placeholder="10-digit mobile number"
+                            pattern="[0-9]{10}"
+                            minLength={10}
+                            maxLength={10}
+                            inputMode="numeric"
+                            title="Emergency contact phone must be exactly 10 digits"
                             required
                         />
                     </div>
@@ -562,6 +707,8 @@ function HROnboarding() {
                             name="highestQualification"
                             value={form.highestQualification}
                             onChange={handleChange}
+                            placeholder="e.g. Bachelor of Technology (B.Tech)"
+                            maxLength={100}
                             required
                         />
 
@@ -570,6 +717,8 @@ function HROnboarding() {
                             name="collegeUniversity"
                             value={form.collegeUniversity}
                             onChange={handleChange}
+                            placeholder="e.g. Mumbai University"
+                            maxLength={150}
                             required
                         />
 
@@ -578,6 +727,8 @@ function HROnboarding() {
                             name="degreeCourse"
                             value={form.degreeCourse}
                             onChange={handleChange}
+                            placeholder="e.g. Computer Science Engineering"
+                            maxLength={100}
                             required
                         />
 
@@ -586,6 +737,8 @@ function HROnboarding() {
                             name="branchSpecialization"
                             value={form.branchSpecialization}
                             onChange={handleChange}
+                            placeholder="e.g. Information Technology / Cybersecurity"
+                            maxLength={100}
                             required
                         />
 
@@ -594,6 +747,8 @@ function HROnboarding() {
                             name="currentYearSemester"
                             value={form.currentYearSemester}
                             onChange={handleChange}
+                            placeholder="e.g. Final Year / 8th Semester"
+                            maxLength={50}
                             required
                         />
 
@@ -602,6 +757,12 @@ function HROnboarding() {
                             name="graduationYear"
                             value={form.graduationYear}
                             onChange={handleChange}
+                            placeholder="YYYY (e.g. 2024)"
+                            pattern="^(19[7-9][0-9]|20[0-9]{2})$"
+                            minLength={4}
+                            maxLength={4}
+                            inputMode="numeric"
+                            title="Graduation Year must be a 4-digit valid year"
                             required
                         />
 
@@ -610,6 +771,8 @@ function HROnboarding() {
                             name="cgpaPercentage"
                             value={form.cgpaPercentage}
                             onChange={handleChange}
+                            placeholder="e.g. 8.5 CGPA or 85%"
+                            maxLength={20}
                             required
                         />
                     </div>
@@ -619,6 +782,8 @@ function HROnboarding() {
                         name="professionalCertifications"
                         value={form.professionalCertifications}
                         onChange={handleChange}
+                        placeholder="e.g. CEH, CompTIA Security+, AWS Certified (if any)"
+                        maxLength={500}
                     />
                 </FormSection>
 
@@ -660,6 +825,8 @@ function HROnboarding() {
                                 name="previousOrganization"
                                 value={form.previousOrganization}
                                 onChange={handleChange}
+                                placeholder="e.g. ABC Technologies Pvt Ltd"
+                                maxLength={100}
                                 required={form.previousExperience === "Yes"}
                             />
 
@@ -668,6 +835,8 @@ function HROnboarding() {
                                 name="previousDesignation"
                                 value={form.previousDesignation}
                                 onChange={handleChange}
+                                placeholder="e.g. Security Analyst Intern"
+                                maxLength={100}
                                 required={form.previousExperience === "Yes"}
                             />
 
@@ -694,6 +863,8 @@ function HROnboarding() {
                                 name="previousDuration"
                                 value={form.previousDuration}
                                 onChange={handleChange}
+                                placeholder="e.g. 6 Months"
+                                maxLength={50}
                                 required={form.previousExperience === "Yes"}
                             />
                         </div>
@@ -705,6 +876,8 @@ function HROnboarding() {
                             name="keyResponsibilities"
                             value={form.keyResponsibilities}
                             onChange={handleChange}
+                            placeholder="Brief summary of duties and responsibilities"
+                            maxLength={500}
                             required={form.previousExperience === "Yes"}
                         />
                     )}
@@ -721,6 +894,10 @@ function HROnboarding() {
                             name="bankAccountHolderName"
                             value={form.bankAccountHolderName}
                             onChange={handleChange}
+                            placeholder="Name as per bank passbook / records"
+                            pattern="^[a-zA-Z\s.\-']{2,}$"
+                            maxLength={100}
+                            title="Account holder name must contain only alphabets and spaces"
                             required
                         />
 
@@ -729,6 +906,8 @@ function HROnboarding() {
                             name="bankName"
                             value={form.bankName}
                             onChange={handleChange}
+                            placeholder="e.g. HDFC Bank / State Bank of India"
+                            maxLength={100}
                             required
                         />
 
@@ -737,6 +916,12 @@ function HROnboarding() {
                             name="accountNumber"
                             value={form.accountNumber}
                             onChange={handleChange}
+                            placeholder="9 to 18 digit account number"
+                            pattern="[0-9]{9,18}"
+                            minLength={9}
+                            maxLength={18}
+                            inputMode="numeric"
+                            title="Bank Account Number must be between 9 and 18 digits (numbers only)"
                             required
                         />
 
@@ -745,6 +930,11 @@ function HROnboarding() {
                             name="ifsc"
                             value={form.ifsc}
                             onChange={handleChange}
+                            placeholder="e.g. HDFC0001234"
+                            pattern="^[A-Z]{4}0[A-Z0-9]{6}$"
+                            minLength={11}
+                            maxLength={11}
+                            title="IFSC Code must be 11 characters (e.g. HDFC0001234)"
                             required
                         />
 
@@ -753,6 +943,11 @@ function HROnboarding() {
                             name="pan"
                             value={form.pan}
                             onChange={handleChange}
+                            placeholder="e.g. ABCDE1234F"
+                            pattern="^[A-Z]{5}[0-9]{4}[A-Z]{1}$"
+                            minLength={10}
+                            maxLength={10}
+                            title="PAN must be in standard 10-character format (e.g. ABCDE1234F)"
                             required
                         />
 
@@ -761,6 +956,8 @@ function HROnboarding() {
                             name="uanPfDetails"
                             value={form.uanPfDetails}
                             onChange={handleChange}
+                            placeholder="12-digit UAN / PF number"
+                            maxLength={25}
                         />
 
                         <Input
@@ -768,6 +965,8 @@ function HROnboarding() {
                             name="esicDetails"
                             value={form.esicDetails}
                             onChange={handleChange}
+                            placeholder="ESIC IP number"
+                            maxLength={25}
                         />
                     </div>
                 </FormSection>
