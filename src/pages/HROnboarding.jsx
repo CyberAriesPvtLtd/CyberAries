@@ -61,9 +61,9 @@ const documentFields = [
     ["identityProof", "Identity Proof", true],
     ["addressProof", "Address Proof", true],
     ["educationalCertificates", "Educational Certificates / Marksheets", true],
-    ["previousEmploymentDocuments", "Previous Employment / Experience Documents", false],
+    ["previousEmploymentDocuments", "Previous Employment / Experience Documents (if applicable)", false],
     ["bankProof", "Bank Proof / Cancelled Cheque", true],
-    ["otherDocuments", "Other Onboarding Documents", false],
+    ["otherDocuments", "Other Onboarding Documents (if applicable)", false],
 ];
 
 const compressImageFile = async (file) => {
@@ -443,6 +443,7 @@ function HROnboarding() {
                             name="preferredName"
                             value={form.preferredName}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -468,6 +469,7 @@ function HROnboarding() {
                             name="dateOfBirth"
                             value={form.dateOfBirth}
                             onChange={handleChange}
+                            required
                         />
 
                         <Select
@@ -476,6 +478,7 @@ function HROnboarding() {
                             value={form.gender}
                             onChange={handleChange}
                             options={["Male", "Female", "Other", "Prefer not to say"]}
+                            required
                         />
 
                         <Input
@@ -483,6 +486,7 @@ function HROnboarding() {
                             name="city"
                             value={form.city}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -490,6 +494,7 @@ function HROnboarding() {
                             name="state"
                             value={form.state}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -497,6 +502,7 @@ function HROnboarding() {
                             name="pinCode"
                             value={form.pinCode}
                             onChange={handleChange}
+                            required
                         />
                     </div>
 
@@ -505,6 +511,7 @@ function HROnboarding() {
                         name="currentResidentialAddress"
                         value={form.currentResidentialAddress}
                         onChange={handleChange}
+                        required
                     />
 
                     <Textarea
@@ -512,6 +519,7 @@ function HROnboarding() {
                         name="permanentAddress"
                         value={form.permanentAddress}
                         onChange={handleChange}
+                        required
                     />
 
                     <h3 className="hr-subheading">Emergency Contact</h3>
@@ -522,6 +530,7 @@ function HROnboarding() {
                             name="emergencyContactName"
                             value={form.emergencyContactName}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -529,6 +538,7 @@ function HROnboarding() {
                             name="emergencyContactRelationship"
                             value={form.emergencyContactRelationship}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -536,6 +546,7 @@ function HROnboarding() {
                             name="emergencyContactPhone"
                             value={form.emergencyContactPhone}
                             onChange={handleChange}
+                            required
                         />
                     </div>
                 </FormSection>
@@ -551,6 +562,7 @@ function HROnboarding() {
                             name="highestQualification"
                             value={form.highestQualification}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -558,6 +570,7 @@ function HROnboarding() {
                             name="collegeUniversity"
                             value={form.collegeUniversity}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -565,6 +578,7 @@ function HROnboarding() {
                             name="degreeCourse"
                             value={form.degreeCourse}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -572,6 +586,7 @@ function HROnboarding() {
                             name="branchSpecialization"
                             value={form.branchSpecialization}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -579,6 +594,7 @@ function HROnboarding() {
                             name="currentYearSemester"
                             value={form.currentYearSemester}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -586,6 +602,7 @@ function HROnboarding() {
                             name="graduationYear"
                             value={form.graduationYear}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -593,6 +610,7 @@ function HROnboarding() {
                             name="cgpaPercentage"
                             value={form.cgpaPercentage}
                             onChange={handleChange}
+                            required
                         />
                     </div>
 
@@ -642,6 +660,7 @@ function HROnboarding() {
                                 name="previousOrganization"
                                 value={form.previousOrganization}
                                 onChange={handleChange}
+                                required={form.previousExperience === "Yes"}
                             />
 
                             <Input
@@ -649,6 +668,7 @@ function HROnboarding() {
                                 name="previousDesignation"
                                 value={form.previousDesignation}
                                 onChange={handleChange}
+                                required={form.previousExperience === "Yes"}
                             />
 
                             <Input
@@ -657,6 +677,7 @@ function HROnboarding() {
                                 name="previousStartDate"
                                 value={form.previousStartDate}
                                 onChange={handleChange}
+                                required={form.previousExperience === "Yes"}
                             />
 
                             <Input
@@ -665,6 +686,7 @@ function HROnboarding() {
                                 name="previousEndDate"
                                 value={form.previousEndDate}
                                 onChange={handleChange}
+                                required={form.previousExperience === "Yes"}
                             />
 
                             <Input
@@ -672,6 +694,7 @@ function HROnboarding() {
                                 name="previousDuration"
                                 value={form.previousDuration}
                                 onChange={handleChange}
+                                required={form.previousExperience === "Yes"}
                             />
                         </div>
                     )}
@@ -682,6 +705,7 @@ function HROnboarding() {
                             name="keyResponsibilities"
                             value={form.keyResponsibilities}
                             onChange={handleChange}
+                            required={form.previousExperience === "Yes"}
                         />
                     )}
                 </FormSection>
@@ -697,6 +721,7 @@ function HROnboarding() {
                             name="bankAccountHolderName"
                             value={form.bankAccountHolderName}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -704,6 +729,7 @@ function HROnboarding() {
                             name="bankName"
                             value={form.bankName}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -711,6 +737,7 @@ function HROnboarding() {
                             name="accountNumber"
                             value={form.accountNumber}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -718,6 +745,7 @@ function HROnboarding() {
                             name="ifsc"
                             value={form.ifsc}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -725,6 +753,7 @@ function HROnboarding() {
                             name="pan"
                             value={form.pan}
                             onChange={handleChange}
+                            required
                         />
 
                         <Input
@@ -862,6 +891,7 @@ function HROnboarding() {
                             name="codeOfConductAccepted"
                             checked={form.codeOfConductAccepted}
                             onChange={handleChange}
+                            required
                         />
                         <span>I have read and understood the CyberAries Code of Conduct and agree to comply with it.</span>
                     </label>
