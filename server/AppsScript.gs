@@ -1,7 +1,7 @@
 // =========================================================================
 // GOOGLE APPS SCRIPT FOR CYBERARIES HR ONBOARDING
 // Deploy this code as a Web App in Google Apps Script editor.
-// Make sure to configure API_SECRET in Project Settings -> Script Properties.
+// Make sure to configure API_SECRET / HR_API_SECRET in Script Properties.
 // =========================================================================
 
 var SPREADSHEET_ID = "1yewhmscXYYOobNR76TCTjSqE-wgn5aONMxK9Gbf6E5s";
@@ -12,6 +12,9 @@ function doGet(e) {
   try {
     var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     var sheet = ss.getSheetByName(SHEET_NAME);
+    if (!sheet) {
+      sheet = ss.getSheets()[0];
+    }
     var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
     var lastRow = sheet.getLastRow();
     var rows = [];
@@ -93,16 +96,19 @@ function doPost(e) {
     // ==========================================
     // ACTION: register (Metadata & Folder creation)
     // ==========================================
-    // Open Spreadsheet and Sheet
     var targetSpreadsheetId = (data && data.spreadsheetId) || scriptProperties.getProperty("HR_GOOGLE_SHEET_ID") || scriptProperties.getProperty("SPREADSHEET_ID") || SPREADSHEET_ID;
     var ss = SpreadsheetApp.openById(targetSpreadsheetId);
     var sheet = ss.getSheetByName(SHEET_NAME);
     if (!sheet) {
-      return makeJsonResponse({ success: false, error: "Sheet '" + SHEET_NAME + "' not found." });
+      sheet = ss.getSheets()[0];
+    }
+    if (!sheet) {
+      return makeJsonResponse({ success: false, error: "Sheet not found in spreadsheet." });
     }
 
     var lastRow = sheet.getLastRow();
-    var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    var lastCol = sheet.getLastColumn();
+    var headers = lastCol > 0 ? sheet.getRange(1, 1, 1, lastCol).getValues()[0] : [];
     
     // Normalize headers for mapping
     var headerMap = {};
@@ -111,36 +117,55 @@ function doPost(e) {
     }
 
     // 2. Prevent Duplicate Submissions (Check by Personal Email)
-    var targetEmail = data.personalEmail || "";
+    var targetEmail = (data.personalEmail || "").trim();
     if (targetEmail && lastRow > 1) {
-      var emailNorm = normalizeKey("Personal Email Address");
-      var emailNormAlt = normalizeKey("personalEmail");
-      var emailColIdx = -1;
-      
-      if (headerMap.hasOwnProperty(emailNorm)) {
-        emailColIdx = headerMap[emailNorm];
-      } else if (headerMap.hasOwnProperty(emailNormAlt)) {
-        emailColIdx = headerMap[emailNormAlt];
-      }
+      var emailColIdx = findHeaderIndex(headerMap, [
+        "Personal Email Address",
+        "Personal Email",
+        "personalEmail",
+        "Email Address",
+        "Email"
+      ]);
 
       if (emailColIdx !== -1) {
         var existingRows = sheet.getRange(2, 1, lastRow - 1, headers.length).getValues();
+        var existingFormulas = sheet.getRange(2, 1, lastRow - 1, headers.length).getFormulas();
+
         for (var r = 0; r < existingRows.length; r++) {
           var rowEmail = String(existingRows[r][emailColIdx]).trim();
-          if (rowEmail.toLowerCase() === targetEmail.trim().toLowerCase()) {
+          if (rowEmail.toLowerCase() === targetEmail.toLowerCase()) {
             var existingRecordId = "";
             var existingFolderUrl = "";
             
-            var idColIdx = headerMap[normalizeKey("Record ID")] || headerMap[normalizeKey("id")];
-            if (idColIdx !== undefined && idColIdx !== -1) {
+            var idColIdx = findHeaderIndex(headerMap, ["Record ID", "RecordID", "id", "Candidate ID", "Employee ID"]);
+            if (idColIdx !== -1) {
               existingRecordId = existingRows[r][idColIdx];
             }
-            var folderColIdx = headerMap[normalizeKey("Folder URL")];
-            if (folderColIdx !== undefined && folderColIdx !== -1) {
-              existingFolderUrl = existingRows[r][folderColIdx];
+
+            var folderColIdx = findHeaderIndex(headerMap, [
+              "Drive Folder",
+              "Folder URL",
+              "Google Drive Folder",
+              "Drive Link",
+              "Folder Link"
+            ]);
+
+            if (folderColIdx !== -1) {
+              var formulaVal = existingFormulas[r][folderColIdx];
+              var cellVal = existingRows[r][folderColIdx];
+
+              if (formulaVal && formulaVal.indexOf("HYPERLINK") !== -1) {
+                var urlMatch = formulaVal.match(/HYPERLINK\(\s*"([^"]+)"/i);
+                if (urlMatch && urlMatch[1]) {
+                  existingFolderUrl = urlMatch[1];
+                }
+              }
+              if (!existingFolderUrl && cellVal && String(cellVal).indexOf("http") === 0) {
+                existingFolderUrl = String(cellVal);
+              }
             }
 
-            // Extract folder ID from folder URL to allow background uploads even for duplicate submissions
+            // Extract folder ID from folder URL
             var folderId = "";
             if (existingFolderUrl) {
               var matches = existingFolderUrl.match(/folders\/([a-zA-Z0-9-_]+)/);
@@ -169,18 +194,16 @@ function doPost(e) {
     var searchPrefix = prefix + "-" + currentYear + "-";
     var maxSerial = 0;
 
-    if (lastRow > 1) {
-      var idColIdx = headerMap[normalizeKey("Record ID")] || headerMap[normalizeKey("id")];
-      if (idColIdx !== undefined && idColIdx !== -1) {
-        var existingIds = sheet.getRange(2, idColIdx + 1, lastRow - 1, 1).getValues();
-        for (var j = 0; j < existingIds.length; j++) {
-          var cellVal = String(existingIds[j][0]).trim();
-          if (cellVal.indexOf(searchPrefix) === 0) {
-            var serialStr = cellVal.substring(searchPrefix.length);
-            var serialNum = parseInt(serialStr, 10);
-            if (!isNaN(serialNum) && serialNum > maxSerial) {
-              maxSerial = serialNum;
-            }
+    var idColIdx = findHeaderIndex(headerMap, ["Record ID", "RecordID", "id", "Candidate ID", "Employee ID"]);
+    if (idColIdx !== -1 && lastRow > 1) {
+      var existingIds = sheet.getRange(2, idColIdx + 1, lastRow - 1, 1).getValues();
+      for (var j = 0; j < existingIds.length; j++) {
+        var cellVal = String(existingIds[j][0]).trim();
+        if (cellVal.indexOf(searchPrefix) === 0) {
+          var serialStr = cellVal.substring(searchPrefix.length);
+          var serialNum = parseInt(serialStr, 10);
+          if (!isNaN(serialNum) && serialNum > maxSerial) {
+            maxSerial = serialNum;
           }
         }
       }
@@ -216,8 +239,13 @@ function doPost(e) {
 
     // 5. Write Row to Google Sheet Dynamically
     var newRow = new Array(headers.length);
+    for (var col = 0; col < headers.length; col++) {
+      newRow[col] = ""; // Initialize empty
+    }
+
+    // Map all regular form data keys to columns
     for (var key in data) {
-      if (data.hasOwnProperty(key) && key !== "files" && key !== "apiSecret" && key !== "action") {
+      if (data.hasOwnProperty(key) && key !== "files" && key !== "apiSecret" && key !== "action" && key !== "spreadsheetId" && key !== "submissionsFolderId") {
         var normKey = normalizeKey(key);
         if (headerMap.hasOwnProperty(normKey)) {
           var val = data[key];
@@ -231,23 +259,46 @@ function doPost(e) {
       }
     }
 
-    // Explicitly set special fields if headers exist
-    var recordIdNorm = normalizeKey("Record ID");
-    var idNorm = normalizeKey("id");
-    if (headerMap.hasOwnProperty(recordIdNorm)) {
-      newRow[headerMap[recordIdNorm]] = recordId;
-    } else if (headerMap.hasOwnProperty(idNorm)) {
-      newRow[headerMap[idNorm]] = recordId;
+    // Explicitly set special system columns:
+    
+    // A) Record ID
+    if (idColIdx !== -1) {
+      newRow[idColIdx] = recordId;
     }
 
-    var folderUrlNorm = normalizeKey("Folder URL");
-    if (headerMap.hasOwnProperty(folderUrlNorm)) {
-      newRow[headerMap[folderUrlNorm]] = folderUrl;
+    // B) Submission Date (Column AM) -> current timestamp as Date object
+    var submissionDateColIdx = findHeaderIndex(headerMap, [
+      "Submission Date",
+      "Timestamp",
+      "Submitted Date",
+      "Date of Submission",
+      "Submission Time",
+      "Created At"
+    ]);
+    if (submissionDateColIdx !== -1) {
+      newRow[submissionDateColIdx] = new Date();
     }
 
-    var timestampNorm = normalizeKey("Timestamp");
-    if (headerMap.hasOwnProperty(timestampNorm)) {
-      newRow[headerMap[timestampNorm]] = new Date();
+    // C) Status (Column AN) -> Initial status "Submitted"
+    var statusColIdx = findHeaderIndex(headerMap, [
+      "Status",
+      "Onboarding Status",
+      "Record Status"
+    ]);
+    if (statusColIdx !== -1) {
+      newRow[statusColIdx] = "Submitted";
+    }
+
+    // D) Drive Folder (Column AO) -> Clickable Hyperlink formula =HYPERLINK("folderUrl", "Open Folder")
+    var driveFolderColIdx = findHeaderIndex(headerMap, [
+      "Drive Folder",
+      "Folder URL",
+      "Google Drive Folder",
+      "Drive Link",
+      "Folder Link"
+    ]);
+    if (driveFolderColIdx !== -1) {
+      newRow[driveFolderColIdx] = '=HYPERLINK("' + folderUrl + '", "Open Folder")';
     }
 
     sheet.appendRow(newRow);
@@ -267,6 +318,17 @@ function doPost(e) {
       error: "Apps Script processing error: " + err.toString()
     });
   }
+}
+
+// Helper to find header index dynamically from alias list
+function findHeaderIndex(headerMap, possibleHeaders) {
+  for (var i = 0; i < possibleHeaders.length; i++) {
+    var norm = normalizeKey(possibleHeaders[i]);
+    if (headerMap.hasOwnProperty(norm)) {
+      return headerMap[norm];
+    }
+  }
+  return -1;
 }
 
 // Helper to normalize keys (camelCase, Title Case, spacing to lowercase alphanumeric)
