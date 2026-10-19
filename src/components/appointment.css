@@ -1,299 +1,1016 @@
-/* ===============================
-   APPOINTMENT HERO
-================================ */
-.appointment-hero {
+/* =========================================================================
+   CYBERARIES CONSULTATION BOOKING SYSTEM - NATIVE STYLES
+   ========================================================================= */
+
+.appointment-page-wrapper {
   min-height: 100vh;
+  background-color: #eef4fa;
+  padding: 120px 20px 80px 20px;
   display: flex;
-  align-items: center;
-  background:
-  url("../../public/assets/bgg.webp");
-  padding: 80px 0;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1e293b;
 }
 
-.appointment-container {
-  max-width: 1200px;
+.appointment-card-container {
+  width: 100%;
+  max-width: 960px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgba(15, 35, 65, 0.09), 0 2px 8px rgba(15, 35, 65, 0.04);
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
   margin: 0 auto;
-  padding: 0 24px;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
-  align-items: center;
 }
 
-/* ===============================
-   LEFT CONTENT (TEXT)
-================================ */
-.appointment-hero-text {
-  font-family: "Lexend", sans-serif;
-  color: #ffff;
-  margin-bottom: 0;
+/* --------------------------------------------------
+   Top Pill Tab (Arysec Native Branding)
+   -------------------------------------------------- */
+.card-top-tab {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
-.hero-tag {
-  font-family: "Lexend", sans-serif;
+.card-tab-badge {
+  background: #334155;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 4px 22px 6px 22px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* --------------------------------------------------
+   Shared Navigation
+   -------------------------------------------------- */
+.booking-back-nav {
   display: inline-flex;
   align-items: center;
-  padding: 8px 20px;
-  border-radius: 999px;
-  background: rgba(220, 38, 38, 0.1);
-  border: 1px solid rgba(220, 38, 38, 0.4);
-  font-size: 13px;
-  letter-spacing: 1.6px;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #0369a1;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #ff8a93;
-  text-transform: uppercase;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+  margin-bottom: 12px;
 }
 
-.appointment-hero-text h1 {
-  font-family: "Lexend", sans-serif;
-  font-size: 42px;
+.booking-back-nav:hover {
+  background-color: #f0f9ff;
+  color: #0284c7;
+}
+
+/* =========================================================================
+   STEP 1: SERVICE OVERVIEW
+   ========================================================================= */
+.booking-step-overview {
+  padding: 48px 40px 48px 40px;
+}
+
+.overview-header-section {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logo-badge-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.consultation-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 50%;
+  padding: 4px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.consultation-main-title {
+  font-size: 1.65rem;
   font-weight: 700;
-  margin: 20px 0 18px;
-  line-height: 1.2;
-  /* color: #dc2626; */
-  background: linear-gradient(90deg, #ff3c4d, #ffffff);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  color: #0f172a;
+  margin-bottom: 14px;
+  line-height: 1.35;
 }
 
-.appointment-hero-text p {
-  font-family: "Lexend", sans-serif;
-  font-size: 16px;
-  line-height: 1.75;
-  color: #d1d5db;
-  max-width: 520px;
+.consultation-overview-desc {
+  font-size: 0.94rem;
+  color: #475569;
+  line-height: 1.65;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.highlight-check {
+  display: inline-block;
+  color: #0369a1;
+  font-weight: 600;
+  margin: 0 4px;
+}
+
+.services-list-container {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 24px;
+}
+
+.service-selection-card {
+  width: 100%;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: all 0.22s ease-in-out;
+  display: block;
+}
+
+.service-selection-card:hover {
+  border-color: #0284c7;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.1);
+  transform: translateY(-1px);
+}
+
+.service-selection-card:hover .service-card-chevron {
+  transform: translateX(4px);
+  color: #0284c7;
+}
+
+.service-card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.service-card-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.service-card-chevron {
+  color: #94a3b8;
+  transition: transform 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.service-card-desc {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.55;
   margin-bottom: 14px;
 }
 
-/* TRUST INDICATORS */
-.trust-indicators {
-  list-style: none;
-  padding: 0;
-  margin: 22px 0 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.service-duration-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
 }
 
-.trust-indicators li {
+/* =========================================================================
+   STEP 2: CALENDAR & SLOTS
+   ========================================================================= */
+.booking-step-calendar {
+  padding: 36px 32px 40px 32px;
+}
+
+.calendar-step-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr auto;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Left Summary Column */
+.calendar-left-summary {
+  border-right: 1px solid #e2e8f0;
+  padding-right: 24px;
+}
+
+.summary-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-bottom: 14px;
+  border: 1px solid #e2e8f0;
+  padding: 3px;
+}
+
+.summary-service-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.summary-duration-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 16px;
+}
+
+.summary-service-desc {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Center Calendar Column */
+.calendar-center-widget {
+  min-width: 290px;
+}
+
+.calendar-month-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.current-month-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.month-nav-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.month-nav-btn {
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-family: "Lexend", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  color: #e5e7eb;
-  transition: transform 0.25s ease, color 0.25s ease;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s;
 }
 
-.trust-indicators li:hover {
-  transform: translateX(6px);
-  color: #ffffff;
+.month-nav-btn:hover:not(:disabled) {
+  background: #f8fafc;
+  color: #0f172a;
+  border-color: #cbd5e1;
 }
 
-.trust-indicators li svg {
-  color: #ff3c4d;
-  flex-shrink: 0;
-  transition: transform 0.3s ease, color 0.3s ease;
+.month-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
-.trust-indicators li:hover svg {
-  transform: scale(1.2) rotate(-6deg);
-  color: #ff8a93;
+.calendar-day-names-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 8px;
 }
 
- .hero-quote {
-  margin-top: 8px;
-  padding-left: 14px;
-  border-left: 2px solid rgba(220, 38, 38, 0.4);
-  font-family: "Lexend", sans-serif;
-  font-style: italic;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 15px;
-}
-
-/* ===============================
-   FORM WRAPPER
-================================ */
-.appointment-form-wrapper {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 36px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
-}
-
-/* ===============================
-   FORM ELEMENTS
-================================ */
-.form-title {
-  font-family: "Lexend", sans-serif;
-  font-size: 22px;
+.calendar-day-header-cell {
+  font-size: 0.78rem;
   font-weight: 600;
-  margin-bottom: 22px;
-  color: #dc2626;
+  color: #64748b;
+  padding: 6px 0;
 }
-/* margin-right: 122px; */
 
-.form-control {
+.calendar-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.calendar-date-cell {
+  aspect-ratio: 1;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #1e293b;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.15s ease;
+  padding: 2px;
+}
+
+.calendar-date-cell.in-month.active:hover {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-weight: 700;
+}
+
+.calendar-date-cell.selected {
+  background-color: #0b3b4f !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 10px rgba(11, 59, 79, 0.35);
+}
+
+.calendar-date-cell.disabled {
+  color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.calendar-date-cell.out-month {
+  color: #cbd5e1;
+}
+
+.today-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #0284c7;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 5px;
+}
+
+/* Timezone Footer */
+.calendar-timezone-footer {
+  margin-top: 10px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+}
+
+.timezone-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.timezone-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  gap: 8px;
+}
+
+.timezone-globe-icon {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.timezone-dropdown {
+  background: transparent;
+  border: none;
+  color: #1e293b;
+  font-size: 0.85rem;
+  font-weight: 500;
   width: 100%;
-  padding: 16px 16px;
-  box-sizing: border-box;
-  font-size: 14px;
-  font-family: "Lexend", sans-serif;
-  border-radius: 10px;
-  border: 1px solid #e5e7eb;
-  margin-bottom: 16px;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.form-control:focus {
   outline: none;
-  border-color: #dc2626;
-  box-shadow: 0 0 0 3px rgba(220,38,38,0.12);
+  cursor: pointer;
 }
 
-textarea.form-control {
-  min-height: 110px;
-  resize: vertical;
+/* Right Slots Column */
+.calendar-right-slots {
+  width: 220px;
+  border-left: 1px solid #e2e8f0;
+  padding-left: 24px;
 }
 
-.form-row {
+.slots-header-date {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+
+.slots-buttons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.slot-action-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.slot-time-btn {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #bae6fd;
+  color: #0284c7;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.18s;
+  text-align: center;
+}
+
+.slot-time-btn:hover {
+  border-color: #0284c7;
+  background-color: #f0f9ff;
+}
+
+.slot-time-btn.active-pending {
+  background-color: #0b3b4f;
+  color: #ffffff;
+  border-color: #0b3b4f;
+}
+
+.slot-confirm-btn {
+  background-color: #0e5670;
+  color: #ffffff;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.18s;
+  white-space: nowrap;
+}
+
+.slot-confirm-btn:hover {
+  background-color: #083c4e;
+}
+
+.slots-loading-state {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slot-skeleton {
+  height: 38px;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.no-slots-notice {
+  font-size: 0.85rem;
+  color: #64748b;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px dashed #cbd5e1;
+}
+
+/* =========================================================================
+   STEP 3: FORM DETAILS
+   ========================================================================= */
+.booking-step-form {
+  padding: 36px 36px 40px 36px;
+}
+
+.form-step-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.form-left-summary {
+  border-right: 1px solid #e2e8f0;
+  padding-right: 28px;
+}
+
+.chosen-slot-meta-card {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.meta-icon {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+/* Form Inputs */
+.form-right-inputs {
+  min-width: 0;
+}
+
+.form-field-group {
+  margin-bottom: 20px;
+}
+
+.form-field-label {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.required-star {
+  color: #dc2626;
+  margin-left: 3px;
+}
+
+.meeting-type-options-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  width: 100%;
-
 }
 
-/* ===============================
-   SUBMIT BUTTON
-================================ */
-.btn-primary1 {
-  font-family: "Lexend", sans-serif;
+.meeting-type-option-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.meeting-type-option-card:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.meeting-type-option-card.selected {
+  border-color: #0284c7;
+  background-color: #f0f9ff;
+  box-shadow: 0 0 0 1px #0284c7;
+}
+
+.meeting-radio-input {
+  margin-top: 3px;
+  accent-color: #0284c7;
+  cursor: pointer;
+}
+
+.meeting-option-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.option-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #0f172a;
+}
+
+.option-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.option-subtext {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.form-text-input,
+.form-textarea-input {
   width: 100%;
-  background: #dc2626;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.92rem;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  font-family: inherit;
+}
+
+.form-text-input:focus,
+.form-textarea-input:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.note-field-helper {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-top: -4px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.form-textarea-input {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Error Banner */
+.form-error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}
+
+.error-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.error-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.error-retry-slot-btn {
+  background: transparent;
+  border: none;
+  color: #0369a1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+/* Booking Confirm Button */
+.booking-submit-btn {
+  background-color: #0b3b4f;
   color: #ffffff;
   border: none;
-  padding: 15px;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+  box-shadow: 0 4px 12px rgba(11, 59, 79, 0.2);
+}
+
+.booking-submit-btn:hover:not(:disabled) {
+  background-color: #0e5670;
+  transform: translateY(-1px);
+}
+
+.booking-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* =========================================================================
+   STEP 4: CONFIRMATION STATE
+   ========================================================================= */
+.booking-step-confirmed {
+  padding: 48px 40px 48px 40px;
+}
+
+.confirmed-hero-section {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.success-icon-badge {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.success-check-icon {
+  color: #16a34a;
+  filter: drop-shadow(0 4px 10px rgba(22, 163, 74, 0.25));
+}
+
+.confirmed-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.confirmed-subtitle {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.confirmed-summary-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.btn-primary1:hover {
-  background: #b91c1c;
-  color: #e5e7eb;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(220, 38, 38, 0.4);
-}
-
-/* ===============================
-   SUCCESS MODAL
-================================ */
-.success-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.success-box {
-  font-family: "Lexend", sans-serif;
-  background: #0b1221;
-  color: #ffffff;
   padding: 24px;
-  border-radius: 12px;
-  max-width: 420px;
-  width: 90%;
+  margin-bottom: 28px;
 }
 
-.success-box h3 {
-  margin-bottom: 10px;
-  font-size: 20px;
-}
-
-.success-box p {
-  opacity: 0.9;
-  margin-bottom: 16px;
-}
-
-.modal-actions {
+.summary-info-row {
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.92rem;
 }
 
-.modal-actions a {
-  background: #25D366;
-  color: #062b12;
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-decoration: none;
+.summary-info-row:last-of-type {
+  border-bottom: none;
+}
+
+.summary-info-label {
+  color: #64748b;
   font-weight: 600;
 }
-.modal-actions a:hover {
-  background: #1ebe5b;
-  color: #ffffff;
+
+.summary-info-value {
+  color: #0f172a;
+  font-weight: 600;
+  text-align: right;
 }
 
+.meeting-type-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #0369a1;
+}
 
-.modal-actions button {
-  background:#b91c1c;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #ffffff;
-  padding: 10px 14px;
+.google-meet-integration-card {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 1px solid #bae6fd;
   border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.meet-info-left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.meet-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0284c7;
+  letter-spacing: 0.5px;
+}
+
+.meet-url-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0369a1;
+  text-decoration: underline;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.meet-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.meet-copy-btn,
+.meet-join-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
-}
-.modal-actions button:hover {
-  background: #dc2626;
-  color: #e5e7eb;
+  transition: all 0.18s;
+  text-decoration: none;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
-@media (max-width: 900px) {
-  .appointment-container {
+.meet-copy-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+}
+
+.meet-copy-btn:hover {
+  background: #e2e8f0;
+}
+
+.meet-join-btn {
+  background: #0284c7;
+  border: 1px solid #0284c7;
+  color: #ffffff;
+}
+
+.meet-join-btn:hover {
+  background: #0369a1;
+}
+
+.confirmed-action-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn-calendar-add,
+.btn-book-another,
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+  text-decoration: none;
+}
+
+.btn-calendar-add {
+  background: #0b3b4f;
+  color: #ffffff;
+  border: 1px solid #0b3b4f;
+}
+
+.btn-calendar-add:hover {
+  background: #0e5670;
+}
+
+.btn-book-another {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+}
+
+.btn-book-another:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.btn-back-home {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+.btn-back-home:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+/* =========================================================================
+   RESPONSIVE DESIGN (TABLETS & PHONES)
+   ========================================================================= */
+@media (max-width: 960px) {
+  .appointment-page-wrapper {
+    padding: 100px 16px 60px 16px;
+  }
+
+  .calendar-step-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 24px;
   }
 
-  .appointment-hero-text {
-    text-align: center;
+  .calendar-left-summary {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding-right: 0;
+    padding-bottom: 20px;
   }
 
-  .appointment-hero-text p {
-    margin: 0 auto 14px;
+  .calendar-right-slots {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #e2e8f0;
+    padding-left: 0;
+    padding-top: 20px;
   }
 
-  .trust-indicators {
-    align-items: center;
+  .form-step-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .hero-quote {
-    margin: 8px auto 0;
-    text-align: left;
-    max-width: 420px;
+  .form-left-summary {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding-right: 0;
+    padding-bottom: 20px;
   }
 }
 
-@media (max-width: 480px) {
-  .appointment-hero-text h1 {
-    font-size: 34px;
+@media (max-width: 640px) {
+  .appointment-page-wrapper {
+    padding: 90px 12px 40px 12px;
   }
 
-  .form-row {
-    /* grid-template-columns: 1fr; */
-    display:block;
-  
+  .booking-step-overview,
+  .booking-step-calendar,
+  .booking-step-form,
+  .booking-step-confirmed {
+    padding: 32px 18px 32px 18px;
   }
 
+  .consultation-main-title {
+    font-size: 1.35rem;
+  }
+
+  .meeting-type-options-row {
+    grid-template-columns: 1fr;
+  }
+
+  .google-meet-integration-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .meet-actions-right {
+    justify-content: flex-end;
+  }
+
+  .confirmed-action-buttons {
+    flex-direction: column;
+  }
+
+  .btn-calendar-add,
+  .btn-book-another,
+  .btn-back-home {
+    width: 100%;
+    justify-content: center;
+  }
 }

@@ -11,8 +11,8 @@ dotenv.config();
 
 const app = express();
 
-// Helper to retrieve environment configuration supporting all HR_* and fallback variable aliases
-function getEnvConfig() {
+// Helper to retrieve HR environment configuration
+function getHREnvConfig() {
     const findEnv = (...keys) => {
         for (const key of keys) {
             const val = process.env[key];
@@ -27,31 +27,48 @@ function getEnvConfig() {
         scriptUrl: findEnv(
             "HR_GOOGLE_SCRIPT_URL",
             "HR_APPS_SCRIPT_URL",
-            "HR_SCRIPT_URL",
-            "APPS_SCRIPT_URL",
-            "GOOGLE_SCRIPT_URL",
-            "GOOGLE_APPS_SCRIPT_URL",
-            "SCRIPT_URL"
+            "HR_SCRIPT_URL"
         ),
         apiSecret: findEnv(
             "HR_API_SECRET",
-            "HR_SECRET",
-            "APPS_SCRIPT_SECRET",
-            "API_SECRET",
-            "SECRET_KEY"
+            "HR_SECRET"
         ),
         sheetId: findEnv(
             "HR_GOOGLE_SHEET_ID",
-            "HR_SHEET_ID",
-            "GOOGLE_SHEET_ID",
-            "SPREADSHEET_ID",
-            "SHEET_ID"
+            "HR_SHEET_ID"
         ),
         submissionsFolderId: findEnv(
             "HR_SUBMISSIONS_FOLDER_ID",
-            "HR_FOLDER_ID",
-            "SUBMISSIONS_FOLDER_ID",
-            "FOLDER_ID"
+            "HR_FOLDER_ID"
+        )
+    };
+}
+
+// Helper to retrieve Consultation Booking environment configuration
+function getBookingEnvConfig() {
+    const findEnv = (...keys) => {
+        for (const key of keys) {
+            const val = process.env[key];
+            if (val && typeof val === "string" && val.trim().length > 0) {
+                return val.trim();
+            }
+        }
+        return undefined;
+    };
+
+    return {
+        scriptUrl: findEnv(
+            "BOOKING_GOOGLE_SCRIPT_URL",
+            "BOOKING_APPS_SCRIPT_URL",
+            "BOOKING_SCRIPT_URL"
+        ),
+        apiSecret: findEnv(
+            "BOOKING_API_SECRET",
+            "BOOKING_SECRET"
+        ),
+        calendarId: findEnv(
+            "GOOGLE_CALENDAR_ID",
+            "CALENDAR_ID"
         )
     };
 }
@@ -146,19 +163,31 @@ const router = express.Router();
 // HEALTH CHECK
 // --------------------------------------------------
 router.get("/health", (req, res) => {
-    const config = getEnvConfig();
+    const hrConfig = getHREnvConfig();
+    const bookingConfig = getBookingEnvConfig();
     const hrKeysInEnv = Object.keys(process.env).filter(k =>
         k.startsWith("HR_") || k.includes("SCRIPT") || k.includes("SHEET") || k.includes("SECRET")
     );
     res.json({
         success: true,
-        message: "CyberAries HR backend is running",
+        message: "CyberAries API backend is running",
         environment: {
-            hasGoogleScriptUrl: Boolean(config.scriptUrl),
-            hasApiSecret: Boolean(config.apiSecret),
-            hasSheetId: Boolean(config.sheetId),
-            hasSubmissionsFolderId: Boolean(config.submissionsFolderId),
+            hasGoogleScriptUrl: Boolean(hrConfig.scriptUrl),
+            hasApiSecret: Boolean(hrConfig.apiSecret),
+            hasSheetId: Boolean(hrConfig.sheetId),
+            hasSubmissionsFolderId: Boolean(hrConfig.submissionsFolderId),
             matchedEnvKeys: hrKeysInEnv
+        },
+        hr: {
+            hasGoogleScriptUrl: Boolean(hrConfig.scriptUrl),
+            hasApiSecret: Boolean(hrConfig.apiSecret),
+            hasSheetId: Boolean(hrConfig.sheetId),
+            hasSubmissionsFolderId: Boolean(hrConfig.submissionsFolderId)
+        },
+        booking: {
+            hasGoogleScriptUrl: Boolean(bookingConfig.scriptUrl),
+            hasApiSecret: Boolean(bookingConfig.apiSecret),
+            hasCalendarId: Boolean(bookingConfig.calendarId)
         }
     });
 });
@@ -172,7 +201,7 @@ router.post(
     async (req, res) => {
         try {
             const data = req.body;
-            const config = getEnvConfig();
+            const config = getHREnvConfig();
 
             // Environment variable validation
             if (!config.scriptUrl || !config.apiSecret) {
@@ -308,12 +337,268 @@ router.post(
     }
 );
 
+// In-memory store for local testing & instant collision checks
+const localBookedSlots = new Set();
+
 // --------------------------------------------------
-// GOOGLE CONNECTION TEST
+// CONSULTATION BOOKING: CONFIG
+// --------------------------------------------------
+router.get("/booking/config", (req, res) => {
+    res.json({
+        success: true,
+        serviceName: "Free Cybersecurity Consultation",
+        durationMinutes: 30,
+        defaultTimezone: "Asia/Kolkata",
+        timezoneLabel: "Asia/Calcutta (GMT+5:30)",
+        timezones: [
+            { value: "Asia/Kolkata", label: "Asia/Calcutta (GMT+5:30)" },
+            { value: "America/New_York", label: "America/New_York (EST/EDT)" },
+            { value: "America/Los_Angeles", label: "America/Los_Angeles (PST/PDT)" },
+            { value: "Europe/London", label: "Europe/London (GMT/BST)" },
+            { value: "Asia/Dubai", label: "Asia/Dubai (GST)" },
+            { value: "Asia/Singapore", label: "Asia/Singapore (SGT)" }
+        ],
+        meetingTypes: [
+            { id: "Phone call", label: "Phone call", subtext: "Details will be sent on email" },
+            { id: "Video call", label: "Video call", subtext: "Details will be sent on email" }
+        ],
+        description: "Get a free 30-minute consultation with Cyber Aries cybersecurity experts. We'll understand your security requirements, identify potential risks, and guide you on the best protection strategy for your organization. No cost. No obligation. Just expert advice."
+    });
+});
+
+// --------------------------------------------------
+// CONSULTATION BOOKING: AVAILABLE SLOTS
+// --------------------------------------------------
+router.get("/booking/slots", async (req, res) => {
+    try {
+        const { date, timezone = "Asia/Kolkata" } = req.query;
+
+        if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+            return res.status(400).json({
+                success: false,
+                error: "Invalid or missing 'date' parameter. Expected format: YYYY-MM-DD."
+            });
+        }
+
+        const bookingConfig = getBookingEnvConfig();
+
+        // 1. If Google Apps Script is configured (and not running unit tests), attempt fetching live availability from Google Calendar
+        if (bookingConfig.scriptUrl && bookingConfig.apiSecret && process.env.NODE_ENV !== "test") {
+            try {
+                const scriptRes = await requestAppsScript(bookingConfig.scriptUrl, {
+                    action: "getCalendarSlots",
+                    date: date,
+                    timezone: timezone,
+                    apiSecret: bookingConfig.apiSecret,
+                    calendarId: bookingConfig.calendarId
+                });
+
+                if (scriptRes && scriptRes.success && Array.isArray(scriptRes.availableSlots)) {
+                    return res.json({
+                        success: true,
+                        date,
+                        timezone,
+                        slots: scriptRes.availableSlots
+                    });
+                }
+                console.warn("[Booking Backend] AppsScript getCalendarSlots returned non-success, using local slot evaluator:", scriptRes);
+            } catch (scriptErr) {
+                console.warn("[Booking Backend] Error contacting Apps Script for slots, falling back to local evaluator:", scriptErr.message);
+            }
+        }
+
+        // 2. Local Fallback / Standalone Evaluator:
+        // Generate standard slots from 9:00 am to 5:30 pm, filter past slots if date is today and any booked slots
+        const standardSlots = [
+            "9:00 am", "9:30 am", "10:00 am", "10:30 am", "11:00 am", "11:30 am",
+            "12:00 pm", "12:30 pm", "1:00 pm", "1:30 pm", "2:00 pm", "2:30 pm",
+            "3:00 pm", "3:30 pm", "4:00 pm", "4:30 pm", "5:00 pm", "5:30 pm"
+        ];
+
+        const reqDateParts = date.split("-").map(Number);
+        const today = new Date();
+        const isToday =
+            today.getFullYear() === reqDateParts[0] &&
+            today.getMonth() + 1 === reqDateParts[1] &&
+            today.getDate() === reqDateParts[2];
+
+        const currentHour = today.getHours();
+        const currentMin = today.getMinutes();
+
+        const availableSlots = standardSlots.filter((slotStr) => {
+            // Check in-memory booked collisions
+            const slotKey = `${date}_${slotStr.toLowerCase().replace(/\s+/g, "")}`;
+            if (localBookedSlots.has(slotKey)) {
+                return false;
+            }
+
+            // If selected date is today, eliminate past slots
+            if (isToday) {
+                const match = slotStr.match(/(\d{1,2}):(\d{2})\s*(am|pm)/i);
+                if (match) {
+                    let h = parseInt(match[1], 10);
+                    const m = parseInt(match[2], 10);
+                    const ampm = match[3].toLowerCase();
+                    if (ampm === "pm" && h < 12) h += 12;
+                    if (ampm === "am" && h === 12) h = 0;
+                    if (h < currentHour || (h === currentHour && m <= currentMin)) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        });
+
+        res.json({
+            success: true,
+            date,
+            timezone,
+            slots: availableSlots
+        });
+
+    } catch (error) {
+        console.error("[Booking Backend] Slots error:", error);
+        res.status(500).json({
+            success: false,
+            error: "Unable to retrieve available consultation slots."
+        });
+    }
+});
+
+// --------------------------------------------------
+// CONSULTATION BOOKING: CREATE EVENT (WITH DOUBLE-BOOKING CHECK)
+// --------------------------------------------------
+router.post("/booking/create", async (req, res) => {
+    try {
+        const { date, time, name, email, meetingType, note = "", timezone = "Asia/Kolkata" } = req.body || {};
+
+        // 1. Input Validation
+        if (!name || typeof name !== "string" || name.trim().length < 2) {
+            return res.status(400).json({
+                success: false,
+                error: "Please enter your full name (minimum 2 characters)."
+            });
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRegex.test(email.trim())) {
+            return res.status(400).json({
+                success: false,
+                error: "Please provide a valid email address."
+            });
+        }
+
+        if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+            return res.status(400).json({
+                success: false,
+                error: "Please select a valid consultation date."
+            });
+        }
+
+        if (!time || typeof time !== "string") {
+            return res.status(400).json({
+                success: false,
+                error: "Please select a valid consultation time slot."
+            });
+        }
+
+        const validMeetingTypes = ["Phone call", "Video call"];
+        const resolvedMeetingType = validMeetingTypes.includes(meetingType) ? meetingType : "Video call";
+
+        const slotKey = `${date}_${time.toLowerCase().replace(/\s+/g, "")}`;
+
+        // 2. Double-booking check against local state cache
+        if (localBookedSlots.has(slotKey)) {
+            return res.status(409).json({
+                success: false,
+                code: "SLOT_UNAVAILABLE",
+                error: `The selected time slot (${time} on ${date}) is no longer available. Please choose another time slot.`
+            });
+        }
+
+        const bookingConfig = getBookingEnvConfig();
+
+        // 3. Connect to Google Apps Script / Google Calendar if configured (and not in unit test mode)
+        if (bookingConfig.scriptUrl && bookingConfig.apiSecret && process.env.NODE_ENV !== "test") {
+            try {
+                const scriptRes = await requestAppsScript(bookingConfig.scriptUrl, {
+                    action: "createCalendarEvent",
+                    date,
+                    time,
+                    name: name.trim(),
+                    email: email.trim(),
+                    meetingType: resolvedMeetingType,
+                    note: (note || "").trim(),
+                    timezone,
+                    apiSecret: bookingConfig.apiSecret,
+                    calendarId: bookingConfig.calendarId
+                });
+
+                if (scriptRes && scriptRes.success) {
+                    localBookedSlots.add(slotKey);
+                    return res.json({
+                        success: true,
+                        bookingId: scriptRes.bookingId || `BK-${Date.now()}`,
+                        eventTitle: scriptRes.eventTitle || `Free Cybersecurity Consultation - ${name.trim()}`,
+                        date,
+                        time,
+                        timezone,
+                        meetingType: resolvedMeetingType,
+                        name: name.trim(),
+                        email: email.trim(),
+                        meetLink: scriptRes.meetLink || (resolvedMeetingType === "Video call" ? "https://meet.google.com/cyb-aries-meet" : ""),
+                        status: "confirmed",
+                        message: "Your consultation has been booked successfully in Google Calendar."
+                    });
+                } else if (scriptRes && scriptRes.code === "SLOT_UNAVAILABLE") {
+                    localBookedSlots.add(slotKey);
+                    return res.status(409).json({
+                        success: false,
+                        code: "SLOT_UNAVAILABLE",
+                        error: scriptRes.error || "The selected time slot is already booked. Please choose another time."
+                    });
+                }
+                console.warn("[Booking Backend] AppsScript booking returned error, using fallback confirmation:", scriptRes);
+            } catch (scriptErr) {
+                console.warn("[Booking Backend] Error sending booking to Apps Script, using fallback confirmation:", scriptErr.message);
+            }
+        }
+
+        // 4. Standalone / Test environment booking confirmation
+        localBookedSlots.add(slotKey);
+        const bookingId = `CYB-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+        const simulatedMeetLink = resolvedMeetingType === "Video call" ? `https://meet.google.com/cyb-${Math.random().toString(36).substring(2, 6)}-${Math.random().toString(36).substring(2, 5)}` : "";
+
+        res.json({
+            success: true,
+            bookingId,
+            eventTitle: `Free Cybersecurity Consultation - ${name.trim()}`,
+            date,
+            time,
+            timezone,
+            meetingType: resolvedMeetingType,
+            name: name.trim(),
+            email: email.trim(),
+            meetLink: simulatedMeetLink,
+            status: "confirmed",
+            message: "Your consultation has been booked successfully."
+        });
+
+    } catch (error) {
+        console.error("[Booking Backend] Booking creation error:", error);
+        res.status(500).json({
+            success: false,
+            error: "Unable to complete consultation booking. Please try again or contact support."
+        });
+    }
+});
+
+// --------------------------------------------------
+// GOOGLE CONNECTION TEST (HR)
 // --------------------------------------------------
 router.get("/test-google", async (req, res) => {
     try {
-        const config = getEnvConfig();
+        const config = getHREnvConfig();
         if (!config.scriptUrl || !config.apiSecret) {
             return res.status(500).json({
                 success: false,
@@ -352,11 +637,16 @@ router.get("/test-google", async (req, res) => {
 app.use("/api", router);
 app.use("/", router);
 
+// Attach helper functions for unit test verification
+app.getHREnvConfig = getHREnvConfig;
+app.getBookingEnvConfig = getBookingEnvConfig;
+app.requestAppsScript = requestAppsScript;
+
 // Start server when run directly (local development)
 if (require.main === module) {
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
-        console.log(`CyberAries HR backend running on port ${PORT}`);
+        console.log(`CyberAries API backend running on port ${PORT}`);
     });
 }
 

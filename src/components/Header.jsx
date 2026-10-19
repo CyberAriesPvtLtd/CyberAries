@@ -786,14 +786,12 @@ const Header = () => {
           </div>
 
           {/* Consult Button */}
-         <a
-  href="https://book.titan.email/cyberaries"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="quick-contact-btn desktop-only"
->
-  Consult With Us
-</a>
+          <Link
+            to="/appointment"
+            className="quick-contact-btn desktop-only"
+          >
+            Consult With Us
+          </Link>
           
         </nav>
 
@@ -1454,14 +1452,13 @@ const Header = () => {
               </Link>
 
               {/* Mobile Consult Button */}
-             <a
-  href="https://book.titan.email/cyberaries"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="mobile-consult-btn"
->
-  Consult With Us
-</a>
+              <Link
+                to="/appointment"
+                className="mobile-consult-btn"
+                onClick={closeMobileMenu}
+              >
+                Consult With Us
+              </Link>
             </div>
           </nav>
         </>

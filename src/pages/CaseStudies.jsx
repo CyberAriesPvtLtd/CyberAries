@@ -353,9 +353,9 @@ const CaseStudies = () => {
             <Link to="/contact" className="btn-rbi btn-primary-rbi">
               Talk to a Security Expert
             </Link>
-            <a href="https://book.titan.email/cyberaries" target="_blank" rel="noopener noreferrer" className="btn-rbi btn-secondary-rbi">
+            <Link to="/appointment" className="btn-rbi btn-secondary-rbi">
               Schedule Consultation
-            </a>
+            </Link>
           </div>
         </div>
       </section>
